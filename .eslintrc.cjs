@@ -23,5 +23,8 @@ module.exports = {
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': 'off',
     'react/jsx-one-expression-per-line': 0,
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': 'off',
+    'import/no-absolute-path': 0,
   },
 };
