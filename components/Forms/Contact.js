@@ -1,0 +1,180 @@
+import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Grid from '@mui/material/Grid';
+import Snackbar from '@mui/material/Snackbar';
+import CloseIcon from '@mui/icons-material/Close';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { useTranslation } from 'next-i18next';
+import { useText, useTextAlign } from '~/theme/common';
+import Checkbox from './Checkbox';
+import useStyles from './form-style';
+
+function Contact() {
+  const { t } = useTranslation('common');
+  const { classes, cx } = useStyles();
+  const { classes: text } = useText();
+  const { classes: align } = useTextAlign();
+
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
+  });
+
+  useEffect(() => {
+    ValidatorForm.addValidationRule('isTruthy', value => value);
+  });
+
+  const [openNotif, setNotif] = useState(false);
+
+  const [check, setCheck] = useState(false);
+
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
+
+  const handleCheck = event => {
+    setCheck(event.target.checked);
+  };
+
+  const handleSubmit = () => {
+    setNotif(true);
+  };
+
+  const handleClose = () => {
+    setNotif(false);
+  };
+
+  return (
+    <div className={classes.formWrap}>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        key="top right"
+        open={openNotif}
+        autoHideDuration={4000}
+        onClose={handleClose}
+        classes={{
+          anchorOriginTopRight: classes.notif
+        }}
+        action={(
+          <IconButton onClick={handleClose} color="inherit" size="small">
+            <CloseIcon />
+          </IconButton>
+        )}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={<span id="message-id">Message Sent</span>}
+      />
+      <h3 className={cx(text.title, text.textPrimary, align.textCenter)}>
+        {t('contact_title2')}
+      </h3>
+      <p className={cx(classes.desc, text.subtitle2, align.textCenter)}>
+        {t('contact_subtitle')}
+      </p>
+      <Box mt={{ sm: 8 }} px={{ sm: 6 }}>
+        <ValidatorForm
+          onSubmit={handleSubmit}
+          onError={errors => console.log(errors)}
+        >
+          <Grid container spacing={3}>
+            <Grid item sm={6} xs={12}>
+              <TextValidator
+                fullWidth
+                className={classes.input}
+                label={t('form_name')}
+                onChange={handleChange('name')}
+                name="Name"
+                variant="filled"
+                value={values.name}
+                validators={['required']}
+                errorMessages={['this field is required']}
+              />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <TextValidator
+                fullWidth
+                className={classes.input}
+                label={t('form_email')}
+                onChange={handleChange('email')}
+                name="Email"
+                variant="filled"
+                value={values.email}
+                validators={['required', 'isEmail']}
+                errorMessages={['this field is required', 'email is not valid']}
+              />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <TextValidator
+                fullWidth
+                className={classes.input}
+                label={t('form_phone')}
+                onChange={handleChange('phone')}
+                name="Phone"
+                variant="filled"
+                value={values.phone}
+              />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <TextValidator
+                fullWidth
+                className={classes.input}
+                label={t('form_company')}
+                onChange={handleChange('company')}
+                name="Company"
+                variant="filled"
+                value={values.company}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextValidator
+                multiline
+                fullWidth
+                rows="6"
+                variant="filled"
+                className={classes.input}
+                label={t('form_message')}
+                onChange={handleChange('message')}
+                name="Message"
+                value={values.message}
+              />
+            </Grid>
+          </Grid>
+          <div className={cx(classes.btnArea, classes.flex)}>
+            <FormControlLabel
+              control={(
+                <Checkbox
+                  validators={['isTruthy']}
+                  errorMessages="This field is required"
+                  checked={check}
+                  value={check}
+                  onChange={(e) => handleCheck(e)}
+                  color="secondary"
+                />
+              )}
+              label={(
+                <span>
+                  {t('form_terms')}
+                  <br />
+                  <a href="#" className={classes.link}>
+                    {t('form_privacy')}
+                  </a>
+                </span>
+              )}
+            />
+            <Button variant="contained" type="submit" color="primary" size="large">
+              {t('form_send')}
+            </Button>
+          </div>
+        </ValidatorForm>
+      </Box>
+    </div>
+  );
+}
+
+export default Contact;
