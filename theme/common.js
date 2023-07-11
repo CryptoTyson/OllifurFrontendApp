@@ -211,6 +211,7 @@ export const useText = makeStyles({ uniqId: 'text' })(theme => ({
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: 22,
     lineHeight: '32px',
+    color: theme.palette.primary[700],
     [theme.breakpoints.down('lg')]: {
       fontSize: 20,
       lineHeight: '32px',

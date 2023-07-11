@@ -181,6 +181,7 @@ const appTheme = (color: string | number, mode: string) => ({
         contained: {
           boxShadow: 'none',
           color: '#FFFFFF',
+          background: '#D77F33',
         },
         outlinedSecondary: {
           borderWidth: 2,
@@ -190,9 +191,9 @@ const appTheme = (color: string | number, mode: string) => ({
         },
         root: {
           borderRadius: "8px",
-          fontWeight: 700,
-          padding: '8px 24px',
-          textTransform: "none"
+          fontWeight: 500,
+          padding: '12px 24px',
+          textTransform: "none",
         },
         sizeSmall: {
           padding: '7px 12px'

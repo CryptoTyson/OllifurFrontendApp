@@ -22,7 +22,7 @@ function UserMenu(props: UserMenuProps) {
       { isDesktop && (
         <div>
           <Button href={link.retail.login}>Log in</Button>
-          <Button variant="contained" color="primary" href={link.retail.register}>Register</Button>
+          <Button variant="contained" size='small' color="primary" href={link.retail.register}>Sign up</Button>
           <span className={classes.vDivider} />
         </div>
       )}
