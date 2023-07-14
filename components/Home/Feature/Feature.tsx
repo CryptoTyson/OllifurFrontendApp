@@ -15,6 +15,7 @@ import useStyles from './feature-style';
 import yt from '../../../youtube';
 import imgAPI from '../../../public/images/imgAPI';
 import { TransitionProps } from '@mui/material/transitions';
+import { BandPattern } from '../../Test/BandPattern';
 
 
 const Transition = React.forwardRef(function Transition(
@@ -91,11 +92,9 @@ function Feature() {
       </Dialog>
       <Container fixed={isDesktop}>
         <div className={cx(classes.item, classes.last)}>
-          <Container className={classes.container}>
-            <Grid container justifyContent="center">
-              <Grid item md={8} xs={12} className={classes.videoContainer}>
-                <div className={cx(classes.bg, classes.pipe3)} />
-                <div className={cx(classes.bg, classes.pipe4)} />
+            <Grid container justifyContent={"center"}>
+            <BandPattern/>
+              <Grid item md={8} xs={12} className={classes.videoContainer} sx={{zIndex: 1}}>
                 <Paper className={classes.video}>
                   <img src={imgAPI.retail[27]} alt="screen" />
                   <IconButton className={classes.button} onClick={handleClickOpen} size="large">
@@ -104,7 +103,6 @@ function Feature() {
                 </Paper>
               </Grid>
             </Grid>
-          </Container>
         </div>
       </Container>
     </div>
