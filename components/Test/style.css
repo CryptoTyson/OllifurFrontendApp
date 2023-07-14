@@ -1,0 +1,75 @@
+.box {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .box .background-pattern-wrapper {
+    border: 0px none;
+    height: 64px;
+    width: 1440px;
+  }
+  
+  .box .background-pattern {
+    height: 64px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .box .overlap-group {
+    height: 430px;
+    position: relative;
+  }
+  
+  .box .background {
+    height: 388px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .box .right-band {
+    height: 129px;
+    left: 1320px;
+    position: absolute;
+    top: 104px;
+    width: 120px;
+  }
+  
+  .box .img {
+    height: 156px;
+    left: 840px;
+    position: absolute;
+    top: 66px;
+    width: 600px;
+  }
+  
+  .box .right-band-2 {
+    height: 129px;
+    left: 1018px;
+    position: absolute;
+    top: 0;
+    width: 422px;
+  }
+  
+  .box .left-band {
+    height: 129px;
+    left: 0;
+    position: absolute;
+    top: 208px;
+    width: 387px;
+  }
+  
+  .box .left-band-2 {
+    height: 129px;
+    left: 0;
+    position: absolute;
+    top: 300px;
+    width: 218px;
+  }
+  
