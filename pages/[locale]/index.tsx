@@ -12,7 +12,7 @@ import { useSpacing } from '../../theme/common';
 import Header from '../../components/Header';
 import Welcome from '../../components/Home/Welcome';
 import Feature from '../../components/Home/Feature';
-import Counter from '../../components/Home/Counter';
+import Features from '../../components/Home/Features';
 import Management from '../../components/Home/Management';
 import Business from '../../components/Home/Business';
 import Testimonials from '../../components/Home/Testimonials';
@@ -54,14 +54,11 @@ function Landing(props: LandingProps) {
           <section id="home">
             <Welcome />
           </section>
-          {/* <section id="feature" className={classes.spaceTopShort}>
-            <Feature />
-          </section> */}
           <section className={isMobile ? classes.spaceTopShort : classes.spaceTop}>
-            <Counter />
+            <Features />
           </section>
           <section id="management" className={classes.spaceTop}>
-            <Management />
+            {/* <Management /> */}
           </section>
           <section id="business" className={classes.spaceTop}>
             <Business />
