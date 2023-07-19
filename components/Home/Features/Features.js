@@ -8,19 +8,49 @@ import FeatureCard from '../../FeatureCard/FeatureCard';
 import flowerImageLarge from '../../../public/images/flower-large.png';
 import flowerImageSmall from '../../../public/images/flower-small.png';
 
-const useStyles = makeStyles()(theme => ({
-    desc: {
-      color: theme.palette.mode === 'dark' ? theme.palette.primary.dark : 'var(--gray-600, #475467)', fontFamily: 'Inter', fontSize: '16px', fontStyle: 'normal', fontWeight: '400', lineHeight: '24px'
-      },
-    desc2: {
-        color: theme.palette.mode === 'dark' ? theme.palette.primary.dark : 'var(--gray-600, #475467)', fontFamily: 'Inter', fontSize: '16px', fontStyle: 'normal', fontWeight: '700', lineHeight: '24px'
-      },
-    heading: {
-      color: theme.palette.mode === 'dark' ? theme.palette.primary.light : 'var(--gray-900, #101828)', fontFamily: 'Inter', fontSize: '36px', fontStyle: 'normal', fontWeight: '600', lineHeight: '44px', letterSpacing: '-0.72px'
-     },
-     supportingText: {
-      color: theme.palette.mode === 'dark' ? 'white' : 'var(--gray-600, #475467)', fontFamily: 'Inter', fontSize: '20px', fontStyle: 'normal', fontWeight: '400', lineHeight: '30px'
-     }
+const useStyles = makeStyles()((theme) => ({
+  desc: {
+    color:
+      theme.palette.mode === 'dark'
+        ? theme.palette.primary.dark
+        : 'var(--gray-600, #475467)',
+    fontFamily: 'Inter',
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '24px',
+  },
+  desc2: {
+    color:
+      theme.palette.mode === 'dark'
+        ? theme.palette.primary.dark
+        : 'var(--gray-600, #475467)',
+    fontFamily: 'Inter',
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '24px',
+  },
+  heading: {
+    color:
+      theme.palette.mode === 'dark'
+        ? theme.palette.primary[500]
+        : 'var(--gray-900, #101828)',
+    fontFamily: 'Inter',
+    fontSize: '36px',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '44px',
+    letterSpacing: '-0.72px',
+  },
+  supportingText: {
+    color: theme.palette.mode === 'dark' ? 'white' : 'var(--gray-600, #475467)',
+    fontFamily: 'Inter',
+    fontSize: '20px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '30px',
+  },
 }));
 
 function Features() {
@@ -40,9 +70,15 @@ function Features() {
         >
           <Grid container item direction="column" xs={12} spacing={1}>
             <Grid item>
-              <Typography style={{
- color: '#553111', fontFamily: 'Inter', fontSize: '16px', fontStyle: 'normal', fontWeight: '600', lineHeight: '24px'
-}}
+              <Typography
+                style={{
+                  color: '#553111',
+                  fontFamily: 'Inter',
+                  fontSize: '16px',
+                  fontStyle: 'normal',
+                  fontWeight: '600',
+                  lineHeight: '24px',
+                }}
               >
                 Completely Online
               </Typography>
@@ -63,71 +99,54 @@ function Features() {
               <Grid item>
                 <FeatureCard
                   title="Browse crematoriums near you"
-                  desc={(
-                    <Typography
-                      component="span"
-                      className={classes.desc}
-                    >
-                      Discover local crematoriums for your beloved pet's final journey. Choose between
-                      {' '}
-                      <Typography
-                        component="span"
-                        className={classes.desc2}
-                      >
+                  desc={
+                    <Typography component="span" className={classes.desc}>
+                      Discover local crematoriums for your beloved pet's final
+                      journey. Choose between{' '}
+                      <Typography component="span" className={classes.desc2}>
                         Private
                       </Typography>
-                      ,
-                      {' '}
-                      <Typography
-                        component="span"
-                        className={classes.desc2}
-                      >
+                      ,{' '}
+                      <Typography component="span" className={classes.desc2}>
                         Communal
-                      </Typography>
-                      {' '}
-                      or
-                      {' '}
-                      <Typography
-                        component="span"
-                        className={classes.desc2}
-                      >
+                      </Typography>{' '}
+                      or{' '}
+                      <Typography component="span" className={classes.desc2}>
                         Witnessed
-                      </Typography>
-                      {' '}
+                      </Typography>{' '}
                       cremations.
                     </Typography>
-                )}
+                  }
                 />
               </Grid>
               <Grid item>
                 <FeatureCard
                   title="Schedule a Date & Time"
-                  desc={(
-                    <Typography
-                      component="span"
-                      className={classes.desc}
-                    >
-                      Schedule a date and time at nearby pet crematoriums, offering caring services to honor their memory.
+                  desc={
+                    <Typography component="span" className={classes.desc}>
+                      Schedule a date and time at nearby pet crematoriums,
+                      offering caring services to honor their memory.
                     </Typography>
-)}
+                  }
                 />
               </Grid>
               <Grid item>
                 <FeatureCard
                   title="Accompany your pet to the dedicated facility"
-                  desc={(
-                    <Typography
-                      component="span"
-                      className={classes.desc}
-                    >
-                      At the selected date and time, take your companion to the selected facility for a compassionate farewell.
+                  desc={
+                    <Typography component="span" className={classes.desc}>
+                      At the selected date and time, take your companion to the
+                      selected facility for a compassionate farewell.
                     </Typography>
-)}
+                  }
                 />
               </Grid>
             </Grid>
             <Grid item md={6} xs={12}>
-              <img src={isDesktop ? flowerImageLarge : flowerImageSmall} alt="Flower" />
+              <img
+                src={isDesktop ? flowerImageLarge : flowerImageSmall}
+                alt="Flower"
+              />
             </Grid>
           </Grid>
         </Grid>

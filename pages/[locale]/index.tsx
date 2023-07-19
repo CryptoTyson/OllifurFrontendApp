@@ -14,7 +14,7 @@ import Welcome from '../../components/Home/Welcome';
 import Feature from '../../components/Home/Feature';
 import Features from '../../components/Home/Features';
 import Management from '../../components/Home/Management';
-import Business from '../../components/Home/Business';
+import Faq from '../../components/Home/Faq';
 import Testimonials from '../../components/Home/Testimonials';
 import NewsEvent from '../../components/Home/NewsEvent';
 import CallAction from '../../components/CallAction';
@@ -51,20 +51,17 @@ function Landing(props: LandingProps) {
           home
         />
         <main className={classes.containerWrap}>
-          <section id="home">
+          <section id="Welcome">
             <Welcome />
           </section>
           <section className={isMobile ? classes.spaceTopShort : classes.spaceTop}>
             <Features />
           </section>
-          <section id="management" className={classes.spaceTop}>
-            {/* <Management /> */}
-          </section>
-          <section id="business" className={classes.spaceTop}>
-            <Business />
-          </section>
           <section id="testimonials" className={isTablet ? classes.spaceTop : classes.spaceTopShort}>
             <Testimonials />
+          </section>
+          <section id="Faq" className={classes.spaceTop}>
+            <Faq />
           </section>
           <section id="blog" className={classes.spaceTopShort}>
             <NewsEvent />
