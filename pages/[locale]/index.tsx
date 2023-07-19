@@ -24,8 +24,8 @@ import Notification from '../../components/Notification';
 import brand from '../../public/text/brand';
 
 interface LandingProps {
-  onToggleDark(...args: unknown[]): unknown
-  onToggleDir(...args: unknown[]): unknown
+  onToggleDark(...args: unknown[]): unknown;
+  onToggleDir(...args: unknown[]): unknown;
 }
 
 function Landing(props: LandingProps) {
@@ -39,35 +39,40 @@ function Landing(props: LandingProps) {
   return (
     <React.Fragment>
       <Head>
-        <title>
-          { brand.retail.name + ' - Home Page' }
-        </title>
+        <title>{brand.retail.name + ' - Home Page'}</title>
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
-        <Header
-          onToggleDark={onToggleDark}
-          onToggleDir={onToggleDir}
-          home
-        />
+        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} home />
         <main className={classes.containerWrap}>
           <section id="Welcome">
             <Welcome />
           </section>
-          <section className={isMobile ? classes.spaceTopShort : classes.spaceTop}>
+          <section
+            className={isMobile ? classes.spaceTopShort : classes.spaceTop}
+          >
             <Features />
           </section>
-          <section id="testimonials" className={isTablet ? classes.spaceTop : classes.spaceTopShort}>
+          <section
+            id="testimonials"
+            className={isTablet ? classes.spaceTop : classes.spaceTopShort}
+          >
             <Testimonials />
           </section>
           <section id="Faq" className={classes.spaceTop}>
             <Faq />
           </section>
           <section id="blog" className={classes.spaceTopShort}>
-            <NewsEvent />
+            {/* <NewsEvent /> */}
           </section>
-          <section id="call-action" className={cx(classes.spaceTopShort, !isTablet && classes.spaceBottomShort)}>
-            <CallAction />
+          <section
+            id="call-action"
+            className={cx(
+              classes.spaceTopShort,
+              !isTablet && classes.spaceBottomShort,
+            )}
+          >
+            {/* <CallAction /> */}
           </section>
         </main>
         <Footer toggleDir={onToggleDir} />
