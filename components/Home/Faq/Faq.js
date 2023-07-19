@@ -59,11 +59,15 @@ const useStyles = makeStyles()((theme) => ({
   },
   getInTouch: {
     borderRadius: '16px',
-    background: 'var(--gray-50, #F9FAFB)',
+    background:
+      theme.palette.mode === 'dark'
+        ? theme.palette.primary.light
+        : 'var(--gray-50, #F9FAFB)',
     padding: '10px',
   },
   spacing: {
     marginTop: '20px',
+    marginLeft: '17px',
   },
 }));
 

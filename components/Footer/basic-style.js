@@ -1,9 +1,10 @@
 import { makeStyles } from 'tss-react/mui';
 
-const basicStyles = makeStyles({ uniqId: 'basic_footer' })(theme => ({
+const basicStyles = makeStyles({ uniqId: 'basic_footer' })((theme) => ({
   footer: {
     position: 'relative',
-    paddingBottom: theme.spacing(5)
+    paddingBottom: theme.spacing(5),
+    background: 'var(--gray-950, #0C111D)',
   },
   root: {
     paddingTop: 1,
@@ -23,20 +24,20 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })(theme => ({
             textTransform: 'capitalize',
             textDecoration: 'none !important',
             padding: theme.spacing(0, 1),
-            fontSize: 18,
+            fontSize: 16,
             [theme.breakpoints.down('sm')]: {
-              fontSize: 16
-            }
-          }
-        }
-      }
-    }
+              fontSize: 16,
+            },
+          },
+        },
+      },
+    },
   },
   logo: {
     marginBottom: theme.spacing(3),
     '& img': {
       width: 70,
-    }
+    },
   },
   subscribe: {
     maxWidth: 560,
@@ -44,8 +45,8 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })(theme => ({
     marginBottom: theme.spacing(5),
     position: 'relative',
     '& h5': {
-      fontWeight: theme.typography.fontWeightBold
-    }
+      fontWeight: theme.typography.fontWeightBold,
+    },
   },
   form: {
     display: 'block',
@@ -57,15 +58,15 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })(theme => ({
     '& input': {
       paddingRight: theme.spacing(20),
       [theme.breakpoints.down('sm')]: {
-        paddingRight: 90
-      }
-    }
+        paddingRight: 90,
+      },
+    },
   },
   button: {
     position: 'absolute',
     right: 0,
     top: 0,
-    width: 90
+    width: 90,
   },
   socmed: {
     display: 'flex',
@@ -81,14 +82,13 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })(theme => ({
       width: 25,
       height: 25,
       fontSize: 22,
-      lineHeight: '24px'
-    }
+      lineHeight: '24px',
+    },
   },
   copyright: {
     display: 'block',
     padding: theme.spacing(1.5),
-    marginTop: theme.spacing(3),
-  }
+  },
 }));
 
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
