@@ -1,9 +1,10 @@
 import React from 'react';
 import Container from '@mui/material/Container';
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography, useMediaQuery } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
-// import useStyles from './business-style';
+import { useTheme } from '@mui/material/styles';
 import FaqAccordion from '../../FaqAccordion';
+import AvatarGroupImg from '../../../public/images/Avatar group.png';
 
 const useStyles = makeStyles()((theme) => ({
   heading: {
@@ -56,10 +57,21 @@ const useStyles = makeStyles()((theme) => ({
     fontWeight: '700',
     lineHeight: '24px',
   },
+  getInTouch: {
+    borderRadius: '16px',
+    background: 'var(--gray-50, #F9FAFB)',
+    padding: '10px',
+  },
+  spacing: {
+    marginTop: '20px',
+  },
 }));
 
 function Faq() {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
+  const theme = useTheme();
+
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <Container>
@@ -235,51 +247,41 @@ function Faq() {
               }
             />
           </Grid>
+          <Grid
+            container
+            direction="column"
+            justifyContent="space-around"
+            alignItems="center"
+            xs={12}
+            spacing={2}
+            item
+            className={cx(classes.getInTouch, isDesktop && classes.spacing)}
+          >
+            <Grid item>
+              <img src={AvatarGroupImg} alt="Avatar" />
+            </Grid>
+            <Grid item>
+              <Typography
+                className={classes.heading}
+                style={{ fontSize: '20px' }}
+              >
+                Still have questions?
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.supportingText}>
+                Can’t find the answer you’re looking for? Chat with our friendly
+                team.
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Button variant="contained">Get in touch</Button>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Container>
   );
-
-  // return (
-  //   <Container className={classes.root}>
-  //     <Title align="center">
-  //       {t('retail-landing.business_title')}
-  //     </Title>
-  //     <Box px={5}>
-  //       <p className={cx(text.subtitle2, align.textCenter)}>
-  //         {t('retail-landing.business_desc')}
-  //       </p>
-  //     </Box>
-  //     <div className={classes.circleGroup}>
-  //       {businessData.map((item, index) => (
-  //         <div key={index.toString()}>
-  //           <ScrollAnimation
-  //             animateOnce
-  //             offset={50}
-  //             delay={200 * index}
-  //             animateIn="zoomInShort"
-  //             duration={0.5}
-  //           >
-  //             <div
-  //               className={cx(classes.circle, classes['fill' + item.color], classes[item.type])}
-  //               style={{ top: item.y + 'px', left: item.x + 'px' }}
-  //             >
-  //               <svg style={{ transform: `rotate(${item.rotate}deg)` }}>
-  //                 <use xlinkHref={'/images/retail/circle-' + item.type + '.svg#main'} />
-  //               </svg>
-  //               <ButtonBase href="javascipt:void(0)" className={classes.paper}>
-  //                 <i className={item.icon} />
-  //                 <h6>
-  //                   {item.name}
-  //                 </h6>
-  //               </ButtonBase>
-  //             </div>
-  //           </ScrollAnimation>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </Container>
-  // );
 }
 
 export default Faq;
