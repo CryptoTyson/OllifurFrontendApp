@@ -1,159 +1,70 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Carousel from 'react-slick';
-import ScrollAnimation from 'react-scroll-animation-wrapper';
+import React from 'react';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
-import { useTranslation } from 'next-i18next';
-import imgAPI from '~/public/images/imgAPI';
-import Title from '../../Title';
+import { Grid, useMediaQuery, Typography } from '@mui/material';
+import Rating from '@mui/material/Rating';
+import { useTheme } from '@mui/material/styles';
 import useStyles from './testi-style';
-
-const testiContent = [
-  {
-    text: 'Vivamus sit amet interdum elit. Proin lacinia erat ac velit tempus auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam nec ex aliquet, aliquam neque non.',
-    avatar: imgAPI.avatar[10],
-    name: 'John Doe',
-    title: 'Chief Digital Officer',
-  },
-  {
-    text: 'Vestibulum sit amet tortor sit amet libero lobortis semper at et odio. In eu tellus tellus. Pellentesque ullamcorper aliquet ultrices. Aenean facilisis vitae purus facilisis semper. Nam vitae scelerisque lorem, quis tempus libero.',
-    avatar: imgAPI.avatar[1],
-    name: 'Jean Doe',
-    title: 'Chief Digital Officer',
-  },
-  {
-    text: 'Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.',
-    avatar: imgAPI.avatar[2],
-    name: 'Jena Doe',
-    title: 'Graphic Designer',
-  },
-  {
-    text: 'Sed imperdiet enim ligula, vitae viverra justo porta vel.',
-    avatar: imgAPI.avatar[3],
-    name: 'Jovelin Doe',
-    title: 'Senior Graphic Designer',
-  },
-  {
-    text: 'Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.',
-    avatar: imgAPI.avatar[4],
-    name: 'Jihan Doe',
-  },
-  {
-    text: 'Vestibulum sit amet tortor sit amet libero lobortis semper at et odio. In eu tellus tellus. Pellentesque ullamcorper aliquet ultrices. Aenean facilisis vitae purus facilisis semper. Nam vitae scelerisque lorem, quis tempus libero.',
-    avatar: imgAPI.avatar[6],
-    name: 'Jovelin Doe',
-    title: 'Senior Graphic Designer',
-  },
-  {
-    text: 'Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.',
-    avatar: imgAPI.avatar[7],
-    name: 'John Doe',
-    title: 'Senior Graphic Designer',
-  },
-  {
-    text: 'Vivamus sit amet interdum elit. Proin lacinia erat ac velit tempus auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam nec ex aliquet, aliquam neque non.',
-    avatar: imgAPI.avatar[9],
-    name: 'John Doe',
-    title: 'Chief Digital Officer',
-  },
-  {
-    text: 'Cras convallis lacus orci, tristique tincidunt magna consequat in. In vel pulvinar est, at euismod libero.',
-    avatar: imgAPI.avatar[8],
-    name: 'Jean Doe',
-    title: 'Chief Digital Officer',
-  },
-];
+import testimonialImg from '../../../public/images/testimonial.png';
 
 function Testimonials() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
 
-  const sliderText = useRef(null);
-  const sliderAvatar = useRef(null);
-  const [slider, setSlider] = useState({
-    nav1: null,
-    nav2: null
-  });
-
-  useEffect(() => {
-    setSlider({
-      nav1: sliderText.current,
-      nav2: sliderAvatar.current
-    });
-  }, []);
-
-  const settingsText = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    fade: true,
-    arrows: false,
-  };
-
-  const settingsAvatar = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    focusOnSelect: true,
-    autoplay: true,
-    centerPadding: '2px',
-    centerMode: true,
-    autoplaySpeed: 5000,
-    slidesToShow: 7,
-    pauseOnHover: false,
-    arrows: false,
-    responsive: [{
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    }]
-  };
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <div className={classes.root}>
-      <ScrollAnimation animateOnce animateIn="fadeInUpShort" offset={-50} delay={300} duration={0.5}>
-        <div>
-          <Title align="center">
-            {t('retail-landing.testimonials_title')}
-          </Title>
-        </div>
-      </ScrollAnimation>
-      <div className={classes.carouselWrap}>
-        <ScrollAnimation animateOnce animateIn="fadeInUpShort" offset={-150} delay={400} duration={0.5}>
-          <div>
-            <Container maxWidth="sm">
-              <div className={classes.carouselText}>
-                <Carousel ref={sliderText} asNavFor={slider.nav2} {...settingsText}>
-                  {testiContent.map((item, index) => (
-                    <div className={classes.item} key={index.toString()}>
-                      <Typography className={classes.content}>
-                        {item.text}
-                      </Typography>
-                      <Typography className={classes.name}>
-                        <strong>{item.name}</strong>
-                        &nbsp;-&nbsp;
-                        {item.title}
-                      </Typography>
-                    </div>
-                  ))}
-                </Carousel>
-              </div>
-            </Container>
-            <div className={classes.carouselAvatar}>
-              <Carousel ref={sliderAvatar} asNavFor={slider.nav1} {...settingsAvatar}>
-                {testiContent.map((item, index) => (
-                  <div className={classes.item} key={index.toString()}>
-                    <Avatar alt={item.name} src={item.avatar} className={classes.avatar} />
-                  </div>
-                ))}
-              </Carousel>
-            </div>
-          </div>
-        </ScrollAnimation>
-      </div>
+      <Container>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-around"
+          alignItems="center"
+          spacing={4}
+        >
+          <Grid item md={4} xs={12}>
+            <img
+              style={{
+                height: isDesktop ? 328 : 200,
+                width: isDesktop ? 328 : 200,
+              }}
+              src={testimonialImg}
+              alt="testimonial img"
+            />
+          </Grid>
+          <Grid item md={8} xs={12}>
+            <Rating readOnly value={5} />
+            <Typography
+              style={{
+                color: 'var(--gray-900, #101828)',
+                fontFamily: 'Inter',
+                fontSize: isDesktop ? '36px' : '24px',
+                fontStyle: 'normal',
+                fontWeight: '500',
+                lineHeight: '44px',
+                letterSpacing: '-0.72px',
+              }}
+            >
+              I can't express enough gratitude for Ollifur & Omer specifically.
+              The care and empathy he displayed was nothing short of excellent.
+              I’ll always miss you Luna.
+            </Typography>
+            <Typography
+              style={{
+                color: 'var(--gray-900, #101828)',
+                fontFamily: 'Inter',
+                fontSize: '18px',
+                fontStyle: 'normal',
+                fontWeight: '600',
+                lineHeight: '28px',
+                marginTop: '25px',
+              }}
+            >
+              — Candice Wu
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }
