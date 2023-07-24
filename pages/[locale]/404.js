@@ -11,6 +11,8 @@ import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import brand from '~/public/text/brand';
 import { useSpacing } from '~/theme/common';
+import CssBaseline from '@mui/material/CssBaseline';
+import { GlobalStyles } from '@mui/material';
 
 function ErrorPage(props) {
   const { classes } = useSpacing();
@@ -22,14 +24,21 @@ function ErrorPage(props) {
     return (
       <Fragment>
         <Head>
-          <title>
-            { brand.retail.name + ' - ' + errorCode }
-          </title>
+          <title>{brand.retail.name + ' - ' + errorCode}</title>
         </Head>
-        <div className={classes.mainWrap}>
-          <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} invert />
+        <CssBaseline />
+        <GlobalStyles
+          styles={{
+            body: { backgroundColor: '#F8EADD' },
+          }}
+        />
+        <div>
+          <Header
+            onToggleDark={onToggleDark}
+            onToggleDir={onToggleDir}
+            invert
+          />
           <Error errorCode={errorCode} text={t('404')} />
-          <Footer toggleDir={onToggleDir} />
         </div>
       </Fragment>
     );

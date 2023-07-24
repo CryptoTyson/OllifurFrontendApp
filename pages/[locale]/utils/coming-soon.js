@@ -38,16 +38,14 @@ function ComingSoon() {
 
   const [email, setEmail] = useState('');
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setEmail(event.target.value);
   };
 
   return (
     <Fragment>
       <Head>
-        <title>
-          { brand.retail.name + ' - Coming Soon' }
-        </title>
+        <title>{brand.retail.name + ' - Coming Soon'}</title>
       </Head>
       <CssBaseline />
       <Hidden mdDown>
@@ -71,32 +69,34 @@ function ComingSoon() {
                   {t('util_soon')}
                 </h3>
                 <Box mb={5}>
-                  <h5 className={text.subtitle2}>
-                    {t('util_soon_desc')}
-                  </h5>
+                  <h5 className={text.subtitle2}>{t('util_soon_desc')}</h5>
                 </Box>
                 <div className={classes.form}>
                   <Box mb={{ sm: 10 }}>
                     <Grid container justifyContent="center">
                       <Grid item sm={10} xs={12}>
                         <FormControl variant="filled" fullWidth>
-                          <InputLabel htmlFor="standard-adornment-password">{t('form_email')}</InputLabel>
+                          <InputLabel htmlFor="standard-adornment-password">
+                            {t('form_email')}
+                          </InputLabel>
                           <FilledInput
                             fullWidth
                             id="standard-adornment-password"
                             value={email}
                             onChange={handleChange}
-                            endAdornment={isDesktop && (
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                type="submit"
-                                size="small"
-                                className={classes.btnNotify}
-                              >
-                                {t('util_notif')}
-                              </Button>
-                            )}
+                            endAdornment={
+                              isDesktop && (
+                                <Button
+                                  variant="contained"
+                                  color="primary"
+                                  type="submit"
+                                  size="small"
+                                  className={classes.btnNotify}
+                                >
+                                  {t('util_notif')}
+                                </Button>
+                              )
+                            }
                           />
                         </FormControl>
                         {!isDesktop && (
@@ -117,10 +117,18 @@ function ComingSoon() {
                   </Box>
                 </div>
                 <Box mt={5}>
-                  <IconButton color="primary" href="#" size="large"><FacebookIcon className={classes.fb} /></IconButton>
-                  <IconButton color="primary" href="#" size="large"><InstagramIcon className={classes.ig} /></IconButton>
-                  <IconButton color="primary" href="#" size="large"><TwitterIcon className={classes.tw} /></IconButton>
-                  <IconButton color="primary" href="#" size="large"><LinkedInIcon className={classes.li} /></IconButton>
+                  <IconButton color="primary" href="#" size="large">
+                    <FacebookIcon className={classes.fb} />
+                  </IconButton>
+                  <IconButton color="primary" href="#" size="large">
+                    <InstagramIcon className={classes.ig} />
+                  </IconButton>
+                  <IconButton color="primary" href="#" size="large">
+                    <TwitterIcon className={classes.tw} />
+                  </IconButton>
+                  <IconButton color="primary" href="#" size="large">
+                    <LinkedInIcon className={classes.li} />
+                  </IconButton>
                 </Box>
               </div>
             </Grid>

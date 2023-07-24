@@ -1,8 +1,9 @@
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles({ uniqId: 'error' })(theme => ({
+const useStyles = makeStyles({ uniqId: 'error' })((theme) => ({
   errorWrap: {
     width: '100%',
+    height: '100%',
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
@@ -11,24 +12,24 @@ const useStyles = makeStyles({ uniqId: 'error' })(theme => ({
   },
   flex: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   illustration: {
     position: 'relative',
     textAlign: 'center',
     [theme.breakpoints.up('sm')]: {
-      margin: theme.spacing(2, 5)
+      margin: theme.spacing(2, 5),
     },
     '& img': {
       position: 'relative',
       maxWidth: 400,
       [theme.breakpoints.up('md')]: {
-        right: theme.spacing(2)
+        right: theme.spacing(2),
       },
       [theme.breakpoints.down('sm')]: {
-        maxWidth: '80%'
-      }
-    }
+        maxWidth: '80%',
+      },
+    },
   },
   text: {
     [theme.breakpoints.up('md')]: {
@@ -36,20 +37,20 @@ const useStyles = makeStyles({ uniqId: 'error' })(theme => ({
       paddingLeft: theme.spacing(10),
     },
     [theme.breakpoints.down('md')]: {
-      textAlign: 'center'
+      textAlign: 'center',
     },
     '& h4': {
       fontWeight: theme.typography.fontWeightBold,
-      marginBottom: theme.spacing(4)
+      marginBottom: theme.spacing(4),
     },
     '& p': {
       fontSize: 22,
-      color: theme.palette.text.secondary
-    }
+      color: theme.palette.text.secondary,
+    },
   },
   button: {
-    marginTop: theme.spacing(4)
-  }
+    marginTop: theme.spacing(4),
+  },
 }));
 
 // TODO jss-to-tss-react codemod: usages of this hook outside of this file will not be converted.
