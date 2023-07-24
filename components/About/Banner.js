@@ -14,27 +14,7 @@ function Banner(props) {
   return (
     <HeroBanner>
       <div className={classes.bannerWrap}>
-        <div className={classes.inner}>
-          <Grid container alignItems="center" justifyContent="center">
-            <Grid item md={6} xs={12}>
-              <Box px={{ sm: 2 }}>
-                <div className={classes.text}>
-                  <h4 className={text.title2}>Pellentesque habitant morbi tristique senectus</h4>
-                  <h5 className={text.subtitle2}>
-                    {'Multiple lines of text that form the lede,informing new readers quickly and efficiently about what\'s most interesting in this posts contents'}
-                  </h5>
-                </div>
-              </Box>
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <Box px={{ sm: 5 }}>
-                <div className={classes.img}>
-                  {children}
-                </div>
-              </Box>
-            </Grid>
-          </Grid>
-        </div>
+        <div className={classes.inner}>Hello</div>
       </div>
     </HeroBanner>
   );

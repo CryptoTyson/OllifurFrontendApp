@@ -5,14 +5,13 @@ import { useTranslation } from 'next-i18next';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
+import { GlobalStyles } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import Error from '~/components/Error';
-import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import brand from '~/public/text/brand';
 import { useSpacing } from '~/theme/common';
-import CssBaseline from '@mui/material/CssBaseline';
-import { GlobalStyles } from '@mui/material';
 
 function ErrorPage(props) {
   const { classes } = useSpacing();
