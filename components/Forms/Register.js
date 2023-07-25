@@ -5,18 +5,14 @@ import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { useTranslation } from 'next-i18next';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Box, InputLabel, Stack } from '@mui/material';
-import { useText } from '~/theme/common';
 import useStyles from './form-style';
 import OllifurLogo from '../../public/images/Ollifur.png';
 import googleIcon from '../../public/images/google.svg';
 
 function Register() {
-  const { classes, cx } = useStyles();
-  const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  const { classes } = useStyles();
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -37,14 +33,8 @@ function Register() {
     ValidatorForm.addValidationRule('isTruthy', (value) => value);
   });
 
-  const [check, setCheck] = useState(false);
-
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
-  };
-
-  const handleCheck = (event) => {
-    setCheck(event.target.checked);
   };
 
   const handleSubmit = () => {
@@ -263,7 +253,7 @@ function Register() {
                 <Stack spacing={2} direction="row">
                   <Button
                     variant="contained"
-                    startIcon={<img src={googleIcon} />}
+                    startIcon={<img src={googleIcon} alt="google icon" />}
                     style={{
                       borderRadius: '8px',
                       border: '1px solid var(--gray-300, #D0D5DD)',
@@ -284,6 +274,36 @@ function Register() {
                     >
                       Sign up with Google
                     </Typography>
+                  </Button>
+                </Stack>
+              </Grid>
+              <Grid item>
+                <Stack
+                  direction="row"
+                  useFlexGap
+                  flexWrap="wrap"
+                  alignItems="center"
+                  gap={0.5}
+                >
+                  <Typography
+                    style={{
+                      color: 'var(--gray-600, #475467)',
+                      fontFamily: 'Inter',
+                      fontSize: '14px',
+                      fontStyle: 'normal',
+                      fontWeight: '400',
+                      lineHeight: '20px',
+                    }}
+                  >
+                    Already have an account?
+                  </Typography>
+                  <Button
+                    variant="text"
+                    size="small"
+                    sx={{ padding: 0 }}
+                    disableRipple
+                  >
+                    Log in
                   </Button>
                 </Stack>
               </Grid>
