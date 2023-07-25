@@ -7,35 +7,18 @@ import Grid from '@mui/material/Grid';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
+import { makeStyles } from 'tss-react/mui';
+import { Box, Button, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
-import imgAPI from '~/public/images/imgAPI';
-import { useSpacing } from '~/theme/common';
 import Header from '~/components/Header';
-import Counter from '~/components/Counter';
-import Banner from '~/components/About/Banner';
-import PhotoSlider from '~/components/About/PhotoSlider';
-import TeamSlider from '~/components/About/TeamSlider';
-import AboutVideo from '~/components/About/Video';
-import AboutProgress from '~/components/About/Progress';
-import CallAction from '~/components/CallAction';
-import CompanyLogo from '~/components/CompanyLogo';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
-import HeroBanner from '../../../components/HeroBanner/HeroBanner';
-import { makeStyles } from 'tss-react/mui';
-import {
-  Box,
-  Button,
-  InputLabel,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
 import emailIcon from '../../../public/images/EmailIcon.png';
 import locationIcon from '../../../public/images/LocationIcon.png';
 import phoneIcon from '../../../public/images/PhoneIcon.png';
-import { useTheme } from '@mui/material/styles';
 import Contact from '~/components/Forms/Contact';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
