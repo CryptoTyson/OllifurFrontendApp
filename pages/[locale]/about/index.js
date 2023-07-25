@@ -23,12 +23,19 @@ import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
 import HeroBanner from '../../../components/HeroBanner/HeroBanner';
 import { makeStyles } from 'tss-react/mui';
-import { Button, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Button,
+  InputLabel,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import emailIcon from '../../../public/images/EmailIcon.png';
 import locationIcon from '../../../public/images/LocationIcon.png';
 import phoneIcon from '../../../public/images/PhoneIcon.png';
 import { useTheme } from '@mui/material/styles';
 import Contact from '~/components/Forms/Contact';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
@@ -103,6 +110,18 @@ const useStyles = makeStyles()((theme) => ({
 function About(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
+  const [email, setEmail] = React.useState('');
+
+  const handleSubmit = () => {};
+
+  const handleChange = (value) => {
+    console.log(value);
+    setEmail(value);
+  };
+
+  React.useEffect(() => {
+    ValidatorForm.addValidationRule('isTruthy', (value) => value);
+  });
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
@@ -354,6 +373,124 @@ function About(props) {
                 </Grid>
               </Grid>
             </Grid>
+          </Container>
+        </section>
+        <section>
+          <Container
+            style={{
+              borderRadius: '16px',
+              background:
+                theme.palette.mode === 'dark'
+                  ? theme.palette.primary.light
+                  : 'var(--gray-50, #F9FAFB)',
+              padding: '10px',
+            }}
+          >
+            <Box m={isDesktop ? 6 : 4}>
+              <Grid container justifyContent="space-between">
+                <Grid item>
+                  <Typography
+                    style={{
+                      color: 'var(--gray-900, #101828)',
+                      fontFamily: 'Inter',
+                      fontSize: '30px',
+                      fontStyle: 'normal',
+                      fontWeight: '600',
+                      lineHeight: '38px',
+                    }}
+                  >
+                    Subscribe to our Newsletter
+                  </Typography>
+                  <Typography
+                    style={{
+                      color: 'var(--gray-600, #475467)',
+                      fontFamily: 'Inter',
+                      fontSize: '20px',
+                      fontStyle: 'normal',
+                      fontWeight: '400',
+                      lineHeight: '30px',
+                    }}
+                  >
+                    Stay in the loop with everything you need to know.
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <ValidatorForm
+                    onSubmit={handleSubmit}
+                    onError={(errors) => console.log(errors)}
+                  >
+                    <Grid
+                      container
+                      alignItems="start"
+                      flexWrap={isDesktop ? 'nowrap' : 'wrap'}
+                      spacing={6}
+                    >
+                      <Grid container item direction="column">
+                        <Grid item>
+                          <TextValidator
+                            fullWidth
+                            className={classes.input}
+                            onChange={() => handleChange()}
+                            name="email"
+                            value={email}
+                            placeholder="Enter your email"
+                            sx={{
+                              width: isDesktop ? '360px' : '295px',
+                              '& .MuiInputBase-input': {
+                                padding: '10px 14px',
+                              },
+                            }}
+                          />
+                        </Grid>
+                        <Grid item>
+                          <Typography
+                            style={{
+                              color: 'var(--gray-600, #475467)',
+                              fontFamily: 'Inter',
+                              fontSize: '14px',
+                              fontStyle: 'normal',
+                              fontWeight: '400',
+                              lineHeight: '20px',
+                            }}
+                            component="span"
+                          >
+                            We care about your data in our{' '}
+                            <Typography
+                              style={{
+                                color: 'var(--gray-600, #475467)',
+                                fontFamily: 'Inter',
+                                fontSize: '14px',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                lineHeight: '20px',
+                                textDecorationLine: 'underline',
+                              }}
+                              component="span"
+                            >
+                              privacy policy.
+                            </Typography>
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                      <Grid item>
+                        <Button
+                          variant="contained"
+                          type="submit"
+                          color="primary"
+                          size="large"
+                          fullWidth
+                          style={{
+                            width: isDesktop ? 'auto' : '295px',
+                          }}
+                        >
+                          Subscribe
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </ValidatorForm>
+                </Grid>
+              </Grid>
+            </Box>
           </Container>
         </section>
         <div>

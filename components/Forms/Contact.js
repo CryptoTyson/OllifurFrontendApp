@@ -112,6 +112,11 @@ function Contact() {
                 value={values.first_name}
                 validators={['required']}
                 errorMessages={['this field is required']}
+                sx={{
+                  '& .MuiInputBase-input': {
+                    padding: '10px 14px',
+                  },
+                }}
               />
             </Grid>
             <Grid item sm={6} xs={12}>
@@ -137,6 +142,11 @@ function Contact() {
                 value={values.last_name}
                 validators={['required']}
                 errorMessages={['this field is required']}
+                sx={{
+                  '& .MuiInputBase-input': {
+                    padding: '10px 14px',
+                  },
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -162,6 +172,11 @@ function Contact() {
                 value={values.email}
                 validators={['required']}
                 errorMessages={['this field is required']}
+                sx={{
+                  '& .MuiInputBase-input': {
+                    padding: '10px 14px',
+                  },
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -189,6 +204,11 @@ function Contact() {
                 validators={['required']}
                 placeholder="+1 (555) 000-0000"
                 errorMessages={['this field is required']}
+                sx={{
+                  '& .MuiInputBase-input': {
+                    padding: '10px 14px',
+                  },
+                }}
               />
             </Grid>
             <Grid item xs={12}>
