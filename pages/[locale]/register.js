@@ -37,9 +37,6 @@ function RegisterPage(props) {
             <Register />
           </div>
         </Container>
-        <div className={classes.spaceTopShort}>
-          <Footer toggleDir={onToggleDir} />
-        </div>
       </div>
     </Fragment>
   );

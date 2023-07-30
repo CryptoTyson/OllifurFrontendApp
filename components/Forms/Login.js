@@ -6,45 +6,18 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { useTranslation } from 'next-i18next';
-import { useTheme, alpha, styled } from '@mui/material/styles';
-import { InputLabel } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { Box, InputLabel, Stack } from '@mui/material';
 import { useText } from '~/theme/common';
-import SocialAuth from './SocialAuth';
-import AuthFrame from './AuthFrame';
 import useStyles from './form-style';
-
-const BootstrapInput = styled(TextValidator)(({ theme }) => ({
-  'label + &': {
-    marginTop: theme.spacing(3),
-  },
-  '& .MuiInputBase-input': {
-    borderRadius: 8,
-    position: 'relative',
-    border: '1px solid',
-    borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
-    fontSize: 16,
-    width: 'auto',
-    padding: '10px 12px',
-    transition: theme.transitions.create([
-      'border-color',
-      'background-color',
-      'box-shadow',
-    ]),
-    '&:focus': {
-      boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-      borderColor: theme.palette.primary.main,
-    },
-  },
-}));
+import OllifurLogo from '../../public/images/Ollifur.png';
+import googleIcon from '../../public/images/google.svg';
 
 function Login() {
-  const { classes, cx } = useStyles();
-  const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  const { classes } = useStyles();
   const [values, setValues] = useState({
-    email: ' ',
-    password: ' ',
+    email: '',
+    password: '',
   });
   // Media query
   const theme = useTheme();
@@ -74,101 +47,239 @@ function Login() {
   };
 
   return (
-    <AuthFrame
-      title={t('login_subtitle')}
-      type="login"
-      subtitle={t('auth_desc')}
-    >
-      <div>
-        <div className={classes.head}>
-          <h3
-            className={
-              isDesktop ? text.subtitle : cx(text.title, text.textPrimary)
-            }
+    <Box mx={isDesktop ? 50 : 0}>
+      <Grid
+        container
+        direction="column"
+        alignContent="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Grid item>
+          <img src={OllifurLogo} alt="Logo" />
+        </Grid>
+        <Grid item>
+          <Typography
+            style={{
+              color: 'var(--gray-900, #101828)',
+              textAlign: 'center',
+              fontFamily: 'Inter',
+              fontSize: '30px',
+              fontStyle: 'normal',
+              fontWeight: '600',
+              lineHeight: '38px',
+            }}
           >
-            {t('login_title')}
-          </h3>
-        </div>
-        <SocialAuth />
-        <div className={classes.separator}>
-          <Typography>{t('login_or')}</Typography>
-        </div>
-        <ValidatorForm
-          onError={(errors) => console.log(errors)}
-          onSubmit={handleSubmit}
-        >
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <InputLabel
-                shrink
-                htmlFor="email"
-                sx={{
-                  color: 'var(--gray-700, #344054)',
-                  fontFamily: 'Inter',
-                  fontSize: '20px',
-                  fontStyle: 'normal',
-                  fontWeight: '500',
-                  lineHeight: '20px',
-                }}
-              >
-                Email
-              </InputLabel>
-              <BootstrapInput
-                className={classes.input}
-                onChange={handleChange('email')}
-                value={values.email}
-                validators={['required', 'isEmail']}
-                errorMessages={['This field is required', 'Email is not valid']}
-                id="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextValidator
-                type="password"
-                fullWidth
-                variant="filled"
-                className={classes.input}
-                label={t('login_password')}
-                validators={['required']}
-                onChange={handleChange('password')}
-                errorMessages={['This field is required']}
-                name="password"
-                value={values.password}
-              />
-            </Grid>
-          </Grid>
-          <div className={classes.formHelper}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={check}
-                  onChange={(e) => handleCheck(e)}
-                  color="secondary"
-                  value={check}
-                  className={classes.check}
+            Log in to your account
+          </Typography>
+          <Typography
+            style={{
+              color: 'var(--gray-600, #475467)',
+              textAlign: 'center',
+              fontFamily: 'Inter',
+              fontSize: '16px',
+              fontStyle: 'normal',
+              fontWeight: '400',
+              lineHeight: '24px',
+            }}
+          >
+            Welcome back! Please enter your details.
+          </Typography>
+        </Grid>
+        <Grid item>
+          <ValidatorForm
+            onError={(errors) => console.log(errors)}
+            onSubmit={handleSubmit}
+          >
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <InputLabel
+                  shrink
+                  htmlFor="email"
+                  sx={{
+                    color: 'var(--gray-700, #344054)',
+                    fontFamily: 'Inter',
+                    fontSize: '20px',
+                    fontStyle: 'normal',
+                    fontWeight: '500',
+                    lineHeight: '20px',
+                  }}
+                >
+                  Email*
+                </InputLabel>
+                <TextValidator
+                  fullWidth
+                  className={classes.input}
+                  onChange={handleChange('email')}
+                  name="email"
+                  value={values.email}
+                  validators={['required']}
+                  errorMessages={['this field is required']}
+                  placeholder="Enter your email"
+                  sx={{
+                    '& .MuiInputBase-input': {
+                      padding: '10px 14px',
+                    },
+                  }}
                 />
-              }
-              label={<span>{t('login_remember')}</span>}
-            />
-            <Button size="small" className={classes.buttonLink} href="#">
-              {t('login_forgot')}
-            </Button>
-          </div>
-          <div className={classes.btnArea}>
-            <Button
-              variant="contained"
-              className={classes.buttonLarge}
-              fullWidth
-              type="submit"
-              color="secondary"
-              size="large"
-            >
-              {t('continue')}
-            </Button>
-          </div>
-        </ValidatorForm>
-      </div>
-    </AuthFrame>
+              </Grid>
+              <Grid item xs={12}>
+                <InputLabel
+                  shrink
+                  htmlFor="password"
+                  sx={{
+                    color: 'var(--gray-700, #344054)',
+                    fontFamily: 'Inter',
+                    fontSize: '20px',
+                    fontStyle: 'normal',
+                    fontWeight: '500',
+                    lineHeight: '20px',
+                  }}
+                >
+                  Password*
+                </InputLabel>
+                <TextValidator
+                  fullWidth
+                  className={classes.input}
+                  type="password"
+                  onChange={handleChange('password')}
+                  name="password"
+                  value={values.password}
+                  validators={['required']}
+                  errorMessages={['this field is required']}
+                  placeholder="Create a password"
+                  sx={{
+                    '& .MuiInputBase-input': {
+                      padding: '10px 14px',
+                    },
+                  }}
+                />
+              </Grid>
+              <Grid container item xs={12} justifyContent="space-between">
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={check}
+                      onChange={(e) => handleCheck(e)}
+                      color="primary"
+                      value={check}
+                    />
+                  }
+                  label={
+                    <Typography
+                      component="span"
+                      style={{
+                        color: 'var(--gray-700, #344054)',
+                        fontFamily: 'Inter',
+                        fontSize: '14px',
+                        fontStyle: 'normal',
+                        fontWeight: '500',
+                        lineHeight: '20px',
+                      }}
+                    >
+                      Remember for 30 days
+                    </Typography>
+                  }
+                />
+                <Button
+                  variant="text"
+                  size="small"
+                  sx={{
+                    color: 'var(--primary-700, #884E1B)',
+                    fontFamily: 'Inter',
+                    fontSize: '14px',
+                    fontStyle: 'normal',
+                    fontWeight: '600',
+                    lineHeight: '20px',
+                  }}
+                  disableRipple
+                >
+                  Forgot password
+                </Button>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Button
+                  variant="contained"
+                  className={classes.buttonLarge}
+                  type="submit"
+                  color="primary"
+                  size="large"
+                  fullWidth
+                >
+                  Sign in
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Stack spacing={2} direction="row">
+                  <Button
+                    variant="contained"
+                    startIcon={<img src={googleIcon} alt="google icon" />}
+                    style={{
+                      borderRadius: '8px',
+                      border: '1px solid var(--gray-300, #D0D5DD)',
+                      background: 'var(--base-white, #FFF)',
+                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+                    }}
+                    fullWidth
+                  >
+                    <Typography
+                      style={{
+                        color: 'var(--gray-700, #344054)',
+                        fontFamily: 'Inter',
+                        fontSize: '16px',
+                        fontStyle: 'normal',
+                        fontWeight: '600',
+                        lineHeight: '24px',
+                      }}
+                    >
+                      Sign in with Google
+                    </Typography>
+                  </Button>
+                </Stack>
+              </Grid>
+              <Grid item>
+                <Stack
+                  direction="row"
+                  useFlexGap
+                  flexWrap="wrap"
+                  alignItems="center"
+                  gap={0.5}
+                >
+                  <Typography
+                    style={{
+                      color: 'var(--gray-600, #475467)',
+                      fontFamily: 'Inter',
+                      fontSize: '14px',
+                      fontStyle: 'normal',
+                      fontWeight: '400',
+                      lineHeight: '20px',
+                    }}
+                  >
+                    Don’t have an account?
+                  </Typography>
+                  <Button
+                    variant="text"
+                    size="small"
+                    sx={{
+                      color: 'var(--primary-700, #884E1B)',
+                      fontFamily: 'Inter',
+                      fontSize: '14px',
+                      fontStyle: 'normal',
+                      fontWeight: '600',
+                      lineHeight: '20px',
+                    }}
+                    disableRipple
+                  >
+                    Sign up
+                  </Button>
+                </Stack>
+              </Grid>
+            </Grid>
+          </ValidatorForm>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 

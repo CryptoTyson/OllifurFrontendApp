@@ -17,7 +17,6 @@ function Register() {
     name: '',
     email: '',
     password: '',
-    confirmPassword: '',
   });
   // Media query
   const theme = useTheme();
@@ -152,7 +151,7 @@ function Register() {
               <Grid item xs={12}>
                 <InputLabel
                   shrink
-                  htmlFor="email"
+                  htmlFor="password"
                   sx={{
                     color: 'var(--gray-700, #344054)',
                     fontFamily: 'Inter',
@@ -167,9 +166,10 @@ function Register() {
                 <TextValidator
                   fullWidth
                   className={classes.input}
-                  onChange={handleChange('email')}
-                  name="email"
-                  value={values.email}
+                  type="password"
+                  onChange={handleChange('password')}
+                  name="password"
+                  value={values.password}
                   validators={['required']}
                   errorMessages={['this field is required']}
                   placeholder="Create a password"

@@ -9,16 +9,15 @@ import { useTranslation } from 'next-i18next';
 // Use this below for Static Site Generation (SSG)
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import { useSpacing } from '~/theme/common';
-import Header from '~/components/Header/Basic';
+import Header from '~/components/Header';
 import Login from '~/components/Forms/Login';
-import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
 import link from '~/public/text/link';
 
 function LoginPage(props) {
   // Theme breakpoints
 
-   // Translation Function
+  // Translation Function
   const { t } = useTranslation('common');
 
   const { classes, cx } = useSpacing();
@@ -27,9 +26,7 @@ function LoginPage(props) {
   return (
     <Fragment>
       <Head>
-        <title>
-          { brand.retail.name + ' - Login' }
-        </title>
+        <title>{brand.retail.name + ' - Login'}</title>
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
@@ -44,9 +41,6 @@ function LoginPage(props) {
             <Login />
           </div>
         </Container>
-        <div className={classes.spaceTopShort}>
-          <Footer toggleDir={onToggleDir} />
-        </div>
       </div>
     </Fragment>
   );
