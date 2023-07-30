@@ -7,9 +7,17 @@ import Grid from '@mui/material/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Box, InputLabel, Stack } from '@mui/material';
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
+import { useRouter } from 'next/router';
 import useStyles from './form-style';
 import OllifurLogo from '../../public/images/Ollifur.png';
 import googleIcon from '../../public/images/google.svg';
+import { auth } from '../../lib/firebase';
 
 function Register() {
   const { classes } = useStyles();
@@ -20,7 +28,22 @@ function Register() {
   });
   // Media query
   const theme = useTheme();
+  const router = useRouter();
+  const { locale } = router.query;
+
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const googleProvider = new GoogleAuthProvider();
+
+  const signInWithGoogle = async () => {
+    try {
+      const userCredential = await signInWithPopup(auth, googleProvider);
+      console.log(userCredential.user);
+      localStorage.setItem('authToken', await userCredential.user.getIdToken());
+      router.replace(`/${locale}`);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
@@ -36,8 +59,23 @@ function Register() {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const handleSubmit = () => {
-    console.log('data submited');
+  const handleSubmit = async () => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password,
+      );
+      updateProfile(userCredential.user, {
+        displayName: values.name,
+        photoURL: null,
+      });
+      console.log(userCredential.user);
+      localStorage.setItem('authToken', await userCredential.user.getIdToken());
+      router.replace(`/${locale}`);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -261,6 +299,7 @@ function Register() {
                       boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
                     }}
                     fullWidth
+                    onClick={() => signInWithGoogle()}
                   >
                     <Typography
                       style={{
@@ -302,6 +341,7 @@ function Register() {
                     size="small"
                     sx={{ padding: 0 }}
                     disableRipple
+                    href="/login"
                   >
                     Log in
                   </Button>

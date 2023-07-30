@@ -8,10 +8,16 @@ import Grid from '@mui/material/Grid';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useTheme } from '@mui/material/styles';
 import { Box, InputLabel, Stack } from '@mui/material';
-import { useText } from '~/theme/common';
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
+import { useRouter } from 'next/router';
 import useStyles from './form-style';
 import OllifurLogo from '../../public/images/Ollifur.png';
 import googleIcon from '../../public/images/google.svg';
+import { auth } from '../../lib/firebase';
 
 function Login() {
   const { classes } = useStyles();
@@ -21,7 +27,10 @@ function Login() {
   });
   // Media query
   const theme = useTheme();
+  const router = useRouter();
+  const { locale } = router.query;
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const googleProvider = new GoogleAuthProvider();
 
   useEffect(() => {
     ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
@@ -34,6 +43,17 @@ function Login() {
 
   const [check, setCheck] = useState(false);
 
+  const signInWithGoogle = async () => {
+    try {
+      const userCredential = await signInWithPopup(auth, googleProvider);
+      console.log(userCredential.user);
+      localStorage.setItem('authToken', await userCredential.user.getIdToken());
+      router.replace(`/${locale}`);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
@@ -42,8 +62,19 @@ function Login() {
     setCheck(event.target.checked);
   };
 
-  const handleSubmit = () => {
-    console.log('data submited');
+  const handleSubmit = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password,
+      );
+      console.log(userCredential.user);
+      localStorage.setItem('authToken', await userCredential.user.getIdToken());
+      router.replace(`/${locale}`);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -222,6 +253,7 @@ function Login() {
                       boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
                     }}
                     fullWidth
+                    onClick={() => signInWithGoogle()}
                   >
                     <Typography
                       style={{
@@ -270,6 +302,7 @@ function Login() {
                       lineHeight: '20px',
                     }}
                     disableRipple
+                    href="/register"
                   >
                     Sign up
                   </Button>

@@ -22,9 +22,11 @@ import '../vendors/react-top-loading-bar.css';
 import '../vendors/page-transition.css';
 import '../vendors/slick/slick.css';
 import '../vendors/slick/slick-theme.css';
+import { AuthContextProvider } from '../lib/authContext';
 
 let themeType = 'light';
-if (typeof Storage !== 'undefined') { // eslint-disable-line
+if (typeof Storage !== 'undefined') {
+  // eslint-disable-line
   themeType = localStorage.getItem('oironTheme') || 'light';
 }
 
@@ -74,7 +76,7 @@ function MyApp(props) {
     if (themeType === 'dark' || curLang === 'ar') {
       setTheme({
         ...appTheme(themeName, themeType || defaultTheme),
-        direction: themeDir
+        direction: themeDir,
       });
     }
 
@@ -99,7 +101,10 @@ function MyApp(props) {
 
   const toggleDarkTheme = () => {
     const newPaletteType = theme.palette.mode === 'light' ? 'dark' : 'light';
-    localStorage.setItem('oironTheme', theme.palette.mode === 'light' ? 'dark' : 'light');
+    localStorage.setItem(
+      'oironTheme',
+      theme.palette.mode === 'light' ? 'dark' : 'light',
+    );
 
     setTheme({
       ...appTheme(themeName, newPaletteType),
@@ -107,15 +112,15 @@ function MyApp(props) {
     });
   };
 
-  const toggleDirection = dir => {
+  const toggleDirection = (dir) => {
     document.dir = dir;
     // set theme
     setTheme({
       ...theme,
       direction: dir,
       palette: {
-        ...theme.palette
-      }
+        ...theme.palette,
+      },
     });
   };
 
@@ -129,21 +134,23 @@ function MyApp(props) {
         />
       </Head>
       <ThemeProvider theme={muiTheme}>
-        <CssBaseline />
-        <LoadingBar
-          height={0}
-          color={theme.palette.primary.main}
-          progress={loading}
-          className="top-loading-bar"
-        />
-        <div id="main-wrap">
-          <Component
-            {...pageProps}
-            onToggleDark={toggleDarkTheme}
-            onToggleDir={toggleDirection}
-            key={router.route}
+        <AuthContextProvider>
+          <CssBaseline />
+          <LoadingBar
+            height={0}
+            color={theme.palette.primary.main}
+            progress={loading}
+            className="top-loading-bar"
           />
-        </div>
+          <div id="main-wrap">
+            <Component
+              {...pageProps}
+              onToggleDark={toggleDarkTheme}
+              onToggleDir={toggleDirection}
+              key={router.route}
+            />
+          </div>
+        </AuthContextProvider>
       </ThemeProvider>
     </CacheProvider>
   );
@@ -152,9 +159,11 @@ function MyApp(props) {
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.object.isRequired,
-  router: PropTypes.object.isRequired
+  router: PropTypes.object.isRequired,
 };
 
-MyApp.getInitialProps = async (appContext) => ({ ...(await App.getInitialProps(appContext)) });
+MyApp.getInitialProps = async (appContext) => ({
+  ...(await App.getInitialProps(appContext)),
+});
 
 export default appWithTranslation(MyApp);
