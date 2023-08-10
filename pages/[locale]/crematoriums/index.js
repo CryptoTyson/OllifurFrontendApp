@@ -185,187 +185,191 @@ function Crematoriums(props) {
                       </Typography>
                     </Grid>
                   </Grid>
-                  <Grid
-                    container
-                    item
-                    md={12}
-                    xs={12}
-                    direction="row"
-                    alignContent="center"
-                    alignItems="center"
-                    justifyContent={isDesktop ? 'space-between' : 'center'}
-                  >
-                    <Grid item>
-                      <InputLabel
-                        sx={{
-                          color: 'var(--gray-700, #344054)',
-                          fontFamily: 'Inter',
-                          fontSize: '14px',
-                          fontStyle: 'normal',
-                          fontWeight: '500',
-                          lineHeight: '20px',
-                        }}
-                      >
-                        Cremation Type
-                      </InputLabel>
-                      <Select
-                        value={cremationType}
-                        label="Cremation Type"
-                        onChange={handleTypeChange}
-                        sx={{
-                          '& .MuiInputBase-input': {
-                            padding: '10px 14px',
-                            width: '167px',
-                            color: 'var(--gray-500, #667085)',
+                  {isDesktop ? (
+                    <Grid
+                      container
+                      item
+                      md={12}
+                      xs={12}
+                      direction="row"
+                      alignContent="center"
+                      alignItems="center"
+                      justifyContent={isDesktop ? 'space-between' : 'center'}
+                    >
+                      <Grid item>
+                        <InputLabel
+                          sx={{
+                            color: 'var(--gray-700, #344054)',
                             fontFamily: 'Inter',
-                            fontSize: '16px',
+                            fontSize: '14px',
                             fontStyle: 'normal',
-                            fontWeight: '400',
-                            lineHeight: '24px',
-                          },
-                        }}
-                      >
-                        <MenuItem value={1}>Low to High</MenuItem>
-                        <MenuItem value={2}>High to Low</MenuItem>
-                      </Select>
-                    </Grid>
-                    <Grid item>
-                      <InputLabel
-                        sx={{
-                          color: 'var(--gray-700, #344054)',
-                          fontFamily: 'Inter',
-                          fontSize: '14px',
-                          fontStyle: 'normal',
-                          fontWeight: '500',
-                          lineHeight: '20px',
-                        }}
-                      >
-                        Cremation Type
-                      </InputLabel>
-                      <Select
-                        value={cremationType}
-                        label="Cremation Type"
-                        onChange={handleTypeChange}
-                        sx={{
-                          '& .MuiInputBase-input': {
-                            padding: '10px 14px',
-                            width: '167px',
-                            color: 'var(--gray-500, #667085)',
+                            fontWeight: '500',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Cremation Type
+                        </InputLabel>
+                        <Select
+                          value={cremationType}
+                          label="Cremation Type"
+                          onChange={handleTypeChange}
+                          sx={{
+                            '& .MuiInputBase-input': {
+                              padding: '10px 14px',
+                              width: '167px',
+                              color: 'var(--gray-500, #667085)',
+                              fontFamily: 'Inter',
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: '400',
+                              lineHeight: '24px',
+                            },
+                          }}
+                        >
+                          <MenuItem value={1}>Low to High</MenuItem>
+                          <MenuItem value={2}>High to Low</MenuItem>
+                        </Select>
+                      </Grid>
+                      <Grid item>
+                        <InputLabel
+                          sx={{
+                            color: 'var(--gray-700, #344054)',
                             fontFamily: 'Inter',
-                            fontSize: '16px',
+                            fontSize: '14px',
                             fontStyle: 'normal',
-                            fontWeight: '400',
-                            lineHeight: '24px',
-                          },
-                        }}
-                      >
-                        <MenuItem value={1}>Low to High</MenuItem>
-                        <MenuItem value={2}>High to Low</MenuItem>
-                      </Select>
-                    </Grid>
-                    <Grid item>
-                      <InputLabel
-                        sx={{
-                          color: 'var(--gray-700, #344054)',
-                          fontFamily: 'Inter',
-                          fontSize: '14px',
-                          fontStyle: 'normal',
-                          fontWeight: '500',
-                          lineHeight: '20px',
-                        }}
-                      >
-                        Cremation Type
-                      </InputLabel>
-                      <Select
-                        value={cremationType}
-                        label="Cremation Type"
-                        onChange={handleTypeChange}
-                        sx={{
-                          '& .MuiInputBase-input': {
-                            padding: '10px 14px',
-                            width: '167px',
-                            color: 'var(--gray-500, #667085)',
+                            fontWeight: '500',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Cremation Type
+                        </InputLabel>
+                        <Select
+                          value={cremationType}
+                          label="Cremation Type"
+                          onChange={handleTypeChange}
+                          sx={{
+                            '& .MuiInputBase-input': {
+                              padding: '10px 14px',
+                              width: '167px',
+                              color: 'var(--gray-500, #667085)',
+                              fontFamily: 'Inter',
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: '400',
+                              lineHeight: '24px',
+                            },
+                          }}
+                        >
+                          <MenuItem value={1}>Low to High</MenuItem>
+                          <MenuItem value={2}>High to Low</MenuItem>
+                        </Select>
+                      </Grid>
+                      <Grid item>
+                        <InputLabel
+                          sx={{
+                            color: 'var(--gray-700, #344054)',
                             fontFamily: 'Inter',
-                            fontSize: '16px',
+                            fontSize: '14px',
                             fontStyle: 'normal',
-                            fontWeight: '400',
-                            lineHeight: '24px',
-                          },
-                        }}
-                      >
-                        <MenuItem value={1}>Low to High</MenuItem>
-                        <MenuItem value={2}>High to Low</MenuItem>
-                      </Select>
-                    </Grid>
-                    <Grid item>
-                      <InputLabel
-                        sx={{
-                          color: 'var(--gray-700, #344054)',
-                          fontFamily: 'Inter',
-                          fontSize: '14px',
-                          fontStyle: 'normal',
-                          fontWeight: '500',
-                          lineHeight: '20px',
-                        }}
-                      >
-                        Cremation Type
-                      </InputLabel>
-                      <Select
-                        value={cremationType}
-                        label="Cremation Type"
-                        onChange={handleTypeChange}
-                        sx={{
-                          '& .MuiInputBase-input': {
-                            padding: '10px 14px',
-                            width: '167px',
-                            color: 'var(--gray-500, #667085)',
+                            fontWeight: '500',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Cremation Type
+                        </InputLabel>
+                        <Select
+                          value={cremationType}
+                          label="Cremation Type"
+                          onChange={handleTypeChange}
+                          sx={{
+                            '& .MuiInputBase-input': {
+                              padding: '10px 14px',
+                              width: '167px',
+                              color: 'var(--gray-500, #667085)',
+                              fontFamily: 'Inter',
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: '400',
+                              lineHeight: '24px',
+                            },
+                          }}
+                        >
+                          <MenuItem value={1}>Low to High</MenuItem>
+                          <MenuItem value={2}>High to Low</MenuItem>
+                        </Select>
+                      </Grid>
+                      <Grid item>
+                        <InputLabel
+                          sx={{
+                            color: 'var(--gray-700, #344054)',
                             fontFamily: 'Inter',
-                            fontSize: '16px',
+                            fontSize: '14px',
                             fontStyle: 'normal',
-                            fontWeight: '400',
-                            lineHeight: '24px',
-                          },
-                        }}
-                      >
-                        <MenuItem value={1}>Low to High</MenuItem>
-                        <MenuItem value={2}>High to Low</MenuItem>
-                      </Select>
-                    </Grid>
-                    <Grid item>
-                      <InputLabel
-                        sx={{
-                          color: 'var(--gray-700, #344054)',
-                          fontFamily: 'Inter',
-                          fontSize: '14px',
-                          fontStyle: 'normal',
-                          fontWeight: '500',
-                          lineHeight: '20px',
-                        }}
-                      >
-                        Cremation Type
-                      </InputLabel>
-                      <Select
-                        value={cremationType}
-                        label="Cremation Type"
-                        onChange={handleTypeChange}
-                        sx={{
-                          '& .MuiInputBase-input': {
-                            padding: '10px 14px',
-                            width: '167px',
-                            color: 'var(--gray-500, #667085)',
+                            fontWeight: '500',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Cremation Type
+                        </InputLabel>
+                        <Select
+                          value={cremationType}
+                          label="Cremation Type"
+                          onChange={handleTypeChange}
+                          sx={{
+                            '& .MuiInputBase-input': {
+                              padding: '10px 14px',
+                              width: '167px',
+                              color: 'var(--gray-500, #667085)',
+                              fontFamily: 'Inter',
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: '400',
+                              lineHeight: '24px',
+                            },
+                          }}
+                        >
+                          <MenuItem value={1}>Low to High</MenuItem>
+                          <MenuItem value={2}>High to Low</MenuItem>
+                        </Select>
+                      </Grid>
+                      <Grid item>
+                        <InputLabel
+                          sx={{
+                            color: 'var(--gray-700, #344054)',
                             fontFamily: 'Inter',
-                            fontSize: '16px',
+                            fontSize: '14px',
                             fontStyle: 'normal',
-                            fontWeight: '400',
-                            lineHeight: '24px',
-                          },
-                        }}
-                      >
-                        <MenuItem value={1}>Low to High</MenuItem>
-                        <MenuItem value={2}>High to Low</MenuItem>
-                      </Select>
+                            fontWeight: '500',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Cremation Type
+                        </InputLabel>
+                        <Select
+                          value={cremationType}
+                          label="Cremation Type"
+                          onChange={handleTypeChange}
+                          sx={{
+                            '& .MuiInputBase-input': {
+                              padding: '10px 14px',
+                              width: '167px',
+                              color: 'var(--gray-500, #667085)',
+                              fontFamily: 'Inter',
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: '400',
+                              lineHeight: '24px',
+                            },
+                          }}
+                        >
+                          <MenuItem value={1}>Low to High</MenuItem>
+                          <MenuItem value={2}>High to Low</MenuItem>
+                        </Select>
+                      </Grid>
                     </Grid>
-                  </Grid>
+                  ) : (
+                    ''
+                  )}
                   <Grid item container spacing={6}>
                     <Grid item xs={12}>
                       <CrematoriumCard />
