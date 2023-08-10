@@ -32,7 +32,7 @@ const defaultChild = (id) => [
 const multiple = [
   {
     name: 'Home',
-    link: '#',
+    link: '/',
   },
   {
     id: 'id_2',
@@ -67,8 +67,8 @@ const multiple = [
       },
       {
         id: 'id_3_2',
-        name: 'About Us',
-        link: '/about',
+        name: 'Contact Us',
+        link: '/contact-us',
         desc: '',
       },
       {
@@ -81,8 +81,8 @@ const multiple = [
   },
   {
     id: 'id_4',
-    name: 'About us',
-    link: '/about',
+    name: 'Contact us',
+    link: '/contact-us',
   },
 ];
 

@@ -90,7 +90,7 @@ const useStyles = makeStyles()((theme) => ({
     marginBottom: '10px',
   },
 }));
-function About(props) {
+function ContactUs(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
   const [email, setEmail] = React.useState('');
@@ -111,7 +111,7 @@ function About(props) {
   return (
     <Fragment>
       <Head>
-        <title>{brand.retail.name + ' - About'}</title>
+        <title>{brand.retail.name + ' - Contact Us'}</title>
       </Head>
       <CssBaseline />
       <div className={classes.mainWrap}>
@@ -437,7 +437,7 @@ function About(props) {
                             }}
                             component="span"
                           >
-                            We care about your data in our{' '}
+                            We care ContactUs your data in our{' '}
                             <Typography
                               style={{
                                 color: 'var(--gray-600, #475467)',
@@ -484,7 +484,7 @@ function About(props) {
   );
 }
 
-About.propTypes = {
+ContactUs.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
   onToggleDir: PropTypes.func.isRequired,
 };
@@ -496,4 +496,4 @@ About.propTypes = {
 const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };
 
-export default About;
+export default ContactUs;
