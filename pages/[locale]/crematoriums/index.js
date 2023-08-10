@@ -9,33 +9,18 @@ import Grid from '@mui/material/Grid';
 // Use this below for Static Site Generation (SSG)
 import { makeStyles } from 'tss-react/mui';
 import {
-  Box,
-  Button,
-  Chip,
-  FormControl,
   InputLabel,
   MenuItem,
   Select,
-  Stack,
   Typography,
   useMediaQuery,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { ValidatorForm } from 'react-material-ui-form-validator';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
-import emailIcon from '../../../public/images/EmailIcon.png';
-import locationIcon from '../../../public/images/LocationIcon.png';
-import phoneIcon from '../../../public/images/PhoneIcon.png';
-import Contact from '~/components/Forms/Contact';
-import DignityMemorials from '../../../public/images/DM_logo_130x40.svg';
-import star from '../../../public/images/star-01.svg';
-import car from '../../../public/images/car-01.svg';
-import hourglass from '../../../public/images/hourglass-02.svg';
-import shield from '../../../public/images/shield-01.svg';
-import marker from '../../../public/images/marker-pin-02.svg';
 import CrematoriumCard from '../../../components/CrematoriumCard/CrematoriumCard';
 
 const useStyles = makeStyles()((theme) => ({
@@ -111,15 +96,7 @@ const useStyles = makeStyles()((theme) => ({
 function Crematoriums(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
-  const [email, setEmail] = React.useState('');
   const [cremationType, setCremationType] = React.useState(1);
-
-  const handleSubmit = () => {};
-
-  const handleChange = (value) => {
-    console.log(value);
-    setEmail(value);
-  };
 
   const handleTypeChange = (event) => {
     setCremationType(event.target.value);
@@ -185,7 +162,7 @@ function Crematoriums(props) {
                       </Typography>
                     </Grid>
                   </Grid>
-                  {isDesktop ? (
+                  {/* {isDesktop ? (
                     <Grid
                       container
                       item
@@ -369,7 +346,7 @@ function Crematoriums(props) {
                     </Grid>
                   ) : (
                     ''
-                  )}
+                  )} */}
                   <Grid item container spacing={6}>
                     <Grid item xs={12}>
                       <CrematoriumCard />

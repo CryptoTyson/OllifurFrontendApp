@@ -30,7 +30,7 @@ function CrematoriumCard() {
         background: '#FCF4EE',
         width: '100%',
         padding: '20px',
-        borderTop: '8px solid white',
+        borderTop: '8px solid #fafafa',
         '&:hover': {
           borderTop: '8px solid #884E1B',
           borderTopLeftRadius: '16px',
@@ -232,7 +232,7 @@ function CrematoriumCard() {
         background: '#FCF4EE',
         width: '100%',
         padding: '20px',
-        borderTop: '8px solid white',
+        borderTop: '8px solid #fafafa',
         '&:hover': {
           borderTop: '8px solid #884E1B',
           borderTopLeftRadius: '16px',

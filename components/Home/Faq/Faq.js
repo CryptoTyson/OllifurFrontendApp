@@ -279,7 +279,9 @@ function Faq() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant="contained">Get in touch</Button>
+              <Button href="/contact-us" variant="contained">
+                Get in touch
+              </Button>
             </Grid>
           </Grid>
         </Grid>
