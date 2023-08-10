@@ -9,8 +9,17 @@ import { useTranslation } from 'next-i18next';
 import link from '../../../public/text/link';
 import { useText, useTextAlign } from '../../../theme/common';
 import useStyles from './slider-style';
-import { Dialog, DialogContent, DialogTitle, Icon, IconButton, Paper, Typography, Zoom } from '@mui/material';
-import heartHand from "../../../public/images/ollifur-dark.svg"
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Icon,
+  IconButton,
+  Paper,
+  Typography,
+  Zoom,
+} from '@mui/material';
+import heartHand from '../../../public/images/ollifur-dark.svg';
 import VolunteerActivismOutlinedIcon from '@mui/icons-material/VolunteerActivismOutlined';
 import YouTube from 'react-youtube';
 import yt from '../../../youtube';
@@ -19,9 +28,13 @@ import Title from '../../Title';
 import imgAPI from '../../../public/images/imgAPI';
 import Feature from '../Feature/Feature';
 
-
-const Transition = React.forwardRef(function Transition(props, ref) { // eslint-disable-line
-  return <Zoom ref={ref} {...props} ><></></Zoom>;
+const Transition = React.forwardRef(function Transition(props, ref) {
+  // eslint-disable-line
+  return (
+    <Zoom ref={ref} {...props}>
+      <></>
+    </Zoom>
+  );
 });
 
 function Welcome() {
@@ -30,8 +43,8 @@ function Welcome() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const { classes, cx }:any = useStyles();
-  const { classes: text }:any = useText();
+  const { classes, cx }: any = useStyles();
+  const { classes: text }: any = useText();
   const { classes: align } = useTextAlign();
   const { t } = useTranslation('common');
   const slider = useRef(null);
@@ -50,13 +63,12 @@ function Welcome() {
         breakpoint: 960,
         settings: {
           dots: true,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
-
-  const [player, setPlayer]:any = useState([]);
+  const [player, setPlayer]: any = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
 
   const handleClickOpen = () => {
@@ -71,7 +83,7 @@ function Welcome() {
     player[0].pauseVideo();
   };
 
-  const _onReady = (event:any) => {
+  const _onReady = (event: any) => {
     player.push(event.target);
     setPlayer(player);
   };
@@ -79,53 +91,83 @@ function Welcome() {
   const opts = {
     height: '360',
     width: '640',
-    playerVars: { // https://developers.google.com/youtube/player_parameters
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
       controls: 1,
       rel: 0,
       showinfo: 1,
       mute: 0,
-      origin: 'http://localhost:3007'
-    }
+      origin: 'http://localhost:3007',
+    },
   };
-
 
   return (
     <div className={classes.bannerWrap}>
       <div className={classes.carousel}>
-        <div
-          {...slickOptions}
-          className={classes.slider}
-        >
+        <div {...slickOptions} className={classes.slider}>
           <div className={classes.slide}>
             <div className={cx(classes.slide, classes.centerContent)}>
               <div className={classes.inner}>
-                <Container >
+                <Container>
                   <Grid container justifyContent="flex-end">
-                  <Grid item md={1} xs={1} sm={0}/>
+                    <Grid item md={1} xs={1} sm={0} />
                     <Grid item md={10} xs={10}>
                       <Box px={{ sm: 12 }}>
                         <div className={cx(classes.text, align.textCenter)}>
                           <h4 className={text.title}>
-                            Cherish the ones you love. We’ll take care of the rest
+                            Cherish the ones you love. We’ll take care of the
+                            rest
                           </h4>
-                          <Typography variant="subtitle1" px={{sm: 12}} className={text.subtitle2}>
-                            At Ollifur, we aim to provide your pets with a compassionate farewell, honoring their extraordinary journey with the love and care they deserve.
+                          <Typography
+                            variant="subtitle1"
+                            px={{ sm: 12 }}
+                            className={text.subtitle2}
+                          >
+                            At Ollifur, we aim to provide your pets with a
+                            compassionate farewell, honoring their extraordinary
+                            journey with the love and care they deserve.
                           </Typography>
-                          <Grid sx={{paddingTop: "10px"}} container direction={"row"} justifyContent={"center"} spacing={2}>
+                          <Grid
+                            sx={{ paddingTop: '10px' }}
+                            container
+                            direction={'row'}
+                            justifyContent={'center'}
+                            spacing={2}
+                          >
                             <Grid item>
-                            <Button sx={{":hover":{ background: "#FFF" }, color:"#344054", background:"#FFF"}} startIcon={<VolunteerActivismOutlinedIcon/>} variant="contained" color="primary" href={link.retail.register}>Pre-plan</Button>
+                              <Button
+                                fullWidth={isMobile}
+                                sx={{
+                                  ':hover': { background: '#FFF' },
+                                  color: '#344054',
+                                  background: '#FFF',
+                                }}
+                                startIcon={<VolunteerActivismOutlinedIcon />}
+                                variant="contained"
+                                color="primary"
+                                href={link.retail.register}
+                              >
+                                Pre-plan
+                              </Button>
                             </Grid>
                             <Grid item>
-                            <Button variant="contained" color="primary" href={link.retail.register}>Immediate Need</Button>
+                              <Button
+                                variant="contained"
+                                color="primary"
+                                fullWidth={isMobile}
+                                href={link.retail.register}
+                              >
+                                Immediate Need
+                              </Button>
                             </Grid>
                           </Grid>
                         </div>
                       </Box>
                     </Grid>
-                    <Grid item md={1} xs={1} sm={0}/>
+                    <Grid item md={1} xs={1} sm={0} />
                   </Grid>
-                  <Feature/>
+                  <Feature />
                 </Container>
               </div>
             </div>

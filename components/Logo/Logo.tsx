@@ -7,17 +7,18 @@ import useStyles from './logo-style';
 interface LogoProps {
   type: string;
   size?: string;
+  theme?: string;
 }
-
 
 function Logo(props: LogoProps) {
   let themeType = 'light';
-  
+  const { type, size, theme } = props;
+
   if (typeof Storage !== 'undefined') {
     themeType = localStorage.getItem('oironTheme') || 'light';
   }
+
   const { classes, cx }: any = useStyles();
-  const { type, size } = props;
   const logoImage = themeType === 'dark' ? logoDark : logo;
 
   return (
@@ -28,7 +29,7 @@ function Logo(props: LogoProps) {
         // classes[size]
       )}
     >
-      <img src={logoImage} alt="logo" />
+      <img src={theme ? logoDark : logoImage} alt="logo" />
     </span>
   );
 }

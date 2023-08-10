@@ -8,9 +8,7 @@ function HeroBanner(props) {
   const { children } = props;
   return (
     <div className={classes.heroBannerWrap}>
-      <Container className={classes.container}>
-        {children}
-      </Container>
+      <Container className={classes.container}>{children}</Container>
     </div>
   );
 }
