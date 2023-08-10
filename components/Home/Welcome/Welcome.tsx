@@ -16,6 +16,7 @@ import {
   Icon,
   IconButton,
   Paper,
+  Stack,
   Typography,
   Zoom,
 } from '@mui/material';
@@ -128,40 +129,35 @@ function Welcome() {
                             compassionate farewell, honoring their extraordinary
                             journey with the love and care they deserve.
                           </Typography>
-                          <Grid
-                            sx={{ paddingTop: '10px' }}
-                            container
-                            direction={'row'}
+                          <Stack
+                            direction={isDesktop ? 'row' : 'column'}
                             justifyContent={'center'}
                             spacing={2}
+                            style={{ marginTop: '10px' }}
                           >
-                            <Grid item>
-                              <Button
-                                fullWidth={isMobile}
-                                sx={{
-                                  ':hover': { background: '#FFF' },
-                                  color: '#344054',
-                                  background: '#FFF',
-                                }}
-                                startIcon={<VolunteerActivismOutlinedIcon />}
-                                variant="contained"
-                                color="primary"
-                                href={link.retail.register}
-                              >
-                                Pre-plan
-                              </Button>
-                            </Grid>
-                            <Grid item>
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                fullWidth={isMobile}
-                                href={link.retail.register}
-                              >
-                                Immediate Need
-                              </Button>
-                            </Grid>
-                          </Grid>
+                            <Button
+                              fullWidth={isMobile}
+                              sx={{
+                                ':hover': { background: '#FFF' },
+                                color: '#344054',
+                                background: '#FFF',
+                              }}
+                              startIcon={<VolunteerActivismOutlinedIcon />}
+                              variant="contained"
+                              color="primary"
+                              href={link.retail.register}
+                            >
+                              Pre-plan
+                            </Button>
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              fullWidth={isMobile}
+                              href={link.retail.register}
+                            >
+                              Immediate Need
+                            </Button>
+                          </Stack>
                         </div>
                       </Box>
                     </Grid>

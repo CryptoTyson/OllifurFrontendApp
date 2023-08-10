@@ -6,7 +6,6 @@ import { useTheme } from '@mui/material/styles';
 import { makeStyles } from 'tss-react/mui';
 import FeatureCard from '../../FeatureCard/FeatureCard';
 import flowerImageLarge from '../../../public/images/flower-large.png';
-import flowerImageSmall from '../../../public/images/flower-small.png';
 
 const useStyles = makeStyles()((theme) => ({
   desc: {
@@ -142,12 +141,11 @@ function Features() {
                 />
               </Grid>
             </Grid>
-            <Grid item md={6} xs={12}>
-              <img
-                src={isDesktop ? flowerImageLarge : flowerImageSmall}
-                alt="Flower"
-              />
-            </Grid>
+            {isDesktop && (
+              <Grid item md={6} xs={12}>
+                <img src={flowerImageLarge} alt="Flower" />
+              </Grid>
+            )}
           </Grid>
         </Grid>
       </Container>
