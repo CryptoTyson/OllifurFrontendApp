@@ -40,7 +40,7 @@ const multiple = [
     child: [
       {
         name: 'Crematoriums',
-        link: '#',
+        link: '/crematoriums',
         desc: '',
       },
       {
@@ -68,7 +68,7 @@ const multiple = [
       {
         id: 'id_3_2',
         name: 'About Us',
-        link: '#',
+        link: '/about',
         desc: '',
       },
       {
@@ -82,10 +82,7 @@ const multiple = [
   {
     id: 'id_4',
     name: 'About us',
-  },
-  {
-    name: 'inner Pages',
-    child: sample,
+    link: '/about',
   },
 ];
 
