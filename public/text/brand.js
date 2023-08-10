@@ -1,12 +1,12 @@
 module.exports = {
   retail: {
     name: 'Ollifur',
-    desc: 'Oiron Retail | React Landing Page Template',
-    prefix: 'oiron',
-    footerText: 'Oiron Theme 2022',
-    logoText: 'Oiron Theme',
-    projectName: 'Retail',
-    url: 'oiron2.indisains.com/retail',
-    img: '/static/images/logo-retail.png'
-  }
+    desc: 'Cherish the ones you love.',
+    prefix: 'Ollifur',
+    footerText: 'Ollifur 2023',
+    logoText: 'Ollifur',
+    projectName: 'Ollifur',
+    url: '/',
+    img: '/static/images/logo-retail.png',
+  },
 };
