@@ -66,12 +66,6 @@ const multiple = [
         desc: '',
       },
       {
-        id: 'id_3_2',
-        name: 'Contact Us',
-        link: '/contact-us',
-        desc: '',
-      },
-      {
         id: 'id_3_3',
         name: 'Help and support',
         link: '#',
