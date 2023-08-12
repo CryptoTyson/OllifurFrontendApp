@@ -15,9 +15,9 @@ import imgAPI from '~/public/images/imgAPI';
 import { useSpacing, useTextAlign, useText } from '~/theme/common';
 import Header from '~/components/Header';
 import Counter from '~/components/Counter';
-import Banner from '~/components/About/Banner';
-import PhotoSlider from '~/components/About/PhotoSlider';
-import TeamGrid from '~/components/About/TeamGrid';
+import Banner from '~/components/Contact-us/Banner';
+import PhotoSlider from '~/components/Contact-us/PhotoSlider';
+import TeamGrid from '~/components/Contact-us/TeamGrid';
 import CallAction from '~/components/CallAction';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
@@ -27,7 +27,7 @@ function Team(props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-   // Translation Function
+  // Translation Function
   const { t } = useTranslation('common');
 
   const { classes, cx } = useSpacing();
@@ -38,17 +38,12 @@ function Team(props) {
   return (
     <Fragment>
       <Head>
-        <title>
-          { brand.retail.name + ' - Team' }
-        </title>
+        <title>{brand.retail.name + ' - Team'}</title>
       </Head>
       <CssBaseline />
       <section id="home" />
       <div className={classes.mainWrap}>
-        <Header
-          onToggleDark={onToggleDark}
-          onToggleDir={onToggleDir}
-        />
+        <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
         <Banner>
           <img
             src={imgAPI.ui[5]}
@@ -62,12 +57,20 @@ function Team(props) {
         <div className={classes.spaceTop}>
           <Container>
             <Box mb={3}>
-              <h4 className={cx(text.title2, text.textPrimary, isMobile ? align.textCenter : align.textLeft)}>
+              <h4
+                className={cx(
+                  text.title2,
+                  text.textPrimary,
+                  isMobile ? align.textCenter : align.textLeft,
+                )}
+              >
                 {t('about_team')}
               </h4>
             </Box>
             <p className={text.subtitle2}>
-              Vestibulum faucibus eget erat eget pretium. Donec commodo convallis eget suscipit orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vestibulum faucibus eget erat eget pretium. Donec commodo
+              convallis eget suscipit orci. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.
             </p>
             <TeamGrid />
           </Container>
