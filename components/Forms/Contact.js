@@ -14,6 +14,7 @@ import { useTheme } from '@mui/material/styles';
 import { useText, useTextAlign } from '~/theme/common';
 import Checkbox from './Checkbox';
 import useStyles from './form-style';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const { t } = useTranslation('common');
@@ -46,7 +47,24 @@ function Contact() {
     setCheck(event.target.checked);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_3ldi4u7',
+        'template_ivi7b01',
+        e.target,
+        'f10nSRCqm5iFJO-Ez',
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        },
+      );
     setNotif(true);
   };
 
@@ -200,7 +218,7 @@ function Contact() {
                 onChange={handlePhoneChange}
                 name="phone"
                 value={phone}
-                defaultCountry="US"
+                defaultCountry="CA"
                 validators={['required']}
                 placeholder="+1 (555) 000-0000"
                 errorMessages={['this field is required']}
@@ -214,7 +232,7 @@ function Contact() {
             <Grid item xs={12}>
               <InputLabel
                 shrink
-                htmlFor="Message"
+                htmlFor="message"
                 sx={{
                   color: 'var(--gray-700, #344054)',
                   fontFamily: 'Inter',
@@ -232,7 +250,7 @@ function Contact() {
                 rows="6"
                 className={classes.input}
                 onChange={handleChange('message')}
-                name="Message"
+                name="message"
                 value={values.message}
                 placeholder="Leave us a message..."
               />
