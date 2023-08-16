@@ -8,17 +8,11 @@ import Grid from '@mui/material/Grid';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
 import { makeStyles } from 'tss-react/mui';
-import {
-  Button,
-  InputLabel,
-  MenuItem,
-  Select,
-  Stack,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import Rating from '@mui/material/Rating';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
@@ -27,9 +21,13 @@ import HeartsImg from '../../../public/images/memorials.png';
 import HeartsImgMd from '../../../public/images/memorials-md.png';
 import HeartIcon from '../../../public/images/heart.png';
 import DogImg from '../../../public/images/dog-img.png';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HandsHeart from '../../../public/images/Hands-haeart.png';
 import DogPic from '../../../public/images/dog-pic.jpeg';
+import Dog from '../../../public/images/dog.jpg';
+import PetCat from '../../../public/images/pet-cat.jpg';
+import ParrotImg from '../../../public/images/parrot.jpg';
+import CatHugging from '../../../public/images/CatHugging.png';
+import MemorialsCard from '../../../components/MemorialsCard/MemorialsCard';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
@@ -105,11 +103,6 @@ const useStyles = makeStyles()((theme) => ({
 function OnlineMemorials(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
-  const [cremationType, setCremationType] = React.useState(1);
-
-  const handleTypeChange = (event) => {
-    setCremationType(event.target.value);
-  };
 
   React.useEffect(() => {
     ValidatorForm.addValidationRule('isTruthy', (value) => value);
@@ -126,7 +119,7 @@ function OnlineMemorials(props) {
       <CssBaseline />
       <div className={classes.mainWrap}>
         <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
-        <section id="home">
+        <section id="home" style={{ marginBottom: '96px' }}>
           <Container>
             <div className={classes.bannerWrap}>
               <div className={classes.inner}>
@@ -505,7 +498,7 @@ function OnlineMemorials(props) {
                               textAlign: 'start',
                             }}
                           >
-                            Create a Tribute
+                            Share it with people
                           </Typography>
                         </Grid>
                         <Grid item>
@@ -520,9 +513,8 @@ function OnlineMemorials(props) {
                               textAlign: 'start',
                             }}
                           >
-                            Share your cherished moments and let their spirit
-                            live on in the hearts of those who visit this
-                            memorializations page.
+                            Once it’s live, share it with friends & family and
+                            invite everyone to view your pets life with you
                           </Typography>
                         </Grid>
                         <Grid container item>
@@ -548,21 +540,9 @@ function OnlineMemorials(props) {
                                 }}
                                 component="span"
                               >
-                                Take a moment to{' '}
-                                <Typography
-                                  style={{
-                                    color: 'var(--gray-600, #475467)',
-                                    fontFamily: 'Inter',
-                                    fontSize: '18px',
-                                    fontStyle: 'normal',
-                                    fontWeight: '700',
-                                    lineHeight: '28px',
-                                  }}
-                                  component="span"
-                                >
-                                  reflect
-                                </Typography>{' '}
-                                on all the special moments.
+                                Share the joy and love they brought into your
+                                life with friends, family, and fellow pet
+                                lovers.
                               </Typography>
                             </Stack>
                             <Stack
@@ -580,27 +560,14 @@ function OnlineMemorials(props) {
                                   fontFamily: 'Inter',
                                   fontSize: '18px',
                                   fontStyle: 'normal',
-                                  fontWeight: '700',
-                                  textAlign: 'start',
+                                  fontWeight: '400',
                                   lineHeight: '28px',
+                                  textAlign: 'start',
                                 }}
                                 component="span"
                               >
-                                Share{' '}
-                                <Typography
-                                  style={{
-                                    color: 'var(--gray-600, #475467)',
-                                    fontFamily: 'Inter',
-                                    fontSize: '18px',
-                                    fontStyle: 'normal',
-                                    fontWeight: '400',
-                                    lineHeight: '28px',
-                                  }}
-                                  component="span"
-                                >
-                                  your stories & photos, and anecdotes with
-                                  others.
-                                </Typography>
+                                Discover others who have similar experiences and
+                                deepen your connections with them
                               </Typography>
                             </Stack>
                             <Stack
@@ -618,27 +585,14 @@ function OnlineMemorials(props) {
                                   fontFamily: 'Inter',
                                   fontSize: '18px',
                                   fontStyle: 'normal',
-                                  fontWeight: '700',
-                                  textAlign: 'start',
+                                  fontWeight: '400',
                                   lineHeight: '28px',
+                                  textAlign: 'start',
                                 }}
                                 component="span"
                               >
-                                Celebrate{' '}
-                                <Typography
-                                  style={{
-                                    color: 'var(--gray-600, #475467)',
-                                    fontFamily: 'Inter',
-                                    fontSize: '18px',
-                                    fontStyle: 'normal',
-                                    fontWeight: '400',
-                                    lineHeight: '28px',
-                                  }}
-                                  component="span"
-                                >
-                                  the life of your beloved pet by sharing their
-                                  legacy.
-                                </Typography>
+                                Authorize & Control comments that show up on the
+                                page
                               </Typography>
                             </Stack>
                           </Stack>
@@ -694,7 +648,7 @@ function OnlineMemorials(props) {
                               textAlign: 'start',
                             }}
                           >
-                            Create a Tribute
+                            Support and Comfort
                           </Typography>
                         </Grid>
                         <Grid item>
@@ -709,73 +663,49 @@ function OnlineMemorials(props) {
                               textAlign: 'start',
                             }}
                           >
-                            Share your cherished moments and let their spirit
-                            live on in the hearts of those who visit this
-                            memorializations page.
+                            A community whether found in friends, family or
+                            someplace else is always the most important when you
+                            lose someone you love.
                           </Typography>
                         </Grid>
                         <Grid container item>
-                          <Stack direction="column" spacing={2}>
-                            <Stack
-                              direction="row"
-                              spacing={1}
-                              alignItems={isDesktop ? 'center' : 'auto'}
-                            >
-                              <CheckCircleOutlineIcon
-                                fontSize={isDesktop ? 'medium' : 'large'}
-                                style={{ color: '#D77F33' }}
-                              />
-                              <Typography
-                                style={{
-                                  color: 'var(--gray-600, #475467)',
-                                  fontFamily: 'Inter',
-                                  fontSize: '18px',
-                                  fontStyle: 'normal',
-                                  fontWeight: '400',
-                                  textAlign: 'start',
-                                  lineHeight: '28px',
-                                }}
-                                component="span"
+                          <Grid container item>
+                            <Stack direction="column" spacing={2}>
+                              <Stack
+                                direction="row"
+                                spacing={1}
+                                alignItems={isDesktop ? 'center' : 'auto'}
                               >
-                                Take a moment to{' '}
+                                <CheckCircleOutlineIcon
+                                  fontSize={isDesktop ? 'medium' : 'large'}
+                                  style={{ color: '#D77F33' }}
+                                />
                                 <Typography
                                   style={{
                                     color: 'var(--gray-600, #475467)',
                                     fontFamily: 'Inter',
                                     fontSize: '18px',
                                     fontStyle: 'normal',
-                                    fontWeight: '700',
+                                    fontWeight: '400',
+                                    textAlign: 'start',
                                     lineHeight: '28px',
                                   }}
                                   component="span"
                                 >
-                                  reflect
-                                </Typography>{' '}
-                                on all the special moments.
-                              </Typography>
-                            </Stack>
-                            <Stack
-                              direction="row"
-                              spacing={1}
-                              alignItems={isDesktop ? 'center' : 'auto'}
-                            >
-                              <CheckCircleOutlineIcon
-                                fontSize={isDesktop ? 'medium' : 'large'}
-                                style={{ color: '#D77F33' }}
-                              />
-                              <Typography
-                                style={{
-                                  color: 'var(--gray-600, #475467)',
-                                  fontFamily: 'Inter',
-                                  fontSize: '18px',
-                                  fontStyle: 'normal',
-                                  fontWeight: '700',
-                                  textAlign: 'start',
-                                  lineHeight: '28px',
-                                }}
-                                component="span"
+                                  Reach out to others who have also experienced
+                                  the loss of a beloved pet, offering them
+                                  empathy and understanding.
+                                </Typography>
+                              </Stack>
+                              <Stack
+                                direction="row"
+                                spacing={1}
+                                alignItems={isDesktop ? 'center' : 'auto'}
                               >
-                                Share{' '}
+                                <CheckCircleOutlineIcon
+                                  fontSize={isDesktop ? 'medium' : 'large'}
+                                  style={{ color: '#D77F33' }}
+                                />
                                 <Typography
                                   style={{
                                     color: 'var(--gray-600, #475467)',
@@ -784,36 +714,24 @@ function OnlineMemorials(props) {
                                     fontStyle: 'normal',
                                     fontWeight: '400',
                                     lineHeight: '28px',
+                                    textAlign: 'start',
                                   }}
                                   component="span"
                                 >
-                                  your stories & photos, and anecdotes with
-                                  others.
+                                  Provide a listening ear and a compassionate
+                                  space for them to share their own stories and
+                                  memories.
                                 </Typography>
-                              </Typography>
-                            </Stack>
-                            <Stack
-                              direction="row"
-                              spacing={1}
-                              alignItems={isDesktop ? 'center' : 'auto'}
-                            >
-                              <CheckCircleOutlineIcon
-                                fontSize={isDesktop ? 'medium' : 'large'}
-                                style={{ color: '#D77F33' }}
-                              />
-                              <Typography
-                                style={{
-                                  color: 'var(--gray-600, #475467)',
-                                  fontFamily: 'Inter',
-                                  fontSize: '18px',
-                                  fontStyle: 'normal',
-                                  fontWeight: '700',
-                                  textAlign: 'start',
-                                  lineHeight: '28px',
-                                }}
-                                component="span"
+                              </Stack>
+                              <Stack
+                                direction="row"
+                                spacing={1}
+                                alignItems={isDesktop ? 'center' : 'auto'}
                               >
-                                Celebrate{' '}
+                                <CheckCircleOutlineIcon
+                                  fontSize={isDesktop ? 'medium' : 'large'}
+                                  style={{ color: '#D77F33' }}
+                                />
                                 <Typography
                                   style={{
                                     color: 'var(--gray-600, #475467)',
@@ -822,15 +740,17 @@ function OnlineMemorials(props) {
                                     fontStyle: 'normal',
                                     fontWeight: '400',
                                     lineHeight: '28px',
+                                    textAlign: 'start',
                                   }}
                                   component="span"
                                 >
-                                  the life of your beloved pet by sharing their
-                                  legacy.
+                                  By sharing your own journey, you can comfort
+                                  others who may be going through a similar
+                                  grieving process.
                                 </Typography>
-                              </Typography>
+                              </Stack>
                             </Stack>
-                          </Stack>
+                          </Grid>
                         </Grid>
                       </Grid>
                       <Grid
@@ -887,6 +807,87 @@ function OnlineMemorials(props) {
                         Love lasts a lifetime
                       </Typography>
                     </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    item
+                    alignContent="center"
+                    spacing={1}
+                    xs={12}
+                  >
+                    <Grid item>
+                      <MemorialsCard image={PetCat} />
+                    </Grid>
+                    <Grid item>
+                      <MemorialsCard image={Dog} />
+                    </Grid>
+                    <Grid item>
+                      <MemorialsCard image={ParrotImg} />
+                    </Grid>
+                  </Grid>
+                  <Grid item md={6} xs={12}>
+                    <Button fullWidth variant="contained">
+                      Browse All Memorials
+                    </Button>
+                  </Grid>
+                  <Grid item direction="row">
+                    <Box
+                      style={{
+                        background: '#F2F4F7',
+                        borderRadius: '24px',
+                      }}
+                    >
+                      <Stack direction={isDesktop ? 'row' : 'column'}>
+                        <Stack
+                          direction="column"
+                          style={{ padding: isDesktop ? '64px' : '40px 24px' }}
+                          justifyContent="center"
+                        >
+                          <Rating readOnly value={5} />
+
+                          <Typography
+                            style={{
+                              color: 'var(--gray-900, #101828)',
+                              fontFamily: 'Inter',
+                              fontSize: '36px',
+                              fontStyle: 'normal',
+                              fontWeight: '500',
+                              lineHeight: '44px',
+                              letterSpacing: '-0.72px',
+                              textAlign: 'start',
+                            }}
+                          >
+                            Making a memorial is easy, and stays forever. I
+                            always find myself coming back to her page, to
+                            remind myself of everything we shared.
+                          </Typography>
+                          <Typography
+                            style={{
+                              color: 'var(--gray-900, #101828)',
+                              fontFamily: 'Inter',
+                              fontSize: '18px',
+                              fontStyle: 'normal',
+                              fontWeight: '600',
+                              lineHeight: '28px',
+                              textAlign: 'start',
+                            }}
+                          >
+                            — Renee Wells
+                          </Typography>
+                        </Stack>
+                        <img
+                          src={CatHugging}
+                          alt="cat-hugging"
+                          style={{
+                            borderRadius: isDesktop
+                              ? '0px 24px 24px 0px'
+                              : '0px 0px 24px 24px',
+                            height: '100%',
+                            width: '100%',
+                          }}
+                        />
+                      </Stack>
+                    </Box>
                   </Grid>
                 </Grid>
               </div>
