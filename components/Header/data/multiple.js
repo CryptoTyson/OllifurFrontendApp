@@ -45,7 +45,7 @@ const multiple = [
       },
       {
         name: 'Digital Memorial',
-        link: '#',
+        link: '/online-memorials',
         desc: '',
       },
       {
