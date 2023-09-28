@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  Fragment
-} from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
@@ -17,14 +12,15 @@ import ListItemText from '@mui/material/ListItemText';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useTranslation } from 'next-i18next';
 import useStyles from '../header-style';
-
-
+import { Grid, Stack, Typography } from '@mui/material';
+import buildingImg from '../../../public/images/building-03.png';
+import imgAPI from '../../../public/images/imgAPI';
 interface MultiLevelHoverProps {
-  dataMenu: unknown[]
+  dataMenu: unknown[];
 }
 
 function MultiLevelHover(props: MultiLevelHoverProps) {
-  const { classes, cx }:any = useStyles();
+  const { classes, cx }: any = useStyles();
   const { dataMenu } = props;
   const { i18n } = useTranslation('common');
 
@@ -44,7 +40,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
   const [anchorChild, setAnchorChild] = useState({});
 
   // Parent function
-  const handleToggle = (event:any, name: React.SetStateAction<string>) => {
+  const handleToggle = (event: any, name: React.SetStateAction<string>) => {
     setOpen((newOpen) => !newOpen);
     setName(name);
     setAnchorEl(event.currentTarget);
@@ -58,44 +54,48 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
   };
 
   // Child function
-  const handleToggleChild = (event: React.MouseEvent<HTMLLIElement, MouseEvent>, parent: any, id: any) => {
+  const handleToggleChild = (
+    event: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    parent: any,
+    id: any,
+  ) => {
     let menuClose = {};
     let anchorClose = {};
     for (let i = 0; i < parent.child.length; i += 1) {
       if (parent.child[i].id !== id) {
         menuClose = {
           ...menuClose,
-          [parent.child[i].id]: false
+          [parent.child[i].id]: false,
         };
         anchorClose = {
           ...anchorClose,
-          [parent.child[i].id]: null
+          [parent.child[i].id]: null,
         };
       }
     }
     setMenuChild({
       ...menuChild,
       ...menuClose,
-      [id]: true
+      [id]: true,
     });
     setAnchorChild({
       ...anchorChild,
       ...anchorClose,
-      [id]: event.currentTarget
+      [id]: event.currentTarget,
     });
   };
 
-  const handleCloseChild = (event:any, parent: any) => {
+  const handleCloseChild = (event: any, parent: any) => {
     let menuClose = {};
     let anchorClose = {};
     for (let i = 0; i < parent.child.length; i += 1) {
       menuClose = {
         ...menuClose,
-        [parent.child[i].id]: false
+        [parent.child[i].id]: false,
       };
       anchorClose = {
         ...anchorClose,
-        [parent.child[i].id]: null
+        [parent.child[i].id]: null,
       };
     }
     setMenuChild({
@@ -119,12 +119,25 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
     setLangPath('/' + i18n.language);
   }, [open]);
 
-  const childMenu = (menu: { [x: string]: any; }, item: { id: string | number; child: any[]; }, anchor: { [x: string]: any; }) => (
-    <Popper anchorEl={anchor[item.id] || null} open={menu[item.id] || false} placement="right-start" transition disablePortal>
+  const childMenu = (
+    menu: { [x: string]: any },
+    item: { id: string | number; child: any[] },
+    anchor: { [x: string]: any },
+  ) => (
+    <Popper
+      anchorEl={anchor[item.id] || null}
+      open={menu[item.id] || false}
+      placement="right-start"
+      transition
+      disablePortal
+    >
       {({ TransitionProps, placement }) => (
         <Grow
           {...TransitionProps}
-          style={{ transformOrigin: placement === 'bottom' ? 'center bottom' : 'center top' }}
+          style={{
+            transformOrigin:
+              placement === 'bottom' ? 'center bottom' : 'center top',
+          }}
         >
           <Paper>
             <ClickAwayListener onClickAway={handleClose}>
@@ -135,10 +148,12 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                       <MenuItem
                         key={index.toString()}
                         onClick={handleClose}
-                        onMouseEnter={(e) => handleToggleChild(e, item, subitem.id)}
+                        onMouseEnter={(e) =>
+                          handleToggleChild(e, item, subitem.id)
+                        }
                       >
                         <ListItemText primary={subitem.name} />
-                        { childMenu(menuChild, subitem, anchorChild) }
+                        {childMenu(menuChild, subitem, anchorChild)}
                         <ChevronRightIcon fontSize="small" />
                       </MenuItem>
                     );
@@ -148,9 +163,21 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                       key={index.toString()}
                       onMouseEnter={(e) => handleCloseChild(e, item)}
                       onClick={handleClose}
-                      className={cx(classes.menuList, curURL === curOrigin + langPath + subitem.link ? classes.current : '')}
+                      className={cx(
+                        classes.menuList,
+                        curURL === curOrigin + langPath + subitem.link
+                          ? classes.current
+                          : '',
+                      )}
                     >
-                      <ListItem disableGutters disableRipple className={classes.link} button component="a" href={subitem.link}>
+                      <ListItem
+                        disableGutters
+                        disableRipple
+                        className={classes.link}
+                        button
+                        component="a"
+                        href={subitem.link}
+                      >
                         <ListItemText primary={subitem.name} />
                       </ListItem>
                     </MenuItem>
@@ -166,78 +193,172 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
 
   return (
     <ul className={classes.multiMenu}>
-      {dataMenu.map((item:{id:string,name:string,link:string,child:any}, index) => (
-        <Fragment key={index.toString()}>
-          {item.child ? (
-            <li
-              onMouseEnter={(e) => handleToggle(e, item.name)}
-              onMouseLeave={(e) => handleClose()}
-              ref={anchorRef}
-            >
-              <div>
-                <Button endIcon={<Icon>expand_more</Icon>}>{item.name}</Button>
-                <Popper
-                  open={menuName === item.name}
-                  anchorEl={anchorEl || null}
-                  placement="bottom-start"
-                  className={classes.multiMenuRoot}
-                  role={undefined}
-                  transition
-                  disablePortal
-                >
-                  {({ TransitionProps, placement }) => (
-                    <Grow
-                      {...TransitionProps}
-                      style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                    >
-                      <Paper>
-                        <ClickAwayListener onClickAway={handleClose}>
-                          <MenuList autoFocusItem={open} id="menu-list-grow">
-                            {item.child.map((subitem: { child: any; id: any; name?: any; link?: any; }, indexChild: { toString: () => React.Key | null | undefined; }) => {
-                              if (subitem.child) {
-                                return (
-                                  <MenuItem
-                                    key={indexChild.toString()}
-                                    onClick={handleClose}
-                                    onMouseEnter={(e) => handleToggleChild(e, item, subitem.id)}
-                                    className={classes.menuList}
-                                  >
-                                    <ListItemText primary={subitem.name} />
-                                    {childMenu(menuChild, subitem, anchorChild)}
-                                    <ChevronRightIcon fontSize="small" />
-                                  </MenuItem>
-                                );
-                              }
-                              return (
-                                <MenuItem
-                                  key={indexChild.toString()}
-                                  onMouseEnter={(e) => handleCloseChild(e, item)}
-                                  onClick={handleClose}
-                                  className={cx(classes.menuList, curURL === curOrigin + langPath + subitem.link ? classes.current : '')}
-                                >
-                                  <ListItem disableGutters disableRipple className={classes.link} button component="a" href={subitem.link}>
-                                    <ListItemText primary={subitem.name} />
-                                  </ListItem>
-                                </MenuItem>
-                              );
-                            })}
-                          </MenuList>
-                        </ClickAwayListener>
-                      </Paper>
-                    </Grow>
-                  )}
-                </Popper>
-              </div>
-            </li>
-          ) : (
-            <li key={index.toString()}>
-              <div>
-                <Button href={item.link}>{item.name}</Button>
-              </div>
-            </li>
-          )}
-        </Fragment>
-      ))}
+      {dataMenu.map(
+        (
+          item: { id: string; name: string; link: string; child: any },
+          index,
+        ) => (
+          <Fragment key={index.toString()}>
+            {item.child ? (
+              <li
+                onMouseEnter={(e) => handleToggle(e, item.name)}
+                onMouseLeave={(e) => handleClose()}
+                ref={anchorRef}
+              >
+                <div>
+                  <Button endIcon={<Icon>expand_more</Icon>}>
+                    {item.name}
+                  </Button>
+                  <Popper
+                    open={menuName === item.name}
+                    anchorEl={anchorEl || null}
+                    placement="bottom-start"
+                    className={classes.multiMenuRoot}
+                    role={undefined}
+                    transition
+                    disablePortal
+                  >
+                    {({ TransitionProps, placement }) => (
+                      <Grow
+                        {...TransitionProps}
+                        style={{
+                          transformOrigin:
+                            placement === 'bottom'
+                              ? 'center top'
+                              : 'center bottom',
+                        }}
+                      >
+                        <Paper>
+                          <ClickAwayListener onClickAway={handleClose}>
+                            <MenuList autoFocusItem={open} id="menu-list-grow">
+                              {item.child.map(
+                                (
+                                  subitem: {
+                                    child: any;
+                                    id: any;
+                                    name?: any;
+                                    link?: any;
+                                    desc?: any;
+                                  },
+                                  indexChild: {
+                                    toString: () =>
+                                      | React.Key
+                                      | null
+                                      | undefined;
+                                  },
+                                ) => {
+                                  if (subitem.child) {
+                                    return (
+                                      <MenuItem
+                                        key={indexChild.toString()}
+                                        onClick={handleClose}
+                                        onMouseEnter={(e) =>
+                                          handleToggleChild(e, item, subitem.id)
+                                        }
+                                        className={classes.menuList}
+                                      >
+                                        <ListItemText primary={subitem.name} />
+                                        {childMenu(
+                                          menuChild,
+                                          subitem,
+                                          anchorChild,
+                                        )}
+                                        <ChevronRightIcon fontSize="small" />
+                                      </MenuItem>
+                                    );
+                                  }
+                                  return (
+                                    <MenuItem
+                                      key={indexChild.toString()}
+                                      onMouseEnter={(e) =>
+                                        handleCloseChild(e, item)
+                                      }
+                                      onClick={handleClose}
+                                      className={cx(
+                                        classes.menuList,
+                                        curURL ===
+                                          curOrigin + langPath + subitem.link
+                                          ? classes.current
+                                          : '',
+                                      )}
+                                    >
+                                      <ListItem
+                                        disableGutters
+                                        disableRipple
+                                        className={classes.link}
+                                        button
+                                        component="a"
+                                        href={subitem.link}
+                                      >
+                                        <Grid
+                                          container
+                                          direction={'row'}
+                                          alignItems={'flex-start'}
+                                          flexWrap={'nowrap'}
+                                          spacing={5}
+                                        >
+                                          <Grid item xs={1}>
+                                            <img
+                                              src={
+                                                imgAPI.dropdownImg[subitem.id]
+                                              }
+                                              alt="Crematoriums"
+                                            />
+                                          </Grid>
+                                          <Grid item xs={11}>
+                                            <Stack direction={'column'}>
+                                              <Typography
+                                                style={{
+                                                  color:
+                                                    'var(--gray-900, #101828)',
+                                                  fontFamily: 'Inter',
+                                                  fontSize: '16px',
+                                                  fontStyle: 'normal',
+                                                  fontWeight: '600',
+                                                  lineHeight: '24px',
+                                                }}
+                                              >
+                                                {subitem.name}
+                                              </Typography>
+                                              <Typography
+                                                style={{
+                                                  color:
+                                                    'var(--gray-600, #475467)',
+                                                  fontFamily: 'Inter',
+                                                  fontSize: '14px',
+                                                  fontStyle: 'normal',
+                                                  fontWeight: '400',
+                                                  lineHeight: '20px',
+                                                }}
+                                              >
+                                                {subitem.desc}
+                                              </Typography>
+                                            </Stack>
+                                          </Grid>
+                                        </Grid>
+                                      </ListItem>
+                                    </MenuItem>
+                                  );
+                                },
+                              )}
+                            </MenuList>
+                          </ClickAwayListener>
+                        </Paper>
+                      </Grow>
+                    )}
+                  </Popper>
+                </div>
+              </li>
+            ) : (
+              <li key={index.toString()}>
+                <div>
+                  <Button href={item.link}>{item.name}</Button>
+                </div>
+              </li>
+            )}
+          </Fragment>
+        ),
+      )}
     </ul>
   );
 }

@@ -39,19 +39,22 @@ const multiple = [
     name: 'Services',
     child: [
       {
+        id: '0',
         name: 'Crematoriums',
         link: '/crematoriums',
-        desc: '',
+        desc: 'Browse all available Crematoriums near you',
       },
       {
+        id: '1',
         name: 'Digital Memorial',
         link: '/online-memorials',
-        desc: '',
+        desc: 'Create, publish and share a Digital Memorial for your pet.',
       },
       {
+        id: '2',
         name: 'Pre-Plan',
         link: '#',
-        desc: '',
+        desc: 'Pre-plan a cremation with care and thoughtfulness today',
       },
     ],
   },
@@ -60,16 +63,22 @@ const multiple = [
     name: 'Resoucres',
     child: [
       {
-        id: 'id_3_1',
+        id: '3',
         name: 'Blog',
         link: '#',
-        desc: '',
+        desc: 'Everything you need to know about Pet Cremations and more',
       },
       {
-        id: 'id_3_3',
+        id: '4',
+        name: 'About Us',
+        link: '#',
+        desc: 'Our story, mission and what drives us forward.',
+      },
+      {
+        id: '5',
         name: 'Help and support',
         link: '#',
-        desc: '',
+        desc: 'Learn, fix a problem, and get answers to your questions.',
       },
     ],
   },

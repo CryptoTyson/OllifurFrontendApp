@@ -1,4 +1,6 @@
-const img3d = { // eslint-disable-line
+const img3d = {
+  // eslint-disable-line
+
   main: [
     '',
     '/images/retail/banner1_3d@2x.png',
@@ -24,7 +26,7 @@ const img3d = { // eslint-disable-line
     '',
     '/images/retail/showcase5_3d@2x.png',
     '',
-    '/images/retail/showcase6_3d@2x.png'
+    '/images/retail/showcase6_3d@2x.png',
   ],
   inner: [
     '',
@@ -38,11 +40,12 @@ const img3d = { // eslint-disable-line
     '',
     '/images/retail/error_3d@2x.png',
     '',
-    '/images/retail/team_3d@2x.png'
-  ]
+    '/images/retail/team_3d@2x.png',
+  ],
 };
 
-const img2d = { // eslint-disable-line
+const img2d = {
+  // eslint-disable-line
   main: [
     '',
     '/images/retail/banner1_2d@2x.png',
@@ -68,7 +71,7 @@ const img2d = { // eslint-disable-line
     '',
     '/images/retail/showcase5_2d@2x.png',
     '',
-    '/images/retail/showcase6_2d@2x.png'
+    '/images/retail/showcase6_2d@2x.png',
   ],
   inner: [
     '',
@@ -82,11 +85,19 @@ const img2d = { // eslint-disable-line
     '',
     '/images/retail/error_2d@2x.png',
     '',
-    '/images/retail/team_2d@2x.png'
-  ]
+    '/images/retail/team_2d@2x.png',
+  ],
 };
 
 const imgAPI = {
+  dropdownImg: [
+    '/images/dropdown/building-03.png',
+    '/images/dropdown/book-open-02.png',
+    '/images/dropdown/heart-hand.png',
+    '/images/dropdown/book-closed.png',
+    '/images/dropdown/stars-02.png',
+    '/images/dropdown/life-buoy-01.png',
+  ],
   avatar: [
     '/images/avatars/pp_girl.svg',
     '/images/avatars/pp_girl2.svg',
@@ -98,7 +109,7 @@ const imgAPI = {
     '/images/avatars/pp_boy2.svg',
     '/images/avatars/pp_boy3.svg',
     '/images/avatars/pp_boy4.svg',
-    '/images/avatars/pp_boy5.svg'
+    '/images/avatars/pp_boy5.svg',
   ],
   photo: [
     // 1
@@ -187,7 +198,7 @@ const imgAPI = {
     '/images/retail/menu_saas@2x.jpg',
     '/images/retail/menu_saas2@2x.jpg',
     '/images/retail/menu_social@2x.jpg',
-    '/images/retail/menu_other@2x.jpg'
+    '/images/retail/menu_other@2x.jpg',
   ],
   retail: [
     ...img3d.main,
@@ -199,11 +210,9 @@ const imgAPI = {
     'https://via.placeholder.com/910x440/3F51B5/FFFFFF/',
     'https://via.placeholder.com/392x734/00BFA5/FFFFFF/',
     'https://via.placeholder.com/910x440/3F51B5/FFFFFF/',
-    'https://via.placeholder.com/392x734/00BFA5/FFFFFF/'
+    'https://via.placeholder.com/392x734/00BFA5/FFFFFF/',
   ],
-  retailInner: [
-    ...img3d.inner
-  ]
+  retailInner: [...img3d.inner],
 };
 
 export default imgAPI;

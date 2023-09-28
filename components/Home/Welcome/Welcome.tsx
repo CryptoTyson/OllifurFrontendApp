@@ -28,6 +28,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Title from '../../Title';
 import imgAPI from '../../../public/images/imgAPI';
 import Feature from '../Feature/Feature';
+import QuestionCircle from '../../../public/images/message-question-circle.png';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   // eslint-disable-line
@@ -133,7 +134,7 @@ function Welcome() {
                             direction={isDesktop ? 'row' : 'column'}
                             justifyContent={'center'}
                             spacing={2}
-                            style={{ marginTop: '10px' }}
+                            style={{ marginTop: '40px' }}
                           >
                             <Button
                               fullWidth={isMobile}
@@ -141,11 +142,21 @@ function Welcome() {
                                 ':hover': { background: '#FFF' },
                                 color: '#344054',
                                 background: '#FFF',
+                                '&.Mui-disabled': {
+                                  background: 'white',
+                                  color: '#D0D5DD',
+                                },
                               }}
                               startIcon={<VolunteerActivismOutlinedIcon />}
+                              endIcon={
+                                <img
+                                  src={QuestionCircle}
+                                  alt="Question circle"
+                                />
+                              }
                               variant="contained"
                               color="primary"
-                              href={link.retail.register}
+                              disabled
                             >
                               Pre-plan
                             </Button>
