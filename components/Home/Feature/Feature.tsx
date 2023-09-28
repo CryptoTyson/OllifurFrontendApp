@@ -17,7 +17,6 @@ import imgAPI from '../../../public/images/imgAPI';
 import { TransitionProps } from '@mui/material/transitions';
 import { BandPattern } from '../../Test/BandPattern';
 
-
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<any, any>;
@@ -28,12 +27,12 @@ const Transition = React.forwardRef(function Transition(
 });
 
 function Feature() {
-  const { classes, cx }:any = useStyles();
+  const { classes, cx }: any = useStyles();
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const [player, setPlayer]:any = useState([]);
+  const [player, setPlayer]: any = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
 
   const handleClickOpen = () => {
@@ -48,7 +47,7 @@ function Feature() {
     player[0].pauseVideo();
   };
 
-  const _onReady = (event:any) => {
+  const _onReady = (event: any) => {
     player.push(event.target);
     setPlayer(player);
   };
@@ -56,14 +55,15 @@ function Feature() {
   const opts = {
     height: '360',
     width: '640',
-    playerVars: { // https://developers.google.com/youtube/player_parameters
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
       controls: 1,
       rel: 0,
       showinfo: 1,
       mute: 0,
-      origin: 'http://localhost:3007'
-    }
+      origin: 'http://localhost:3007',
+    },
   };
 
   return (
@@ -77,32 +77,41 @@ function Feature() {
       >
         <DialogTitle id="alert-dialog-slide-title">
           Title
-          <IconButton onClick={handleClose} className={classes.closeBtn} size="large">
+          <IconButton
+            onClick={handleClose}
+            className={classes.closeBtn}
+            size="large"
+          >
             <CloseIcon className={classes.icon} />
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          {yt.use && (
-            <YouTube
-              videoId="MltGO66gTbo"
-              onReady={_onReady}
-            />
-          )}
+          {yt.use && <YouTube videoId="MltGO66gTbo" onReady={_onReady} />}
         </DialogContent>
       </Dialog>
       <Container fixed={isDesktop}>
         <div className={cx(classes.item, classes.last)}>
-            <Grid container justifyContent={"center"}>
-            <BandPattern/>
-              <Grid item md={8} xs={12} className={classes.videoContainer} sx={{zIndex: 1}}>
-                <Paper className={classes.video}>
-                  <img src={imgAPI.retail[27]} alt="screen" />
-                  <IconButton className={classes.button} onClick={handleClickOpen} size="large">
-                    <i className="ion-play" />
-                  </IconButton>
-                </Paper>
-              </Grid>
+          <Grid container justifyContent={'center'}>
+            <BandPattern />
+            <Grid
+              item
+              md={8}
+              xs={12}
+              className={classes.videoContainer}
+              sx={{ zIndex: 1 }}
+            >
+              <Paper className={classes.video}>
+                <img src={imgAPI.retail[27]} alt="screen" />
+                <IconButton
+                  className={classes.button}
+                  onClick={handleClickOpen}
+                  size="large"
+                >
+                  <i className="ion-play" />
+                </IconButton>
+              </Paper>
             </Grid>
+          </Grid>
         </div>
       </Container>
     </div>

@@ -209,9 +209,9 @@ function ContactUs(props) {
                       >
                         Our friendly team is here to help.
                       </Typography>
-                      <Button className={classes.button}>
+                      <Typography className={classes.button}>
                         Support@Ollifur.com
-                      </Button>
+                      </Typography>
                     </Grid>
                     <Grid item>
                       <img
@@ -250,9 +250,9 @@ function ContactUs(props) {
                       >
                         Come say hello at our office HQ.
                       </Typography>
-                      <Button className={classes.button}>
+                      <Typography className={classes.button}>
                         595 BURRARD ST VANCOUVER BC
-                      </Button>
+                      </Typography>
                     </Grid>
                     <Grid item>
                       <img
@@ -291,9 +291,9 @@ function ContactUs(props) {
                       >
                         Mon-Sun from 8am to 11pm.
                       </Typography>
-                      <Button className={classes.button}>
+                      <Typography className={classes.button}>
                         +1 (604) 782 5121
-                      </Button>
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -358,7 +358,7 @@ function ContactUs(props) {
             </Grid>
           </Container>
         </section>
-        <section>
+        {/* <section>
           <Container
             style={{
               borderRadius: '16px',
@@ -475,7 +475,7 @@ function ContactUs(props) {
               </Grid>
             </Box>
           </Container>
-        </section>
+        </section> */}
         <div>
           <Footer bg toggleDir={onToggleDir} />
         </div>
