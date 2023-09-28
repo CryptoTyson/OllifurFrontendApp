@@ -1,0 +1,73 @@
+.uui-heroheader18_background-grid-mask {
+  z-index: -1;
+  width: 100%;
+  height: 300%;
+  background-color: #fff;
+  position: absolute;
+  top: auto;
+  bottom: -267%;
+  left: 0%;
+  right: 0%;
+}
+
+.uui-heroheader18_background-grid-section {
+  height: 4.5rem;
+}
+
+.uui-heroheader18_background-grid-section.background-color-primary100 {
+  background-color: #ebbf99;
+}
+
+.uui-heroheader18_background-grid-section.background-color-primary300 {
+  background-color: #d77f33;
+}
+
+.uui-heroheader18_background-grid-section.background-color-primary200 {
+  background-color: #e19f66;
+}
+
+.uui-heroheader18_background-grid-section.background-color-primary300-copy {
+  background-color: #d77f33;
+}
+
+.background-color-primary100 {
+  background-color: #ebbf99;
+}
+
+.background-color-primary300 {
+  background-color: #d77f33;
+}
+
+.background-color-primary200 {
+  background-color: #e19f66;
+}
+
+.uui-heroheader18_background-grid {
+  width: 125rem;
+  min-width: 125rem;
+  grid-column-gap: 0rem;
+  grid-row-gap: 0rem;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+}
+
+.uui-heroheader18_background {
+  z-index: 0;
+  width: 100vw;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  transform: skew(0deg, -7.25deg);
+}
