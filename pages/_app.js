@@ -22,6 +22,8 @@ import '../vendors/react-top-loading-bar.css';
 import '../vendors/page-transition.css';
 import '../vendors/slick/slick.css';
 import '../vendors/slick/slick-theme.css';
+import './utils/styles.css';
+
 import { AuthContextProvider } from '../lib/authContext';
 
 let themeType = 'light';
