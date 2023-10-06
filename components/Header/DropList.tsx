@@ -63,7 +63,21 @@ function Header(props: HeaderProps) {
         <Container fixed={isDesktop}>
           <div className={classes.headerContent}>
             <nav className={classes.navMenu}>
-              { isMobile && (
+              
+              <div className={classes.logo}>
+                <a href={link.retail.home}>
+                  <Logo type="landscape" />
+                </a>
+              </div>
+              
+              {isDesktop && (
+                <div className={classes.mainMenu}>
+                  <MultiLevel dataMenu={multiple} />
+                </div>
+              )}
+            </nav>
+            <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+            { isMobile && (
                 <IconButton
                   onClick={handleOpenDrawer}
                   className={cx('hamburger hamburger--spin', classes.mobileMenu, openDrawer && 'is-active')}
@@ -74,18 +88,6 @@ function Header(props: HeaderProps) {
                   </span>
                 </IconButton>
               )}
-              <div className={classes.logo}>
-                <a href={link.retail.home}>
-                  <Logo type="landscape" />
-                </a>
-              </div>
-              {isDesktop && (
-                <div className={classes.mainMenu}>
-                  <MultiLevel dataMenu={multiple} />
-                </div>
-              )}
-            </nav>
-            <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
           </div>
         </Container>
       </AppBar>
