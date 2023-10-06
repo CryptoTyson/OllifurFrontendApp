@@ -89,6 +89,7 @@ function MobileMenu(props) {
 
   return (
     <SwipeableDrawer
+      anchor="right"
       open={open}
       onClose={toggleDrawer}
       onOpen={toggleDrawer}
