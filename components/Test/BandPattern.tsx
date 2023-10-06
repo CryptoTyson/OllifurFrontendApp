@@ -19,7 +19,7 @@ export const BandPattern = (): JSX.Element => {
     //     </div>
     //   </div>
     // </div>
-    <div className="uui-heroheader18_background">
+    <div style={{width: "150vw", minWidth: "150vw"}} className="uui-heroheader18_background">
       <div className="uui-heroheader18_background-grid">
         <div
           className="uui-heroheader18_background-grid-section"

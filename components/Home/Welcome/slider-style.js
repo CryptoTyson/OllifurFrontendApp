@@ -36,7 +36,7 @@ const sliderStyle = makeStyles({ uniqId: 'slider_banner' })((theme, _params, cla
       padding: theme.spacing(15, 0, 10)
     },
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(15, 0, 5)
+      padding: theme.spacing(15, 0, 2)
     },
     [`&.${classes.centerContent}`]: {
       paddingTop: `${theme.spacing(1)} !important`
