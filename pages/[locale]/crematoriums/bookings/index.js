@@ -20,6 +20,7 @@ import {
   MenuItem,
   Select,
   Stack,
+  Switch,
   TextField,
   Typography,
 } from '@mui/material';
@@ -29,11 +30,13 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
+import styled from '@emotion/styled';
+import { MuiTelInput } from 'mui-tel-input';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
-import { MuiTelInput } from 'mui-tel-input';
+import StripeIcon from '../../../../public/images/stripe.png';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
@@ -106,6 +109,57 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
+const IOSSwitch = styled((props) => (
+  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+))(({ theme }) => ({
+  width: 42,
+  height: 26,
+  padding: 0,
+  '& .MuiSwitch-switchBase': {
+    padding: 0,
+    margin: 2,
+    transitionDuration: '300ms',
+    '&.Mui-checked': {
+      transform: 'translateX(16px)',
+      color: '#fff',
+      '& + .MuiSwitch-track': {
+        backgroundColor: theme.palette.mode === 'dark' ? '#884E1B' : '#884E1B',
+        opacity: 1,
+        border: 0,
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: 0.5,
+      },
+    },
+    '&.Mui-focusVisible .MuiSwitch-thumb': {
+      color: '#884E1B',
+      border: '6px solid #fff',
+    },
+    '&.Mui-disabled .MuiSwitch-thumb': {
+      color:
+        theme.palette.mode === 'light'
+          ? theme.palette.grey[100]
+          : theme.palette.grey[600],
+    },
+    '&.Mui-disabled + .MuiSwitch-track': {
+      opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    boxSizing: 'border-box',
+    width: 22,
+    height: 22,
+  },
+  '& .MuiSwitch-track': {
+    borderRadius: 26 / 2,
+    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    opacity: 1,
+    transition: theme.transitions.create(['background-color'], {
+      duration: 500,
+    }),
+  },
+}));
+
 function bookings(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
@@ -119,6 +173,9 @@ function bookings(props) {
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2023-08-07'),
   );
+  const [selectedTime, setSelectedTime] = React.useState(null);
+  const [selectedDay, setSelectedDay] = React.useState(null);
+  const [pickupCheck, setPickupCheck] = React.useState(true);
 
   const handleDateChange = (newValue) => {
     setSelectedDate(newValue);
@@ -127,11 +184,26 @@ function bookings(props) {
   const [phone, setPhone] = React.useState('');
 
   const [values, setValues] = React.useState({
-    first_name: '',
+    pet_name: '',
     pet_species: '',
+    sub_species: '',
+    characteristics: '',
+    microchipped: '',
+    veterinary_records: '',
+    adp_records: '',
+    owner_name: '',
     email: '',
     phone: '',
-    message: '',
+    owner_address: '',
+    owner_country: '',
+    owner_city: '',
+    owner_pincode: '',
+    pickup_address: '',
+    pickup_country: '',
+    pickup_city: '',
+    pickup_pincode: '',
+    cremation_type: '',
+    pet_weight: '',
   });
 
   const handleChange = (name) => (event) => {
@@ -141,6 +213,10 @@ function bookings(props) {
   const handlePhoneChange = (newPhone) => {
     setPhone(newPhone);
     setValues({ ...values, phone: newPhone });
+  };
+
+  const handlePickupCheck = (event) => {
+    setPickupCheck(event.target.checked);
   };
 
   React.useEffect(() => {
@@ -159,8 +235,6 @@ function bookings(props) {
     '04 - 05 PM',
     '05 - 06 PM',
   ];
-  const [selectedTime, setSelectedTime] = React.useState(null);
-  const [selectedDay, setSelectedDay] = React.useState(null);
 
   return (
     <Fragment>
@@ -224,6 +298,7 @@ function bookings(props) {
                 borderRadius: '16px',
                 background: 'var(--gray-50, #f6f7f9)',
                 padding: '12px',
+                marginBottom: '80px',
               }}
               spacing={2}
             >
@@ -506,7 +581,7 @@ function bookings(props) {
                           <Grid item sm={6} xs={12}>
                             <InputLabel
                               shrink
-                              htmlFor="first_name"
+                              htmlFor="pet_name"
                               sx={{
                                 color: 'var(--gray-700, #344054)',
                                 fontFamily: 'Inter',
@@ -516,13 +591,13 @@ function bookings(props) {
                                 lineHeight: '20px',
                               }}
                             >
-                              First Name*
+                              Name*
                             </InputLabel>
                             <TextValidator
                               fullWidth
                               className={classes.input}
-                              onChange={handleChange('first_name')}
-                              name="first_name"
+                              onChange={handleChange('pet_name')}
+                              name="pet_name"
                               value={values.first_name}
                               validators={['required']}
                               errorMessages={['this field is required']}
@@ -755,6 +830,561 @@ function bookings(props) {
                       </Typography>
                     </Box>
                   </Stack>
+                  <Stack
+                    container
+                    sx={{
+                      border: '1px solid lightgray',
+                      padding: '20px',
+                      borderRadius: '16px',
+                      background: 'var(--primary-50, #F8EADD)',
+                    }}
+                    spacing={4}
+                  >
+                    <Typography
+                      sx={{
+                        color: 'var(--gray-900, #101828)',
+                        fontFamily: 'Inter',
+                        fontSize: '20px',
+                        fontStyle: 'normal',
+                        fontWeight: '600',
+                        lineHeight: '30px',
+                      }}
+                    >
+                      Personal Information (OWNER)
+                    </Typography>
+                    <Box>
+                      <ValidatorForm
+                        onSubmit={handleSubmit}
+                        onError={(errors) => console.log(errors)}
+                      >
+                        <Grid container spacing={3}>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="owner_name"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Name*
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              className={classes.input}
+                              onChange={handleChange('owner_name')}
+                              name="owner_name"
+                              value={values.first_name}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="phone"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Phone Number
+                            </InputLabel>
+                            <MuiTelInput
+                              fullWidth
+                              className={classes.input}
+                              onChange={handlePhoneChange}
+                              name="phone"
+                              value={phone}
+                              defaultCountry="CA"
+                              validators={['required']}
+                              placeholder="+1 (555) 000-0000"
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="email"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Email*
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              className={classes.input}
+                              onChange={handleChange('email')}
+                              name="email"
+                              value={values.email}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="owner_address"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Address*
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              className={classes.input}
+                              onChange={handleChange('owner_address')}
+                              name="owner_address"
+                              value={values.owner_address}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="owner_country"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Country*
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              className={classes.input}
+                              onChange={handleChange('owner_country')}
+                              name="owner_country"
+                              value={values.owner_country}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="owner_city"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              City*
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              className={classes.input}
+                              onChange={handleChange('owner_city')}
+                              name="owner_city"
+                              value={values.owner_city}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="owner_pincode"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Pincode*
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              className={classes.input}
+                              onChange={handleChange('owner_pincode')}
+                              name="owner_pincode"
+                              value={values.owner_pincode}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                        </Grid>
+                      </ValidatorForm>
+                    </Box>
+                  </Stack>
+                  <Stack
+                    container
+                    sx={{
+                      border: '1px solid lightgray',
+                      padding: '20px',
+                      borderRadius: '16px',
+                      background: 'var(--primary-50, #F8EADD)',
+                    }}
+                    spacing={4}
+                  >
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          color: 'var(--gray-900, #101828)',
+                          fontFamily: 'Inter',
+                          fontSize: '20px',
+                          fontStyle: 'normal',
+                          fontWeight: '600',
+                          lineHeight: '30px',
+                        }}
+                      >
+                        Do you also want to Schedule a pickup?
+                      </Typography>
+                      <FormControlLabel
+                        control={
+                          <IOSSwitch
+                            sx={{ m: 1 }}
+                            checked={pickupCheck}
+                            onChange={handlePickupCheck}
+                          />
+                        }
+                        label=""
+                      />
+                    </Box>
+                    <Box>
+                      <ValidatorForm
+                        onSubmit={handleSubmit}
+                        onError={(errors) => console.log(errors)}
+                      >
+                        <Grid container spacing={3}>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="pickup_address"
+                              sx={{
+                                color: !pickupCheck
+                                  ? '#cdcdcd'
+                                  : 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Address
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              disabled={!pickupCheck}
+                              className={classes.input}
+                              onChange={handleChange('pickup_address')}
+                              name="pickup_address"
+                              value={values.pickup_address}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="pickup_pincode"
+                              sx={{
+                                color: !pickupCheck
+                                  ? '#cdcdcd'
+                                  : 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Pincode
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              disabled={!pickupCheck}
+                              className={classes.input}
+                              onChange={handleChange('pickup_pincode')}
+                              name="pickup_pincode"
+                              value={values.pickup_pincode}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="pickup_city"
+                              sx={{
+                                color: !pickupCheck
+                                  ? '#cdcdcd'
+                                  : 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              City
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              disabled={!pickupCheck}
+                              className={classes.input}
+                              onChange={handleChange('pickup_city')}
+                              name="pickup_city"
+                              value={values.pickup_city}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="pickup_country"
+                              sx={{
+                                color: !pickupCheck
+                                  ? '#cdcdcd'
+                                  : 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Country
+                            </InputLabel>
+                            <TextValidator
+                              fullWidth
+                              disabled={!pickupCheck}
+                              className={classes.input}
+                              onChange={handleChange('pickup_country')}
+                              name="pickup_country"
+                              value={values.pickup_country}
+                              validators={['required']}
+                              errorMessages={['this field is required']}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            />
+                          </Grid>
+                        </Grid>
+                      </ValidatorForm>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                      }}
+                    >
+                      <ReportGmailerrorredIcon
+                        sx={{ color: 'var(--gray-500, #667085)' }}
+                      />
+                      <Typography
+                        sx={{
+                          color: 'var(--gray-500, #667085)',
+                          fontFamily: 'Inter',
+                          fontSize: '14px',
+                          fontStyle: 'normal',
+                          fontWeight: '600',
+                          lineHeight: '20px',
+                        }}
+                      >
+                        This Crematorium only offers pickups within the City of
+                        Vancouver
+                      </Typography>
+                    </Box>
+                  </Stack>
+                  <Stack
+                    container
+                    sx={{
+                      border: '1px solid lightgray',
+                      padding: '20px',
+                      borderRadius: '16px',
+                      background: 'var(--primary-50, #F8EADD)',
+                    }}
+                    spacing={4}
+                  >
+                    <Typography
+                      sx={{
+                        color: 'var(--gray-900, #101828)',
+                        fontFamily: 'Inter',
+                        fontSize: '20px',
+                        fontStyle: 'normal',
+                        fontWeight: '600',
+                        lineHeight: '30px',
+                      }}
+                    >
+                      Cremation information
+                    </Typography>
+                    <Box>
+                      <ValidatorForm
+                        onSubmit={handleSubmit}
+                        onError={(errors) => console.log(errors)}
+                      >
+                        <Grid container spacing={3}>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="Cremation Type"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Cremation Type
+                            </InputLabel>
+                            <Select
+                              labelId="Cremation Type"
+                              id="Cremation Type"
+                              value={values.cremation_type}
+                              fullWidth
+                              label=""
+                              onChange={handleChange('cremation_type')}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            >
+                              <MenuItem value="Private Cremation">
+                                Private Cremation
+                              </MenuItem>
+                              <MenuItem value="Public Cremation">
+                                Public Cremation
+                              </MenuItem>
+                            </Select>
+                          </Grid>
+                          <Grid item sm={6} xs={12}>
+                            <InputLabel
+                              shrink
+                              htmlFor="Weight of Pet"
+                              sx={{
+                                color: 'var(--gray-700, #344054)',
+                                fontFamily: 'Inter',
+                                fontSize: '20px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Weight of Pet
+                            </InputLabel>
+                            <Select
+                              labelId="Weight of Pet"
+                              id="Weight of Pet"
+                              value={values.pet_weight}
+                              fullWidth
+                              label=""
+                              onChange={handleChange('pet_weight')}
+                              sx={{
+                                '& .MuiInputBase-input': {
+                                  padding: '10px 14px',
+                                },
+                              }}
+                            >
+                              <MenuItem value="0 - 20 lbs / 0 - 9 Kg">
+                                0 - 20 lbs / 0 - 9 Kg
+                              </MenuItem>
+                              <MenuItem value="21 - 40 lbs / 10 - 19 Kg">
+                                21 - 40 lbs / 10 - 19 Kg
+                              </MenuItem>
+                            </Select>
+                          </Grid>
+                        </Grid>
+                      </ValidatorForm>
+                    </Box>
+                  </Stack>
                 </Stack>
               </Grid>
               <Grid item sm={3}>
@@ -767,12 +1397,32 @@ function bookings(props) {
                         borderBottom: '1px solid #e0e0e0',
                       }}
                     >
-                      <Typography style={{ fontWeight: 500 }}>
-                        Order Review
-                      </Typography>
-                      <Typography style={{ marginLeft: 'auto' }}>
-                        3 items added
-                      </Typography>
+                      <Stack>
+                        <Typography
+                          style={{
+                            color: '#000',
+                            fontFamily: 'Inter',
+                            fontSize: '16px',
+                            fontStyle: 'normal',
+                            fontWeight: '700',
+                            lineHeight: '24px',
+                          }}
+                        >
+                          Order Review
+                        </Typography>
+                        <Typography
+                          style={{
+                            color: '#000',
+                            fontFamily: 'Inter',
+                            fontSize: '12px',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            lineHeight: '18px',
+                          }}
+                        >
+                          3 items added
+                        </Typography>
+                      </Stack>
                     </AccordionSummary>
                     <AccordionDetails>
                       {/* Content for Order Review */}
@@ -787,7 +1437,16 @@ function bookings(props) {
                         borderBottom: '1px solid #e0e0e0',
                       }}
                     >
-                      <Typography style={{ fontWeight: 500 }}>
+                      <Typography
+                        style={{
+                          color: '#000',
+                          fontFamily: 'Inter',
+                          fontSize: '16px',
+                          fontStyle: 'normal',
+                          fontWeight: '700',
+                          lineHeight: '24px',
+                        }}
+                      >
                         Discount Codes
                       </Typography>
                     </AccordionSummary>
@@ -804,7 +1463,16 @@ function bookings(props) {
                         borderBottom: '1px solid #e0e0e0',
                       }}
                     >
-                      <Typography style={{ fontWeight: 500 }}>
+                      <Typography
+                        style={{
+                          color: '#000',
+                          fontFamily: 'Inter',
+                          fontSize: '16px',
+                          fontStyle: 'normal',
+                          fontWeight: '700',
+                          lineHeight: '24px',
+                        }}
+                      >
                         Billing Summary
                       </Typography>
                     </AccordionSummary>
@@ -816,8 +1484,30 @@ function bookings(props) {
                           justifyContent: 'space-between',
                         }}
                       >
-                        <Typography>Subtotal</Typography>
-                        <Typography>$3720.27</Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Subtotal
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '600',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          $3720.27
+                        </Typography>
                       </div>
                       <div
                         style={{
@@ -826,8 +1516,30 @@ function bookings(props) {
                           justifyContent: 'space-between',
                         }}
                       >
-                        <Typography>Discount</Typography>
-                        <Typography>-$749.99</Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Discount
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '600',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          -$749.99
+                        </Typography>
                       </div>
                       <div
                         style={{
@@ -836,8 +1548,30 @@ function bookings(props) {
                           justifyContent: 'space-between',
                         }}
                       >
-                        <Typography>Pickup</Typography>
-                        <Typography>$259.99</Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Pickup
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '600',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          $259.99
+                        </Typography>
                       </div>
                       <div
                         style={{
@@ -846,8 +1580,30 @@ function bookings(props) {
                           justifyContent: 'space-between',
                         }}
                       >
-                        <Typography>Shipping</Typography>
-                        <Typography>$0.00</Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Shipping
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '600',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          $0.00
+                        </Typography>
                       </div>
                       <div
                         style={{
@@ -856,8 +1612,30 @@ function bookings(props) {
                           justifyContent: 'space-between',
                         }}
                       >
-                        <Typography>Tax</Typography>
-                        <Typography>$228.72</Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          Tax
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: 'var(--dark-dark-3, #4F4F4F)',
+                            fontFamily: 'Inter',
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: '600',
+                            lineHeight: '20px',
+                          }}
+                        >
+                          $228.72
+                        </Typography>
                       </div>
                     </AccordionDetails>
                   </Accordion>
@@ -870,10 +1648,28 @@ function bookings(props) {
                       alignItems: 'center',
                     }}
                   >
-                    <Typography style={{ fontSize: '20px', fontWeight: 500 }}>
+                    <Typography
+                      style={{
+                        color: '#000',
+                        fontFamily: 'Inter',
+                        fontSize: '16px',
+                        fontStyle: 'normal',
+                        fontWeight: '700',
+                        lineHeight: '24px',
+                      }}
+                    >
                       Grand Total
                     </Typography>
-                    <Typography style={{ fontSize: '20px', fontWeight: 500 }}>
+                    <Typography
+                      style={{
+                        color: '#000',
+                        fontFamily: 'Inter',
+                        fontSize: '16px',
+                        fontStyle: 'normal',
+                        fontWeight: '700',
+                        lineHeight: '24px',
+                      }}
+                    >
                       $3,439.00
                     </Typography>
                   </div>
@@ -883,7 +1679,12 @@ function bookings(props) {
                     variant="outlined"
                     fullWidth
                     placeholder="Anything you'd like us to know..."
-                    style={{ marginBottom: '15px' }}
+                    style={{
+                      marginBottom: '15px',
+                      '& .MuiFormLabel-root-MuiInputLabel-root': {
+                        background: 'black',
+                      },
+                    }}
                   />
 
                   <FormControlLabel
@@ -897,25 +1698,26 @@ function bookings(props) {
                     color="primary"
                     fullWidth
                     style={{
-                      padding: '15px',
                       borderRadius: '8px',
-                      fontWeight: 'bold',
-                      fontSize: '16px',
+                      border: '1px solid var(--primary-600, #D77F33)',
+                      background: 'var(--primary-600, #D77F33)',
+                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
                     }}
                   >
                     Pay $250
                   </Button>
-
-                  <Typography
-                    align="center"
-                    style={{
-                      marginTop: '10px',
-                      fontSize: '12px',
-                      color: 'gray',
-                    }}
-                  >
-                    Powered by Stripe
-                  </Typography>
+                  <Box display="flex" justifyContent="center">
+                    <img
+                      src={StripeIcon}
+                      alt="stripe"
+                      align="center"
+                      style={{
+                        marginTop: '10px',
+                        height: '23px',
+                        width: '91px',
+                      }}
+                    />
+                  </Box>
                 </div>
               </Grid>
             </Grid>
