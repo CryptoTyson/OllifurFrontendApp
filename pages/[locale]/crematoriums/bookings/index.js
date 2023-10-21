@@ -1344,6 +1344,18 @@ function bookings(props) {
                                 Public Cremation
                               </MenuItem>
                             </Select>
+                            <Typography
+                              sx={{
+                                color: 'var(--gray-600, #475467)',
+                                fontFamily: 'Inter',
+                                fontSize: '14px',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                lineHeight: '20px',
+                              }}
+                            >
+                              Pets will be cremated privately.
+                            </Typography>
                           </Grid>
                           <Grid item sm={6} xs={12}>
                             <InputLabel
@@ -1380,6 +1392,19 @@ function bookings(props) {
                                 21 - 40 lbs / 10 - 19 Kg
                               </MenuItem>
                             </Select>
+                            <Typography
+                              sx={{
+                                color: 'var(--gray-600, #475467)',
+                                fontFamily: 'Inter',
+                                fontSize: '14px',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                lineHeight: '20px',
+                                textDecorationLine: 'underline',
+                              }}
+                            >
+                              Why do we ask for this?
+                            </Typography>
                           </Grid>
                         </Grid>
                       </ValidatorForm>
