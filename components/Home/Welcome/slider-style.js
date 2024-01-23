@@ -202,8 +202,9 @@ const sliderStyle = makeStyles({ uniqId: 'slider_banner' })(
       },
       [`& .${classes.slide}`]: {
         [theme.breakpoints.up('md')]: {
-          height: 1080,
-          paddingTop: theme.spacing(5),
+          // height: 1080,
+          paddingBottom: theme.spacing(9),
+          paddingTop: theme.spacing(12),
         },
       },
     },

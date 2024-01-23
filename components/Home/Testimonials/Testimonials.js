@@ -13,7 +13,14 @@ function Testimonials() {
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
-    <div className={classes.root}>
+    <div
+      style={{
+        marginTop: isDesktop ? '175px' : '0px',
+        padding: isDesktop ? '80px 0px' : '0px',
+        background: '#F8EADD',
+      }}
+      className={classes.root}
+    >
       <Container>
         <Grid
           container
