@@ -58,7 +58,7 @@ function Header(props: HeaderProps) {
           openDrawer && classes.openDrawer,
         )}
       >
-        <Container style={{ padding: 0 }} fixed={isDesktop}>
+        <Container style={{ padding: isDesktop ? 0 : '5px' }} fixed={isDesktop}>
           <div className={classes.headerContent}>
             <nav className={classes.navMenu}>
               <div className={classes.logo}>

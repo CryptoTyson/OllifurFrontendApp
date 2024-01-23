@@ -29,7 +29,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Title from '../../Title';
 import imgAPI from '../../../public/images/imgAPI';
 import Feature from '../Feature/Feature';
-import QuestionCircle from '../../../public/images/message-question-circle.png';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   // eslint-disable-line
@@ -71,40 +71,6 @@ function Welcome() {
     ],
   };
 
-  const [player, setPlayer]: any = useState([]);
-  const [openPopup, setOpenPopup] = useState(false);
-
-  const handleClickOpen = () => {
-    if (yt.use) {
-      setOpenPopup(true);
-      player[0].playVideo();
-    }
-  };
-
-  const handleClose = () => {
-    setOpenPopup(false);
-    player[0].pauseVideo();
-  };
-
-  const _onReady = (event: any) => {
-    player.push(event.target);
-    setPlayer(player);
-  };
-
-  const opts = {
-    height: '360',
-    width: '640',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 0,
-      controls: 1,
-      rel: 0,
-      showinfo: 1,
-      mute: 0,
-      origin: 'http://localhost:3007',
-    },
-  };
-
   return (
     <div className={classes.bannerWrap}>
       <div className={classes.carousel}>
@@ -114,32 +80,44 @@ function Welcome() {
               <div style={{ height: '75%' }} className={classes.inner}>
                 <Container>
                   <Grid container justifyContent="space-between">
-                    <Grid item md={1} xs={1} sm={0} />
+                    <Grid item md={1} xs={0} sm={0} />
                     <Grid item md={8} xs={10}>
                       <Box>
                         <div className={cx(classes.text)}>
-                          <Stack
-                            gap={2}
-                            direction={'row'}
-                            alignItems={'center'}
-                          >
-                            <Typography
-                              style={{ fontWeight: 700, color: '#553111' }}
-                              className={text.supportingText}
+                          {isDesktop && (
+                            <Stack
+                              gap={2}
+                              direction={'row'}
+                              alignItems={'center'}
                             >
-                              Over 1k+ reviews
-                            </Typography>
-                            <Rating name="read-only" value={5} readOnly />
-                          </Stack>
+                              <Typography
+                                style={{ fontWeight: 700, color: '#553111' }}
+                                className={text.supportingText}
+                              >
+                                Over 1k+ reviews
+                              </Typography>
+                              <Rating name="read-only" value={5} readOnly />
+                            </Stack>
+                          )}
                           <Typography
-                            style={{ width: isDesktop ? '130%' : '100%' }}
                             className={text.title}
+                            component={isDesktop ? 'p' : 'span'}
                           >
-                            Cherish the ones you love. We’ll take care of the
-                            rest
+                            Cherish the ones you love.
                           </Typography>
                           <Typography
-                            style={{ width: isDesktop ? '130%' : '100%' }}
+                            style={{
+                              display: 'inline',
+                              background:
+                                'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 52%, rgba(117, 224, 167, 0.50) 50%, rgba(117, 224, 167, 0.50) 100%)',
+                            }}
+                            component={'span'}
+                            className={cx(text.title)}
+                          >
+                            We’ll take care of the rest
+                          </Typography>
+                          <Typography
+                            style={{ width: isDesktop ? '95%' : '100%' }}
                             className={text.supportingText}
                           >
                             At{' '}
@@ -156,7 +134,6 @@ function Welcome() {
                           </Typography>
                           <Stack
                             direction={isDesktop ? 'row' : 'column'}
-                            justifyContent={'center'}
                             spacing={2}
                             style={{ marginTop: '40px' }}
                           >
@@ -166,29 +143,30 @@ function Welcome() {
                                 ':hover': { background: '#FFF' },
                                 color: '#344054',
                                 background: '#FFF',
-                                '&.Mui-disabled': {
-                                  background: 'white',
-                                  color: '#D0D5DD',
-                                },
                               }}
-                              startIcon={<VolunteerActivismOutlinedIcon />}
-                              endIcon={
-                                <img
-                                  src={QuestionCircle}
-                                  alt="Question circle"
-                                />
-                              }
+                              endIcon={<VolunteerActivismOutlinedIcon />}
                               variant="contained"
                               color="primary"
-                              disabled
                             >
-                              Pre-plan
+                              <Typography
+                                style={{
+                                  color: 'var(--Gray-700, #344054)',
+                                  fontFamily: 'Inter',
+                                  fontSize: '18px',
+                                  fontStyle: 'normal',
+                                  fontWeight: '600',
+                                  lineHeight: '28px',
+                                }}
+                              >
+                                Pre-plan
+                              </Typography>
                             </Button>
                             <Button
                               variant="contained"
                               color="primary"
                               fullWidth={isMobile}
                               href={link.retail.register}
+                              endIcon={<ArrowForwardIcon />}
                             >
                               Immediate Need
                             </Button>
@@ -196,7 +174,7 @@ function Welcome() {
                         </div>
                       </Box>
                     </Grid>
-                    <Grid item md={1} xs={1} sm={0} />
+                    <Grid item md={1} xs={0} sm={0} />
                   </Grid>
                 </Container>
                 <Box

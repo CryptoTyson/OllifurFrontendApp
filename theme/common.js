@@ -179,15 +179,23 @@ export const useFloat = makeStyles({ uniqId: 'float' })({
 export const useText = makeStyles({ uniqId: 'text' })((theme) => ({
   title: {
     fontWeight: theme.typography.fontWeightBold,
-    fontSize: '60px',
-    lineHeight: '72px',
-    [theme.breakpoints.down('lg')]: {
-      fontSize: 38,
-      lineHeight: '60px',
+    [theme.breakpoints.up('md')]: {
+      color: '#553111',
+      fontFamily: 'Inter',
+      fontSize: '60px',
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: '72px',
+      letterSpacing: '-1.2px',
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: 28,
+      color: 'var(--Primary-900, #553111)',
+      fontFamily: 'Inter',
+      fontSize: '36px',
+      fontStyle: 'normal',
+      fontWeight: '600',
       lineHeight: '44px',
+      letterSpacing: '-0.72px',
     },
   },
   title2: {
