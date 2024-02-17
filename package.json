@@ -31,6 +31,7 @@
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.14.13",
     "@mui/x-date-pickers": "^6.16.2",
+    "@react-google-maps/api": "^2.19.3",
     "babel-plugin-root-import": "^6.4.1",
     "core-js": "^3.29.1",
     "cross-env": "^7.0.3",

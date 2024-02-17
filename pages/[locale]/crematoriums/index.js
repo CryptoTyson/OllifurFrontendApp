@@ -9,9 +9,11 @@ import Grid from '@mui/material/Grid';
 // Use this below for Static Site Generation (SSG)
 import { makeStyles } from 'tss-react/mui';
 import {
+  Box,
   InputLabel,
   MenuItem,
   Select,
+  Stack,
   Typography,
   useMediaQuery,
 } from '@mui/material';
@@ -22,6 +24,9 @@ import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
 import CrematoriumCard from '../../../components/CrematoriumCard/CrematoriumCard';
+import Pagination from '@mui/material/Pagination';
+import Map from '../../../components/Map';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
@@ -73,12 +78,13 @@ const useStyles = makeStyles()((theme) => ({
     lineHeight: '30px',
   },
   innerText: {
-    color: 'var(--gray-800, #1D2939)',
+    color: 'var(--Primary-600, #D77F33)',
     fontFamily: 'Inter',
     fontSize: '20px',
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '30px',
+    textDecorationLine: 'underline',
   },
   button: {
     color: 'var(--primary-700, #884E1B)',
@@ -93,18 +99,171 @@ const useStyles = makeStyles()((theme) => ({
     marginBottom: '10px',
   },
 }));
+
+const cremationData = [
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Heavenly Rest Cremations',
+    rating: 4.7,
+    reviews: 175,
+    location: {
+      name: 'Calgary, AB',
+      lat: 51.0447,
+      lng: -114.0719,
+    },
+    pickup: false,
+    hours: '9am - 5pm',
+    price: '$220',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Eternal Peace Services',
+    rating: 4.8,
+    reviews: 150,
+    location: {
+      name: 'Toronto, ON',
+      lat: 43.7,
+      lng: -79.42,
+    },
+    pickup: true,
+    hours: '24/7',
+    price: '$250',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Serenity Cremation Services',
+    rating: 5.0,
+    reviews: 98,
+    location: {
+      name: 'Montreal, QC',
+      lat: 45.5017,
+      lng: -73.5673,
+    },
+    pickup: true,
+    hours: '24/7',
+    price: '$245',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Lasting Memories Crematorium',
+    rating: 4.5,
+    reviews: 210,
+    location: {
+      name: 'Halifax, NS',
+      lat: 44.6488,
+      lng: -63.5752,
+    },
+    pickup: false,
+    hours: '10am - 6pm',
+    price: '$200',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Eternal Rest Funerals',
+    rating: 4.6,
+    reviews: 120,
+    location: {
+      name: 'Edmonton, AB',
+      lat: 53.5461,
+      lng: -113.4938,
+    },
+    pickup: true,
+    hours: '24/7',
+    price: '$235',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Tranquil Passage Cremations',
+    rating: 4.9,
+    reviews: 134,
+    location: {
+      name: 'Winnipeg, MB',
+      lat: 49.8951,
+      lng: -97.1384,
+    },
+    pickup: true,
+    hours: '8am - 8pm',
+    price: '$210',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Harmony Cremation Services',
+    rating: 4.4,
+    reviews: 89,
+    location: {
+      name: 'Ottawa, ON',
+      lat: 45.4215,
+      lng: -75.6972,
+    },
+    pickup: false,
+    hours: '9am - 5pm',
+    price: '$225',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Peaceful Journey Crematorium',
+    rating: 4.8,
+    reviews: 160,
+    location: {
+      name: 'Vancouver, BC',
+      lat: 49.2827,
+      lng: -123.1207,
+    },
+    pickup: true,
+    hours: '24/7',
+    price: '$240',
+  },
+  {
+    img: '/images/DM_logo_130x40.svg',
+    title: 'Final Farewell Services',
+    rating: 4.7,
+    reviews: 143,
+    location: {
+      name: 'Saskatoon, SK',
+      lat: 52.1579,
+      lng: -106.67,
+    },
+    pickup: false,
+    hours: '8am - 6pm',
+    price: '$215',
+  },
+];
+
+const cremationCardsPerPage = 4;
+
 function Crematoriums(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
   const [cremationType, setCremationType] = React.useState(1);
+
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [paginatedCards, setPaginatedCards] = React.useState([]);
+
+  const pageCount = Math.ceil(cremationData.length / cremationCardsPerPage);
 
   const handleTypeChange = (event) => {
     setCremationType(event.target.value);
   };
 
   React.useEffect(() => {
+    // Calculate the index of the first and last card on the current page
+    const indexOfLastCard = currentPage * cremationCardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - cremationCardsPerPage;
+
+    // Slice the array to get only the cards for the current page
+    const currentCards = cremationData.slice(indexOfFirstCard, indexOfLastCard);
+
+    // Set the cards for the current page
+    setPaginatedCards(currentCards);
+  }, [currentPage]);
+
+  React.useEffect(() => {
     ValidatorForm.addValidationRule('isTruthy', (value) => value);
   });
+
+  const handleChangePage = (event, value) => {
+    setCurrentPage(value);
+  };
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
@@ -117,254 +276,226 @@ function Crematoriums(props) {
       <div className={classes.mainWrap}>
         <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
         <section id="home">
-          <Container>
-            <div className={classes.bannerWrap}>
-              <div className={classes.inner}>
-                <Grid
-                  container
-                  direction="column"
-                  alignContent="center"
-                  alignItems="center"
-                  spacing={8}
-                >
-                  <Grid
-                    container
-                    item
-                    md={6}
-                    xs={12}
-                    direction="column"
-                    alignContent="center"
-                    alignItems="center"
-                    spacing={2}
+          <div className={classes.bannerWrap}>
+            <Box
+              sx={{
+                display: 'flex',
+                padding: '96px 0px',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '64px',
+                background: 'white',
+              }}
+            >
+              <Stack spacing={3}>
+                <Typography className={classes.subheading}>
+                  Crematoriums
+                </Typography>
+                <Typography className={classes.heading}>
+                  Browse all available Crematoriums
+                </Typography>
+                <Typography component="span" className={classes.supportingtext}>
+                  Facing trouble? want something specific you don’t see?{' '}
+                  <Typography component="span" className={classes.innerText}>
+                    Let us help.
+                  </Typography>
+                </Typography>
+              </Stack>
+            </Box>
+            <Grid
+              container
+              direction={isDesktop ? 'row' : 'column'}
+              style={{
+                borderRadius: '16px',
+                background: 'var(--Primary-50, #F8EADD)',
+                padding: '16px',
+              }}
+            >
+              <Grid
+                item
+                md={7}
+                xs={12}
+                style={{ padding: '32px', background: '#FFFF' }}
+              >
+                <Stack spacing={1}>
+                  <Typography
+                    style={{
+                      color: 'var(--Gray-900, #101828)',
+                      fontFamily: 'Inter',
+                      fontSize: '30px',
+                      fontStyle: 'normal',
+                      fontWeight: '600',
+                      lineHeight: '38px',
+                    }}
                   >
-                    <Grid item>
-                      <Typography className={classes.subheading}>
-                        Crematoriums
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <Typography className={classes.heading}>
-                        Browse all available Crematoriums
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <Typography
-                        component="span"
-                        className={classes.supportingtext}
+                    232 Crematoriums in Vancouver
+                  </Typography>
+                  <Typography
+                    style={{
+                      color: 'var(--Gray-600, #475467)',
+                      fontFamily: 'Inter',
+                      fontSize: '16px',
+                      fontStyle: 'normal',
+                      fontWeight: '400',
+                      lineHeight: '24px',
+                    }}
+                  >
+                    Book a crematorium and anything else you may need.
+                  </Typography>
+                  <div
+                    style={{
+                      background: '#EAECF0',
+                      height: '1px',
+                    }}
+                  />
+                </Stack>
+                <Stack
+                  spacing={2}
+                  style={{
+                    margin: '32px 0px',
+                  }}
+                  direction={'row'}
+                >
+                  <Select
+                    labelId="cremation-type"
+                    id="cremation-type"
+                    value={cremationType}
+                    onChange={handleTypeChange}
+                    style={{ width: '100%', height: '44px' }}
+                  >
+                    <MenuItem value={1}>
+                      <Box
+                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
+                        {...props}
                       >
-                        Facing trouble? want something specific you don’t see?{' '}
-                        <Typography
-                          component="span"
-                          className={classes.innerText}
-                        >
-                          Let us help.
-                        </Typography>
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  {/* {isDesktop ? (
-                    <Grid
-                      container
-                      item
-                      md={12}
-                      xs={12}
-                      direction="row"
-                      alignContent="center"
-                      alignItems="center"
-                      justifyContent={isDesktop ? 'space-between' : 'center'}
-                    >
-                      <Grid item>
-                        <InputLabel
-                          sx={{
-                            color: 'var(--gray-700, #344054)',
-                            fontFamily: 'Inter',
-                            fontSize: '14px',
-                            fontStyle: 'normal',
-                            fontWeight: '500',
-                            lineHeight: '20px',
-                          }}
-                        >
-                          Cremation Type
-                        </InputLabel>
-                        <Select
-                          value={cremationType}
-                          label="Cremation Type"
-                          onChange={handleTypeChange}
-                          sx={{
-                            '& .MuiInputBase-input': {
-                              padding: '10px 14px',
-                              width: '167px',
-                              color: 'var(--gray-500, #667085)',
-                              fontFamily: 'Inter',
-                              fontSize: '16px',
-                              fontStyle: 'normal',
-                              fontWeight: '400',
-                              lineHeight: '24px',
-                            },
-                          }}
-                        >
-                          <MenuItem value={1}>Low to High</MenuItem>
-                          <MenuItem value={2}>High to Low</MenuItem>
-                        </Select>
-                      </Grid>
-                      <Grid item>
-                        <InputLabel
-                          sx={{
-                            color: 'var(--gray-700, #344054)',
-                            fontFamily: 'Inter',
-                            fontSize: '14px',
-                            fontStyle: 'normal',
-                            fontWeight: '500',
-                            lineHeight: '20px',
-                          }}
-                        >
-                          Cremation Type
-                        </InputLabel>
-                        <Select
-                          value={cremationType}
-                          label="Cremation Type"
-                          onChange={handleTypeChange}
-                          sx={{
-                            '& .MuiInputBase-input': {
-                              padding: '10px 14px',
-                              width: '167px',
-                              color: 'var(--gray-500, #667085)',
-                              fontFamily: 'Inter',
-                              fontSize: '16px',
-                              fontStyle: 'normal',
-                              fontWeight: '400',
-                              lineHeight: '24px',
-                            },
-                          }}
-                        >
-                          <MenuItem value={1}>Low to High</MenuItem>
-                          <MenuItem value={2}>High to Low</MenuItem>
-                        </Select>
-                      </Grid>
-                      <Grid item>
-                        <InputLabel
-                          sx={{
-                            color: 'var(--gray-700, #344054)',
-                            fontFamily: 'Inter',
-                            fontSize: '14px',
-                            fontStyle: 'normal',
-                            fontWeight: '500',
-                            lineHeight: '20px',
-                          }}
-                        >
-                          Cremation Type
-                        </InputLabel>
-                        <Select
-                          value={cremationType}
-                          label="Cremation Type"
-                          onChange={handleTypeChange}
-                          sx={{
-                            '& .MuiInputBase-input': {
-                              padding: '10px 14px',
-                              width: '167px',
-                              color: 'var(--gray-500, #667085)',
-                              fontFamily: 'Inter',
-                              fontSize: '16px',
-                              fontStyle: 'normal',
-                              fontWeight: '400',
-                              lineHeight: '24px',
-                            },
-                          }}
-                        >
-                          <MenuItem value={1}>Low to High</MenuItem>
-                          <MenuItem value={2}>High to Low</MenuItem>
-                        </Select>
-                      </Grid>
-                      <Grid item>
-                        <InputLabel
-                          sx={{
-                            color: 'var(--gray-700, #344054)',
-                            fontFamily: 'Inter',
-                            fontSize: '14px',
-                            fontStyle: 'normal',
-                            fontWeight: '500',
-                            lineHeight: '20px',
-                          }}
-                        >
-                          Cremation Type
-                        </InputLabel>
-                        <Select
-                          value={cremationType}
-                          label="Cremation Type"
-                          onChange={handleTypeChange}
-                          sx={{
-                            '& .MuiInputBase-input': {
-                              padding: '10px 14px',
-                              width: '167px',
-                              color: 'var(--gray-500, #667085)',
-                              fontFamily: 'Inter',
-                              fontSize: '16px',
-                              fontStyle: 'normal',
-                              fontWeight: '400',
-                              lineHeight: '24px',
-                            },
-                          }}
-                        >
-                          <MenuItem value={1}>Low to High</MenuItem>
-                          <MenuItem value={2}>High to Low</MenuItem>
-                        </Select>
-                      </Grid>
-                      <Grid item>
-                        <InputLabel
-                          sx={{
-                            color: 'var(--gray-700, #344054)',
-                            fontFamily: 'Inter',
-                            fontSize: '14px',
-                            fontStyle: 'normal',
-                            fontWeight: '500',
-                            lineHeight: '20px',
-                          }}
-                        >
-                          Cremation Type
-                        </InputLabel>
-                        <Select
-                          value={cremationType}
-                          label="Cremation Type"
-                          onChange={handleTypeChange}
-                          sx={{
-                            '& .MuiInputBase-input': {
-                              padding: '10px 14px',
-                              width: '167px',
-                              color: 'var(--gray-500, #667085)',
-                              fontFamily: 'Inter',
-                              fontSize: '16px',
-                              fontStyle: 'normal',
-                              fontWeight: '400',
-                              lineHeight: '24px',
-                            },
-                          }}
-                        >
-                          <MenuItem value={1}>Low to High</MenuItem>
-                          <MenuItem value={2}>High to Low</MenuItem>
-                        </Select>
-                      </Grid>
-                    </Grid>
-                  ) : (
-                    ''
-                  )} */}
-                  <Grid item container spacing={6}>
-                    <Grid item xs={12}>
-                      <CrematoriumCard />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <CrematoriumCard />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <CrematoriumCard />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <CrematoriumCard />
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </div>
-            </div>
-          </Container>
+                        <img
+                          loading="lazy"
+                          width="20"
+                          srcSet={`https://flagcdn.com/w40/ca.png 2x`}
+                          src={`https://flagcdn.com/w20/ca.png`}
+                          alt=""
+                        />
+                        Vancouver, BC
+                      </Box>
+                    </MenuItem>
+                    <MenuItem value={2}>
+                      <Box
+                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
+                        {...props}
+                      >
+                        <img
+                          loading="lazy"
+                          width="20"
+                          srcSet={`https://flagcdn.com/w40/ca.png 2x`}
+                          src={`https://flagcdn.com/w20/ca.png`}
+                          alt=""
+                        />
+                        Calgary, AB
+                      </Box>
+                    </MenuItem>
+                    <MenuItem value={3}>
+                      <Box
+                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
+                        {...props}
+                      >
+                        <img
+                          loading="lazy"
+                          width="20"
+                          srcSet={`https://flagcdn.com/w40/ca.png 2x`}
+                          src={`https://flagcdn.com/w20/ca.png`}
+                          alt=""
+                        />
+                        Toronto, ON
+                      </Box>
+                    </MenuItem>
+                  </Select>
+                  <Select
+                    labelId="cremation-type"
+                    id="cremation-type"
+                    value={cremationType}
+                    onChange={handleTypeChange}
+                    style={{ width: '100%', height: '44px' }}
+                  >
+                    <MenuItem value={1}>
+                      {/* <img
+                        src="/images/EmailIcon.png"
+                        width={'30px'}
+                        height={'30px'}
+                        alt="DM Logo"
+                      /> */}
+                      Cremation Type 1
+                    </MenuItem>
+                    <MenuItem value={2}>Cremation Type 2</MenuItem>
+                    <MenuItem value={3}>Cremation Type 3</MenuItem>
+                    <MenuItem value={4}>Cremation Type 4</MenuItem>
+                  </Select>
+                  <Select
+                    labelId="cremation-type"
+                    id="cremation-type"
+                    value={cremationType}
+                    onChange={handleTypeChange}
+                    style={{ width: '100%', height: '44px' }}
+                  >
+                    <MenuItem value={1}>Cremation Type 1</MenuItem>
+                    <MenuItem value={2}>Cremation Type 2</MenuItem>
+                    <MenuItem value={3}>Cremation Type 3</MenuItem>
+                    <MenuItem value={4}>Cremation Type 4</MenuItem>
+                  </Select>
+                  <Select
+                    labelId="cremation-type"
+                    id="cremation-type"
+                    value={cremationType}
+                    onChange={handleTypeChange}
+                    style={{ width: '100%', height: '44px' }}
+                  >
+                    <MenuItem value={1}>
+                      {/* <img
+                        src="/images/EmailIcon.png"
+                        width={'30px'}
+                        height={'30px'}
+                        alt="DM Logo"
+                      /> */}
+                      Cremation Type 1
+                    </MenuItem>
+                    <MenuItem value={2}>Cremation Type 2</MenuItem>
+                    <MenuItem value={3}>Cremation Type 3</MenuItem>
+                    <MenuItem value={4}>Cremation Type 4</MenuItem>
+                  </Select>
+                </Stack>
+                {paginatedCards.map((card, index) => (
+                  <CrematoriumCard
+                    key={index}
+                    img={card.img}
+                    title={card.title}
+                    rating={card.rating}
+                    reviews={card.reviews}
+                    location={card.location.name}
+                    pickup={card.pickup}
+                    hours={card.hours}
+                    price={card.price}
+                  />
+                ))}
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: '32px',
+                  }}
+                >
+                  <Pagination
+                    count={pageCount}
+                    page={currentPage}
+                    onChange={handleChangePage}
+                    variant="outlined"
+                  />
+                </Box>
+              </Grid>
+
+              <Grid item md={5} xs={12}>
+                <Map cremationData={cremationData} />
+              </Grid>
+            </Grid>
+          </div>
         </section>
         <div>
           <Footer bg toggleDir={onToggleDir} />

@@ -8,7 +8,7 @@ module.exports = withImages({
   //  i18n,
   trailingSlash: true,
   images: {
-    disableStaticImages: true
+    disableStaticImages: true,
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -16,16 +16,18 @@ module.exports = withImages({
     ignoreDuringBuilds: true,
   },
   publicRuntimeConfig: {
-    localeSubpaths: typeof process.env.LOCALE_SUBPATHS === 'string'
-      ? process.env.LOCALE_SUBPATHS
-      : 'none',
+    localeSubpaths:
+      typeof process.env.LOCALE_SUBPATHS === 'string'
+        ? process.env.LOCALE_SUBPATHS
+        : 'none',
   },
   webpack: (config, options) => {
-    config.plugins.push(
+    config.plugins
+      .push
       //      new ESLintPlugin({
       //        exclude: ['node_modules']
       //      })
-    );
+      ();
     return config;
-  }
+  },
 });
