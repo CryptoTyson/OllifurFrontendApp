@@ -10,6 +10,8 @@ import Grid from '@mui/material/Grid';
 import { makeStyles } from 'tss-react/mui';
 import {
   Box,
+  Input,
+  InputAdornment,
   InputLabel,
   MenuItem,
   Select,
@@ -26,7 +28,9 @@ import brand from '~/public/text/brand';
 import CrematoriumCard from '../../../components/CrematoriumCard/CrematoriumCard';
 import Pagination from '@mui/material/Pagination';
 import Map from '../../../components/Map';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
+import { Button, DateRangePicker } from 'rsuite';
+import 'rsuite/dist/rsuite.min.css';
+import { AccountCircle } from '@mui/icons-material';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
@@ -102,7 +106,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const cremationData = [
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-1.png',
     title: 'Heavenly Rest Cremations',
     rating: 4.7,
     reviews: 175,
@@ -116,7 +120,7 @@ const cremationData = [
     price: '$220',
   },
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-2.png',
     title: 'Eternal Peace Services',
     rating: 4.8,
     reviews: 150,
@@ -130,7 +134,7 @@ const cremationData = [
     price: '$250',
   },
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-3.png',
     title: 'Serenity Cremation Services',
     rating: 5.0,
     reviews: 98,
@@ -144,7 +148,7 @@ const cremationData = [
     price: '$245',
   },
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-4.png',
     title: 'Lasting Memories Crematorium',
     rating: 4.5,
     reviews: 210,
@@ -158,7 +162,7 @@ const cremationData = [
     price: '$200',
   },
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-2.png',
     title: 'Eternal Rest Funerals',
     rating: 4.6,
     reviews: 120,
@@ -172,7 +176,7 @@ const cremationData = [
     price: '$235',
   },
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-1.png',
     title: 'Tranquil Passage Cremations',
     rating: 4.9,
     reviews: 134,
@@ -186,7 +190,7 @@ const cremationData = [
     price: '$210',
   },
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-4.png',
     title: 'Harmony Cremation Services',
     rating: 4.4,
     reviews: 89,
@@ -200,7 +204,7 @@ const cremationData = [
     price: '$225',
   },
   {
-    img: '/images/DM_logo_130x40.svg',
+    img: '/images/Image-1.png',
     title: 'Peaceful Journey Crematorium',
     rating: 4.8,
     reviews: 160,
@@ -241,7 +245,11 @@ function Crematoriums(props) {
 
   const pageCount = Math.ceil(cremationData.length / cremationCardsPerPage);
 
-  const handleTypeChange = (event) => {
+  const handleLocationChange = (event) => {
+    setCremationType(event.target.value);
+  };
+
+  const handlePriceChange = (event) => {
     setCremationType(event.target.value);
   };
 
@@ -357,11 +365,17 @@ function Crematoriums(props) {
                   direction={'row'}
                 >
                   <Select
-                    labelId="cremation-type"
-                    id="cremation-type"
+                    labelId="location"
+                    id="location"
                     value={cremationType}
-                    onChange={handleTypeChange}
-                    style={{ width: '100%', height: '44px' }}
+                    onChange={handleLocationChange}
+                    style={{
+                      borderRadius: '8px',
+                      background: 'var(--Base-White, #FFF)',
+                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+                      width: '100%',
+                      height: '44px',
+                    }}
                   >
                     <MenuItem value={1}>
                       <Box
@@ -409,58 +423,57 @@ function Crematoriums(props) {
                       </Box>
                     </MenuItem>
                   </Select>
+                  <DateRangePicker
+                    style={{
+                      width: '100%',
+                    }}
+                    placeholder="Select Date Range"
+                    showHeader={false}
+                    showOneCalendar
+                  />
                   <Select
-                    labelId="cremation-type"
-                    id="cremation-type"
+                    labelId="price"
+                    id="price"
                     value={cremationType}
-                    onChange={handleTypeChange}
-                    style={{ width: '100%', height: '44px' }}
+                    onChange={handlePriceChange}
+                    style={{
+                      borderRadius: '8px',
+                      background: 'var(--Base-White, #FFF)',
+                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+                      width: '100%',
+                      height: '44px',
+                    }}
+                    startAdornment={
+                      <img
+                        src="/images/currency-dollar.svg"
+                        style={{ marginRight: '10px' }}
+                      />
+                    }
                   >
-                    <MenuItem value={1}>
-                      {/* <img
-                        src="/images/EmailIcon.png"
-                        width={'30px'}
-                        height={'30px'}
-                        alt="DM Logo"
-                      /> */}
-                      Cremation Type 1
-                    </MenuItem>
-                    <MenuItem value={2}>Cremation Type 2</MenuItem>
-                    <MenuItem value={3}>Cremation Type 3</MenuItem>
+                    <MenuItem value={1}>Low - High</MenuItem>
+                    <MenuItem value={2}>Low</MenuItem>
+                    <MenuItem value={3}>High</MenuItem>
                     <MenuItem value={4}>Cremation Type 4</MenuItem>
                   </Select>
-                  <Select
+                  <Button
                     labelId="cremation-type"
                     id="cremation-type"
-                    value={cremationType}
-                    onChange={handleTypeChange}
-                    style={{ width: '100%', height: '44px' }}
+                    style={{
+                      borderRadius: '8px',
+                      border: '1px solid var(--Gray-300, #D0D5DD)',
+                      background: 'var(--Base-White, #FFF)',
+                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+                      width: '100%',
+                      height: '44px',
+                    }}
+                    variant="contained"
                   >
-                    <MenuItem value={1}>Cremation Type 1</MenuItem>
-                    <MenuItem value={2}>Cremation Type 2</MenuItem>
-                    <MenuItem value={3}>Cremation Type 3</MenuItem>
-                    <MenuItem value={4}>Cremation Type 4</MenuItem>
-                  </Select>
-                  <Select
-                    labelId="cremation-type"
-                    id="cremation-type"
-                    value={cremationType}
-                    onChange={handleTypeChange}
-                    style={{ width: '100%', height: '44px' }}
-                  >
-                    <MenuItem value={1}>
-                      {/* <img
-                        src="/images/EmailIcon.png"
-                        width={'30px'}
-                        height={'30px'}
-                        alt="DM Logo"
-                      /> */}
-                      Cremation Type 1
-                    </MenuItem>
-                    <MenuItem value={2}>Cremation Type 2</MenuItem>
-                    <MenuItem value={3}>Cremation Type 3</MenuItem>
-                    <MenuItem value={4}>Cremation Type 4</MenuItem>
-                  </Select>
+                    <img
+                      src="/images/filter-lines.svg"
+                      style={{ marginRight: '10px' }}
+                    />
+                    More Filters
+                  </Button>
                 </Stack>
                 {paginatedCards.map((card, index) => (
                   <CrematoriumCard
