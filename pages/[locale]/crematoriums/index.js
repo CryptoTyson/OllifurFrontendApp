@@ -45,7 +45,7 @@ const useStyles = makeStyles()((theme) => ({
       padding: theme.spacing(20, 0, 5),
     },
     [theme.breakpoints.down('sm')]: {
-      paddingTop: theme.spacing(15),
+      paddingTop: theme.spacing(10),
     },
   },
   inner: {
@@ -285,38 +285,79 @@ function Crematoriums(props) {
         <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
         <section id="home">
           <div className={classes.bannerWrap}>
-            <Box
-              sx={{
-                display: 'flex',
-                padding: '96px 0px',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '64px',
-                background: 'white',
-              }}
-            >
-              <Stack spacing={3}>
-                <Typography className={classes.subheading}>
-                  Crematoriums
-                </Typography>
-                <Typography className={classes.heading}>
-                  Browse all available Crematoriums
-                </Typography>
-                <Typography component="span" className={classes.supportingtext}>
-                  Facing trouble? want something specific you don’t see?{' '}
-                  <Typography component="span" className={classes.innerText}>
-                    Let us help.
+            {isDesktop ? (
+              <Box
+                sx={{
+                  display: 'flex',
+                  padding: '96px 0px',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '64px',
+                  background: 'white',
+                }}
+              >
+                <Stack spacing={3}>
+                  <Typography className={classes.subheading}>
+                    Crematoriums
                   </Typography>
+                  <Typography className={classes.heading}>
+                    Browse all available Crematoriums
+                  </Typography>
+                  <Typography
+                    component="span"
+                    className={classes.supportingtext}
+                  >
+                    Facing trouble? want something specific you don’t see?{' '}
+                    <Typography component="span" className={classes.innerText}>
+                      Let us help.
+                    </Typography>
+                  </Typography>
+                </Stack>
+              </Box>
+            ) : (
+              <Stack spacing={1} sx={{ m: '32px 16px' }}>
+                <Typography
+                  style={{
+                    color: 'var(--Gray-900, #101828)',
+                    fontFamily: 'Inter',
+                    fontSize: '30px',
+                    fontStyle: 'normal',
+                    fontWeight: '600',
+                    lineHeight: '38px',
+                  }}
+                  align="left"
+                >
+                  232 Crematoriums in Vancouver
                 </Typography>
+                <Typography
+                  style={{
+                    color: 'var(--Gray-600, #475467)',
+                    fontFamily: 'Inter',
+                    fontSize: '16px',
+                    fontStyle: 'normal',
+                    fontWeight: '400',
+                    lineHeight: '24px',
+                  }}
+                  align="left"
+                >
+                  Book a crematorium and anything else you may need.
+                </Typography>
+                <div
+                  style={{
+                    background: '#EAECF0',
+                    height: '1px',
+                    marginTop: '26px',
+                  }}
+                />
               </Stack>
-            </Box>
+            )}
             <Grid
               container
-              direction={isDesktop ? 'row' : 'column'}
+              direction={isDesktop ? 'row' : 'column-reverse'}
               style={{
                 borderRadius: '16px',
-                background: 'var(--Primary-50, #F8EADD)',
-                padding: '16px',
+                background: isDesktop ? 'var(--Primary-50, #F8EADD)' : '#FFFF',
+                padding: isDesktop ? '16px' : '0px',
               }}
             >
               <Grid
@@ -325,44 +366,46 @@ function Crematoriums(props) {
                 xs={12}
                 style={{ padding: '32px', background: '#FFFF' }}
               >
-                <Stack spacing={1}>
-                  <Typography
-                    style={{
-                      color: 'var(--Gray-900, #101828)',
-                      fontFamily: 'Inter',
-                      fontSize: '30px',
-                      fontStyle: 'normal',
-                      fontWeight: '600',
-                      lineHeight: '38px',
-                    }}
-                  >
-                    232 Crematoriums in Vancouver
-                  </Typography>
-                  <Typography
-                    style={{
-                      color: 'var(--Gray-600, #475467)',
-                      fontFamily: 'Inter',
-                      fontSize: '16px',
-                      fontStyle: 'normal',
-                      fontWeight: '400',
-                      lineHeight: '24px',
-                    }}
-                  >
-                    Book a crematorium and anything else you may need.
-                  </Typography>
-                  <div
-                    style={{
-                      background: '#EAECF0',
-                      height: '1px',
-                    }}
-                  />
-                </Stack>
+                {isDesktop && (
+                  <Stack spacing={1}>
+                    <Typography
+                      style={{
+                        color: 'var(--Gray-900, #101828)',
+                        fontFamily: 'Inter',
+                        fontSize: '30px',
+                        fontStyle: 'normal',
+                        fontWeight: '600',
+                        lineHeight: '38px',
+                      }}
+                    >
+                      232 Crematoriums in Vancouver
+                    </Typography>
+                    <Typography
+                      style={{
+                        color: 'var(--Gray-600, #475467)',
+                        fontFamily: 'Inter',
+                        fontSize: '16px',
+                        fontStyle: 'normal',
+                        fontWeight: '400',
+                        lineHeight: '24px',
+                      }}
+                    >
+                      Book a crematorium and anything else you may need.
+                    </Typography>
+                    <div
+                      style={{
+                        background: '#EAECF0',
+                        height: '1px',
+                      }}
+                    />
+                  </Stack>
+                )}
                 <Stack
                   spacing={2}
                   style={{
                     margin: '32px 0px',
                   }}
-                  direction={'row'}
+                  direction={isDesktop ? 'row' : 'column'}
                 >
                   <Select
                     labelId="location"
@@ -475,19 +518,21 @@ function Crematoriums(props) {
                     More Filters
                   </Button>
                 </Stack>
-                {paginatedCards.map((card, index) => (
-                  <CrematoriumCard
-                    key={index}
-                    img={card.img}
-                    title={card.title}
-                    rating={card.rating}
-                    reviews={card.reviews}
-                    location={card.location.name}
-                    pickup={card.pickup}
-                    hours={card.hours}
-                    price={card.price}
-                  />
-                ))}
+                <Stack spacing={2}>
+                  {paginatedCards.map((card, index) => (
+                    <CrematoriumCard
+                      key={index}
+                      img={card.img}
+                      title={card.title}
+                      rating={card.rating}
+                      reviews={card.reviews}
+                      location={card.location.name}
+                      pickup={card.pickup}
+                      hours={card.hours}
+                      price={card.price}
+                    />
+                  ))}
+                </Stack>
                 <Box
                   sx={{
                     display: 'flex',

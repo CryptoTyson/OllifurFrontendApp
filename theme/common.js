@@ -246,12 +246,12 @@ export const useText = makeStyles({ uniqId: 'text' })((theme) => ({
     fontWeight: '400',
     lineHeight: '30px',
     [theme.breakpoints.down('lg')]: {
-      fontSize: 16,
-      lineHeight: '24px',
+      fontSize: 18,
+      lineHeight: '28px',
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: 14,
-      lineHeight: '22px',
+      fontSize: 18,
+      lineHeight: '28px',
     },
   },
   paragraph: {

@@ -5,7 +5,6 @@ import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles } from 'tss-react/mui';
 import FeatureCard from '../../FeatureCard/FeatureCard';
-import AlwaysWithMe from '../../../public/images/always-with-me.png';
 
 const useStyles = makeStyles()((theme) => ({
   desc: {
@@ -146,11 +145,11 @@ function Features() {
                 />
               </Grid>
             </Grid>
-            {isDesktop && (
+            {isDesktop ? (
               <Grid item md={6} xs={12}>
                 <div>
                   <img
-                    src={AlwaysWithMe}
+                    src={'/images/always-with-me.png'}
                     alt="AlwaysWithMe"
                     style={{
                       flexShrink: 0,
@@ -159,6 +158,19 @@ function Features() {
                     }}
                   />
                 </div>
+              </Grid>
+            ) : (
+              <Grid
+                item
+                md={6}
+                xs={12}
+                display={'flex'}
+                justifyContent={'center'}
+              >
+                <img
+                  src={'/images/always-with-me-mobile.png'}
+                  alt="AlwaysWithMe"
+                />
               </Grid>
             )}
           </Grid>

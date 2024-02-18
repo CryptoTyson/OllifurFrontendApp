@@ -7,6 +7,8 @@ import {
   InfoWindow,
 } from '@react-google-maps/api';
 import PushPinIcon from '@mui/icons-material/PushPin';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 const mapStyle = [
   {
@@ -180,13 +182,9 @@ const mapStyle = [
 ];
 
 const Map = ({ cremationData }) => {
-  const [selectedPlace, setSelectedPlace] = useState(null);
-  const [searchLngLat, setSearchLngLat] = useState(null);
-  const [currentLocation, setCurrentLocation] = useState(null);
-  const autocompleteRef = useRef(null);
-  const [address, setAddress] = useState('');
-
   const [activeMarker, setActiveMarker] = useState(null);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleActiveMarker = (marker) => {
     if (marker === activeMarker) {
@@ -202,68 +200,6 @@ const Map = ({ cremationData }) => {
   });
 
   if (!isLoaded) return <div>Loading....</div>;
-
-  // static lat and lng
-  const center = { lat: 51.0447, lng: -114.0719 };
-
-  // handle place change on search
-  //   const handlePlaceChanged = () => {
-  //     const place = autocompleteRef.current.getPlace();
-  //     setSelectedPlace(place);
-  //     setSearchLngLat({
-  //       lat: place.geometry.location.lat(),
-  //       lng: place.geometry.location.lng(),
-  //     });
-  //     setCurrentLocation(null);
-  //   };
-
-  // get current location
-  //   const handleGetLocationClick = () => {
-  //     if (navigator.geolocation) {
-  //       navigator.geolocation.getCurrentPosition(
-  //         (position) => {
-  //           const { latitude, longitude } = position.coords;
-  //           setSelectedPlace(null);
-  //           setSearchLngLat(null);
-  //           setCurrentLocation({ lat: latitude, lng: longitude });
-  //         },
-  //         (error) => {
-  //           console.log(error);
-  //         },
-  //       );
-  //     } else {
-  //       console.log('Geolocation is not supported by this browser.');
-  //     }
-  //   };
-
-  // on map load
-  //   const onMapLoad = (map) => {
-  //     const controlDiv = document.createElement('div');
-  //     // const controlUI = document.createElement('div');
-  //     // controlUI.innerHTML = 'Get Location';
-  //     // controlUI.style.backgroundColor = 'white';
-  //     // controlUI.style.color = 'black';
-  //     // controlUI.style.border = '2px solid #ccc';
-  //     // controlUI.style.borderRadius = '3px';
-  //     // controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-  //     // controlUI.style.cursor = 'pointer';
-  //     // controlUI.style.marginBottom = '22px';
-  //     // controlUI.style.textAlign = 'center';
-  //     // controlUI.style.width = '100%';
-  //     // controlUI.style.padding = '8px 0';
-  //     // controlUI.addEventListener('click', handleGetLocationClick);
-  //     // controlDiv.appendChild(controlUI);
-
-  //     // const centerControl = new window.google.maps.ControlPosition(
-  //     //   window.google.maps.ControlPosition.TOP_CENTER,
-  //     //   0,
-  //     //   10
-  //     // );
-
-  //     map.controls[window.google.maps.ControlPosition.TOP_CENTER].push(
-  //       controlDiv,
-  //     );
-  //   };
 
   const handleOnLoad = (map) => {
     const bounds = new google.maps.LatLngBounds();
@@ -295,27 +231,19 @@ const Map = ({ cremationData }) => {
         <input type="text" placeholder="Search for a location" />
       </Autocomplete> */}
 
-      {/* map component  */}
       <GoogleMap
         mapContainerClassName="map"
-        mapContainerStyle={{ width: '100%', height: '1120px', margin: 'auto' }}
+        mapContainerStyle={{
+          width: '100%',
+          height: isDesktop ? '1120px' : '360px',
+          margin: 'auto',
+        }}
         onLoad={handleOnLoad}
         onClick={() => setActiveMarker(null)}
         options={{
           styles: mapStyle,
         }}
       >
-        {selectedPlace && <Marker position={searchLngLat} />}
-        {/* {center && (
-          <Marker
-            position={center}
-            title="Your Location"
-            icon={{
-              url: '/images/Map location marker.svg',
-              scaledSize: new window.google.maps.Size(30, 30),
-            }}
-          />
-        )} */}
         {cremationData.map((data, id) => (
           <Marker
             key={id}
