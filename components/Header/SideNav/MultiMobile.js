@@ -11,10 +11,11 @@ import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
 import Collapse from '@mui/material/Collapse';
 import { useTranslation } from 'next-i18next';
-import { ListItemButton } from '@mui/material';
+import { Grid, ListItemButton, Stack, Typography } from '@mui/material';
 import link from '~/public/text/link';
 import useStyles from '../sidenav-style';
 import navMenu from '../data/multiple';
+import imgAPI from '../../../public/images/imgAPI';
 
 function MobileMenu(props) {
   const { classes, cx } = useStyles();
@@ -54,6 +55,7 @@ function MobileMenu(props) {
                   onClick={() => handleToggle(subitem.id)}
                 >
                   {menu[subitem.id] ? <ArrowDropUp /> : <ArrowDropDown />}
+
                   <ListItemText
                     className={classes.menuList}
                     primary={subitem.name}
@@ -76,10 +78,49 @@ function MobileMenu(props) {
               component="a"
               href={subitem.link}
             >
-              <ListItemText
-                className={classes.menuList}
-                primary={subitem.name}
-              />
+              <Grid
+                container
+                direction={'row'}
+                alignItems={'flex-start'}
+                flexWrap={'nowrap'}
+                style={{ width: '100%', gap: '16px' }}
+              >
+                <Grid item xs={1}>
+                  <img
+                    src={imgAPI.dropdownImg[subitem.id]}
+                    alt="Crematoriums"
+                  />
+                </Grid>
+                <Grid item xs={11}>
+                  <Stack direction={'column'}>
+                    <Typography
+                      style={{
+                        color: 'var(--gray-900, #101828)',
+                        fontFamily: 'Inter',
+                        fontSize: '16px',
+                        fontStyle: 'normal',
+                        fontWeight: '600',
+                        lineHeight: '24px',
+                      }}
+                    >
+                      {subitem.name}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: 'var(--gray-600, #475467)',
+                        fontFamily: 'Inter',
+                        fontSize: '14px',
+                        fontStyle: 'normal',
+                        fontWeight: '400',
+                        lineHeight: '20px',
+                        textWrap: 'wrap',
+                      }}
+                    >
+                      {subitem.desc}
+                    </Typography>
+                  </Stack>
+                </Grid>
+              </Grid>
             </ListItemButton>
           );
         })}
@@ -141,8 +182,8 @@ function MobileMenu(props) {
               );
             })}
           </List>
-          <Divider />
-          <List className={classes.userMenu}>
+          {/* <Divider /> */}
+          {/* <List className={classes.userMenu}>
             {['login', 'register'].map((text, index) => (
               <ListItem
                 key={index.toString()}
@@ -162,7 +203,7 @@ function MobileMenu(props) {
                 />
               </ListItem>
             ))}
-          </List>
+          </List> */}
         </div>
       </div>
     </SwipeableDrawer>

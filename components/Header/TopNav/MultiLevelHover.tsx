@@ -12,9 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useTranslation } from 'next-i18next';
 import useStyles from '../header-style';
-import { useTheme } from '@mui/material/styles';
-import { Grid, Stack, Typography, useMediaQuery } from '@mui/material';
-import buildingImg from '../../../public/images/building-03.png';
+import { Grid, Stack, Typography } from '@mui/material';
 import imgAPI from '../../../public/images/imgAPI';
 interface MultiLevelHoverProps {
   dataMenu: unknown[];
@@ -39,9 +37,6 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
   // Child state
   const [menuChild, setMenuChild] = useState({});
   const [anchorChild, setAnchorChild] = useState({});
-
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   // Parent function
   const handleToggle = (event: any, name: React.SetStateAction<string>) => {
@@ -242,7 +237,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                   menuName === 'Services'
                                     ? '556px'
                                     : 'fit-content',
-                                padding: '20px',
+                                padding: '16px',
                               }}
                             >
                               <Grid
@@ -324,10 +319,12 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                             <Grid
                                               container
                                               direction={'row'}
-                                              alignItems={'flex-start'}
                                               flexWrap={'nowrap'}
-                                              spacing={5}
-                                              style={{ width: '296px' }}
+                                              style={{
+                                                width: '100%',
+                                                minWidth: '240px',
+                                                gap: '16px',
+                                              }}
                                             >
                                               <Grid item xs={1}>
                                                 <img
