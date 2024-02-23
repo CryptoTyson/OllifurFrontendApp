@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useTranslation } from 'next-i18next';
 import useStyles from '../header-style';
-import { Grid, Stack, Typography } from '@mui/material';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 import imgAPI from '../../../public/images/imgAPI';
 interface MultiLevelHoverProps {
   dataMenu: unknown[];
@@ -29,7 +29,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
 
   // Parent state
   const [open, setOpen] = useState(false);
-  const [menuName, setName] = useState('');
+  const [menuName, setName] = useState('Services');
   const [anchorEl, setAnchorEl] = useState(null);
   const anchorRef = useRef<HTMLLIElement | null>(null);
   const prevOpen = useRef(open);
@@ -235,15 +235,15 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                               sx={{
                                 width:
                                   menuName === 'Services'
-                                    ? '556px'
+                                    ? '670px'
                                     : 'fit-content',
-                                padding: '16px',
                               }}
                             >
                               <Grid
                                 item
                                 xs={12}
                                 md={menuName === 'Services' ? 6 : 12}
+                                sx={{ padding: '16px' }}
                               >
                                 <MenuList
                                   autoFocusItem={open}
@@ -378,58 +378,67 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                               {menuName === 'Services' && (
                                 <Grid
                                   item
+                                  container
                                   xs={12}
                                   md={6}
-                                  sx={{ padding: '12px' }}
+                                  sx={{
+                                    padding: '24px',
+                                    borderRadius: '8px',
+                                    background: '#F9FAFB',
+                                  }}
                                 >
                                   <img
                                     src={'/images/Navbar-pic.png'}
                                     alt="Crematoriums"
-                                    style={{ borderRadius: '8px' }}
+                                    style={{
+                                      borderRadius: '8px',
+                                      width: '240px',
+                                      height: '136px',
+                                      flexShrink: '0',
+                                      objectFit: 'cover',
+                                    }}
                                   />
-                                  <Stack>
+                                  <Typography
+                                    sx={{
+                                      color: 'var(--Gray-900, #101828)',
+                                      fontFamily: 'Inter',
+                                      fontSize: '16px',
+                                      fontStyle: 'normal',
+                                      fontWeight: '600',
+                                      lineHeight: '24px',
+                                    }}
+                                  >
+                                    We've just released an update!
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      color: 'var(--Gray-600, #475467)',
+                                      fontFamily: 'Inter',
+                                      fontSize: '14px',
+                                      fontStyle: 'normal',
+                                      fontWeight: '400',
+                                      lineHeight: '20px',
+                                      textWrap: 'balance',
+                                    }}
+                                  >
+                                    Check out the all new dashboard view. Pages
+                                    now load faster.
+                                  </Typography>
+                                  <Stack direction={'row'}>
                                     <Typography
-                                      sx={{
-                                        color: 'var(--Gray-900, #101828)',
-                                        fontFamily: 'Inter',
-                                        fontSize: '16px',
-                                        fontStyle: 'normal',
-                                        fontWeight: '600',
-                                        lineHeight: '24px',
-                                      }}
-                                    >
-                                      We've just released an update!
-                                    </Typography>
-                                    <Typography
+                                      color="primary"
                                       sx={{
                                         color: 'var(--Gray-600, #475467)',
                                         fontFamily: 'Inter',
                                         fontSize: '14px',
                                         fontStyle: 'normal',
-                                        fontWeight: '400',
+                                        fontWeight: '600',
                                         lineHeight: '20px',
-                                        textWrap: 'balance',
+                                        cursor: 'pointer',
                                       }}
                                     >
-                                      Check out the all new dashboard view.
-                                      Pages now load faster.
+                                      Dismiss
                                     </Typography>
-                                    <Stack direction={'row'}>
-                                      <Button
-                                        variant="text"
-                                        color="primary"
-                                        size="small"
-                                      >
-                                        Dismiss
-                                      </Button>
-                                      <Button
-                                        variant="text"
-                                        color="primary"
-                                        size="small"
-                                      >
-                                        Learn More
-                                      </Button>
-                                    </Stack>
                                   </Stack>
                                 </Grid>
                               )}

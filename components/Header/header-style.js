@@ -78,7 +78,7 @@ const headerStyles = makeStyles({ uniqId: 'header' })(
       '& nav': {
         transition: 'all 0.3s ease',
         alignItems: 'center',
-        padding: theme.spacing(2, 1),
+        padding: '20px 0px',
         [theme.breakpoints.down('lg')]: {
           padding: theme.spacing(1, 0),
         },
