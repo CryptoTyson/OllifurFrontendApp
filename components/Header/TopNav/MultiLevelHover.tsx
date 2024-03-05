@@ -212,7 +212,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                   <Popper
                     open={menuName === item.name}
                     anchorEl={anchorEl || null}
-                    placement="bottom-start"
+                    placement="bottom"
                     className={classes.multiMenuRoot}
                     role={undefined}
                     transition
@@ -235,15 +235,16 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                               sx={{
                                 width:
                                   menuName === 'Services'
-                                    ? '670px'
+                                    ? '640px'
                                     : 'fit-content',
                               }}
                             >
                               <Grid
                                 item
-                                xs={12}
-                                md={menuName === 'Services' ? 6 : 12}
-                                sx={{ padding: '16px' }}
+                                sx={{
+                                  padding: '0px',
+                                  width: '336px',
+                                }}
                               >
                                 <MenuList
                                   autoFocusItem={open}
@@ -310,7 +311,6 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                         >
                                           <ListItem
                                             disableGutters
-                                            disableRipple
                                             className={classes.link}
                                             button
                                             component="a"
@@ -337,7 +337,10 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                                 />
                                               </Grid>
                                               <Grid item xs={11}>
-                                                <Stack direction={'column'}>
+                                                <Stack
+                                                  direction={'column'}
+                                                  gap={'4px'}
+                                                >
                                                   <Typography
                                                     style={{
                                                       color:
@@ -361,6 +364,8 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                                       fontWeight: '400',
                                                       lineHeight: '20px',
                                                       textWrap: 'wrap',
+                                                      textTransform: 'none',
+                                                      minWidth: '100%',
                                                     }}
                                                   >
                                                     {subitem.desc}
@@ -379,12 +384,13 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                 <Grid
                                   item
                                   container
-                                  xs={12}
-                                  md={6}
                                   sx={{
                                     padding: '24px',
                                     borderRadius: '8px',
                                     background: '#F9FAFB',
+
+                                    width: '304px',
+                                    height: '368px',
                                   }}
                                 >
                                   <img
@@ -408,7 +414,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                       lineHeight: '24px',
                                     }}
                                   >
-                                    We've just released an update!
+                                    Navigating the Loss of Your Loyal Companion
                                   </Typography>
                                   <Typography
                                     sx={{
@@ -418,11 +424,10 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                       fontStyle: 'normal',
                                       fontWeight: '400',
                                       lineHeight: '20px',
-                                      textWrap: 'balance',
                                     }}
                                   >
-                                    Check out the all new dashboard view. Pages
-                                    now load faster.
+                                    Read about how to give your companion a
+                                    loving & dignified goodbye.
                                   </Typography>
                                   <Stack direction={'row'}>
                                     <Typography
@@ -437,7 +442,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                         cursor: 'pointer',
                                       }}
                                     >
-                                      Dismiss
+                                      Read More
                                     </Typography>
                                   </Stack>
                                 </Grid>

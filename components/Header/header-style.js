@@ -217,11 +217,11 @@ const headerStyles = makeStyles({ uniqId: 'header' })(
       minWidth: 200,
       zIndex: 100,
       '& ul': {
-        padding: theme.spacing(1),
+        padding: '24px 20px',
         '& li': {
           borderRadius: theme.rounded.small,
           minHeight: 48,
-          padding: theme.spacing(1),
+          padding: theme.spacing(1.5),
           '& svg': {
             fill: theme.palette.text.hint,
             transform: theme.direction === 'rtl' ? 'scale(-1)' : 'inherit',
