@@ -14,6 +14,7 @@ import { useTranslation } from 'next-i18next';
 import useStyles from '../header-style';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import imgAPI from '../../../public/images/imgAPI';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 interface MultiLevelHoverProps {
   dataMenu: unknown[];
 }
@@ -29,7 +30,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
 
   // Parent state
   const [open, setOpen] = useState(false);
-  const [menuName, setName] = useState('Services');
+  const [menuName, setName] = useState('');
   const [anchorEl, setAnchorEl] = useState(null);
   const anchorRef = useRef<HTMLLIElement | null>(null);
   const prevOpen = useRef(open);
@@ -433,7 +434,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                     <Typography
                                       color="primary"
                                       sx={{
-                                        color: 'var(--Gray-600, #475467)',
+                                        color: 'var(--Primary-600, #D77F33)',
                                         fontFamily: 'Inter',
                                         fontSize: '14px',
                                         fontStyle: 'normal',
@@ -444,6 +445,15 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                     >
                                       Read More
                                     </Typography>
+                                    <ArrowForwardIcon
+                                      sx={{
+                                        marginLeft: '8px',
+                                        height: '20px',
+                                        width: '20px',
+                                        color: '#D77F33',
+                                        cursor: 'pointer',
+                                      }}
+                                    />
                                   </Stack>
                                 </Grid>
                               )}
