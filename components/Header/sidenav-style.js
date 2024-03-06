@@ -44,7 +44,6 @@ const sidenavStyles = makeStyles({ uniqId: 'sidenav' })(
       },
     },
     sideGroup: {
-      padding: theme.spacing(2, 0, 3, 0),
       margin: theme.spacing(0, 1.5),
       borderRadius: '12px',
       border: '1px solid var(--Gray-200, #EAECF0)',

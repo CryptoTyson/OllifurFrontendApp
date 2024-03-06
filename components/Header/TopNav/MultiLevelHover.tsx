@@ -130,6 +130,13 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
       placement="right-start"
       transition
       disablePortal
+      sx={{
+        borderRadius: '12px',
+        border: '1px solid var(--Gray-200, #EAECF0)',
+        background: 'var(--Base-White, #FFF)',
+        boxShadow:
+          '0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)',
+      }}
     >
       {({ TransitionProps, placement }) => (
         <Grow

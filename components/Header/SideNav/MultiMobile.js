@@ -11,11 +11,12 @@ import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
 import Collapse from '@mui/material/Collapse';
 import { useTranslation } from 'next-i18next';
-import { Grid, ListItemButton, Stack, Typography } from '@mui/material';
+import { Box, Grid, ListItemButton, Stack, Typography } from '@mui/material';
 import link from '~/public/text/link';
 import useStyles from '../sidenav-style';
 import navMenu from '../data/multiple';
 import imgAPI from '../../../public/images/imgAPI';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function MobileMenu(props) {
   const { classes, cx } = useStyles();
@@ -46,7 +47,12 @@ function MobileMenu(props) {
         className={classes.sideGroup}
         component="div"
         disablePadding
-        sx={{ display: 'flex', flexDirection: 'column' }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '16px 0px 0px 0px',
+          paddingBottom: item.name === 'Services' ? '0px' : '24px',
+        }}
       >
         {item.child.map((subitem, index) => {
           if (subitem.child) {
@@ -123,6 +129,78 @@ function MobileMenu(props) {
             </ListItemButton>
           );
         })}
+        {item.name === 'Services' && (
+          <Box
+            sx={{
+              padding: '24px',
+              borderRadius: '8px',
+              background: '#F9FAFB',
+              padding: '32px 16px',
+            }}
+          >
+            <img
+              src={'/images/Navbar-pic.png'}
+              alt="Crematoriums"
+              style={{
+                borderRadius: '8px',
+                flexShrink: '0',
+                objectFit: 'cover',
+                width: '100%',
+                marginBottom: '24px',
+              }}
+            />
+            <Typography
+              sx={{
+                color: 'var(--Gray-900, #101828)',
+                fontFamily: 'Inter',
+                fontSize: '16px',
+                fontStyle: 'normal',
+                fontWeight: '600',
+                lineHeight: '24px',
+              }}
+            >
+              Navigating the Loss of Your Loyal Companion
+            </Typography>
+            <Typography
+              sx={{
+                color: 'var(--Gray-600, #475467)',
+                fontFamily: 'Inter',
+                fontSize: '14px',
+                fontStyle: 'normal',
+                fontWeight: '400',
+                lineHeight: '20px',
+              }}
+            >
+              Read about how to give your companion a loving & dignified
+              goodbye.
+            </Typography>
+            <Stack direction={'row'} sx={{ marginTop: '12px' }}>
+              <Typography
+                color="primary"
+                sx={{
+                  color: 'var(--Primary-600, #D77F33)',
+                  fontFamily: 'Inter',
+                  fontSize: '14px',
+                  fontStyle: 'normal',
+                  fontWeight: '600',
+                  lineHeight: '20px',
+                  cursor: 'pointer',
+                }}
+              >
+                Read More
+              </Typography>
+              <ArrowForwardIcon
+                sx={{
+                  marginLeft: '8px',
+                  height: '20px',
+                  width: '20px',
+                  color: '#D77F33',
+                  cursor: 'pointer',
+                }}
+              />
+            </Stack>
+          </Box>
+        )}
       </List>
     </Collapse>
   );
