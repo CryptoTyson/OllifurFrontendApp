@@ -42,7 +42,12 @@ function MobileMenu(props) {
 
   const childMenu = (menu, item) => (
     <Collapse in={menu[item.id] || false} timeout="auto" unmountOnExit>
-      <List className={classes.sideGroup} component="div" disablePadding>
+      <List
+        className={classes.sideGroup}
+        component="div"
+        disablePadding
+        sx={{ display: 'flex', flexDirection: 'column' }}
+      >
         {item.child.map((subitem, index) => {
           if (subitem.child) {
             return (
@@ -68,15 +73,9 @@ function MobileMenu(props) {
           return (
             <ListItemButton
               key={index.toString()}
-              className={cx(
-                classes.noChild,
-                classes.sideGroupLink,
-                curURL === curOrigin + langPath + subitem.link
-                  ? classes.current
-                  : '',
-              )}
               component="a"
               href={subitem.link}
+              sx={{ padding: '12px 16px' }}
             >
               <Grid
                 container
@@ -143,21 +142,39 @@ function MobileMenu(props) {
           <List
             component="nav"
             aria-labelledby="nested-list-subheader"
-            className={classes.sideMultilv}
+            // className={classes.sideMultilv}
           >
             {navMenu.map((item, index) => {
               if (item.child) {
                 return (
                   <div key={index.toString()}>
                     <ListItemButton
-                      className={expand[item.id] ? classes.currentParent : ''}
+                      sx={{ padding: '12px 16px', marginBottom: '8px' }}
                       onClick={() => handleToggle(item.id)}
                     >
-                      <ListItemText
+                      {/* <ListItemText
                         className={classes.menuList}
                         primary={item.name}
-                      />
-                      {expand[item.id] ? <ExpandLess /> : <ExpandMore />}
+                      /> */}
+                      <Stack
+                        direction={'row'}
+                        width={'100%'}
+                        justifyContent={'space-between'}
+                      >
+                        <Typography
+                          sx={{
+                            color: 'var(--Gray-900, #101828)',
+                            fontFamily: 'Inter',
+                            fontSize: '16px',
+                            fontStyle: 'normal',
+                            fontWeight: '600',
+                            lineHeight: '24px',
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                        {expand[item.id] ? <ExpandLess /> : <ExpandMore />}
+                      </Stack>
                     </ListItemButton>
                     {childMenu(expand, item)}
                   </div>
@@ -166,18 +183,21 @@ function MobileMenu(props) {
               return (
                 <ListItemButton
                   key={index.toString()}
-                  className={cx(
-                    classes.noChild,
-                    curURL === curOrigin + langPath + item.link
-                      ? classes.current
-                      : '',
-                  )}
                   href={item.link}
+                  sx={{ padding: '12px 16px', marginBottom: '8px' }}
                 >
-                  <ListItemText
-                    className={classes.menuList}
-                    primary={item.name}
-                  />
+                  <Typography
+                    sx={{
+                      color: 'var(--Gray-900, #101828)',
+                      fontFamily: 'Inter',
+                      fontSize: '16px',
+                      fontStyle: 'normal',
+                      fontWeight: '600',
+                      lineHeight: '24px',
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
                 </ListItemButton>
               );
             })}

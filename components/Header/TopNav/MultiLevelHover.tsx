@@ -207,7 +207,15 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                 ref={anchorRef}
               >
                 <div>
-                  <Button endIcon={<Icon>expand_more</Icon>}>
+                  <Button
+                    endIcon={
+                      menuName === item.name ? (
+                        <Icon>expand_more</Icon>
+                      ) : (
+                        <Icon>expand_less</Icon>
+                      )
+                    }
+                  >
                     {item.name}
                   </Button>
                   <Popper

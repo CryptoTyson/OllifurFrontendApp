@@ -38,14 +38,20 @@ const sidenavStyles = makeStyles({ uniqId: 'sidenav' })(
       paddingBottom: theme.spacing(1),
     },
     menuList: {
-      padding: theme.spacing(0.5, 0),
       '& span': {
         textTransform: 'capitalize',
         fontSize: 14,
       },
     },
     sideGroup: {
-      paddingLeft: identation * 2,
+      padding: theme.spacing(2, 0, 3, 0),
+      margin: theme.spacing(0, 1.5),
+      borderRadius: '12px',
+      border: '1px solid var(--Gray-200, #EAECF0)',
+      background: 'var(--Base-White, #FFF)',
+      boxShadow:
+        '0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)',
+
       [`& .${classes.menuList}`]: {
         padding: theme.spacing(1, 0),
       },
@@ -54,7 +60,7 @@ const sidenavStyles = makeStyles({ uniqId: 'sidenav' })(
       padding: theme.spacing(2, 0, 2, 3),
     },
     sideGroupLink: {
-      paddingLeft: identation,
+      paddingLeft: theme.spacing(2, 2),
     },
     titleMega: {
       textTransform: 'uppercase',
