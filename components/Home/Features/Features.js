@@ -5,7 +5,6 @@ import { Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles } from 'tss-react/mui';
 import FeatureCard from '../../FeatureCard/FeatureCard';
-import flowerImageLarge from '../../../public/images/flower-large.png';
 
 const useStyles = makeStyles()((theme) => ({
   desc: {
@@ -58,7 +57,12 @@ function Features() {
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
-    <div className={classes.counterWrap}>
+    <div
+      style={{
+        paddingTop: isDesktop ? '150px' : '0px',
+      }}
+      className={classes.counterWrap}
+    >
       <Container>
         <Grid
           container
@@ -141,9 +145,32 @@ function Features() {
                 />
               </Grid>
             </Grid>
-            {isDesktop && (
+            {isDesktop ? (
               <Grid item md={6} xs={12}>
-                <img src={flowerImageLarge} alt="Flower" />
+                <div>
+                  <img
+                    src={'/images/always-with-me.png'}
+                    alt="AlwaysWithMe"
+                    style={{
+                      flexShrink: 0,
+                      position: 'absolute',
+                      inset: '15% 0 0 60%',
+                    }}
+                  />
+                </div>
+              </Grid>
+            ) : (
+              <Grid
+                item
+                md={6}
+                xs={12}
+                display={'flex'}
+                justifyContent={'center'}
+              >
+                <img
+                  src={'/images/always-with-me-mobile.png'}
+                  alt="AlwaysWithMe"
+                />
               </Grid>
             )}
           </Grid>

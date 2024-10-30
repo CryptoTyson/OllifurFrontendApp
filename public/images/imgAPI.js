@@ -91,12 +91,12 @@ const img2d = {
 
 const imgAPI = {
   dropdownImg: [
-    '/images/dropdown/building-03.png',
-    '/images/dropdown/book-open-02.png',
-    '/images/dropdown/heart-hand.png',
-    '/images/dropdown/book-closed.png',
-    '/images/dropdown/stars-02.png',
-    '/images/dropdown/life-buoy-01.png',
+    '/images/dropdown/building-03.svg',
+    '/images/dropdown/book-open-02.svg',
+    '/images/dropdown/heart-hand.svg',
+    '/images/dropdown/book-closed.svg',
+    '/images/dropdown/stars-02.svg',
+    '/images/dropdown/life-buoy-01.svg',
   ],
   avatar: [
     '/images/avatars/pp_girl.svg',

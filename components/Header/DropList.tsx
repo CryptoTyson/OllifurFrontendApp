@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  Fragment
-} from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
@@ -17,8 +13,8 @@ import MultiLevel from './TopNav/MultiLevelHover';
 import MobileMenu from './SideNav/MultiMobile';
 
 interface HeaderProps {
-  onToggleDark(...args: unknown[]): unknown
-  onToggleDir(...args: unknown[]): unknown
+  onToggleDark(...args: unknown[]): unknown;
+  onToggleDir(...args: unknown[]): unknown;
 }
 
 function Header(props: HeaderProps) {
@@ -28,7 +24,7 @@ function Header(props: HeaderProps) {
   const handleScroll = () => {
     const doc = document.documentElement;
     const scroll = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-    const newFlagFixed = (scroll > 80);
+    const newFlagFixed = scroll > 80;
     if (flagFixed !== newFlagFixed) {
       setFixed(newFlagFixed);
       flagFixed = newFlagFixed;
@@ -39,7 +35,7 @@ function Header(props: HeaderProps) {
     window.addEventListener('scroll', handleScroll);
   }, []);
 
-  const { classes, cx }:any = useStyles();
+  const { classes, cx }: any = useStyles();
   const theme = useTheme();
   const { onToggleDark, onToggleDir } = props;
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
@@ -50,44 +46,49 @@ function Header(props: HeaderProps) {
   };
   return (
     <Fragment>
-      { isMobile && (<MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} />) }
+      {isMobile && (
+        <MobileMenu open={openDrawer} toggleDrawer={handleOpenDrawer} />
+      )}
       <AppBar
         position="relative"
         id="header"
         className={cx(
           classes.header,
           fixed && classes.fixed,
-          openDrawer && classes.openDrawer
+          openDrawer && classes.openDrawer,
         )}
       >
-        <Container fixed={isDesktop}>
+        <Container style={{ padding: isDesktop ? 0 : '5px' }} fixed={isDesktop}>
           <div className={classes.headerContent}>
             <nav className={classes.navMenu}>
-              
               <div className={classes.logo}>
                 <a href={link.retail.home}>
                   <Logo type="landscape" />
                 </a>
               </div>
-              
+
               {isDesktop && (
                 <div className={classes.mainMenu}>
                   <MultiLevel dataMenu={multiple} />
                 </div>
               )}
             </nav>
-            <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
-            { isMobile && (
-                <IconButton
-                  onClick={handleOpenDrawer}
-                  className={cx('hamburger hamburger--spin', classes.mobileMenu, openDrawer && 'is-active')}
-                  size="large"
-                >
-                  <span className="hamburger-box">
-                    <span className={cx(classes.bar, 'hamburger-inner')} />
-                  </span>
-                </IconButton>
-              )}
+            {/* <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} /> */}
+            {isMobile && (
+              <IconButton
+                onClick={handleOpenDrawer}
+                className={cx(
+                  'hamburger hamburger--spin',
+                  classes.mobileMenu,
+                  openDrawer && 'is-active',
+                )}
+                size="large"
+              >
+                <span className="hamburger-box">
+                  <span className={cx(classes.bar, 'hamburger-inner')} />
+                </span>
+              </IconButton>
+            )}
           </div>
         </Container>
       </AppBar>

@@ -15,14 +15,42 @@ function Main(props) {
   const { home, onToggleDark, onToggleDir } = props;
   return (
     <div>
-      { state.header === 'mixed' && <Mixed home={home} onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
-      { state.header === 'mega' && <Mega onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
-      { state.header === 'droplist' && <DropList onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
-      { state.header === 'navscroll' && <NavScroll home={home} onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
-      { state.header === 'search' && <Search onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
-      { state.header === 'basic' && <Basic onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
-      { state.header === 'blog' && <Blog onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
-      { state.header === 'hamburger' && <Hamburger home={home} onToggleDark={onToggleDark} onToggleDir={onToggleDir} />}
+      {state.header === 'mixed' && (
+        <Mixed
+          home={home}
+          onToggleDark={onToggleDark}
+          onToggleDir={onToggleDir}
+        />
+      )}
+      {state.header === 'mega' && (
+        <Mega onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+      )}
+      {state.header === 'droplist' && (
+        <DropList onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+      )}
+      {state.header === 'navscroll' && (
+        <NavScroll
+          home={home}
+          onToggleDark={onToggleDark}
+          onToggleDir={onToggleDir}
+        />
+      )}
+      {state.header === 'search' && (
+        <Search onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+      )}
+      {state.header === 'basic' && (
+        <Basic onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+      )}
+      {state.header === 'blog' && (
+        <Blog onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+      )}
+      {state.header === 'hamburger' && (
+        <Hamburger
+          home={home}
+          onToggleDark={onToggleDark}
+          onToggleDir={onToggleDir}
+        />
+      )}
     </div>
   );
 }
@@ -30,11 +58,11 @@ function Main(props) {
 Main.propTypes = {
   home: PropTypes.bool,
   onToggleDark: PropTypes.func.isRequired,
-  onToggleDir: PropTypes.func.isRequired
+  onToggleDir: PropTypes.func.isRequired,
 };
 
 Main.defaultProps = {
-  home: false
+  home: false,
 };
 
 export default Main;

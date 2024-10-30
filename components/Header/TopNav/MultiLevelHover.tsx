@@ -12,9 +12,9 @@ import ListItemText from '@mui/material/ListItemText';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useTranslation } from 'next-i18next';
 import useStyles from '../header-style';
-import { Grid, Stack, Typography } from '@mui/material';
-import buildingImg from '../../../public/images/building-03.png';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 import imgAPI from '../../../public/images/imgAPI';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 interface MultiLevelHoverProps {
   dataMenu: unknown[];
 }
@@ -130,6 +130,13 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
       placement="right-start"
       transition
       disablePortal
+      sx={{
+        borderRadius: '12px',
+        border: '1px solid var(--Gray-200, #EAECF0)',
+        background: 'var(--Base-White, #FFF)',
+        boxShadow:
+          '0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)',
+      }}
     >
       {({ TransitionProps, placement }) => (
         <Grow
@@ -201,18 +208,27 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
           <Fragment key={index.toString()}>
             {item.child ? (
               <li
-                onMouseEnter={(e) => handleToggle(e, item.name)}
+                onClick={(e) => handleToggle(e, item.name)}
+                // onMouseEnter={(e) => handleToggle(e, item.name)}
                 onMouseLeave={(e) => handleClose()}
                 ref={anchorRef}
               >
                 <div>
-                  <Button endIcon={<Icon>expand_more</Icon>}>
+                  <Button
+                    endIcon={
+                      menuName === item.name ? (
+                        <Icon>expand_more</Icon>
+                      ) : (
+                        <Icon>expand_less</Icon>
+                      )
+                    }
+                  >
                     {item.name}
                   </Button>
                   <Popper
                     open={menuName === item.name}
                     anchorEl={anchorEl || null}
-                    placement="bottom-start"
+                    placement="bottom"
                     className={classes.multiMenuRoot}
                     role={undefined}
                     transition
@@ -230,118 +246,233 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                       >
                         <Paper>
                           <ClickAwayListener onClickAway={handleClose}>
-                            <MenuList autoFocusItem={open} id="menu-list-grow">
-                              {item.child.map(
-                                (
-                                  subitem: {
-                                    child: any;
-                                    id: any;
-                                    name?: any;
-                                    link?: any;
-                                    desc?: any;
-                                  },
-                                  indexChild: {
-                                    toString: () =>
-                                      | React.Key
-                                      | null
-                                      | undefined;
-                                  },
-                                ) => {
-                                  if (subitem.child) {
-                                    return (
-                                      <MenuItem
-                                        key={indexChild.toString()}
-                                        onClick={handleClose}
-                                        onMouseEnter={(e) =>
-                                          handleToggleChild(e, item, subitem.id)
-                                        }
-                                        className={classes.menuList}
-                                      >
-                                        <ListItemText primary={subitem.name} />
-                                        {childMenu(
-                                          menuChild,
-                                          subitem,
-                                          anchorChild,
-                                        )}
-                                        <ChevronRightIcon fontSize="small" />
-                                      </MenuItem>
-                                    );
-                                  }
-                                  return (
-                                    <MenuItem
-                                      key={indexChild.toString()}
-                                      onMouseEnter={(e) =>
-                                        handleCloseChild(e, item)
-                                      }
-                                      onClick={handleClose}
-                                      className={cx(
-                                        classes.menuList,
-                                        curURL ===
-                                          curOrigin + langPath + subitem.link
-                                          ? classes.current
-                                          : '',
-                                      )}
-                                    >
-                                      <ListItem
-                                        disableGutters
-                                        disableRipple
-                                        className={classes.link}
-                                        button
-                                        component="a"
-                                        href={subitem.link}
-                                      >
-                                        <Grid
-                                          container
-                                          direction={'row'}
-                                          alignItems={'flex-start'}
-                                          flexWrap={'nowrap'}
-                                          spacing={5}
-                                        >
-                                          <Grid item xs={1}>
-                                            <img
-                                              src={
-                                                imgAPI.dropdownImg[subitem.id]
-                                              }
-                                              alt="Crematoriums"
+                            <Grid
+                              container
+                              sx={{
+                                width:
+                                  menuName === 'Services'
+                                    ? '640px'
+                                    : 'fit-content',
+                              }}
+                            >
+                              <Grid
+                                item
+                                sx={{
+                                  padding: '0px',
+                                  width: '336px',
+                                }}
+                              >
+                                <MenuList
+                                  autoFocusItem={open}
+                                  id="menu-list-grow"
+                                >
+                                  {item.child.map(
+                                    (
+                                      subitem: {
+                                        child: any;
+                                        id: any;
+                                        name?: any;
+                                        link?: any;
+                                        desc?: any;
+                                      },
+                                      indexChild: {
+                                        toString: () =>
+                                          | React.Key
+                                          | null
+                                          | undefined;
+                                      },
+                                    ) => {
+                                      if (subitem.child) {
+                                        return (
+                                          <MenuItem
+                                            key={indexChild.toString()}
+                                            onClick={handleClose}
+                                            onMouseEnter={(e) =>
+                                              handleToggleChild(
+                                                e,
+                                                item,
+                                                subitem.id,
+                                              )
+                                            }
+                                            className={classes.menuList}
+                                          >
+                                            <ListItemText
+                                              primary={subitem.name}
                                             />
-                                          </Grid>
-                                          <Grid item xs={11}>
-                                            <Stack direction={'column'}>
-                                              <Typography
-                                                style={{
-                                                  color:
-                                                    'var(--gray-900, #101828)',
-                                                  fontFamily: 'Inter',
-                                                  fontSize: '16px',
-                                                  fontStyle: 'normal',
-                                                  fontWeight: '600',
-                                                  lineHeight: '24px',
-                                                }}
-                                              >
-                                                {subitem.name}
-                                              </Typography>
-                                              <Typography
-                                                style={{
-                                                  color:
-                                                    'var(--gray-600, #475467)',
-                                                  fontFamily: 'Inter',
-                                                  fontSize: '14px',
-                                                  fontStyle: 'normal',
-                                                  fontWeight: '400',
-                                                  lineHeight: '20px',
-                                                }}
-                                              >
-                                                {subitem.desc}
-                                              </Typography>
-                                            </Stack>
-                                          </Grid>
-                                        </Grid>
-                                      </ListItem>
-                                    </MenuItem>
-                                  );
-                                },
+                                            {childMenu(
+                                              menuChild,
+                                              subitem,
+                                              anchorChild,
+                                            )}
+                                            <ChevronRightIcon fontSize="small" />
+                                          </MenuItem>
+                                        );
+                                      }
+                                      return (
+                                        <MenuItem
+                                          key={indexChild.toString()}
+                                          onMouseEnter={(e) =>
+                                            handleCloseChild(e, item)
+                                          }
+                                          onClick={handleClose}
+                                          className={cx(
+                                            classes.menuList,
+                                            curURL ===
+                                              curOrigin +
+                                                langPath +
+                                                subitem.link
+                                              ? classes.current
+                                              : '',
+                                          )}
+                                        >
+                                          <ListItem
+                                            disableGutters
+                                            className={classes.link}
+                                            button
+                                            component="a"
+                                            href={subitem.link}
+                                          >
+                                            <Grid
+                                              container
+                                              direction={'row'}
+                                              flexWrap={'nowrap'}
+                                              style={{
+                                                width: '100%',
+                                                minWidth: '240px',
+                                                gap: '16px',
+                                              }}
+                                            >
+                                              <Grid item xs={1}>
+                                                <img
+                                                  src={
+                                                    imgAPI.dropdownImg[
+                                                      subitem.id
+                                                    ]
+                                                  }
+                                                  alt="Crematoriums"
+                                                />
+                                              </Grid>
+                                              <Grid item xs={11}>
+                                                <Stack
+                                                  direction={'column'}
+                                                  gap={'4px'}
+                                                >
+                                                  <Typography
+                                                    style={{
+                                                      color:
+                                                        'var(--gray-900, #101828)',
+                                                      fontFamily: 'Inter',
+                                                      fontSize: '16px',
+                                                      fontStyle: 'normal',
+                                                      fontWeight: '600',
+                                                      lineHeight: '24px',
+                                                    }}
+                                                  >
+                                                    {subitem.name}
+                                                  </Typography>
+                                                  <Typography
+                                                    sx={{
+                                                      color:
+                                                        'var(--gray-600, #475467)',
+                                                      fontFamily: 'Inter',
+                                                      fontSize: '14px',
+                                                      fontStyle: 'normal',
+                                                      fontWeight: '400',
+                                                      lineHeight: '20px',
+                                                      textWrap: 'wrap',
+                                                      textTransform: 'none',
+                                                      minWidth: '100%',
+                                                    }}
+                                                  >
+                                                    {subitem.desc}
+                                                  </Typography>
+                                                </Stack>
+                                              </Grid>
+                                            </Grid>
+                                          </ListItem>
+                                        </MenuItem>
+                                      );
+                                    },
+                                  )}
+                                </MenuList>
+                              </Grid>
+                              {menuName === 'Services' && (
+                                <Grid
+                                  item
+                                  container
+                                  sx={{
+                                    padding: '24px',
+                                    borderRadius: '8px',
+                                    background: '#F9FAFB',
+
+                                    width: '304px',
+                                    height: '368px',
+                                  }}
+                                >
+                                  <img
+                                    src={'/images/Navbar-pic.png'}
+                                    alt="Crematoriums"
+                                    style={{
+                                      borderRadius: '8px',
+                                      width: '240px',
+                                      height: '136px',
+                                      flexShrink: '0',
+                                      objectFit: 'cover',
+                                    }}
+                                  />
+                                  <Typography
+                                    sx={{
+                                      color: 'var(--Gray-900, #101828)',
+                                      fontFamily: 'Inter',
+                                      fontSize: '16px',
+                                      fontStyle: 'normal',
+                                      fontWeight: '600',
+                                      lineHeight: '24px',
+                                    }}
+                                  >
+                                    Navigating the Loss of Your Loyal Companion
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      color: 'var(--Gray-600, #475467)',
+                                      fontFamily: 'Inter',
+                                      fontSize: '14px',
+                                      fontStyle: 'normal',
+                                      fontWeight: '400',
+                                      lineHeight: '20px',
+                                    }}
+                                  >
+                                    Read about how to give your companion a
+                                    loving & dignified goodbye.
+                                  </Typography>
+                                  <Stack direction={'row'}>
+                                    <Typography
+                                      color="primary"
+                                      sx={{
+                                        color: 'var(--Primary-600, #D77F33)',
+                                        fontFamily: 'Inter',
+                                        fontSize: '14px',
+                                        fontStyle: 'normal',
+                                        fontWeight: '600',
+                                        lineHeight: '20px',
+                                        cursor: 'pointer',
+                                      }}
+                                    >
+                                      Read More
+                                    </Typography>
+                                    <ArrowForwardIcon
+                                      sx={{
+                                        marginLeft: '8px',
+                                        height: '20px',
+                                        width: '20px',
+                                        color: '#D77F33',
+                                        cursor: 'pointer',
+                                      }}
+                                    />
+                                  </Stack>
+                                </Grid>
                               )}
-                            </MenuList>
+                            </Grid>
                           </ClickAwayListener>
                         </Paper>
                       </Grow>
