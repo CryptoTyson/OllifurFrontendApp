@@ -241,14 +241,16 @@ function Welcome() {
                   <Box
                     sx={{
                       display: 'flex',
-                      justifyContent: 'flex-end',
+                      justifyContent: 'center',
                       marginTop: '36px',
                     }}
                   >
                     <div>
                       <img
-                        src={'/images/landing-pic-large.png'}
+                        src={'/images/landing-pic-mobile.png'}
                         alt="Landing Image"
+                        width='275px'
+                        height='275px'
                       />
                     </div>
                   </Box>
