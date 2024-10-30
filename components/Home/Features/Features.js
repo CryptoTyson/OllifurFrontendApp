@@ -56,10 +56,43 @@ function Features() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
+  const featureCardData = [
+    {
+      title: 'Browse crematoriums near you',
+      desc: (
+        <Typography component="span" className={classes.desc}>
+          Discover local crematoriums for your beloved pet's final
+          journey. Choose between{' '}
+          <Typography component="span" className={classes.desc2}>
+            Private
+          </Typography>
+          ,{' '}
+          <Typography component="span" className={classes.desc2}>
+            Communal
+          </Typography>{' '}
+          or{' '}
+          <Typography component="span" className={classes.desc2}>
+            Witnessed
+          </Typography>{' '}
+          cremations.
+        </Typography>),
+    },
+    {
+      title: 'Schedule a Date & Time',
+      desc:
+        'Schedule a date and time at nearby pet crematoriums, offering caring services to honor their memory.',
+    },
+    {
+      title: 'Accompany your pet to the dedicated facility',
+      desc:
+        'At the selected date and time, take your companion to the selected facility for a compassionate farewell.',
+    },
+  ];
+
   return (
     <div
       style={{
-        paddingTop: isDesktop ? '150px' : '0px',
+        paddingTop: isDesktop ? '96px' : '0px',
       }}
       className={classes.counterWrap}
     >
@@ -98,62 +131,24 @@ function Features() {
             </Grid>
           </Grid>
           <Grid container item spacing={4}>
-            <Grid container item md={6} xs={12} spacing={2}>
-              <Grid item>
-                <FeatureCard
-                  title="Browse crematoriums near you"
-                  desc={
-                    <Typography component="span" className={classes.desc}>
-                      Discover local crematoriums for your beloved pet's final
-                      journey. Choose between{' '}
-                      <Typography component="span" className={classes.desc2}>
-                        Private
-                      </Typography>
-                      ,{' '}
-                      <Typography component="span" className={classes.desc2}>
-                        Communal
-                      </Typography>{' '}
-                      or{' '}
-                      <Typography component="span" className={classes.desc2}>
-                        Witnessed
-                      </Typography>{' '}
-                      cremations.
-                    </Typography>
-                  }
-                />
-              </Grid>
-              <Grid item>
-                <FeatureCard
-                  title="Schedule a Date & Time"
-                  desc={
-                    <Typography component="span" className={classes.desc}>
-                      Schedule a date and time at nearby pet crematoriums,
-                      offering caring services to honor their memory.
-                    </Typography>
-                  }
-                />
-              </Grid>
-              <Grid item>
-                <FeatureCard
-                  title="Accompany your pet to the dedicated facility"
-                  desc={
-                    <Typography component="span" className={classes.desc}>
-                      At the selected date and time, take your companion to the
-                      selected facility for a compassionate farewell.
-                    </Typography>
-                  }
-                />
-              </Grid>
+            <Grid container item md={6} xs={12}>
+              {featureCardData.map((feature) => (
+                <Grid item>
+                  <FeatureCard title={feature.title} desc={feature.desc} />
+                </Grid>
+            ))}
             </Grid>
             {isDesktop ? (
               <Grid item md={6} xs={12}>
                 <div>
                   <img
-                    src={'/images/always-with-me.png'}
+                    src="/images/always-with-me.png"
                     alt="AlwaysWithMe"
                     style={{
                       flexShrink: 0,
                       position: 'absolute',
+                      width: '612px',
+                      height: '666px',
                       inset: '15% 0 0 60%',
                     }}
                   />
@@ -164,11 +159,11 @@ function Features() {
                 item
                 md={6}
                 xs={12}
-                display={'flex'}
-                justifyContent={'center'}
+                display="flex"
+                justifyContent="center"
               >
                 <img
-                  src={'/images/always-with-me-mobile.png'}
+                  src="/images/always-with-me-mobile.png"
                   alt="AlwaysWithMe"
                 />
               </Grid>

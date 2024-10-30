@@ -73,7 +73,7 @@ function Header(props: HeaderProps) {
                 </div>
               )}
             </nav>
-            {/* <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} /> */}
+            <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
             {isMobile && (
               <IconButton
                 onClick={handleOpenDrawer}
