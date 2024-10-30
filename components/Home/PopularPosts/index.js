@@ -75,8 +75,8 @@ const posts = [
   {
     id: 4,
     category: 'Burials',
-    title: 'Is it Legal to bury your beloved pet in your backyard?',
-    description: 'Like to know what local authorities got to say? Get our team into action.',
+    title: 'Is it Legal to bury your pet in your backyard in Vancouver.',
+    description: 'Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?',
     image: '/images/blog/post-4.jpeg',
     author: 'Emily Robinson',
     date: '3 Feb 2023',

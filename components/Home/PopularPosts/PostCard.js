@@ -18,8 +18,7 @@ const useStyles = makeStyles()((theme) => ({
   postTitle: {
     marginBottom: theme.spacing(1),
     display: 'flex',
-    alignItems: 'center',
-    gap: theme.spacing(1),
+    gap: theme.spacing(2),
     textDecoration: 'none',
     color: 'var(--Gray-900, #101828)',
     fontFamily: 'Inter',
@@ -65,9 +64,11 @@ const PostCard = ({ post }) => {
           <CategoryBadge>{post.category}</CategoryBadge>
           <Box component="a" href={post.link} className={classes.postTitle}>
             {post.title}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Box>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Box>
           </Box>
           <Typography className={classes.description}>
             {post.description}
