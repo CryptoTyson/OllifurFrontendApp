@@ -25,7 +25,6 @@ const useStyles = makeStyles()((theme) => ({
     position: 'relative',
     display: 'block',
     [theme.breakpoints.up('md')]: {
-      height: 500,
       paddingTop: theme.spacing(10),
     },
     [theme.breakpoints.down('md')]: {
@@ -42,13 +41,22 @@ const useStyles = makeStyles()((theme) => ({
     alignItems: 'center',
   },
   subheading: {
-    color: 'var(--primary-700, #884E1B)',
+    color: 'var(--primary-600, #884E1B)',
     textAlign: 'center',
     fontFamily: 'Inter',
     fontSize: '16px',
     fontStyle: 'normal',
     fontWeight: '600',
     lineHeight: '24px',
+  },
+  mobileHeading: {
+    color: 'var(--Gray-900, #101828)',
+    textAlign: 'center',
+    fontFamily: 'Inter',
+    fontSize: '30px',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '38px'
   },
   heading: {
     color: 'var(--gray-900, #101828)',
@@ -61,13 +69,13 @@ const useStyles = makeStyles()((theme) => ({
     letterSpacing: '-0.96px',
   },
   supportingtext: {
-    color: 'var(--gray-800, #1D2939)',
+    color: 'var(--Gray-800, #1D2939)',
     textAlign: 'center',
     fontFamily: 'Inter',
     fontSize: '20px',
     fontStyle: 'normal',
     fontWeight: '400',
-    lineHeight: '30px',
+    lineHeight: '30px'
   },
   innerText: {
     color: 'var(--gray-800, #1D2939)',
@@ -78,7 +86,7 @@ const useStyles = makeStyles()((theme) => ({
     lineHeight: '30px',
   },
   button: {
-    color: 'var(--primary-700, #884E1B)',
+    color: 'var(--primary-700, #D77F33)',
     textAlign: 'center',
     fontFamily: 'Inter',
     fontSize: '16px',
@@ -119,7 +127,13 @@ function ContactUs(props) {
         <section id="home">
           <Container>
             <div className={classes.bannerWrap}>
-              <div className={classes.inner}>
+              <div
+                className={classes.inner}
+                style={{
+                      margin: isDesktop ? '80px 0px' : '0px',
+                      marginBottom: '34px',
+                    }}
+              >
                 <Grid
                   container
                   direction="column"
@@ -143,7 +157,7 @@ function ContactUs(props) {
                       </Typography>
                     </Grid>
                     <Grid item>
-                      <Typography className={classes.heading}>
+                      <Typography className={isDesktop ? classes.heading : classes.mobileHeading}>
                         Our team is here for you
                       </Typography>
                     </Grid>
@@ -152,13 +166,7 @@ function ContactUs(props) {
                         component="span"
                         className={classes.supportingtext}
                       >
-                        Facing trouble? want something specific you don’t see?{' '}
-                        <Typography
-                          component="span"
-                          className={classes.innerText}
-                        >
-                          Let us help.
-                        </Typography>
+                        Questions or special requests? Let us make it easier for you.
                       </Typography>
                     </Grid>
                   </Grid>
@@ -170,7 +178,7 @@ function ContactUs(props) {
                     direction="row"
                     alignContent="center"
                     alignItems="center"
-                    justifyContent={isDesktop ? 'space-between' : 'center'}
+                    justifyContent={isDesktop ? 'space-around' : 'center'}
                   >
                     <Grid item>
                       <img
@@ -302,14 +310,14 @@ function ContactUs(props) {
             </div>
           </Container>
         </section>
-        <section id="contact us" style={{ marginTop: '25px' }}>
+        <section id="contact us" style={{ marginTop: isDesktop ? '96px' : '0px', marginBottom: '16px' }}>
           <Container>
             <Grid
               container
               direction="column"
               alignContent="center"
               alignItems="center"
-              spacing={8}
+              spacing={4}
             >
               <Grid
                 container
@@ -327,11 +335,11 @@ function ContactUs(props) {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Typography className={classes.heading}>
+                  <Typography className={isDesktop ? classes.heading : classes.mobileHeading}>
                     Get in touch
                   </Typography>
                 </Grid>
-                <Grid item>
+                <Grid item container justifyContent="center">
                   <Typography
                     component="span"
                     className={classes.supportingtext}
@@ -358,124 +366,6 @@ function ContactUs(props) {
             </Grid>
           </Container>
         </section>
-        {/* <section>
-          <Container
-            style={{
-              borderRadius: '16px',
-              background:
-                theme.palette.mode === 'dark'
-                  ? theme.palette.primary.light
-                  : 'var(--gray-50, #F9FAFB)',
-              padding: '10px',
-            }}
-          >
-            <Box m={isDesktop ? 6 : 4}>
-              <Grid container justifyContent="space-between">
-                <Grid item>
-                  <Typography
-                    style={{
-                      color: 'var(--gray-900, #101828)',
-                      fontFamily: 'Inter',
-                      fontSize: '30px',
-                      fontStyle: 'normal',
-                      fontWeight: '600',
-                      lineHeight: '38px',
-                    }}
-                  >
-                    Subscribe to our Newsletter
-                  </Typography>
-                  <Typography
-                    style={{
-                      color: 'var(--gray-600, #475467)',
-                      fontFamily: 'Inter',
-                      fontSize: '20px',
-                      fontStyle: 'normal',
-                      fontWeight: '400',
-                      lineHeight: '30px',
-                    }}
-                  >
-                    Stay in the loop with everything you need to know.
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <ValidatorForm
-                    onSubmit={handleSubmit}
-                    onError={(errors) => console.log(errors)}
-                  >
-                    <Grid
-                      container
-                      alignItems="start"
-                      flexWrap={isDesktop ? 'nowrap' : 'wrap'}
-                      spacing={6}
-                    >
-                      <Grid container item direction="column">
-                        <Grid item>
-                          <TextValidator
-                            fullWidth
-                            className={classes.input}
-                            onChange={() => handleChange()}
-                            name="email"
-                            value={email}
-                            placeholder="Enter your email"
-                            sx={{
-                              width: isDesktop ? '360px' : '295px',
-                              '& .MuiInputBase-input': {
-                                padding: '10px 14px',
-                              },
-                            }}
-                          />
-                        </Grid>
-                        <Grid item>
-                          <Typography
-                            style={{
-                              color: 'var(--gray-600, #475467)',
-                              fontFamily: 'Inter',
-                              fontSize: '14px',
-                              fontStyle: 'normal',
-                              fontWeight: '400',
-                              lineHeight: '20px',
-                            }}
-                            component="span"
-                          >
-                            We care ContactUs your data in our{' '}
-                            <Typography
-                              style={{
-                                color: 'var(--gray-600, #475467)',
-                                fontFamily: 'Inter',
-                                fontSize: '14px',
-                                fontStyle: 'normal',
-                                fontWeight: '400',
-                                lineHeight: '20px',
-                                textDecorationLine: 'underline',
-                              }}
-                              component="span"
-                            >
-                              privacy policy.
-                            </Typography>
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                      <Grid item>
-                        <Button
-                          variant="contained"
-                          type="submit"
-                          color="primary"
-                          size="large"
-                          fullWidth
-                          style={{
-                            width: isDesktop ? 'auto' : '295px',
-                          }}
-                        >
-                          Subscribe
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </ValidatorForm>
-                </Grid>
-              </Grid>
-            </Box>
-          </Container>
-        </section> */}
         <div>
           <Footer bg toggleDir={onToggleDir} />
         </div>
