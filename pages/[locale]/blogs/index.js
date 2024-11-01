@@ -100,32 +100,63 @@ function Blogs(props) {
         }}
         >
           <div className={classes.bannerWrap}>
-            <Grid
-              container
-              direction="column"
-              spacing={2}
-              alignContent="flex-start"
-              alignItems="flex-start"
-              sx={{
+            {isDesktop ? (
+              <Grid
+                container
+                direction="column"
+                spacing={2}
+                alignContent="flex-start"
+                alignItems="flex-start"
+                sx={{
                 pt: isDesktop ? '80px' : '24px',
             }}
-            >
-              <Grid container item justifyContent={isDesktop ? 'flex-start' : 'center'}>
-                <Typography className={classes.subheading}>
-                  Our blog
-                </Typography>
+              >
+                <Grid container item justifyContent={isDesktop ? 'flex-start' : 'center'}>
+                  <Typography className={classes.subheading}>
+                    Our blog
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography className={isDesktop ? classes.heading : classes.mobileHeading}>
+                    Resources and insights
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography className={classes.supportingtext}>
+                    Access a wealth of resources about end-of-life matters for pets.
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Typography className={isDesktop ? classes.heading : classes.mobileHeading}>
-                  Resources and insights
-                </Typography>
+          ) : (
+            <Container>
+              <Grid
+                container
+                direction="column"
+                spacing={2}
+                alignContent="flex-start"
+                alignItems="flex-start"
+                sx={{
+                pt: isDesktop ? '80px' : '24px',
+            }}
+              >
+                <Grid container item justifyContent={isDesktop ? 'flex-start' : 'center'}>
+                  <Typography className={classes.subheading}>
+                    Our blog
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography className={isDesktop ? classes.heading : classes.mobileHeading}>
+                    Resources and insights
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography className={classes.supportingtext}>
+                    Access a wealth of resources about end-of-life matters for pets.
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Typography className={classes.supportingtext}>
-                  Access a wealth of resources about end-of-life matters for pets.
-                </Typography>
-              </Grid>
-            </Grid>
+            </Container>
+          )}
 
             {isDesktop && (
             <div className={classes.articleSection}>

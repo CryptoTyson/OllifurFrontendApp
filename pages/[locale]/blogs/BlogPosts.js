@@ -6,7 +6,9 @@ import {
   Container,
   styled,
   Button,
-  Stack
+  Stack,
+  useMediaQuery,
+  Typography
 } from '@mui/material';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -209,6 +211,7 @@ const BlogGrid = () => {
   const postsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
   const [displayPosts, setDisplayPosts] = useState(posts.slice(0, postsPerPage));
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   // Calculate total pages
   const totalPages = Math.ceil(posts.length / postsPerPage);
@@ -250,39 +253,99 @@ const BlogGrid = () => {
         ))}
       </Grid>
 
-      <Stack
-        direction="row"
-        spacing={2}
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ mt: 4, mb: 2 }}
-      >
-        <NavButton
-          onClick={handlePrevious}
-          disabled={currentPage === 1}
-          startIcon={<KeyboardArrowLeftIcon />}
+      {isMobile ? (
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ mt: 4, mb: 2 }}
         >
-          Previous
-        </NavButton>
-
-        <CustomPagination
-          count={totalPages}
-          page={currentPage}
-          onChange={handlePageChange}
-          hidePrevButton
-          hideNextButton
-          siblingCount={1}
-          boundaryCount={1}
-        />
-
-        <NavButton
-          onClick={handleNext}
-          disabled={currentPage === totalPages}
-          endIcon={<KeyboardArrowRightIcon />}
+          <NavButton
+            onClick={handlePrevious}
+            disabled={currentPage === 1}
+            startIcon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M15.8333 10H4.16663M4.16663 10L9.99996 15.8334M4.16663 10L9.99996 4.16669" stroke="#344054" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              }
+            sx={{
+              borderRadius: '8px',
+              border: '1px solid var(--Gray-300, #D0D5DD)',
+              background: 'var(--Base-White, #FFF)',
+              boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+              padding: '8px 12px',
+              '& .MuiButton-startIcon': {
+                margin: 0
+              }
+            }}
+          />
+          <Typography sx={{
+            color: 'var(--Gray-700, #344054)',
+            fontFamily: 'Inter',
+            fontSize: '14px',
+            fontStyle: 'normal',
+            fontWeight: '400',
+            lineHeight: '20px'
+          }}
+          >
+            Page {currentPage} of {totalPages}
+          </Typography>
+          <NavButton
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            endIcon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.16663 10H15.8333M15.8333 10L9.99996 4.16669M15.8333 10L9.99996 15.8334" stroke="#344054" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              }
+            sx={{
+              borderRadius: '8px',
+              border: '1px solid var(--Gray-300, #D0D5DD)',
+              background: 'var(--Base-White, #FFF)',
+              boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+              padding: '8px 12px',
+              '& .MuiButton-endIcon': {
+                margin: 0
+              }
+            }}
+          />
+        </Stack>
+      ) : (
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ mt: 4, mb: 2 }}
         >
-          Next
-        </NavButton>
-      </Stack>
+          <NavButton
+            onClick={handlePrevious}
+            disabled={currentPage === 1}
+            startIcon={<KeyboardArrowLeftIcon />}
+          >
+            Previous
+          </NavButton>
+
+          <CustomPagination
+            count={totalPages}
+            page={currentPage}
+            onChange={handlePageChange}
+            hidePrevButton
+            hideNextButton
+            siblingCount={1}
+            boundaryCount={1}
+          />
+
+          <NavButton
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            endIcon={<KeyboardArrowRightIcon />}
+          >
+            Next
+          </NavButton>
+        </Stack>
+      )}
     </Container>
   );
 };
