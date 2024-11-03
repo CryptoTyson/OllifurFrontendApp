@@ -138,7 +138,7 @@ const OrderSummary = ({
       description: 'Creating Lasting Memories In Our Digital Memorial Space',
       amount: 0,
       icon: MenuBookOutlinedIcon,
-    }
+    },
   ];
 
   // Calculate totals
@@ -150,7 +150,7 @@ const OrderSummary = ({
   const handlePayment = async () => {
     try {
       setIsProcessing(true);
-      
+
       // Prepare complete booking data
       const completeBookingData = {
         ...bookingData,
@@ -166,7 +166,21 @@ const OrderSummary = ({
       }));
 
       await stripe.initiatePayment(completeBookingData, formattedServices);
-      onPaymentSubmit();
+
+      // Send booking data to create-booking API endpoint
+      const response = await fetch('/api/create-booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ bookingData: completeBookingData }),
+      });
+
+      if (response.ok) {
+        onPaymentSubmit();
+      } else {
+        console.error('Failed to create booking:', await response.json());
+      }
     } catch (error) {
       console.error('Payment failed:', error);
       // Handle payment error (show error message to user)
@@ -219,7 +233,7 @@ const OrderSummary = ({
             padding: '16px',
             '& .MuiAccordionSummary-content': {
               margin: 0,
-            }
+            },
           }}
         >
           <Typography
