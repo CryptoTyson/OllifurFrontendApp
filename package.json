@@ -24,6 +24,7 @@
   "dependencies": {
     "@babel/core": "^7.16.5",
     "@babel/eslint-parser": "^7.16.5",
+    "@directus/sdk": "^18.0.0",
     "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.10.0",
@@ -43,8 +44,6 @@
     "firebase": "^10.1.0",
     "google-maps-react18": "^2.0.9",
     "i18next": "^22.4.6",
-    "mongodb": "^6.10.0",
-    "mongoose": "^8.8.0",
     "mui-tel-input": "^3.2.2",
     "next": "^13.0.7",
     "next-auth": "^4.24.10",

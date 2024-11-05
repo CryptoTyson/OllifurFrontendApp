@@ -30,18 +30,31 @@ export default function PaymentSuccess() {
           body: JSON.stringify({ sessionId }),
         });
 
+        const data = await response.json();
+
         if (!response.ok) {
-          throw new Error('Payment verification failed');
+          throw new Error(data.message || 'Payment verification failed');
+        }
+
+        if (!data.success) {
+          throw new Error('Payment verification was not successful');
         }
 
         setLoading(false);
       } catch (err) {
+        console.error('Payment verification error:', err);
         setError(err.message);
         setLoading(false);
       }
     };
 
-    verifyPayment();
+    if (sessionId) {
+      verifyPayment();
+    } else {
+      // If no sessionId is present in URL, show error
+      setError('No payment session found');
+      setLoading(false);
+    }
   }, [sessionId]);
 
   if (loading) {

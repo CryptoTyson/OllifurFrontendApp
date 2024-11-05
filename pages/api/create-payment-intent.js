@@ -10,8 +10,13 @@ export default async function handler(req, res) {
   try {
     const {
       bookingData,
-      services
+      services,
+      bookingId
     } = req.body;
+
+    if (!bookingId) {
+      return res.status(400).json({ message: 'Booking ID is required' });
+    }
 
     // Create line items from services
     const lineItems = services.map(service => ({
@@ -28,6 +33,7 @@ export default async function handler(req, res) {
 
     // Create metadata from booking data
     const metadata = {
+      bookingId, // Add booking ID to metadata
       companionName: bookingData.name,
       companionSpecies: bookingData.species,
       guardianName: bookingData.guardianName,

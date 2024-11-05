@@ -156,7 +156,28 @@ const OrderSummary = ({
         ...bookingData,
         additionalNotes,
         discountCode,
+        status: 'pending',
+        payment_status: 'pending'
       };
+
+      // Create booking first
+      const bookingResponse = await fetch('/api/create-booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ bookingData: completeBookingData }),
+      });
+
+      if (!bookingResponse.ok) {
+        throw new Error('Failed to create booking');
+      }
+
+      const { booking } = await bookingResponse.json();
+
+      if (!booking || !booking.id) {
+        throw new Error('No booking ID received from server');
+      }
 
       // Format services for Stripe
       const formattedServices = services.map(service => ({
@@ -165,24 +186,12 @@ const OrderSummary = ({
         amount: service.amount,
       }));
 
-      await stripe.initiatePayment(completeBookingData, formattedServices);
+      // Pass booking ID to Stripe for metadata
+      await stripe.initiatePayment(completeBookingData, formattedServices, booking.id);
 
-      // Send booking data to create-booking API endpoint
-      const response = await fetch('/api/create-booking', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ bookingData: completeBookingData }),
-      });
-
-      if (response.ok) {
-        onPaymentSubmit();
-      } else {
-        console.error('Failed to create booking:', await response.json());
-      }
+      onPaymentSubmit();
     } catch (error) {
-      console.error('Payment failed:', error);
+      console.error('Payment process failed:', error);
       // Handle payment error (show error message to user)
     } finally {
       setIsProcessing(false);

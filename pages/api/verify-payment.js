@@ -1,4 +1,5 @@
 import Stripe from 'stripe';
+import { updateBooking } from '../../lib/directus';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -27,18 +28,26 @@ export default async function handler(req, res) {
       });
     }
 
-    // Get the booking details from metadata
-    const bookingDetails = session.metadata;
+    // Get the booking ID from metadata
+    const bookingId = session.metadata?.bookingId;
 
-    // Here you would typically:
-    // 1. Save the booking to your database
-    // 2. Send confirmation emails
-    // 3. Update any relevant systems
+    if (!bookingId) {
+      return res.status(400).json({ message: 'Booking ID not found in session metadata' });
+    }
 
-    // For now, we'll just return success
+    // Update the booking in Directus
+    await updateBooking(bookingId, {
+      payment_status: 'paid',
+      payment_intent_id: session.payment_intent.id,
+      customer_id: session.customer?.id,
+      status: 'confirmed'
+    });
+
+    console.log('Booking ID:', bookingId);
+
     return res.status(200).json({
       success: true,
-      bookingDetails,
+      bookingId,
       paymentIntent: session.payment_intent,
       customer: session.customer,
     });

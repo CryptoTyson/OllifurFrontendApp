@@ -62,7 +62,7 @@ function Bookings(props) {
   // Combine all booking data for the OrderSummary
   const bookingData = {
     ...values,
-    date: selectedDate.toISOString(),
+    date: selectedDate,
     time: selectedTime,
   };
 
