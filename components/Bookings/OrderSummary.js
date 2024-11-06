@@ -185,13 +185,25 @@ const OrderSummary = ({
     try {
       setIsProcessing(true);
 
-      // Prepare complete booking data
+      // Calculate service cost (sum of all service amounts)
+      const serviceCost = services.reduce((sum, service) => sum + service.amount, 0);
+
+      // Prepare complete booking data with financial information
       const completeBookingData = {
         ...bookingData,
         additionalNotes,
         discountCode,
         status: 'pending',
-        payment_status: 'pending'
+        payment_status: 'pending',
+        subtotal: subtotal.toFixed(2),
+        discountAmount: discount.toFixed(2),
+        taxAmount: tax.toFixed(2),
+        gstAmount: (tax / 2).toFixed(2), // Split tax evenly between GST and PST
+        pstAmount: (tax / 2).toFixed(2),
+        totalAmount: total.toFixed(2),
+        serviceCost: serviceCost.toFixed(2),
+        termsAccepted,
+        isEnabled, // for pickup_required
       };
 
       // Create booking first
@@ -473,6 +485,8 @@ OrderSummary.propTypes = {
     pickupPostal: PropTypes.string,
     date: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
+    cremationType: PropTypes.string.isRequired,
+    weightRange: PropTypes.string.isRequired,
   }).isRequired,
   termsAccepted: PropTypes.bool.isRequired,
   setTermsAccepted: PropTypes.func.isRequired,
