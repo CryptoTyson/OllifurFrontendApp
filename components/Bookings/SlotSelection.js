@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelectedTime }) => {
   const [selectedDay, setSelectedDay] = React.useState(null);
+
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const times = [
     '08 - 09 AM',
@@ -24,7 +27,8 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
   return (
     <div style={{
       marginBottom: '24px'
-    }}>
+    }}
+    >
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Stack
           sx={{
@@ -39,10 +43,10 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
               style={{
                 color: 'var(--gray-900, #101828)',
                 fontFamily: 'Inter',
-                fontSize: '30px',
+                fontSize: isDesktop ? '30px' : '20px',
                 fontStyle: 'normal',
                 fontWeight: '600',
-                lineHeight: '38px',
+                lineHeight: isDesktop ? '38px' : '30px',
               }}
             >
               Select a Slot
@@ -68,7 +72,7 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
             sx={{
               color: 'var(--gray-900, #101828)',
               fontFamily: 'Inter',
-              fontSize: '20px',
+              fontSize: isDesktop ? '20px' : '12px',
               fontStyle: 'normal',
               fontWeight: '600',
               lineHeight: '30px',
@@ -80,7 +84,7 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
               sx={{
                 color: 'var(--gray-400, #98A2B3)',
                 fontFamily: 'Inter',
-                fontSize: '20px',
+                fontSize: isDesktop ? '20px' : '12px',
                 fontStyle: 'normal',
                 fontWeight: '600',
                 lineHeight: '30px',

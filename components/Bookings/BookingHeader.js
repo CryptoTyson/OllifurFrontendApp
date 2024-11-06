@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from 'tss-react/mui';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
@@ -13,7 +14,6 @@ const useStyles = makeStyles()((theme) => ({
       paddingTop: theme.spacing(12),
     },
     [theme.breakpoints.down('md')]: {
-      textAlign: 'center',
       padding: theme.spacing(6, 0, 3),
     },
   },
@@ -47,7 +47,10 @@ const useStyles = makeStyles()((theme) => ({
     fontStyle: 'normal',
     fontWeight: '600',
     lineHeight: '60px',
-    letterSpacing: '-0.96px'
+    letterSpacing: '-0.96px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '36px',
+    },
   },
   subtitle: {
     color: '#475467',
@@ -55,11 +58,18 @@ const useStyles = makeStyles()((theme) => ({
     fontSize: '16px',
     fontWeight: 400,
     lineHeight: '24px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '18px',
+      lineHeight: '28px',
+    },
   },
 }));
 
 const BookingHeader = () => {
   const { classes } = useStyles();
+
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <>
@@ -67,7 +77,7 @@ const BookingHeader = () => {
       background: 'white',
       position: 'relative',
       display: 'block',
-      paddingTop: '80px',
+      paddingTop: isDesktop ? '80px' : '64px',
     }}
       />
       <section className={classes.bannerWrap}>

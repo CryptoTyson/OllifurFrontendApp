@@ -18,6 +18,7 @@ import {
   OrderSummary,
   CremationInfo,
 } from '~/components/Bookings';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const useStyles = makeStyles()(() => ({
   mainWrap: {
@@ -66,6 +67,9 @@ function Bookings(props) {
     setValues({ ...values, [name]: event.target.value });
   };
 
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
   const handlePaymentSubmit = () => {
     // This will be called after successful payment initiation
     console.log('Payment initiated');
@@ -90,7 +94,7 @@ function Bookings(props) {
 
         <Container maxWidth="xl" sx={{ pb: 8, marginTop: '-60px', position: 'relative', zIndex: 1 }}>
           <div style={{
-            margin: '0 80px',
+            margin: isDesktop ? '0 80px' : 'auto',
             borderRadius: '16px',
             padding: '16px 24px',
             backgroundColor: '#F9FAFB',
