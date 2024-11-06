@@ -227,14 +227,15 @@ const appTheme = (color: string | number, mode: string) => ({
     MuiInputLabel: {
       styleOverrides: {
         root: {
+          color: '#344054',
           '&.Mui-focused': {
-            color: '#DA8A44',
+            color: '#344054',
           },
         },
         filled: {
           top: -2,
           '&.MuiInputLabel-shrink': {
-            color: '#DA8A44',
+            color: '#344054',
           },
         },
       },

@@ -64,7 +64,7 @@ const GuardianForm = ({ values, handleChange, setValues }) => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <InputLabel htmlFor="guardianPhone">Phone</InputLabel>
+            <InputLabel htmlFor="guardianPhone">Phone no</InputLabel>
             <MuiTelInput
               id="guardianPhone"
               fullWidth
@@ -74,7 +74,7 @@ const GuardianForm = ({ values, handleChange, setValues }) => {
               defaultCountry="CA"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <InputLabel htmlFor="guardianEmail">Email</InputLabel>
             <TextValidator
               id="guardianEmail"
@@ -86,13 +86,49 @@ const GuardianForm = ({ values, handleChange, setValues }) => {
               errorMessages={['This field is required', 'Email is not valid']}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <InputLabel htmlFor="guardianAddress">Address</InputLabel>
             <TextValidator
               id="guardianAddress"
               fullWidth
               value={values.guardianAddress}
               onChange={handleChange('guardianAddress')}
+              className={classes.input}
+              validators={['required']}
+              errorMessages={['This field is required']}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <InputLabel htmlFor="guardianCountry">Country</InputLabel>
+            <TextValidator
+              id="guardianCountry"
+              fullWidth
+              value={values.guardianCountry}
+              onChange={handleChange('guardianCountry')}
+              className={classes.input}
+              validators={['required']}
+              errorMessages={['This field is required']}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <InputLabel htmlFor="guardianCity">City</InputLabel>
+            <TextValidator
+              id="guardianCity"
+              fullWidth
+              value={values.guardianCity}
+              onChange={handleChange('guardianCity')}
+              className={classes.input}
+              validators={['required']}
+              errorMessages={['This field is required']}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <InputLabel htmlFor="guardianPincode">Pincode</InputLabel>
+            <TextValidator
+              id="guardianPincode"
+              fullWidth
+              value={values.guardianPincode}
+              onChange={handleChange('guardianPincode')}
               className={classes.input}
               validators={['required']}
               errorMessages={['This field is required']}
@@ -110,6 +146,9 @@ GuardianForm.propTypes = {
     guardianPhone: PropTypes.string.isRequired,
     guardianEmail: PropTypes.string.isRequired,
     guardianAddress: PropTypes.string.isRequired,
+    guardianCountry: PropTypes.string.isRequired,
+    guardianCity: PropTypes.string.isRequired,
+    guardianPincode: PropTypes.string.isRequired,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
   setValues: PropTypes.func.isRequired,

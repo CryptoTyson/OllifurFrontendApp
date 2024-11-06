@@ -199,171 +199,189 @@ const OrderSummary = ({
   };
 
   return (
-    <div className={classes.orderSummary}>
-      <Box sx={{ padding: '16px' }}>
-        <Typography
-          variant="h6"
-          sx={{
-            color: '#101828',
-            fontSize: '16px',
-            fontWeight: 700,
-            lineHeight: '24px',
-            marginBottom: '16px',
-          }}
-        >
-          Order Review
-        </Typography>
-        <Typography sx={{ color: '#475467', fontSize: '14px', marginBottom: '24px' }}>
-          {services.length} items in cart
-        </Typography>
-
-        {services.map((service) => (
-          <div key={service.id} className={classes.serviceItem}>
-            <service.icon className={classes.serviceIcon} />
-            <div className={classes.serviceContent}>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <Typography sx={{ fontWeight: 500 }}>{service.name}</Typography>
-                <Typography sx={{ fontWeight: 600 }}>
-                  {service.amount === 0 ? 'FREE' : `$${service.amount.toFixed(2)}`}
-                </Typography>
-              </Box>
-              <Typography className={classes.serviceDescription}>
-                {service.description}
-              </Typography>
-            </div>
-          </div>
-        ))}
-      </Box>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          sx={{
-            padding: '16px',
+    <div style={{
+      display: 'grid',
+      gap: '16px',
+    }}
+    >
+      <div className={classes.orderSummary}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            sx={{
             '& .MuiAccordionSummary-content': {
               margin: 0,
             },
           }}
-        >
-          <Typography
-            variant="h6"
-            sx={{
+          >
+            <Typography
+              variant="h6"
+              sx={{
               color: '#101828',
               fontSize: '16px',
               fontWeight: 700,
               lineHeight: '24px',
             }}
+            >
+              Order Review
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ padding: '0 16px 16px' }}>
+            <Box>
+              <Typography sx={{ color: '#475467', fontSize: '14px', marginBottom: '24px' }}>
+                {services.length} items in cart
+              </Typography>
+              {services.map((service) => (
+                <div key={service.id} className={classes.serviceItem}>
+                  <service.icon className={classes.serviceIcon} />
+                  <div className={classes.serviceContent}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <Typography sx={{ fontWeight: 500 }}>{service.name}</Typography>
+                      <Typography sx={{ fontWeight: 600 }}>
+                        {service.amount === 0 ? 'FREE' : `$${service.amount.toFixed(2)}`}
+                      </Typography>
+                    </Box>
+                    <Typography className={classes.serviceDescription}>
+                      {service.description}
+                    </Typography>
+                  </div>
+                </div>
+        ))}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+      <div className={classes.orderSummary}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            sx={{
+            '& .MuiAccordionSummary-content': {
+              margin: 0,
+            },
+          }}
           >
-            Discount Codes
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ padding: '0 16px 16px' }}>
-          <TextField
-            fullWidth
-            value={discountCode}
-            onChange={(e) => setDiscountCode(e.target.value)}
-            className={classes.input}
-            placeholder="Enter discount code"
-          />
-        </AccordionDetails>
-      </Accordion>
-
-      <Box sx={{ padding: '16px' }}>
-        <Typography
-          variant="h6"
-          sx={{
+            <Typography
+              variant="h6"
+              sx={{
+              color: '#101828',
+              fontSize: '16px',
+              fontWeight: 700,
+              lineHeight: '24px',
+            }}
+            >
+              Discount Codes
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails sx={{ padding: '0 16px 16px' }}>
+            <TextField
+              fullWidth
+              value={discountCode}
+              onChange={(e) => setDiscountCode(e.target.value)}
+              className={classes.input}
+              placeholder="Enter discount code"
+            />
+          </AccordionDetails>
+        </Accordion>
+      </div>
+      <div className={classes.orderSummary}>
+        <Box sx={{ padding: '16px' }}>
+          <Typography
+            variant="h6"
+            sx={{
             color: '#101828',
             fontSize: '16px',
             fontWeight: 700,
             lineHeight: '24px',
             marginBottom: '16px',
           }}
-        >
-          Billing Summary
-        </Typography>
+          >
+            Billing Summary
+          </Typography>
 
-        <div className={classes.summaryItem}>
-          <Typography>Subtotal</Typography>
-          <Typography>${subtotal.toFixed(2)}</Typography>
-        </div>
-        {discount > 0 && (
+          <div className={classes.summaryItem}>
+            <Typography>Subtotal</Typography>
+            <Typography>${subtotal.toFixed(2)}</Typography>
+          </div>
+          {discount > 0 && (
           <div className={classes.summaryItem}>
             <Typography>Discount</Typography>
             <Typography>-${discount.toFixed(2)}</Typography>
           </div>
         )}
-        <div className={classes.summaryItem}>
-          <Typography>Tax</Typography>
-          <Typography>${tax.toFixed(2)}</Typography>
-        </div>
-        <div className={classes.summaryItem} style={{ marginTop: '16px' }}>
-          <Typography
-            variant="h6"
-            sx={{
+          <div className={classes.summaryItem}>
+            <Typography>Tax</Typography>
+            <Typography>${tax.toFixed(2)}</Typography>
+          </div>
+          <div className={classes.summaryItem} style={{ marginTop: '16px' }}>
+            <Typography
+              variant="h6"
+              sx={{
               color: '#101828 !important',
               fontSize: '16px !important',
               fontWeight: '700 !important',
             }}
-          >
-            Grand Total
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              color: '#101828 !important',
-              fontSize: '16px !important',
-              fontWeight: '700 !important',
-            }}
-          >
-            ${total.toFixed(2)}
-          </Typography>
-        </div>
-
-        <TextField
-          fullWidth
-          multiline
-          rows={4}
-          placeholder="Anything you'd like us to know..."
-          className={classes.input}
-          sx={{ marginTop: '16px' }}
-          value={additionalNotes}
-          onChange={(e) => setAdditionalNotes(e.target.value)}
-        />
-
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={termsAccepted}
-              onChange={(e) => setTermsAccepted(e.target.checked)}
-            />
-          }
-          label={
-            <Typography sx={{ fontSize: '14px' }}>
-              Please check to acknowledge our{' '}
-              <Typography
-                component="span"
-                sx={{ color: '#D77F33', display: 'inline' }}
-              >
-                Privacy & Terms Policy
-              </Typography>
+            >
+              Grand Total
             </Typography>
-          }
-          sx={{ mb: 2 }}
-        />
+            <Typography
+              variant="h6"
+              sx={{
+              color: '#101828 !important',
+              fontSize: '16px !important',
+              fontWeight: '700 !important',
+            }}
+            >
+              ${total.toFixed(2)}
+            </Typography>
+          </div>
 
-        <Button
-          fullWidth
-          className={classes.payButton}
-          onClick={handlePayment}
-          disabled={!termsAccepted || isProcessing}
-        >
-          {isProcessing ? (
-            <CircularProgress size={24} color="inherit" />
+          <TextField
+            fullWidth
+            multiline
+            rows={4}
+            placeholder="Anything you'd like us to know..."
+            className={classes.input}
+            sx={{ marginTop: '16px' }}
+            value={additionalNotes}
+            onChange={(e) => setAdditionalNotes(e.target.value)}
+          />
+
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={termsAccepted}
+                onChange={(e) => setTermsAccepted(e.target.checked)}
+              />
+          }
+            label={
+              <Typography sx={{ fontSize: '14px' }}>
+                Please check to acknowledge our{' '}
+                <Typography
+                  component="span"
+                  sx={{ color: '#D77F33', display: 'inline' }}
+                >
+                  Privacy & Terms Policy
+                </Typography>
+              </Typography>
+          }
+            sx={{ mb: 2 }}
+          />
+
+          <Button
+            fullWidth
+            className={classes.payButton}
+            onClick={handlePayment}
+            disabled={!termsAccepted || isProcessing}
+          >
+            {isProcessing ? (
+              <CircularProgress size={24} color="inherit" />
           ) : (
             `Pay $${total.toFixed(2)}`
           )}
-        </Button>
-      </Box>
+          </Button>
+        </Box>
+      </div>
     </div>
   );
 };

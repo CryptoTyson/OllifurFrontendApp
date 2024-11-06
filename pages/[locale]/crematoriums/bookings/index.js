@@ -16,6 +16,7 @@ import {
   GuardianForm,
   PickupForm,
   OrderSummary,
+  CremationInfo,
 } from '~/components/Bookings';
 
 const useStyles = makeStyles()(() => ({
@@ -38,16 +39,26 @@ function Bookings(props) {
   const [additionalNotes, setAdditionalNotes] = useState('');
   const [values, setValues] = useState({
     name: '',
-    species: '',
+    species: 'dog',
+    subSpecies: 'german_shepherd',
     characteristics: '',
+    microchipped: 'yes',
+    vetRecords: 'yes',
+    adoptionRecords: 'yes',
     guardianName: '',
     guardianPhone: '',
     guardianEmail: '',
     guardianAddress: '',
+    guardianCountry: '',
+    guardianCity: '',
+    guardianPincode: '',
     pickupAddress: '',
+    pickupPincode: '',
     pickupCity: '',
     pickupPostal: '',
     pickupCountry: 'Canada',
+    cremationType: 'private',
+    weightRange: '0 - 20 lbs / 0 - 9 Kg',
   });
 
   const handleChange = (name) => (event) => {
@@ -108,6 +119,11 @@ function Bookings(props) {
                 />
 
                 <PickupForm
+                  values={values}
+                  handleChange={handleChange}
+                />
+
+                <CremationInfo
                   values={values}
                   handleChange={handleChange}
                 />
