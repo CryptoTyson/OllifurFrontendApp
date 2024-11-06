@@ -3,7 +3,8 @@
 const withImages = require('next-images');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-module.exports = withImages({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   // Enable this code below for Server Side Rendering/Translation (SSR)
   //  i18n,
   trailingSlash: true,
@@ -31,4 +32,6 @@ module.exports = withImages({
       ();
     return config;
   },
-});
+};
+
+module.exports = withImages(nextConfig);
