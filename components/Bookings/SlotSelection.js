@@ -1,66 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from 'tss-react/mui';
-import { Box, Button, Grid, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const useStyles = makeStyles()((theme) => ({
-  formSection: {
-    background: 'white',
-    borderRadius: '12px',
-    padding: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-    border: '1px solid #EAECF0',
-  },
-  sectionTitle: {
-    color: '#101828',
-    fontFamily: 'Inter',
-    fontSize: '18px',
-    fontWeight: 600,
-    lineHeight: '28px',
-    marginBottom: theme.spacing(3),
-  },
-  timeButton: {
-    borderRadius: '8px',
-    border: '1px solid #EAECF0',
-    padding: '10px 16px',
-    minWidth: '100px',
-    height: '44px',
-    background: 'white',
-    color: '#344054',
-    textTransform: 'none',
-    fontSize: '14px',
-    fontWeight: 500,
-    '&:hover': {
-      background: '#FDF8F5',
-      borderColor: '#D77F33',
-    },
-    '&.selected': {
-      background: '#D77F33',
-      color: 'white',
-      borderColor: '#D77F33',
-    },
-  },
-  calendar: {
-    '& .MuiPickersCalendarHeader-root': {
-      paddingLeft: 0,
-      paddingRight: 0,
-    },
-    '& .MuiDayCalendar-weekDayLabel': {
-      color: '#344054',
-    },
-    '& .MuiPickersDay-root': {
-      '&.Mui-selected': {
-        backgroundColor: '#D77F33',
-      },
-    },
-  },
-}));
-
 const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelectedTime }) => {
-  const { classes } = useStyles();
   const [selectedDay, setSelectedDay] = React.useState(null);
 
   const times = [
@@ -77,26 +22,28 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
   ];
 
   return (
-    <div>
+    <div style={{
+      marginBottom: '24px'
+    }}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Stack
           sx={{
-                        border: '1px solid lightgray',
-                        padding: '20px',
-                        borderRadius: '16px',
-                      }}
+            padding: '20px',
+            borderRadius: '16px',
+            background: 'white',
+          }}
           spacing={3}
         >
           <Stack direction="row" justifyContent="space-between">
             <Typography
               style={{
-                            color: 'var(--gray-900, #101828)',
-                            fontFamily: 'Inter',
-                            fontSize: '30px',
-                            fontStyle: 'normal',
-                            fontWeight: '600',
-                            lineHeight: '38px',
-                          }}
+                color: 'var(--gray-900, #101828)',
+                fontFamily: 'Inter',
+                fontSize: '30px',
+                fontStyle: 'normal',
+                fontWeight: '600',
+                lineHeight: '38px',
+              }}
             >
               Select a Slot
             </Typography>
@@ -106,128 +53,127 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
               value={selectedDate}
               onChange={(newValue) => setSelectedDate(newValue)}
               slotProps={{
-                            textField: {
-                              style: {
-                                backgroundColor: '#F7F7F7',
-                                borderRadius: '10px',
-                                fontSize: '16px',
-                                fontFamily: 'Arial',
-                              },
-                            },
-                          }}
+                textField: {
+                  style: {
+                    backgroundColor: '#F7F7F7',
+                    borderRadius: '10px',
+                    fontSize: '16px',
+                    fontFamily: 'Arial',
+                  },
+                },
+              }}
             />
           </Stack>
           <Typography
             sx={{
-                          color: 'var(--gray-900, #101828)',
-                          fontFamily: 'Inter',
-                          fontSize: '20px',
-                          fontStyle: 'normal',
-                          fontWeight: '600',
-                          lineHeight: '30px',
-                        }}
+              color: 'var(--gray-900, #101828)',
+              fontFamily: 'Inter',
+              fontSize: '20px',
+              fontStyle: 'normal',
+              fontWeight: '600',
+              lineHeight: '30px',
+            }}
             component="span"
           >
             Select a date -{' '}
             <Typography
               sx={{
-                            color: 'var(--gray-400, #98A2B3)',
-                            fontFamily: 'Inter',
-                            fontSize: '20px',
-                            fontStyle: 'normal',
-                            fontWeight: '600',
-                            lineHeight: '30px',
-                          }}
+                color: 'var(--gray-400, #98A2B3)',
+                fontFamily: 'Inter',
+                fontSize: '20px',
+                fontStyle: 'normal',
+                fontWeight: '600',
+                lineHeight: '30px',
+              }}
               component="span"
             >
               {selectedDate.toLocaleString('default', {
-                            month: 'long',
-                          })}{' '}
+                month: 'long',
+              })}{' '}
               {selectedDate.getFullYear()}
             </Typography>
           </Typography>
           <Box
             sx={{
-                          display: 'flex',
-                          gap: '15px',
-                          flexWrap: 'wrap',
-                        }}
+              display: 'flex',
+              gap: '15px',
+              flexWrap: 'wrap',
+            }}
           >
             {[...Array(7)].map((_, index) => (
               <Button
-                            // eslint-disable-next-line react/no-array-index-key
+                // eslint-disable-next-line react/no-array-index-key
                 key={index}
-                variant={
-                              selectedDay === index ? 'contained' : 'outlined'
-                            }
+                variant={selectedDay === index ? 'contained' : 'outlined'}
                 sx={{
-                              borderRadius: '16px',
-                              border: '1px solid var(--primary-700, #884E1B)',
-                              background:
-                                selectedDay === index
-                                  ? 'var(--primary-600, #D77F33)'
-                                  : 'transparent',
-                              width: '80px',
-                            }}
+                  borderRadius: '16px',
+                  border: '1px solid var(--primary-700, #884E1B)',
+                  background:
+                    selectedDay === index
+                      ? 'var(--primary-600, #D77F33)'
+                      : 'transparent',
+                  width: '80px',
+                }}
                 onClick={() => setSelectedDay(index)}
               >
                 <Typography
                   sx={{
-                                color:
-                                  selectedDay === index
-                                    ? 'white'
-                                    : 'var(--gray-400, #98A2B3)',
-                                fontFamily: 'Inter',
-                                fontSize: '20px',
-                                fontStyle: 'normal',
-                                fontWeight: '600',
-                                lineHeight: '30px',
-                              }}
+                    color:
+                      selectedDay === index
+                        ? 'white'
+                        : 'var(--gray-400, #98A2B3)',
+                    fontFamily: 'Inter',
+                    fontSize: '20px',
+                    fontStyle: 'normal',
+                    fontWeight: '600',
+                    lineHeight: '30px',
+                  }}
                 >
                   {
-                                [
-                                  'SUN',
-                                  'MON',
-                                  'TUE',
-                                  'WED',
-                                  'THU',
-                                  'FRI',
-                                  'SAT',
-                                ][
-                                  new Date(
-                                    selectedDate.getFullYear(),
-                                    selectedDate.getMonth(),
-                                    selectedDate.getDate() + index,
-                                  ).getDay()
-                                ]
-                              }
+                    [
+                      'SUN',
+                      'MON',
+                      'TUE',
+                      'WED',
+                      'THU',
+                      'FRI',
+                      'SAT',
+                    ][
+                      new Date(
+                        selectedDate.getFullYear(),
+                        selectedDate.getMonth(),
+                        selectedDate.getDate() + index,
+                      ).getDay()
+                    ]
+                  }
 
                   <Typography
                     sx={{
-                                  color:
-                                    selectedDay === index
-                                      ? 'white'
-                                      : 'var(--gray-900, #101828)',
-                                  fontFamily: 'Inter',
-                                  fontSize: '20px',
-                                  fontStyle: 'normal',
-                                  fontWeight: '600',
-                                  lineHeight: '30px',
-                                }}
+                      color:
+                        selectedDay === index
+                          ? 'white'
+                          : 'var(--gray-900, #101828)',
+                      fontFamily: 'Inter',
+                      fontSize: '20px',
+                      fontStyle: 'normal',
+                      fontWeight: '600',
+                      lineHeight: '30px',
+                    }}
                   >
                     {selectedDate.getDate() + index}
                   </Typography>
                 </Typography>
               </Button>
-                        ))}
+            ))}
           </Box>
         </Stack>
       </LocalizationProvider>
+      <div style={{ height: '4px' }} />
       <Stack
         sx={{
-            border: '1px solid lightgray',
-            padding: '20px',
-            borderRadius: '16px',
+          padding: '20px',
+          borderRadius: '16px',
+          background: 'white',
         }}
         spacing={3}
       >
@@ -239,87 +185,85 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
             fontStyle: 'normal',
             fontWeight: '600',
             lineHeight: '30px',
-        }}
+          }}
           component="span"
         >
           Select a date -{' '}
           <Typography
             sx={{
-                          color: 'var(--gray-400, #98A2B3)',
-                          fontFamily: 'Inter',
-                          fontSize: '20px',
-                          fontStyle: 'normal',
-                          fontWeight: '600',
-                          lineHeight: '30px',
-                        }}
+              color: 'var(--gray-400, #98A2B3)',
+              fontFamily: 'Inter',
+              fontSize: '20px',
+              fontStyle: 'normal',
+              fontWeight: '600',
+              lineHeight: '30px',
+            }}
             component="span"
           >
             {selectedDate.toLocaleString('default', {
-                          month: 'long',
-                        })}{' '}
+              month: 'long',
+            })}{' '}
             {selectedDate.getFullYear()}
           </Typography>
         </Typography>
         <Box
           sx={{
-                        display: 'flex',
-                        gap: '15px',
-                        flexWrap: 'wrap',
-                      }}
+            display: 'flex',
+            gap: '15px',
+            flexWrap: 'wrap',
+          }}
         >
           {times.map((time, index) => (
             <Button
-                          // eslint-disable-next-line react/no-array-index-key
+              // eslint-disable-next-line react/no-array-index-key
               key={index}
-              variant={
-                            selectedTime === time ? 'contained' : 'outlined'
-                          }
+              variant={selectedTime === time ? 'contained' : 'outlined'}
               sx={{
-                            borderRadius: '16px',
-                            border: '1px solid var(--primary-700, #884E1B)',
-                            background:
-                              selectedTime === time
-                                ? 'var(--primary-50, #D77F33)'
-                                : 'transparent',
-                            width: '145px',
-                            padding: '12px 16px',
-                          }}
+                borderRadius: '16px',
+                border: '1px solid var(--primary-700, #884E1B)',
+                background:
+                  selectedTime === time
+                    ? 'var(--primary-50, #D77F33)'
+                    : 'transparent',
+                width: '145px',
+                padding: '12px 16px',
+              }}
               onClick={() => setSelectedTime(time)}
             >
               <Typography
                 sx={{
-                              color:
-                                selectedTime === time
-                                  ? 'white'
-                                  : 'var(--gray-900, #101828)',
-                              fontFamily: 'Inter',
-                              fontSize: '20px',
-                              fontStyle: 'normal',
-                              fontWeight: '600',
-                              lineHeight: '30px',
-                            }}
+                  color:
+                    selectedTime === time
+                      ? 'white'
+                      : 'var(--gray-900, #101828)',
+                  fontFamily: 'Inter',
+                  fontSize: '20px',
+                  fontStyle: 'normal',
+                  fontWeight: '600',
+                  lineHeight: '30px',
+                }}
                 component="span"
               >
                 {time.slice(0, time.length - 2)}
                 <Typography
                   sx={{
-                                color:
-                                  selectedTime === time
-                                    ? 'white'
-                                    : 'var(--gray-400, #98A2B3)',
-                                fontFamily: 'Inter',
-                                fontSize: '20px',
-                                fontStyle: 'normal',
-                                fontWeight: '600',
-                                lineHeight: '30px',
-                              }}
+                    color:
+                      selectedTime === time
+                        ? 'white'
+                        : 'var(--gray-400, #98A2B3)',
+                    fontFamily: 'Inter',
+                    fontSize: '20px',
+                    fontStyle: 'normal',
+                    fontWeight: '600',
+                    lineHeight: '30px',
+                  }}
                   component="span"
                 >
                   {time.slice(time.length - 2, time.length)}
                 </Typography>
               </Typography>
             </Button>
-                      ))}
+          ))}
         </Box>
       </Stack>
     </div>

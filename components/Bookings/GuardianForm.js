@@ -11,7 +11,6 @@ const useStyles = makeStyles()((theme) => ({
     borderRadius: '12px',
     padding: theme.spacing(3),
     marginBottom: theme.spacing(3),
-    border: '1px solid #EAECF0',
   },
   sectionTitle: {
     color: '#101828',

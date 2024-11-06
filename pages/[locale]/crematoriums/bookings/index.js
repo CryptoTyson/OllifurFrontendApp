@@ -76,44 +76,56 @@ function Bookings(props) {
         <Header onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
         <BookingHeader />
 
-        <Container sx={{ pb: 8 }}>
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={8}>
-              <SlotSelection
-                selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
-                selectedTime={selectedTime}
-                setSelectedTime={setSelectedTime}
-              />
+        <Container maxWidth="xl" sx={{ pb: 8, marginTop: '-60px', position: 'relative', zIndex: 1 }}>
+          <div style={{
+            margin: '0 80px',
+            borderRadius: '16px',
+            padding: '16px 24px',
+            backgroundColor: '#F9FAFB',
+          }}
+          >
+            <Grid
+              container
+              spacing={4}
+            >
+              <Grid item xs={12} md={8}>
+                <SlotSelection
+                  selectedDate={selectedDate}
+                  setSelectedDate={setSelectedDate}
+                  selectedTime={selectedTime}
+                  setSelectedTime={setSelectedTime}
+                />
 
-              <CompanionForm
-                values={values}
-                handleChange={handleChange}
-              />
+                <CompanionForm
+                  values={values}
+                  handleChange={handleChange}
+                />
 
-              <GuardianForm
-                values={values}
-                handleChange={handleChange}
-                setValues={setValues}
-              />
+                <GuardianForm
+                  values={values}
+                  handleChange={handleChange}
+                  setValues={setValues}
+                />
 
-              <PickupForm
-                values={values}
-                handleChange={handleChange}
-              />
+                <PickupForm
+                  values={values}
+                  handleChange={handleChange}
+                />
+              </Grid>
+
+              <Grid item xs={12} md={4}>
+                <OrderSummary
+                  bookingData={bookingData}
+                  termsAccepted={termsAccepted}
+                  setTermsAccepted={setTermsAccepted}
+                  onPaymentSubmit={handlePaymentSubmit}
+                  additionalNotes={additionalNotes}
+                  setAdditionalNotes={setAdditionalNotes}
+                />
+              </Grid>
             </Grid>
+          </div>
 
-            <Grid item xs={12} md={4}>
-              <OrderSummary
-                bookingData={bookingData}
-                termsAccepted={termsAccepted}
-                setTermsAccepted={setTermsAccepted}
-                onPaymentSubmit={handlePaymentSubmit}
-                additionalNotes={additionalNotes}
-                setAdditionalNotes={setAdditionalNotes}
-              />
-            </Grid>
-          </Grid>
         </Container>
         <Footer toggleDir={onToggleDir} />
       </div>
