@@ -32,6 +32,31 @@ const useStyles = makeStyles()((theme) => ({
       },
     },
   },
+  subtotal: {
+    color: 'var(--Gray-900, #101828) !important',
+    fontFamily: 'Inter',
+    fontSize: '14px !important',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '20px !important'
+  },
+  cost: {
+    color: 'var(--Dark-Dark-3, #4F4F4F) !important',
+    fontFamily: 'Inter',
+    fontSize: '14px !important',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '20px !important'
+  },
+  subTax: {
+    color: 'var(--Gray-400, #98A2B3) !important',
+    fontFamily: 'Inter',
+    fontSize: '14px !important',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '20px !important',
+    paddingLeft: '9px',
+  },
   serviceItem: {
     display: 'flex',
     gap: theme.spacing(2),
@@ -68,6 +93,9 @@ const useStyles = makeStyles()((theme) => ({
       borderRadius: '8px',
       padding: '10px 14px',
       height: '24px',
+    },
+    '& .MuiInputBase-input::placeholder': {
+      color: '#667085'
     },
     '& .MuiOutlinedInput-root': {
       background: 'white',
@@ -111,26 +139,20 @@ const OrderSummary = ({
   onPaymentSubmit,
   additionalNotes,
   setAdditionalNotes,
+  isEnabled,
 }) => {
   const { classes } = useStyles();
   const [isProcessing, setIsProcessing] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
 
-  // Define services based on booking data
-  const services = [
+  // Define base services
+  const baseServices = [
     {
       id: 'cremation',
       name: 'Communal Cremation',
       description: 'Shared farewell for your companion. No individual ashes return.',
       amount: 245.00,
       icon: DescriptionOutlinedIcon,
-    },
-    {
-      id: 'collection',
-      name: 'Home Collection',
-      description: 'A caring solution for retrieving your companion from your home.',
-      amount: 30.78,
-      icon: DirectionsCarOutlinedIcon,
     },
     {
       id: 'memorial',
@@ -140,6 +162,18 @@ const OrderSummary = ({
       icon: MenuBookOutlinedIcon,
     },
   ];
+
+  // Add Home Collection service only if pickup is enabled
+  const services = isEnabled ? [
+    ...baseServices,
+    {
+      id: 'collection',
+      name: 'Home Collection',
+      description: 'A caring solution for retrieving your companion from your home.',
+      amount: 30.78,
+      icon: DirectionsCarOutlinedIcon,
+    }
+  ] : baseServices;
 
   // Calculate totals
   const subtotal = services.reduce((sum, service) => sum + service.amount, 0);
@@ -246,7 +280,7 @@ const OrderSummary = ({
                     </Typography>
                   </div>
                 </div>
-        ))}
+              ))}
             </Box>
           </AccordionDetails>
         </Accordion>
@@ -301,18 +335,44 @@ const OrderSummary = ({
 
           <div className={classes.summaryItem}>
             <Typography>Subtotal</Typography>
-            <Typography>${subtotal.toFixed(2)}</Typography>
+            <Typography className={classes.subtotal}>${subtotal.toFixed(2)}</Typography>
           </div>
           {discount > 0 && (
           <div className={classes.summaryItem}>
             <Typography>Discount</Typography>
-            <Typography>-${discount.toFixed(2)}</Typography>
+            <Typography className={classes.cost}>-${discount.toFixed(2)}</Typography>
           </div>
         )}
-          <div className={classes.summaryItem}>
+          <div
+            className={classes.summaryItem}
+            style={{
+            marginBottom: '8px'
+          }}
+          >
             <Typography>Tax</Typography>
-            <Typography>${tax.toFixed(2)}</Typography>
+            <Typography className={classes.cost}>${tax.toFixed(2)}</Typography>
           </div>
+          <div
+            className={classes.summaryItem}
+            style={{
+            marginBottom: '8px'
+          }}
+          >
+            <Typography className={classes.subTax}>GST</Typography>
+            <Typography className={classes.cost}>${(tax / 2).toFixed(2)}</Typography>
+          </div>
+          <div className={classes.summaryItem}>
+            <Typography className={classes.subTax}>PST</Typography>
+            <Typography className={classes.cost}>${(tax / 2).toFixed(2)}</Typography>
+          </div>
+          <div style={{
+            height: '1px',
+            background: '#EAECF0',
+            margin: '16px 0',
+            width: '100%',
+            marginTop: '55px',
+          }}
+          />
           <div className={classes.summaryItem} style={{ marginTop: '16px' }}>
             <Typography
               variant="h6"
@@ -337,12 +397,25 @@ const OrderSummary = ({
           </div>
 
           <TextField
+            variant="outlined"
+            label="Order Comments"
             fullWidth
             multiline
-            rows={4}
+            rows={2}
             placeholder="Anything you'd like us to know..."
             className={classes.input}
-            sx={{ marginTop: '16px' }}
+            sx={{ marginTop: '16px',
+                '& .MuiInputLabel-outlined.MuiInputLabel-shrink': {
+                    color: '#828282',
+                    fontFamily: 'Inter',
+                    fontStyle: 'normal',
+                    fontWeight: '400',
+                    lineHeight: '18px'
+                  }
+                }}
+            InputLabelProps={{
+              shrink: true,
+            }}
             value={additionalNotes}
             onChange={(e) => setAdditionalNotes(e.target.value)}
           />
@@ -395,9 +468,9 @@ OrderSummary.propTypes = {
     guardianPhone: PropTypes.string.isRequired,
     guardianEmail: PropTypes.string.isRequired,
     guardianAddress: PropTypes.string.isRequired,
-    pickupAddress: PropTypes.string.isRequired,
-    pickupCity: PropTypes.string.isRequired,
-    pickupPostal: PropTypes.string.isRequired,
+    pickupAddress: PropTypes.string,
+    pickupCity: PropTypes.string,
+    pickupPostal: PropTypes.string,
     date: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
   }).isRequired,
@@ -406,6 +479,7 @@ OrderSummary.propTypes = {
   onPaymentSubmit: PropTypes.func.isRequired,
   additionalNotes: PropTypes.string.isRequired,
   setAdditionalNotes: PropTypes.func.isRequired,
+  isEnabled: PropTypes.bool.isRequired,
 };
 
 export default OrderSummary;

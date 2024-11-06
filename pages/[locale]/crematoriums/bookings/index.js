@@ -37,6 +37,7 @@ function Bookings(props) {
   const [selectedTime, setSelectedTime] = useState(null);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [additionalNotes, setAdditionalNotes] = useState('');
+  const [isEnabled, setIsEnabled] = useState(false);
   const [values, setValues] = useState({
     name: '',
     species: 'dog',
@@ -121,6 +122,8 @@ function Bookings(props) {
                 <PickupForm
                   values={values}
                   handleChange={handleChange}
+                  isEnabled={isEnabled}
+                  setIsEnabled={setIsEnabled}
                 />
 
                 <CremationInfo
@@ -137,6 +140,7 @@ function Bookings(props) {
                   onPaymentSubmit={handlePaymentSubmit}
                   additionalNotes={additionalNotes}
                   setAdditionalNotes={setAdditionalNotes}
+                  isEnabled={isEnabled}
                 />
               </Grid>
             </Grid>

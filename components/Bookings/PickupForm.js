@@ -52,9 +52,8 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const PickupForm = ({ values, handleChange }) => {
+const PickupForm = ({ values, handleChange, isEnabled, setIsEnabled }) => {
   const { classes } = useStyles();
-  const [isEnabled, setIsEnabled] = useState(false);
 
   const handleToggle = () => {
     setIsEnabled(!isEnabled);
@@ -179,6 +178,8 @@ PickupForm.propTypes = {
     pickupPostal: PropTypes.string.isRequired,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
+  isEnabled: PropTypes.bool.isRequired,
+  setIsEnabled: PropTypes.func.isRequired,
 };
 
 export default PickupForm;
