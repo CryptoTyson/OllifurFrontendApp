@@ -22,7 +22,6 @@ function Maintenance() {
   const { classes, cx } = useSpacing();
   const { classes: align } = useTextAlign();
   const { classes: text } = useText();
-  
 
   return (
     <Fragment>
@@ -51,10 +50,10 @@ function Maintenance() {
                 </Box>
                 <div className={align.textCenter}>
                   <h3 className={text.title2}>
-                    {'util_maintenance'}
+                    util_maintenance
                   </h3>
                   <h5 className={text.subtitle2}>
-                    {'util_maintenance_dec'}
+                    util_maintenance_dec
                   </h5>
                 </div>
               </Grid>
