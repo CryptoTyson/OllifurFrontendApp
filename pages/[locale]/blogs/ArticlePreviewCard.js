@@ -6,8 +6,6 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 
-export const runtime = 'edge';
-
 const useStyles = makeStyles()((theme) => ({
   card: {
     position: 'relative',
