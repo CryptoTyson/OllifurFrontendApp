@@ -8,7 +8,7 @@ import useStyles from '../blog-style';
 
 function PostWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
   const news = [{
     title: 'Vestibulum bibendum nisi eget magna',
     date: 'Jan 9, 2014'
@@ -31,7 +31,7 @@ function PostWidget() {
   }];
 
   return (
-    <Paper title={t('blog_post')} icon="ion-android-bookmark" whiteBg desc="">
+    <Paper title={'blog_post'} icon="ion-android-bookmark" whiteBg desc="">
       <div className={classes.albumRoot}>
         <List component="nav">
           {news.map((item, index) => (

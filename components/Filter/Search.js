@@ -14,7 +14,7 @@ function Search(props) {
   const { value, updateValue } = props;
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
   const { classes: align } = useTextAlign();
 
   const handleUpdateValue = event => {
@@ -28,10 +28,10 @@ function Search(props) {
           <Grid container alignItems="center" className={classes.searchBox}>
             <Grid item sm={12}>
               <h2 className={cx(text.title2, text.textPrimary, align.textCenter)}>
-                {t('list_title')}
+                {'list_title'}
               </h2>
               <h3 className={cx(text.subtitle2, align.textCenter)}>
-                {t('list_subtitle')}
+                {'list_subtitle'}
               </h3>
               <div className={classes.search}>
                 <FormControl variant="standard" component="form">
@@ -39,7 +39,7 @@ function Search(props) {
                     value={value}
                     onChange={(e) => handleUpdateValue(e)}
                     className={classes.input}
-                    placeholder={t('list_search')}
+                    placeholder={'list_search'}
                     startAdornment={<SearchIcon />}
                     labelWidth={0}
                   />

@@ -21,7 +21,7 @@ const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disabl
 });
 
 function PageNav() {
-  const { t } = useTranslation('common');
+  
   const [show, setShow] = useState(false);
   let flagShow = false;
 
@@ -75,7 +75,7 @@ function PageNav() {
               data-id={item.id}
             >
               <Tooltip
-                title={t('retail-landing:header_' + item.name)}
+                title={('retail-landing:header_' + item.name)}
                 placement="left"
                 classes={{
                   tooltip: classes.tooltip

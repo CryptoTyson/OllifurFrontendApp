@@ -15,7 +15,7 @@ import useStyles from './news-event-style';
 function NewsEvent() {
   const { classes } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -23,10 +23,10 @@ function NewsEvent() {
   return (
     <div className={classes.root}>
       <Title align="center">
-        {t('retail-landing.news_title')}
+        {'retail-landing.news_title'}
       </Title>
       <Typography align="center" className={text.subtitle2}>
-        {t('retail-landing.news_desc')}
+        {'retail-landing.news_desc'}
       </Typography>
       <div className={classes.blogWrap}>
         <Container fixed>

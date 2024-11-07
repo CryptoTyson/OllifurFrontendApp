@@ -18,7 +18,7 @@ function LoginPage(props) {
   // Theme breakpoints
 
   // Translation Function
-  const { t } = useTranslation('common');
+  
 
   const { classes, cx } = useSpacing();
 
@@ -31,7 +31,7 @@ function LoginPage(props) {
       <CssBaseline />
       <div className={classes.mainWrap}>
         <Header
-          text={t('header_register')}
+          text={'header_register'}
           href={link.retail.register}
           onToggleDark={onToggleDark}
           onToggleDir={onToggleDir}

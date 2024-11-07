@@ -9,7 +9,7 @@ import useStyles from '../blog-style';
 
 function CommentWidget() {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('common');
+  
   const comments = [
     {
       color: 'orange',
@@ -46,7 +46,7 @@ function CommentWidget() {
   const firstChar = str => str.charAt(0);
 
   return (
-    <Paper title={t('blog_comment')} icon="ion-android-textsms" whiteBg desc="">
+    <Paper title={'blog_comment'} icon="ion-android-textsms" whiteBg desc="">
       <List component="nav" dense className={classes.profileList}>
         {comments.map((item, index) => (
           <ListItem disableGutters key={index.toString()} button>

@@ -1,16 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
-import { useTranslation } from 'next-i18next';
 import logo from '~/public/images/logo-retail.svg';
 import brand from '~/public/text/brand';
 import img from '~/public/images/imgAPI';
-import SelectLang from '../LangSwitch/Select';
 import useStyles from './blog-style';
 
 function Copyright() {
@@ -46,10 +43,8 @@ const news = [
   }
 ];
 
-function Blog(props) {
+function Blog() {
   const { classes } = useStyles();
-  const { toggleDir } = props;
-  const { t } = useTranslation('common');
 
   return (
     <footer className={classes.footer}>
@@ -63,13 +58,13 @@ function Blog(props) {
               </Typography>
             </div>
             <Typography color="textPrimary" className={classes.footerDesc} gutterBottom>
-              {t('retail-landing.banner_title')}
+              retail-landing.banner_title
               .&nbsp;
-              {t('retail-landing.banner_desc')}
+              retail-landing.banner_desc
             </Typography>
             <div className={classes.quickLinks}>
               <Typography variant="h6" className={classes.title} color="textPrimary" gutterBottom>
-                {t('footer_link')}
+                footer_link
               </Typography>
               <ul>
                 {footer.description.map((item, index) => (
@@ -95,7 +90,7 @@ function Blog(props) {
                 </figure>
                 <div className={classes.listText}>
                   <Typography variant="button" className={classes.category}>
-                    {t('footer_news')}
+                    footer_news
                   </Typography>
                   <Typography display="block" component="p">Sed imperdiet enim ligula vitae viverra. </Typography>
                 </div>
@@ -117,7 +112,6 @@ function Blog(props) {
                 <i className="ion-social-linkedin" />
               </IconButton>
             </div>
-            <SelectLang toggleDir={toggleDir} />
             <Copyright />
           </Grid>
         </Grid>
@@ -125,14 +119,5 @@ function Blog(props) {
     </footer>
   );
 }
-
-Blog.propTypes = {
-  toggleDir: PropTypes.func,
-};
-
-Blog.defaultProps = {
-  toggleDir: () => {},
-  bg: false
-};
 
 export default Blog;

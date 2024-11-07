@@ -10,7 +10,7 @@ import ProductCard from '../Cards/ProductCard';
 function RelatedItems() {
   const { classes } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   return (
     <Grid container justifyContent="center">
@@ -18,7 +18,7 @@ function RelatedItems() {
         <Box pb={{ xs: 5, sm: 10 }} px={{ xs: 2, sm: 0 }}>
           <Box mb={3}>
             <h4 className={text.subtitle}>
-              {t('list_related')}
+              {'list_related'}
             </h4>
           </Box>
           <Grid container className={classes.scrollTablet}>

@@ -32,13 +32,13 @@ const topics = [{
 function TopicList() {
   const { classes } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   return (
     <div>
       <Box mb={3}>
         <h4 className={text.subtitle}>
-          {t('faq_topic')}
+          {'faq_topic'}
         </h4>
       </Box>
       <ul className={classes.topicList}>

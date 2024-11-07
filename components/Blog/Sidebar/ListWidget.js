@@ -12,7 +12,7 @@ import useStyles from '../blog-style';
 
 function ListWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
 
   const periode = [
     'October 2018',
@@ -26,7 +26,7 @@ function ListWidget() {
   ];
 
   return (
-    <Paper title={t('blog_archived')} icon="ion-folder" whiteBg desc="">
+    <Paper title={'blog_archived'} icon="ion-folder" whiteBg desc="">
       <div>
         <div className={classes.albumRoot}>
           <List component="nav">

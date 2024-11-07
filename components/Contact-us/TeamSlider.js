@@ -14,7 +14,7 @@ import useStyles from './about-style';
 function PhotoSlider() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -46,7 +46,7 @@ function PhotoSlider() {
       <Container>
         <Title align={isMobile ? 'center' : 'left'}>
           <span>
-            {t('about_team')}
+            {'about_team'}
           </span>
         </Title>
         <p className={text.subtitle2}>

@@ -15,7 +15,7 @@ function Error(props) {
   const { classes } = useSpacing();
   const { classes: txt } = useText();
   const { errCode, text } = props;
-  const { t } = useTranslation('common');
+  
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));

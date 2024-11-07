@@ -17,7 +17,7 @@ function ErrorPage(props) {
   const { classes } = useSpacing();
   const { onToggleDark, onToggleDir } = props;
   const { errorCode, stars } = props;
-  const { t } = useTranslation('common');
+  
 
   if (errorCode) {
     return (
@@ -37,7 +37,7 @@ function ErrorPage(props) {
             onToggleDir={onToggleDir}
             invert
           />
-          <Error errorCode={errorCode} text={t('404')} />
+          <Error errorCode={errorCode} text={'404'} />
         </div>
       </Fragment>
     );
@@ -45,7 +45,7 @@ function ErrorPage(props) {
 
   return (
     <div className={classes.dedicatedPage}>
-      {t('description')}
+      {'description'}
       Next stars:&nbsp;
       {stars}
     </div>

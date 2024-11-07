@@ -26,7 +26,7 @@ import link from '~/public/text/link';
 function BlogHome(props) {
   const { classes } = useSpacing();
   const { onToggleDark, onToggleDir } = props;
-  const { t } = useTranslation('common');
+  
   return (
     <Fragment>
       <Head>
@@ -98,10 +98,10 @@ function BlogHome(props) {
                       <Grid container justifyContent="space-between">
                         <Button>
                           <ArrowBackIcon />
-                          {t('btn_prev')}
+                          {'btn_prev'}
                         </Button>
                         <Button>
-                          {t('btn_next')}
+                          {'btn_next'}
                           <ArrowForwardIcon />
                         </Button>
                       </Grid>

@@ -44,7 +44,7 @@ function Faq() {
   const { classes: align } = useTextAlign();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { t } = useTranslation('common');
+  
   const [expanded, setExpanded] = React.useState(0);
   const handleChange = panel => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -56,11 +56,11 @@ function Faq() {
           <Grid item md={6}>
             <Title align={isMobile ? 'center' : 'left'}>
               <span>
-                {t('faq_title')}
+                {'faq_title'}
               </span>
             </Title>
             <p className={cx(text.subtitle2, isMobile ? align.textCenter : align.textLeft)}>
-              {t('faq_desc')}
+              {'faq_desc'}
             </p>
             <Hidden mdDown>
               <div className={classes.illustration}>

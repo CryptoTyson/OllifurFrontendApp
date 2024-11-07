@@ -5,12 +5,8 @@ import PropTypes from 'prop-types';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { prefixer } from 'stylis';
 import CssBaseline from '@mui/material/CssBaseline';
 import LoadingBar from 'react-top-loading-bar';
-import { appWithTranslation } from 'next-i18next';
-import lngDetector from '../lib/languageDetector';
 import appTheme from '~/theme/appTheme';
 /* import css vendors */
 import 'react-18-image-lightbox/style.css';
@@ -42,15 +38,8 @@ if (isBrowser) {
   insertionPoint = emotionInsertionPoint ?? undefined;
 }
 
-const cacheRTL = createCache({
-  key: 'mui-style-rtl',
-  stylisPlugins: [prefixer, rtlPlugin],
-  insertionPoint,
-  prepend: true,
-});
-
-const cacheLTR = createCache({
-  key: 'mui-style-ltr',
+const cache = createCache({
+  key: 'mui-style',
   insertionPoint,
   prepend: true,
 });
@@ -59,33 +48,12 @@ function MyApp(props) {
   const { Component, pageProps, router } = props; // eslint-disable-line
   const [loading, setLoading] = useState(0);
 
-  const curLang = lngDetector.detect();
-
   const themeName = 'rose';
-  const defaultTheme = 'light';
   const [theme, setTheme] = useState({
-    ...appTheme(themeName, defaultTheme),
-    direction: 'ltr',
+    ...appTheme(themeName, themeType),
   });
 
   useEffect(() => {
-    // Set layout direction
-    const themeDir = curLang === 'ar' ? 'rtl' : 'ltr';
-    document.dir = themeDir;
-    document.documentElement.setAttribute('lang', curLang);
-
-    // Set color mode and direction
-    if (themeType === 'dark' || curLang === 'ar') {
-      setTheme({
-        ...appTheme(themeName, themeType || defaultTheme),
-        direction: themeDir,
-      });
-    }
-
-    // Enable this code below for Server Side Rendering/Translation (SSR)
-    // const { pathname, asPath, query } = router;
-    // router.push({ pathname, query }, asPath, { locale: curLang });
-
     // Remove preloader
     const preloader = document.getElementById('preloader');
     if (preloader !== null || undefined) {
@@ -110,25 +78,12 @@ function MyApp(props) {
 
     setTheme({
       ...appTheme(themeName, newPaletteType),
-      direction: theme.direction,
-    });
-  };
-
-  const toggleDirection = (dir) => {
-    document.dir = dir;
-    // set theme
-    setTheme({
-      ...theme,
-      direction: dir,
-      palette: {
-        ...theme.palette,
-      },
     });
   };
 
   const muiTheme = createTheme(theme);
   return (
-    <CacheProvider value={theme.direction === 'rtl' ? cacheRTL : cacheLTR}>
+    <CacheProvider value={cache}>
       <Head>
         <meta
           name="viewport"
@@ -148,7 +103,6 @@ function MyApp(props) {
             <Component
               {...pageProps}
               onToggleDark={toggleDarkTheme}
-              onToggleDir={toggleDirection}
               key={router.route}
             />
           </div>
@@ -168,4 +122,4 @@ MyApp.getInitialProps = async (appContext) => ({
   ...(await App.getInitialProps(appContext)),
 });
 
-export default appWithTranslation(MyApp);
+export default MyApp;

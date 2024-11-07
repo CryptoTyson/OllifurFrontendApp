@@ -13,10 +13,10 @@ import useStyles from '../blog-style';
 
 function ProfileWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
 
   return (
-    <Paper title={t('blog_about')} icon="ion-ios-contact-outline" whiteBg noMargin desc="commodo augue. In dictum leo nec odio euismod pretium.">
+    <Paper title={'blog_about'} icon="ion-ios-contact-outline" whiteBg noMargin desc="commodo augue. In dictum leo nec odio euismod pretium.">
       <List dense className={classes.profileList}>
         <ListItem>
           <ListItemAvatar>

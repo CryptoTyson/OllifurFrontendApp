@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { useTranslation } from 'next-i18next';
 import useStyles from './news-event-style';
 
 function News(props) {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
   const {
     text,
     img,
@@ -21,12 +19,12 @@ function News(props) {
       <div className={classes.desc}>
         <div className={classes.text}>
           <Typography variant="caption" className={classes.type}>
-            {t('retail-landing.' + type)}
+            {('retail-landing.' + type)}
           </Typography>
           <Typography display="block" component="p">{text}</Typography>
         </div>
         <Button size="small" className={classes.btn}>
-          {t('retail-landing.news_readmore')}
+          retail-landing.news_readmore
         </Button>
       </div>
     </div>

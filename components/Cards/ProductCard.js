@@ -13,7 +13,7 @@ import useStyles from './product-card-style';
 
 function ProductCard(props) {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('common');
+  
   const {
     img,
     title,
@@ -64,7 +64,7 @@ function ProductCard(props) {
             variant="outlined"
             color="primary"
           >
-            {t('btn_detail')}
+            {'btn_detail'}
           </Button>
         </div>
       </div>

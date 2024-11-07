@@ -10,7 +10,7 @@ import useStyles from './list-style';
 function Description() {
   const { classes } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   return (
     <Box py={{ xs: 0, sm: 5 }}>
@@ -21,7 +21,7 @@ function Description() {
               <Grid item md={7} xs={12}>
                 <Box mb={3}>
                   <h4 className={text.subtitle}>
-                    {t('list_desc')}
+                    {'list_desc'}
                   </h4>
                 </Box>
                 <Typography>

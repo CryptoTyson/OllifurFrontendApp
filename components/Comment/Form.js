@@ -21,7 +21,7 @@ function Form(props) {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   // Translation Function
-  const { t } = useTranslation('common');
+  
 
   const { avatar } = props;
 
@@ -43,7 +43,7 @@ function Form(props) {
             value={comment}
           />
           <Button variant="contained" size="small" color="primary" aria-label="send" className={classes.sendButton}>
-            {isMobile ? (<Send />) : t('form_send')}
+            {isMobile ? (<Send />) : 'form_send'}
           </Button>
         </Paper>
       </div>

@@ -9,7 +9,7 @@ import useStyles from '../header-style';
 function SearchField(props) {
   const [value, setVal] = useState('');
   const { short } = props;
-  const { t } = useTranslation('common');
+  
   const { classes, cx } = useStyles();
 
   const handleUpdateValue = event => {
@@ -23,7 +23,7 @@ function SearchField(props) {
           value={value}
           onChange={(e) => handleUpdateValue(e)}
           className={classes.input}
-          placeholder={t('list_search')}
+          placeholder={'list_search'}
           startAdornment={<SearchIcon className={classes.searchIcon} />}
           labelWidth={0}
         />

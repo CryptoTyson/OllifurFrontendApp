@@ -12,7 +12,7 @@ import { useText } from '~/theme/common';
 function Group() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   const comments = [{
     name: 'John Doe',
@@ -51,7 +51,7 @@ function Group() {
             <Grid item md={8} xs={12}>
               <Box mb={3}>
                 <h4 className={cx(text.subtitle, text.capitalize)}>
-                  {t('list_comments')}
+                  {'list_comments'}
                 </h4>
               </Box>
               <Form avatar="/images/avatars/pp_boy2.svg" />

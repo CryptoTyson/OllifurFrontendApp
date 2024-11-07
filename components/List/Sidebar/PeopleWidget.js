@@ -13,7 +13,7 @@ import useStyles from '../list-style';
 
 function PeopleWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
   const people = [{
     img: imgAPI.avatar[6],
     name: 'John Doe',
@@ -61,7 +61,7 @@ function PeopleWidget() {
         </List>
         <Grid container justifyContent="center">
           <Button fullWidth color="secondary">
-            {t('btn_seeall')}
+            {'btn_seeall'}
           </Button>
         </Grid>
       </div>

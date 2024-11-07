@@ -28,7 +28,7 @@ function Team(props) {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   // Translation Function
-  const { t } = useTranslation('common');
+  
 
   const { classes, cx } = useSpacing();
   const { classes: align } = useTextAlign();
@@ -64,7 +64,7 @@ function Team(props) {
                   isMobile ? align.textCenter : align.textLeft,
                 )}
               >
-                {t('about_team')}
+                {'about_team'}
               </h4>
             </Box>
             <p className={text.subtitle2}>

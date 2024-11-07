@@ -81,7 +81,7 @@ function MixedNav(props) {
             ref={anchorRef}
             endIcon={<Icon>expand_more</Icon>}
           >
-            {t('header_sample_page')}
+            {'header_sample_page'}
           </Button>
           <Popper
             open={open}

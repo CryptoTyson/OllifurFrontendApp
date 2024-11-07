@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
 import Popover from '@mui/material/Popover';
 import IconButton from '@mui/material/IconButton';
-// import SettingsIcon from '@mui/icons-material/Settings';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItem from '@mui/material/ListItem';
 import Switch from '@mui/material/Switch';
-import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import LanguageSwitch from '../../LangSwitch/Menu';
 import useStyles from '../header-style';
-import i18nextConfig from '../../../next-i18next.config';
 
 let themeType = 'light';
 if (typeof Storage !== 'undefined') {
@@ -32,13 +27,6 @@ function Settings(props: SettingsProps) {
   const { classes, cx }:any = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isDark, setDark] = useState(themeType === 'dark');
-  const { t, i18n } = useTranslation('common');
-
-  const currentLocale = i18n.language;
-
-  // function handleClick(event) {
-  //   setAnchorEl(event.currentTarget);
-  // }
 
   function handleClose() {
     setAnchorEl(null);
@@ -96,14 +84,14 @@ function Settings(props: SettingsProps) {
           aria-label="Mode-menu"
           subheader={(
             <ListSubheader component="div">
-              {t('header_theme')}
+              Theme
             </ListSubheader>
           )}
         >
           <ListItem>
             <Typography component="div">
               <Grid component="label" container alignItems="center" spacing={1}>
-                <Grid item>{t('header_light')}</Grid>
+                <Grid item>Light</Grid>
                 <Grid item>
                   <Switch
                     checked={isDark}
@@ -112,32 +100,10 @@ function Settings(props: SettingsProps) {
                     inputProps={{ 'aria-label': 'checkbox' }}
                   />
                 </Grid>
-                <Grid item>{t('header_dark')}</Grid>
+                <Grid item>Dark</Grid>
               </Grid>
             </Typography>
           </ListItem>
-        </List>
-        <Divider />
-        <List
-          component="nav"
-          className={classes.langMenu}
-          aria-label="Language-menu"
-          subheader={(
-            <ListSubheader component="div">
-              {t('header_language')}
-            </ListSubheader>
-          )}
-        >
-          {i18nextConfig.i18n.locales.map((locale) => (
-            <LanguageSwitch
-              ssg={i18nextConfig.ssg}
-              locale={locale}
-              key={locale}
-              checked={locale === currentLocale}
-              toggleDir={props.toggleDir}
-              closePopup={handleClose}
-            />
-          ))}
         </List>
       </Popover>
     </div>

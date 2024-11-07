@@ -22,7 +22,7 @@ function Detail() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
-  const { t } = useTranslation('common');
+  
 
   const settings = {
     dots: true,
@@ -123,10 +123,10 @@ function Detail() {
               </article>
               <section className={classes.btnArea}>
                 <Button className={classes.btnText} color="secondary">
-                  {t('list_whislist')}
+                  {'list_whislist'}
                 </Button>
                 <Button variant="contained" size="large" color="primary">
-                  {t('list_cart')}
+                  {'list_cart'}
                 </Button>
               </section>
             </div>

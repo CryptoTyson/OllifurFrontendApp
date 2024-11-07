@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Fade from '@mui/material/Fade';
-import { useTranslation } from 'next-i18next';
 import routeLink from '~/public/text/link';
 import Logo from '../Logo';
 import useStyles from './header-style';
@@ -34,7 +33,6 @@ function Hamburger(props) {
   // Theme breakpoints
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-  const { t } = useTranslation('common');
 
   const [fixed, setFixed] = useState(false);
   let flagFixed = false;
@@ -125,12 +123,12 @@ function Hamburger(props) {
                     {home ? (
                       // eslint-disable-next-line
                       <Button component={LinkBtn} onClick={handleCloseDrawer} offset={item.offset || 0} href={item.url}>
-                        {t('retail-landing.header_' + item.name)}
+                        {('retail-landing.header_' + item.name)}
                       </Button>
                     ) : (
                       // eslint-disable-next-line
                       <Button href={'/' + item.url}>
-                        {t('retail-landing.header_' + item.name)}
+                        {('retail-landing.header_' + item.name)}
                       </Button>
                     )}
                   </li>

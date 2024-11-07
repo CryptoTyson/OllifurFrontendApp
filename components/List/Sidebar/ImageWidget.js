@@ -14,7 +14,7 @@ import useStyles from '../list-style';
 
 function ImageWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
 
   const imgData = [{
     src: imgAPI.photo[5]
@@ -30,7 +30,7 @@ function ImageWidget() {
   }];
 
   return (
-    <Paper title={t('blog_album')} icon="ion-images" whiteBg desc="">
+    <Paper title={'blog_album'} icon="ion-images" whiteBg desc="">
       <div className={classes.albumRoot}>
         <ImageList rowHeight={180} className={classes.gridList}>
           {
@@ -63,7 +63,7 @@ function ImageWidget() {
         <Divider className={classes.divider} />
         <Grid container justifyContent="center">
           <Button fullWidth color="secondary">
-            {t('btn_seeall')}
+            {'btn_seeall'}
           </Button>
         </Grid>
       </div>

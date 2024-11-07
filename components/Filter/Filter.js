@@ -33,7 +33,7 @@ function Filter(props) {
     filterRadio, changeRadio
   } = props;
 
-  const { t } = useTranslation('common');
+  
 
   const handleChangeCategory = (event, cat) => {
     changeCategory(cat);
@@ -85,7 +85,7 @@ function Filter(props) {
             selected={filterCategory === 'all'}
             onClick={(event) => handleChangeCategory(event, 'all')}
           >
-            <ListItemText primary={t('list_filter')} />
+            <ListItemText primary={'list_filter'} />
           </ListItem>
           <ListItem
             button
@@ -401,7 +401,7 @@ function Filter(props) {
           <FormControl variant="standard" component="fieldset">
             <FormLabel className={classes.titleLabel} component="legend">Filter Radio</FormLabel>
             <RadioGroup aria-label="radio" name="radio" value={filterRadio} onChange={(event) => handleChangeRadio(event)}>
-              <FormControlLabel value="all" control={<Radio />} label={t('list_filter')} />
+              <FormControlLabel value="all" control={<Radio />} label={'list_filter'} />
               <FormControlLabel value="radio-a" control={<Radio />} label="Radio A" />
               <FormControlLabel value="radio-b" control={<Radio />} label="Radio B" />
               <FormControlLabel value="radio-c" control={<Radio />} label="Radio C" />

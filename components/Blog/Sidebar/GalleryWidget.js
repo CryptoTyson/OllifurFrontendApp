@@ -14,7 +14,7 @@ import useStyles from '../blog-style';
 
 function GalleryWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
 
   const imgData = [{
     src: imgAPI.photo[3]
@@ -30,7 +30,7 @@ function GalleryWidget() {
   }];
 
   return (
-    <Paper title={t('blog_album')} icon="ion-images" whiteBg desc="">
+    <Paper title={'blog_album'} icon="ion-images" whiteBg desc="">
       <div>
         <div className={classes.albumRoot}>
           <ImageList rowHeight={180} className={classes.gridList}>

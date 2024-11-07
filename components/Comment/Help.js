@@ -14,7 +14,7 @@ function Help() {
   const { classes } = useStyles();
 
   // Translation Function
-  const { t } = useTranslation('common');
+  
 
   return (
     <div className={classes.root}>
@@ -23,25 +23,25 @@ function Help() {
           <ListItemIcon classes={{ root: classes.icon }}>
             <InfoIcon color="primary" />
           </ListItemIcon>
-          <ListItemText className={classes.helpItem} primary={t('list_opt') + '1'} />
+          <ListItemText className={classes.helpItem} primary={'list_opt' + '1'} />
         </ListItem>
         <ListItem button>
           <ListItemIcon classes={{ root: classes.icon }}>
             <HelpIcon color="primary" />
           </ListItemIcon>
-          <ListItemText className={classes.helpItem} primary={t('list_opt') + '2'} />
+          <ListItemText className={classes.helpItem} primary={'list_opt' + '2'} />
         </ListItem>
         <ListItem button>
           <ListItemIcon classes={{ root: classes.icon }}>
             <CheckCircleIcon color="primary" />
           </ListItemIcon>
-          <ListItemText className={classes.helpItem} primary={t('list_opt') + '3'} />
+          <ListItemText className={classes.helpItem} primary={'list_opt' + '3'} />
         </ListItem>
         <ListItem button>
           <ListItemIcon classes={{ root: classes.icon }}>
             <AdjustIcon color="primary" />
           </ListItemIcon>
-          <ListItemText className={classes.helpItem} primary={t('list_opt') + '4'} />
+          <ListItemText className={classes.helpItem} primary={'list_opt' + '4'} />
         </ListItem>
       </List>
     </div>

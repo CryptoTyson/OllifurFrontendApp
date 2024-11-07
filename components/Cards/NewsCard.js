@@ -12,7 +12,7 @@ import useStyles from './news-card-style';
 
 function NewsCard(props) {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('common');
+  
   const {
     headline,
     title,
@@ -35,7 +35,7 @@ function NewsCard(props) {
         <CardActions>
           {type === 'portrait' && <Box p={1} flexGrow={1} />}
           <Button className={classes.btn}>
-            {t('btn_read_more')}
+            {'btn_read_more'}
           </Button>
         </CardActions>
       </div>

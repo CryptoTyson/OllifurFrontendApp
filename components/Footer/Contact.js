@@ -21,7 +21,7 @@ function Contact() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
   const { classes: align } = useTextAlign();
-  const { t } = useTranslation('common');
+  
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -58,9 +58,9 @@ function Contact() {
                 {brand.retail.name}
               </div>
               <Typography>
-                {t('retail-landing.banner_title')}
+                {'retail-landing.banner_title'}
                 .&nbsp;
-                {t('retail-landing.banner_desc')}
+                {'retail-landing.banner_desc'}
               </Typography>
               <div className={classes.socmed}>
                 <IconButton aria-label="Delete" className={classes.margin} size="small">
@@ -78,7 +78,7 @@ function Contact() {
               </div>
               <div className={classes.contact}>
                 <Typography className={text.paragraph}>
-                  {t('blog_phone')}
+                  {'blog_phone'}
                   <br />
                   +12 345 678 90
                 </Typography>
@@ -114,7 +114,7 @@ function Contact() {
                 <Grid container spacing={2}>
                   <Grid item lg={5} xs={12}>
                     <h3 className={cx(classes.title, text.title)}>
-                      {t('contact_title2')}
+                      {'contact_title2'}
                     </h3>
                   </Grid>
                   <Grid item lg={7} xs={12}>
@@ -125,7 +125,7 @@ function Contact() {
                       >
                         <TextValidator
                           className={classes.input}
-                          label={t('form_name')}
+                          label={'form_name'}
                           onChange={handleChange('name')}
                           name="Name"
                           variant="filled"
@@ -135,7 +135,7 @@ function Contact() {
                         />
                         <TextValidator
                           className={classes.input}
-                          label={t('form_email')}
+                          label={'form_email'}
                           onChange={handleChange('email')}
                           name="Email"
                           variant="filled"
@@ -148,14 +148,14 @@ function Contact() {
                           rows="6"
                           variant="filled"
                           className={classes.input}
-                          label={t('form_message')}
+                          label={'form_message'}
                           onChange={handleChange('message')}
                           name="Message"
                           value={values.message}
                         />
                         <div className={classes.btnArea}>
                           <Button variant="contained" fullWidth type="submit" color="primary" size="large">
-                            {t('form_send')}
+                            {'form_send'}
                           </Button>
                         </div>
                       </ValidatorForm>

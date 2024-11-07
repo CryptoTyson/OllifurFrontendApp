@@ -17,7 +17,7 @@ import Checkbox from './Checkbox';
 import useStyles from './form-style';
 
 function Contact() {
-  const { t } = useTranslation('common');
+  
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
   const { classes: align } = useTextAlign();
@@ -318,7 +318,7 @@ function Contact() {
                 size="large"
                 fullWidth
               >
-                {t('form_send')}
+                {'form_send'}
               </Button>
             </Grid>
           </Grid>

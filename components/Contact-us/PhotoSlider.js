@@ -23,7 +23,7 @@ function PhotoSlider() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { t } = useTranslation('common');
+  
 
   // Image Lightbox
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -104,7 +104,7 @@ function PhotoSlider() {
       <Container>
         <Title align={isMobile ? 'center' : 'left'}>
           <span>
-            {t('about_gallery')}
+            {'about_gallery'}
           </span>
         </Title>
         <p className={cx(text.subtitle2, isMobile ? align.textCenter : '')}>

@@ -109,7 +109,7 @@ function MixedMobile(props) {
               className={expand.samplePage ? classes.currentParent : ''}
               onClick={() => handleToggle('samplePage')}
             >
-              <ListItemText className={classes.menuList} primary={t('header_sample_page')} />
+              <ListItemText className={classes.menuList} primary={'header_sample_page'} />
               {expand.samplePage ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             { childMenu(expand, navPage) }

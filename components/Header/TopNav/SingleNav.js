@@ -13,7 +13,7 @@ const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disabl
 
 function MixedNav(props) {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
 
   const {
     menuPrimary,
@@ -41,7 +41,7 @@ function MixedNav(props) {
       ))}
       <li>
         <Button href="#">
-          {t('header_sample_page')}
+          {'header_sample_page'}
         </Button>
       </li>
     </Scrollspy>

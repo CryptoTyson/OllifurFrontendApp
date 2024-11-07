@@ -12,7 +12,7 @@ function TransitionUp(props) {
 }
 
 function Notification() {
-  const { t } = useTranslation('common');
+  
   const { classes } = useStyles();
   const [open, setOpen] = useState(true);
   const handleClose = () => {
@@ -32,13 +32,13 @@ function Notification() {
       onClose={handleClose}
     >
       <SnackbarContent
-        message={<Typography id="message-id">{t('notif_msg')}</Typography>}
+        message={<Typography id="message-id">{'notif_msg'}</Typography>}
         classes={{
           action: classes.action
         }}
         action={(
           <Button key="undo" variant="contained" color="secondary" className={classes.button} onClick={handleClose}>
-            {t('accept')}
+            {'accept'}
           </Button>
         )}
       />

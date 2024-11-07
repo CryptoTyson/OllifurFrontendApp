@@ -30,7 +30,7 @@ function ComingSoon() {
   const { classes, cx } = useSpacing();
   const { classes: align } = useTextAlign();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   // Breakpoints
   const theme = useTheme();
@@ -66,10 +66,10 @@ function ComingSoon() {
               </Box>
               <div className={align.textCenter}>
                 <h3 className={cx(text.title, text.textPrimary)}>
-                  {t('util_soon')}
+                  {'util_soon'}
                 </h3>
                 <Box mb={5}>
-                  <h5 className={text.subtitle2}>{t('util_soon_desc')}</h5>
+                  <h5 className={text.subtitle2}>{'util_soon_desc'}</h5>
                 </Box>
                 <div className={classes.form}>
                   <Box mb={{ sm: 10 }}>
@@ -77,7 +77,7 @@ function ComingSoon() {
                       <Grid item sm={10} xs={12}>
                         <FormControl variant="filled" fullWidth>
                           <InputLabel htmlFor="standard-adornment-password">
-                            {t('form_email')}
+                            {'form_email'}
                           </InputLabel>
                           <FilledInput
                             fullWidth
@@ -93,7 +93,7 @@ function ComingSoon() {
                                   size="small"
                                   className={classes.btnNotify}
                                 >
-                                  {t('util_notif')}
+                                  {'util_notif'}
                                 </Button>
                               )
                             }
@@ -108,7 +108,7 @@ function ComingSoon() {
                               fullWidth
                               size="large"
                             >
-                              {t('util_notif')}
+                              {'util_notif'}
                             </Button>
                           </Box>
                         )}

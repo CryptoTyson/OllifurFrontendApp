@@ -56,7 +56,7 @@ function Management() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
   const { classes: align } = useTextAlign();
-  const { t } = useTranslation('common');
+  
 
   // Slider
   const sliderSide = useRef(null);
@@ -96,11 +96,11 @@ function Management() {
   return (
     <div className={classes.root}>
       <Title align="center">
-        {t('retail-landing.management_title')}
+        {'retail-landing.management_title'}
       </Title>
       <Box px={{ sm: 15, xs: 4 }}>
         <p className={cx(text.subtitle2, align.textCenter)}>
-          {t('retail-landing.management_desc')}
+          {'retail-landing.management_desc'}
         </p>
       </Box>
       <div className={classes.sliderWrap}>

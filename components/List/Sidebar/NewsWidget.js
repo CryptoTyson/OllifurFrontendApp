@@ -13,7 +13,7 @@ import useStyles from '../list-style';
 
 function NewsWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
   const news = [{
     img: imgAPI.photo[13],
     title: 'Vestibulum bibendum nisi eget magna',
@@ -41,7 +41,7 @@ function NewsWidget() {
   }];
 
   return (
-    <Paper title={t('blog_post')} icon="ion-ios-paper" whiteBg desc="Donec commodo convallis ligula eget suscipit orci.">
+    <Paper title={'blog_post'} icon="ion-ios-paper" whiteBg desc="Donec commodo convallis ligula eget suscipit orci.">
       <div className={classes.albumRoot}>
         <List component="nav">
           {news.map((item, index) => (
@@ -55,7 +55,7 @@ function NewsWidget() {
         </List>
         <Grid container justifyContent="center">
           <Button fullWidth color="secondary">
-            {t('btn_seeall')}
+            {'btn_seeall'}
           </Button>
         </Grid>
       </div>

@@ -12,10 +12,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
-import { useTranslation } from 'next-i18next';
 import logo from '~/public/images/logo-retail.svg';
 import brand from '~/public/text/brand';
-import SelectLang from '../LangSwitch/Select';
 import { useTextAlign } from '~/theme/common';
 import useStyles from './sitemap-style';
 
@@ -46,15 +44,13 @@ const footers = [
   },
 ];
 
-function Footer(props) {
+function Footer() {
   // Theme breakpoints
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   // Translation Function
-  const { toggleDir } = props;
-  const { t } = useTranslation('common');
 
   const { classes } = useStyles();
   const { classes: align } = useTextAlign();
@@ -70,9 +66,9 @@ function Footer(props) {
             </Typography>
           </div>
           <Typography color="textPrimary" className={classes.footerDesc} gutterBottom>
-            {t('retail-landing.banner_title')}
+            retail-landing.banner_title
             .&nbsp;
-            {t('retail-landing.banner_desc')}
+            retail-landing.banner_desc
           </Typography>
           {isDesktop && <Copyright />}
         </Grid>
@@ -157,7 +153,6 @@ function Footer(props) {
               <i className="ion-social-linkedin" />
             </IconButton>
           </div>
-          <SelectLang toggleDir={toggleDir} />
         </Grid>
       </Grid>
       {isMobile && (
@@ -170,14 +165,5 @@ function Footer(props) {
     </Container>
   );
 }
-
-Footer.propTypes = {
-  toggleDir: PropTypes.func,
-};
-
-Footer.defaultProps = {
-  toggleDir: () => {},
-  bg: false
-};
 
 export default Footer;

@@ -110,7 +110,7 @@ function ContactMap(props) {
   const { classes: text } = useText();
   const { classes: align } = useTextAlign();
   const { full } = props;
-  const { t } = useTranslation('common');
+  
 
   const [values, setValues] = useState({
     name: '',
@@ -163,10 +163,10 @@ function ContactMap(props) {
             <div className={classes.fullFromWrap}>
               <div className={classes.form}>
                 <h4 className={cx(align.textCenter, text.textPrimary, text.title2)}>
-                  {t('contact_title2')}
+                  {'contact_title2'}
                 </h4>
                 <p className={cx(align.textCenter, text.paragraph)}>
-                  {t('contact_subtitle')}
+                  {'contact_subtitle'}
                 </p>
                 <ValidatorForm
                   onSubmit={handleSubmit}
@@ -178,7 +178,7 @@ function ContactMap(props) {
                         <TextValidator
                           className={classes.input}
                           fullWidth
-                          label={t('form_name')}
+                          label={'form_name'}
                           onChange={handleChange('name')}
                           name="Name"
                           variant="filled"
@@ -191,7 +191,7 @@ function ContactMap(props) {
                         <TextValidator
                           className={classes.input}
                           fullWidth
-                          label={t('form_email')}
+                          label={'form_email'}
                           onChange={handleChange('email')}
                           name="Email"
                           variant="filled"
@@ -204,7 +204,7 @@ function ContactMap(props) {
                         <TextValidator
                           className={classes.input}
                           fullWidth
-                          label={t('form_phone')}
+                          label={'form_phone'}
                           onChange={handleChange('phone')}
                           name="Phone"
                           variant="filled"
@@ -217,7 +217,7 @@ function ContactMap(props) {
                           rows="6"
                           fullWidth
                           className={classes.input}
-                          label={t('form_message')}
+                          label={'form_message'}
                           onChange={handleChange('message')}
                           name="Message"
                           variant="filled"
@@ -240,10 +240,10 @@ function ContactMap(props) {
                     )}
                     label={(
                       <span className={text.paragraph}>
-                        {t('form_terms')}
+                        {'form_terms'}
                         <br />
                         <a href="#" className={classes.link}>
-                          {t('form_privacy')}
+                          {'form_privacy'}
                         </a>
                       </span>
                     )}
@@ -257,7 +257,7 @@ function ContactMap(props) {
                       color="primary"
                       size="large"
                     >
-                      {t('form_send')}
+                      {'form_send'}
                     </Button>
                   </div>
                 </ValidatorForm>

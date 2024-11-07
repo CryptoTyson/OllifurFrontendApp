@@ -10,7 +10,7 @@ import useStyles from '../list-style';
 
 function ProfileWidget() {
   const { classes } = useStyles();
-  const { t } = useTranslation('common');
+  
   const products = [{
     image: imgAPI.photo[25],
     text: 'Sed lacinia velit',
@@ -33,7 +33,7 @@ function ProfileWidget() {
   }];
 
   return (
-    <Paper title={t('list_related')} icon="ion-ios-pricetag" whiteBg desc="Donec commodo convallis ligula eget suscipit orci.">
+    <Paper title={'list_related'} icon="ion-ios-pricetag" whiteBg desc="Donec commodo convallis ligula eget suscipit orci.">
       <div className={classes.albumRoot}>
         <Grid container spacing={2}>
           {products.map((item, index) => (
@@ -58,7 +58,7 @@ function ProfileWidget() {
         </Grid>
         <Grid container justifyContent="center">
           <Button fullWidth color="secondary">
-            {t('btn_seeall')}
+            {'btn_seeall'}
           </Button>
         </Grid>
       </div>

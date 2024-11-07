@@ -9,7 +9,7 @@ import { useTextAlign } from '~/theme/common';
 import useStyles from '../list-style';
 
 function HelperWidget() {
-  const { t } = useTranslation('common');
+  
   const { classes, cx } = useStyles();
   const { classes: align } = useTextAlign();
 
@@ -17,15 +17,15 @@ function HelperWidget() {
     <Card className={cx(classes.helpPaper, align.textCenter)}>
       <CardContent>
         <Typography variant="h6" align="center">
-          {t('faq_luck')}
+          {'faq_luck'}
         </Typography>
         <Typography>
-          {t('faq_luck_desc')}
+          {'faq_luck_desc'}
         </Typography>
       </CardContent>
       <CardActions>
         <Button fullWidth color="primary" size="large" variant="contained">
-          {t('faq_luck_btn')}
+          {'faq_luck_btn'}
         </Button>
       </CardActions>
     </Card>

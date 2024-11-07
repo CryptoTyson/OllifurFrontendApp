@@ -4,25 +4,21 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Head from 'next/head';
 import Hidden from '@mui/material/Hidden';
-// Use this below for Server Side Render/Translation (SSR)
-// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-// Use this below for Static Site Generation (SSG)
-import { getStaticPaths, getStaticProps, makeStaticProps } from '../../lib/getStatic';
-import { useSpacing } from '../../theme/common';
-import Header from '../../components/Header';
-import Welcome from '../../components/Home/Welcome';
-import Feature from '../../components/Home/Feature';
-import Features from '../../components/Home/Features';
-import Management from '../../components/Home/Management';
-import Faq from '../../components/Home/Faq';
-import Testimonials from '../../components/Home/Testimonials';
-import NewsEvent from '../../components/Home/NewsEvent';
-import CallAction from '../../components/CallAction';
-import Corner from '../../components/Home/Corner';
-import Footer from '../../components/Footer';
-import PopularPosts from '../../components/Home/PopularPosts';
-import Notification from '../../components/Notification';
-import brand from '../../public/text/brand';
+import { useSpacing } from '../theme/common';
+import Header from '../components/Header';
+import Welcome from '../components/Home/Welcome';
+import Feature from '../components/Home/Feature';
+import Features from '../components/Home/Features';
+import Management from '../components/Home/Management';
+import Faq from '../components/Home/Faq';
+import Testimonials from '../components/Home/Testimonials';
+import NewsEvent from '../components/Home/NewsEvent';
+import CallAction from '../components/CallAction';
+import Corner from '../components/Home/Corner';
+import Footer from '../components/Footer';
+import PopularPosts from '../components/Home/PopularPosts';
+import Notification from '../components/Notification';
+import brand from '../public/text/brand';
 
 interface LandingProps {
   onToggleDark(...args: unknown[]): unknown;
@@ -86,12 +82,5 @@ function Landing(props: LandingProps) {
     </React.Fragment>
   );
 }
-
-// Use this below for Server Side Render/Translation (SSR)
-// export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
-
-// Use this below for Static Site Generation (SSG)
-// const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
 
 export default Landing;

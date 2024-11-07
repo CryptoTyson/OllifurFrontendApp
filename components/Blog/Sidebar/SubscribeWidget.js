@@ -9,14 +9,14 @@ import useStyles from '../blog-style';
 function SidebarBlog() {
   const { classes } = useStyles();
   const [email, setEmail] = useState('');
-  const { t } = useTranslation('common');
+  
 
   const handleChange = event => {
     setEmail(event.target.value);
   };
 
   return (
-    <Paper title={t('blog_subscribe')} icon="ion-wifi" colorMode whiteBg noMargin desc="Get lates update from us">
+    <Paper title={'blog_subscribe'} icon="ion-wifi" colorMode whiteBg noMargin desc="Get lates update from us">
       <div className={classes.subscribeForm}>
         <FormControl variant="standard">
           <TextField
@@ -32,7 +32,7 @@ function SidebarBlog() {
           />
         </FormControl>
         <Button className={classes.invertBtn} size="small" variant="outlined" type="submit">
-          {t('btn_submit')}
+          {'btn_submit'}
         </Button>
       </div>
     </Paper>

@@ -63,7 +63,7 @@ function Pricing() {
   const { classes, cx } = useStyles();
   const { classes: align } = useTextAlign();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   // Theme breakpoints
   const theme = useTheme();
@@ -72,10 +72,10 @@ function Pricing() {
   return (
     <Container className={classes.root}>
       <Title align="center">
-        {t('pricing_title')}
+        {'pricing_title'}
       </Title>
       <p className={cx(text.subtitle2, align.textCenter)}>
-        {t('pricing_desc')}
+        {'pricing_desc'}
       </p>
       <div className={classes.pricingWrap}>
         <Grid container spacing={!isTablet ? 3 : 0} alignItems="flex-end">

@@ -12,7 +12,7 @@ import useStyles from './post-card-style';
 
 function PostCard(props) {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation('common');
+  
   const {
     date,
     title,
@@ -46,7 +46,7 @@ function PostCard(props) {
         </CardContent>
         <CardActions className={classes.action}>
           <Button variant="outlined" color="primary" href={href} className={classes.btn}>
-            {t('btn_read_more')}
+            {'btn_read_more'}
           </Button>
         </CardActions>
       </div>

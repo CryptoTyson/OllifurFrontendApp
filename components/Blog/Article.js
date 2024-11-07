@@ -16,7 +16,7 @@ import useStyles from './blog-style';
 function Article() {
   const { classes } = useStyles();
   const { classes: text } = useText();
-  const { t } = useTranslation('common');
+  
 
   // Theme breakpoints
   const theme = useTheme();
@@ -91,7 +91,7 @@ function Article() {
       <section className={classes.socmedShare}>
         <div className={classes.btnArea}>
           <Typography variant="h6">
-            {t('blog_share')}
+            {'blog_share'}
           </Typography>
           <Box mt={3}>
             <Button variant="outlined" className={classes.indigoBtn} type="button">
@@ -112,7 +112,7 @@ function Article() {
       <Divider className={classes.dividerBordered} />
       <section className={classes.comment}>
         <Typography variant="h6">
-          {t('blog_write')}
+          {'blog_write'}
         </Typography>
         <Box mt={3}>
           <CommentForm avatar="/images/avatars/pp_boy2.svg" />

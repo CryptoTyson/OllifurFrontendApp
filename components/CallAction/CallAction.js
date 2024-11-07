@@ -6,17 +6,17 @@ import useStyles from './action-style';
 
 function CallAction() {
   // Translation Function
-  const { t } = useTranslation('common');
+  
   const { classes: text } = useText();
 
   const { classes } = useStyles();
   return (
     <div className={classes.action}>
       <h4 className={text.title2}>
-        {t('retail-landing.footer_text')}
+        {'retail-landing.footer_text'}
       </h4>
       <div className={classes.btnArea}>
-        <Button href="#" variant="contained" color="primary">{t('btn_get')}</Button>
+        <Button href="#" variant="contained" color="primary">{'btn_get'}</Button>
       </div>
     </div>
   );
