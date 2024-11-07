@@ -1,25 +1,13 @@
 import { createBooking } from '~/lib/directus';
 import { sendEmail } from '~/lib/email';
 
-export const config = {
-  runtime: 'edge',
-};
-
-export default async function handler(req) {
+export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const { bookingData } = req.body;
 
       if (!bookingData) {
-        return new Response(
-          JSON.stringify({ message: 'Booking data is required' }),
-          {
-              status: 400,
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          }
-      );
+        return res.status(400).json({ message: 'Booking data is required' });
       }
 
       // Calculate tax amounts
@@ -67,36 +55,13 @@ export default async function handler(req) {
       //   `Your booking has been confirmed. Details: ${JSON.stringify(bookingData)}`
       // );
 
-      return new Response(
-        JSON.stringify({ message: 'Booking created successfully', booking }),
-        {
-            status: 201,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-    );
+      return res.status(201).json({ message: 'Booking created successfully', booking });
     } catch (error) {
       console.error('Error creating booking:', error);
-      return new Response(
-        JSON.stringify({ message: 'Internal server error' }),
-        {
-            status: 500,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-    );
+      return res.status(500).json({ message: 'Internal server error' });
     }
   } else {
-      return new Response(
-        JSON.stringify({ message: 'Method not allowed' }),
-        {
-            status: 405,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-    );
+      res.setHeader('Allow', ['POST']);
+      return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
