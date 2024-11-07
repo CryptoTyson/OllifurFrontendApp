@@ -67,4 +67,5 @@ ErrorPage.defaultProps = {
 // Use this below for Server Side Render/Translation (SSR)
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
-// Use this below for Static Site Generation (SSG)export default ErrorPage;
+// Use this below for Static Site Generation (SSG)
+export default ErrorPage;

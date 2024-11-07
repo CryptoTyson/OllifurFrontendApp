@@ -6,7 +6,8 @@ import Head from 'next/head';
 
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-// Use this below for Static Site Generation (SSG)import { useSpacing } from '~/theme/common';
+// Use this below for Static Site Generation (SSG)
+import { useSpacing } from '~/theme/common';
 import Header from '~/components/Header';
 import Login from '~/components/Forms/Login';
 import brand from '~/public/text/brand';
