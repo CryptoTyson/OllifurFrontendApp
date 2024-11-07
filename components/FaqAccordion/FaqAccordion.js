@@ -24,7 +24,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function FaqAccordion({ summary, details }) {
+export default function FaqAccordion({ summary, details, isFirst }) {
   const { classes } = useStyles();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
@@ -35,7 +35,7 @@ export default function FaqAccordion({ summary, details }) {
         onChange={() => {
           setExpanded(!expanded);
         }}
-        style={{ width: '100%' }}
+        style={{ width: '100%', boxShadow: 'none', borderTop: isFirst ? 'none' : '1px solid var(--Gray-200, #EAECF0)' }}
         expanded={expanded}
       >
         <AccordionSummary
@@ -71,9 +71,11 @@ export default function FaqAccordion({ summary, details }) {
 FaqAccordion.propTypes = {
   summary: PropTypes.any,
   details: PropTypes.any,
+  isFirst: PropTypes.bool,
 };
 
 FaqAccordion.defaultProps = {
   summary: '',
   details: '',
+  isFirst: false,
 };

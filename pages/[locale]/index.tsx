@@ -20,6 +20,7 @@ import NewsEvent from '../../components/Home/NewsEvent';
 import CallAction from '../../components/CallAction';
 import Corner from '../../components/Home/Corner';
 import Footer from '../../components/Footer';
+import PopularPosts from '../../components/Home/PopularPosts';
 import Notification from '../../components/Notification';
 import brand from '../../public/text/brand';
 
@@ -66,13 +67,12 @@ function Landing(props: LandingProps) {
             {/* <NewsEvent /> */}
           </section>
           <section
-            id="call-action"
+            id="PopularPosts"
             className={cx(
               classes.spaceTopShort,
-              !isTablet && classes.spaceBottomShort,
             )}
           >
-            {/* <CallAction /> */}
+            <PopularPosts />
           </section>
         </main>
         <Footer toggleDir={onToggleDir} />

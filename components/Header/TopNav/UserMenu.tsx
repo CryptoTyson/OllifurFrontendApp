@@ -47,9 +47,9 @@ function UserMenu(props: UserMenuProps) {
             </Button>
           ) : (
             <React.Fragment>
-              <Link href={`/${locale}${link.retail.login}`}>
+              {/* <Link href={`/${locale}${link.retail.login}`}>
                 <Button size="small">Log in</Button>
-              </Link>
+              </Link> */}
               <Link href={`/${locale}${link.retail.register}`}>
                 <Button
                   variant="contained"

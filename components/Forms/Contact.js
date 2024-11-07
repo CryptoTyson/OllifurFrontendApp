@@ -11,10 +11,10 @@ import { useTranslation } from 'next-i18next';
 import { MuiTelInput } from 'mui-tel-input';
 import { InputLabel, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import emailjs from '@emailjs/browser';
 import { useText, useTextAlign } from '~/theme/common';
 import Checkbox from './Checkbox';
 import useStyles from './form-style';
-import emailjs from '@emailjs/browser';
 
 function Contact() {
   const { t } = useTranslation('common');
@@ -101,7 +101,7 @@ function Contact() {
         }}
         message={<span id="message-id">Message Sent</span>}
       />
-      <Box mb={5} px={{ sm: 25 }}>
+      <Box mb={5} px={{ sm: 43 }}>
         <ValidatorForm
           onSubmit={handleSubmit}
           onError={(errors) => console.log(errors)}
@@ -126,6 +126,7 @@ function Contact() {
                 fullWidth
                 className={classes.input}
                 onChange={handleChange('first_name')}
+                placeholder="First Name"
                 name="first_name"
                 value={values.first_name}
                 validators={['required']}
@@ -133,6 +134,7 @@ function Contact() {
                 sx={{
                   '& .MuiInputBase-input': {
                     padding: '10px 14px',
+                    color: 'var(--Gray-500, #667085)',
                   },
                 }}
               />
@@ -156,6 +158,7 @@ function Contact() {
                 fullWidth
                 className={classes.input}
                 onChange={handleChange('last_name')}
+                placeholder="Last Name"
                 name="last_name"
                 value={values.last_name}
                 validators={['required']}
@@ -163,6 +166,7 @@ function Contact() {
                 sx={{
                   '& .MuiInputBase-input': {
                     padding: '10px 14px',
+                    color: 'var(--Gray-500, #667085)',
                   },
                 }}
               />
@@ -187,12 +191,14 @@ function Contact() {
                 className={classes.input}
                 onChange={handleChange('email')}
                 name="email"
+                placeholder="you@company.com"
                 value={values.email}
                 validators={['required']}
                 errorMessages={['this field is required']}
                 sx={{
                   '& .MuiInputBase-input': {
                     padding: '10px 14px',
+                    color: 'var(--Gray-500, #667085)',
                   },
                 }}
               />
@@ -225,6 +231,7 @@ function Contact() {
                 sx={{
                   '& .MuiInputBase-input': {
                     padding: '10px 14px',
+                    color: 'var(--Gray-500, #667085)',
                   },
                 }}
               />
@@ -253,6 +260,11 @@ function Contact() {
                 name="message"
                 value={values.message}
                 placeholder="Leave us a message..."
+                sx={{
+                  '& .MuiInputBase-input': {
+                    color: 'var(--Gray-500, #667085)',
+                  },
+                }}
               />
             </Grid>
             <Grid item>
