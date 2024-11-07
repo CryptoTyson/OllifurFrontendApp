@@ -15,9 +15,7 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "export": "next export",
     "start": "next start -p 3000",
-    "now-build": "next build && next export -o dist",
     "lint": "eslint ./ --ext js",
     "lint:fix": "npm run lint --fix"
   },
