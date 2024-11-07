@@ -27,11 +27,9 @@ const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disabl
 function MultiLevelHover(props) {
   const { classes, cx } = useStyles();
   const { dataMenu } = props;
-  const { i18n } = useTranslation('common');
 
   const [curURL, setCurURL] = useState('');
   const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   // Parent state
   const [open, setOpen] = useState(false);
@@ -96,7 +94,6 @@ function MultiLevelHover(props) {
     prevOpen.current = open;
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
   }, [open]);
 
   const childMenu = (menu, item, anchor) => (
@@ -127,7 +124,7 @@ function MultiLevelHover(props) {
                     key={index.toString()}
                     disableGutters
                     onClick={(e) => handleClose(e)}
-                    className={cx(classes.menuList, curURL === curOrigin + langPath + subitem.link ? classes.current : '')}
+                    className={cx(classes.menuList, curURL === curOrigin + subitem.link ? classes.current : '')}
                   >
                     <ListItem disableGutters disableRipple className={classes.link} button component="a" href={subitem.link}>
                       <ListItemText primary={subitem.name} />
@@ -190,7 +187,7 @@ function MultiLevelHover(props) {
                                 <MenuItem
                                   key={indexChild.toString()}
                                   onClick={(e) => handleClose(e)}
-                                  className={cx(classes.menuList, curURL === curOrigin + langPath + subitem.link ? classes.current : '')}
+                                  className={cx(classes.menuList, curURL === curOrigin + subitem.link ? classes.current : '')}
                                 >
                                   <ListItem disableGutters disableRipple className={classes.link} button component="a" href={subitem.link}>
                                     <ListItemText primary={subitem.name} />

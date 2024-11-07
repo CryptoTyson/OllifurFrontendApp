@@ -25,13 +25,11 @@ function MegaMenu(props) {
     toggle
   } = props;
   const { classes } = useStyles();
-  const { i18n } = useTranslation('common');
   const anchorRef = useRef(null);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const [curURL, setCurURL] = useState('');
   const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   const handleToggle = (id, event) => {
     setAnchorEl(event.currentTarget);
@@ -41,7 +39,6 @@ function MegaMenu(props) {
   useEffect(() => {
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
   }, []);
 
   return (
@@ -92,7 +89,7 @@ function MegaMenu(props) {
                                   className={classes.menuItem}
                                   component="a"
                                   href={granditem.link}
-                                  selected={curURL === (curOrigin + langPath + granditem.link + '/' + '/')}
+                                  selected={curURL === (curOrigin + granditem.link + '/')}
                                 >
                                   <ListItemText
                                     primary={granditem.name}

@@ -22,11 +22,9 @@ interface MultiLevelHoverProps {
 function MultiLevelHover(props: MultiLevelHoverProps) {
   const { classes, cx }: any = useStyles();
   const { dataMenu } = props;
-  const { i18n } = useTranslation('common');
 
   const [curURL, setCurURL] = useState('');
   const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   // Parent state
   const [open, setOpen] = useState(false);
@@ -116,7 +114,6 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
     prevOpen.current = open;
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
   }, [open]);
 
   const childMenu = (
@@ -172,7 +169,7 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                       onClick={handleClose}
                       className={cx(
                         classes.menuList,
-                        curURL === curOrigin + langPath + subitem.link
+                        curURL === curOrigin + subitem.link
                           ? classes.current
                           : '',
                       )}
@@ -319,7 +316,6 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                             classes.menuList,
                                             curURL ===
                                               curOrigin +
-                                                langPath +
                                                 subitem.link
                                               ? classes.current
                                               : '',
