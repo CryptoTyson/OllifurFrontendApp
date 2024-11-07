@@ -8,6 +8,8 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Container, Typography } from '@mui/material';
 import BlogPosts from './BlogPosts';
 
+export const runtime = 'edge';
+
 // Custom styled components
 const StyledTabs = styled(Tabs)({
   minHeight: '48px',
