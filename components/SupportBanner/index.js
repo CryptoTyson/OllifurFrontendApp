@@ -2,7 +2,9 @@ import React from 'react';
 import {
   Typography,
   Button,
-  Grid
+  Grid,
+  useTheme,
+  useMediaQuery
 } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
@@ -11,6 +13,10 @@ const useStyles = makeStyles()((theme) => ({
         margin: theme.spacing(12, 0),
         display: 'flex',
         padding: '64px',
+        [theme.breakpoints.down('sm')]: {
+            padding: '40px 24px',
+            margin: theme.spacing(8, 0),
+        },
         justifyContent: 'space-between',
         alignItems: 'flex-start',
         alignSelf: 'stretch',
@@ -39,9 +45,18 @@ const useStyles = makeStyles()((theme) => ({
 const SupportBanner = () => {
     const { classes } = useStyles();
 
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
     return (
       <div className={classes.root}>
-        <Grid container spacing={2}>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            textAlign: 'left'
+        }}
+        >
           <Grid container direction="column" item sm={8} spacing={2}>
             <Grid item>
               <Typography className={classes.heading}>
@@ -59,10 +74,12 @@ const SupportBanner = () => {
             container
             sm={4}
             spacing={2}
-            justifyContent="flex-end"
+            justifyContent={isDesktop ? 'flex-end' : 'center'}
+            direction={!isDesktop ? 'column' : 'row'}
           >
             <Grid item>
               <Button
+                fullWidth={!isDesktop}
                 variant="contained"
                 sx={{
                     color: 'var(--Gray-700, #344054)',
@@ -85,6 +102,7 @@ const SupportBanner = () => {
             </Grid>
             <Grid item>
               <Button
+                fullWidth={!isDesktop}
                 variant="contained"
                 color="primary"
                 sx={

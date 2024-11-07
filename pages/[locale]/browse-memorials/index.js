@@ -235,6 +235,9 @@ function BrowseMemorials(props) {
               <Grid
                 container
                 spacing={3}
+                sx={{
+                  marginTop: isDesktop ? '' : '20px',
+                }}
               >
                 {
                   Array(12).fill().map(() => (
