@@ -14,8 +14,6 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import PostCard from '~/components/Home/PopularPosts/PostCard';
 
-export const runtime = 'edge';
-
 const CustomPagination = styled(Pagination)(({ theme }) => ({
   '& .MuiPagination-ul': {
     gap: '8px',

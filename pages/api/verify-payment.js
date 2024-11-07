@@ -1,8 +1,6 @@
 import Stripe from 'stripe';
 import { updateBooking } from '../../lib/directus';
 
-export const runtime = 'edge';
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {

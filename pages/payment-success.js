@@ -11,8 +11,6 @@ import {
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import brand from '~/public/text/brand';
 
-export const runtime = 'edge';
-
 export default function PaymentSuccess() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
