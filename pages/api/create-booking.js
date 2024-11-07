@@ -1,5 +1,4 @@
 import { createBooking } from '~/lib/directus';
-import { sendEmail } from '~/lib/email';
 
 export default async function handler(req, res) {
   // if (req.method !== 'POST') {
