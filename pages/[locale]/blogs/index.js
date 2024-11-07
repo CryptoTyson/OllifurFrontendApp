@@ -13,6 +13,8 @@ import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
 import BlogPostsTabs from './BlogPostsTabs';
 
+export const runtime = 'edge';
+
 const useStyles = makeStyles()((theme) => ({
   mainWrap: {
     position: 'relative',

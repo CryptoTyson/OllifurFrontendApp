@@ -10,6 +10,8 @@ import {
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import brand from '~/public/text/brand';
 
+export const runtime = 'edge';
+
 export default function PaymentCancelled() {
   const router = useRouter();
 
