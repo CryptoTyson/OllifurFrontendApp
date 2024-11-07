@@ -1,9 +1,16 @@
 import { createBooking } from '~/lib/directus';
 
 export default async function handler(req, res) {
-  // if (req.method !== 'POST') {
-  //   return res.status(405).json({ message: 'Method not allowed' });
-  // }
+  // Handle CORS preflight requests
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Methods', 'POST');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    return res.status(200).end();
+  }
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
 
   try {
     const { bookingData } = req.body;
