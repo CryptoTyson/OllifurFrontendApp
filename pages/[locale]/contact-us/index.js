@@ -11,7 +11,7 @@ import { makeStyles } from 'tss-react/mui';
 import { Box, Button, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
@@ -383,7 +383,5 @@ ContactUs.propTypes = {
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
-const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
 
 export default ContactUs;

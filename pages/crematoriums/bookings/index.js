@@ -8,7 +8,7 @@ import { makeStyles } from 'tss-react/mui';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
-// import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+// 
 import {
   BookingHeader,
   SlotSelection,

@@ -13,7 +13,7 @@ import { useTheme } from '@mui/material/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Rating from '@mui/material/Rating';
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
@@ -911,7 +911,5 @@ OnlineMemorials.propTypes = {
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
-const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
 
 export default OnlineMemorials;

@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
 import ProfileCards from '~/components/Cards/ProfileCard';
 import ProductCards from '~/components/Cards/ProductCard';
 import MediaCard from '~/components/Cards/MediaCard';
@@ -302,7 +302,5 @@ Collection.propTypes = {
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
-const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
 
 export default Collection;

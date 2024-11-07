@@ -23,7 +23,7 @@ import { useTheme } from '@mui/material/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import Pagination from '@mui/material/Pagination';
 import { Button, DateRangePicker } from 'rsuite';
-// import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+// 
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';

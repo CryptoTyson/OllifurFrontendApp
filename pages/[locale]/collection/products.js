@@ -17,7 +17,7 @@ import Slide from '@mui/material/Slide';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
 import ProductCards from '~/components/Cards/ProductCard';
 import Filter from '~/components/Filter/Filter';
 import Sorter from '~/components/Filter/Sorter';
@@ -282,7 +282,5 @@ Products.propTypes = {
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
-const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
 
 export default Products;

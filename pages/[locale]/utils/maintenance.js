@@ -13,7 +13,7 @@ import Warning from '@mui/icons-material/Warning';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
 
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
 import PageDeco from '~/components/Decoration/PageDeco';
 import { useSpacing, useTextAlign, useText } from '~/theme/common';
 import brand from '~/public/text/brand';
@@ -69,7 +69,5 @@ function Maintenance() {
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
-const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
 
 export default Maintenance;

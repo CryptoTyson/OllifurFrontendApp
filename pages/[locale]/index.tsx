@@ -7,7 +7,7 @@ import Hidden from '@mui/material/Hidden';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
-import { getStaticPaths, getStaticProps, makeStaticProps } from '../../lib/getStatic';
+import { getStaticPaths, getStaticProps } from '../../lib/getStatic';
 import { useSpacing } from '../../theme/common';
 import Header from '../../components/Header';
 import Welcome from '../../components/Home/Welcome';
@@ -91,7 +91,6 @@ function Landing(props: LandingProps) {
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
-// const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
+// 
 
 export default Landing;

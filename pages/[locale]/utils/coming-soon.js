@@ -20,7 +20,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
-import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
+
 import Logo from '~/components/Logo';
 import PageDeco from '~/components/Decoration/PageDeco';
 import { useSpacing, useTextAlign, useText } from '~/theme/common';
@@ -143,7 +143,5 @@ function ComingSoon() {
 // export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
 
 // Use this below for Static Site Generation (SSG)
-const getStaticProps = makeStaticProps(['common']);
-export { getStaticPaths, getStaticProps };
 
 export default ComingSoon;
