@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -12,21 +10,15 @@ import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
 import Collapse from '@mui/material/Collapse';
 
 import { Box, Grid, ListItemButton, Stack, Typography } from '@mui/material';
-import link from '~/public/text/link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useStyles from '../sidenav-style';
 import navMenu from '../data/multiple';
 import imgAPI from '../../../public/images/imgAPI';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function MobileMenu(props) {
   const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
   const [expand, setExpand] = useState({});
-  const { t, i18n } = useTranslation('common');
-
-  const [curURL, setCurURL] = useState('');
-  const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   const handleToggle = (id) => {
     setExpand({
@@ -34,12 +26,6 @@ function MobileMenu(props) {
       [id]: !expand[id],
     });
   };
-
-  useEffect(() => {
-    setCurURL(window.location.href);
-    setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
-  }, []);
 
   const childMenu = (menu, item) => (
     <Collapse in={menu[item.id] || false} timeout="auto" unmountOnExit>
@@ -85,9 +71,9 @@ function MobileMenu(props) {
             >
               <Grid
                 container
-                direction={'row'}
-                alignItems={'flex-start'}
-                flexWrap={'nowrap'}
+                direction="row"
+                alignItems="flex-start"
+                flexWrap="nowrap"
                 style={{ width: '100%', gap: '16px' }}
               >
                 <Grid item xs={1}>
@@ -97,7 +83,7 @@ function MobileMenu(props) {
                   />
                 </Grid>
                 <Grid item xs={11}>
-                  <Stack direction={'column'}>
+                  <Stack direction="column">
                     <Typography
                       style={{
                         color: 'var(--gray-900, #101828)',
@@ -139,7 +125,7 @@ function MobileMenu(props) {
             }}
           >
             <img
-              src={'/images/Navbar-pic.png'}
+              src="/images/Navbar-pic.png"
               alt="Crematoriums"
               style={{
                 borderRadius: '8px',
@@ -174,7 +160,7 @@ function MobileMenu(props) {
               Read about how to give your companion a loving & dignified
               goodbye.
             </Typography>
-            <Stack direction={'row'} sx={{ marginTop: '12px' }}>
+            <Stack direction="row" sx={{ marginTop: '12px' }}>
               <Typography
                 color="primary"
                 sx={{
@@ -235,9 +221,9 @@ function MobileMenu(props) {
                         primary={item.name}
                       /> */}
                       <Stack
-                        direction={'row'}
-                        width={'100%'}
-                        justifyContent={'space-between'}
+                        direction="row"
+                        width="100%"
+                        justifyContent="space-between"
                       >
                         <Typography
                           sx={{

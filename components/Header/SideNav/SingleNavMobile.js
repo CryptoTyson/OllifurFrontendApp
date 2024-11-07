@@ -13,16 +13,13 @@ import navMenu from '../data/single';
 function SingleNavMobile(props) {
   const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
-  const { t, i18n } = useTranslation('common');
 
   const [curURL, setCurURL] = useState('');
   const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   useEffect(() => {
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
   }, []);
 
   const SideList = () => (
@@ -51,12 +48,12 @@ function SingleNavMobile(props) {
           {['login', 'register'].map((text, index) => (
             <ListItem
               key={index.toString()}
-              className={cx(classes.noChild, curURL === curOrigin + langPath + '/' + text ? classes.current : '')}
+              className={cx(classes.noChild, curURL === curOrigin + '/' + text ? classes.current : '')}
               component="a"
               href={link.retail[text]}
               button
             >
-              <ListItemText className={classes.menuList} primary={t('' + text)} />
+              <ListItemText className={classes.menuList} primary={('' + text)} />
             </ListItem>
           ))}
         </List>

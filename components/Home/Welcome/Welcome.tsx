@@ -55,7 +55,6 @@ function Welcome() {
   const { classes, cx }: any = useStyles();
   const { classes: text }: any = useText();
   const { classes: align } = useTextAlign();
-  const { t } = useTranslation('common');
   const slider = useRef(null);
 
   const chipData = [

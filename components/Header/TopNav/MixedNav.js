@@ -35,14 +35,12 @@ function MixedNav(props) {
     close,
     singleNav,
   } = props;
-  const { t, i18n } = useTranslation('common');
   const { classes } = useStyles();
 
   const anchorRef = useRef(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const [curURL, setCurURL] = useState('');
   const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   const handleToggle = (event) => {
     setAnchorEl(event.currentTarget);
@@ -52,7 +50,6 @@ function MixedNav(props) {
   useEffect(() => {
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
   }, []);
 
   return (
@@ -65,11 +62,11 @@ function MixedNav(props) {
         <li key={item.id.toString()}>
           {singleNav ? (
             <Button offset={() => 100} href={item.url}>
-              {t(item.name)}
+              {(item.name)}
             </Button>
           ) : (
             <Button href={'/' + item.url}>
-              {t(item.name)}
+              {(item.name)}
             </Button>
           )}
         </li>
@@ -81,7 +78,7 @@ function MixedNav(props) {
             ref={anchorRef}
             endIcon={<Icon>expand_more</Icon>}
           >
-            {'header_sample_page'}
+            header_sample_page
           </Button>
           <Popper
             open={open}
@@ -113,10 +110,10 @@ function MixedNav(props) {
                                   button
                                   component="a"
                                   href={item.link}
-                                  selected={curURL === (curOrigin + langPath + item.link + '/')}
+                                  selected={curURL === (curOrigin + item.link + '/')}
                                 >
                                   <ListItemText
-                                    primary={t('header_' + item.name)}
+                                    primary={('header_' + item.name)}
                                     classes={{
                                       primary: classes.menuList
                                     }}

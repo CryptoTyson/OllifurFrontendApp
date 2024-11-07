@@ -18,11 +18,9 @@ function MegaMobile(props) {
   const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
   const [expand, setExpand] = useState({});
-  const { t, i18n } = useTranslation('common');
 
   const [curURL, setCurURL] = useState('');
   const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   const handleToggle = (id) => {
     setExpand({
@@ -34,7 +32,6 @@ function MegaMobile(props) {
   useEffect(() => {
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
   }, []);
 
   const childMenu = (menu, item) => (
@@ -61,7 +58,7 @@ function MegaMobile(props) {
               key={indexChild.toString()}
               className={cx(
                 classes.noChild,
-                curURL === curOrigin + langPath + granditem.link + '/' ? classes.current : ''
+                curURL === curOrigin + granditem.link + '/' ? classes.current : ''
               )}
               component="a"
               href={granditem.link}
@@ -113,7 +110,7 @@ function MegaMobile(props) {
               return (
                 <ListItem
                   key={index.toString()}
-                  className={cx(classes.noChild, curURL === curOrigin + langPath + item.link ? classes.current : '')}
+                  className={cx(classes.noChild, curURL === curOrigin + item.link ? classes.current : '')}
                   button
                   href={item.link}
                 >
@@ -127,12 +124,12 @@ function MegaMobile(props) {
             {['login', 'register'].map((text, index) => (
               <ListItem
                 key={index.toString()}
-                className={cx(classes.noChild, curURL === curOrigin + langPath + '/' + text ? classes.current : '')}
+                className={cx(classes.noChild, curURL === curOrigin + '/' + text ? classes.current : '')}
                 component="a"
                 href={link.retail[text]}
                 button
               >
-                <ListItemText className={classes.menuList} primary={t('' + text)} />
+                <ListItemText className={classes.menuList} primary={('' + text)} />
               </ListItem>
             ))}
           </List>

@@ -19,11 +19,9 @@ function MixedMobile(props) {
   const { classes, cx } = useStyles();
   const { toggleDrawer, open } = props;
   const [expand, setExpand] = useState({});
-  const { t, i18n } = useTranslation('common');
 
   const [curURL, setCurURL] = useState('');
   const [curOrigin, setCurOrigin] = useState('');
-  const [langPath, setLangPath] = useState('');
 
   const handleToggle = (id) => {
     setExpand({
@@ -35,7 +33,6 @@ function MixedMobile(props) {
   useEffect(() => {
     setCurURL(window.location.href);
     setCurOrigin(window.location.origin);
-    setLangPath('/' + i18n.language);
   }, []);
 
   const childMenu = (menu, item) => (
@@ -62,7 +59,7 @@ function MixedMobile(props) {
               key={indexChild.toString()}
               className={cx(
                 classes.noChild,
-                curURL === curOrigin + langPath + granditem.link + '/' ? classes.current : ''
+                curURL === curOrigin + granditem.link + '/' ? classes.current : ''
               )}
               component="a"
               href={granditem.link}
@@ -109,7 +106,7 @@ function MixedMobile(props) {
               className={expand.samplePage ? classes.currentParent : ''}
               onClick={() => handleToggle('samplePage')}
             >
-              <ListItemText className={classes.menuList} primary={'header_sample_page'} />
+              <ListItemText className={classes.menuList} primary="header_sample_page" />
               {expand.samplePage ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             { childMenu(expand, navPage) }
@@ -119,12 +116,12 @@ function MixedMobile(props) {
             {['login', 'register'].map((text, index) => (
               <ListItem
                 key={index.toString()}
-                className={cx(classes.noChild, curURL === curOrigin + langPath + '/' + text ? classes.current : '')}
+                className={cx(classes.noChild, curURL === curOrigin + '/' + text ? classes.current : '')}
                 component="a"
                 href={link.retail[text]}
                 button
               >
-                <ListItemText className={classes.menuList} primary={t('' + text)} />
+                <ListItemText className={classes.menuList} primary={('' + text)} />
               </ListItem>
             ))}
           </List>
