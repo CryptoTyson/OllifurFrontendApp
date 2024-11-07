@@ -6,7 +6,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import Avatar from '@mui/material/Avatar';
-import { useTranslation } from 'next-i18next';
+
 import imgAPI from '~/public/images/imgAPI';
 import Paper from '../../Paper';
 import useStyles from '../list-style';

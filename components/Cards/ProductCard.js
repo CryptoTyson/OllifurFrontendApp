@@ -8,7 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Rating from '@mui/material/Rating';
 import ButtonBase from '@mui/material/ButtonBase';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from './product-card-style';
 
 function ProductCard(props) {

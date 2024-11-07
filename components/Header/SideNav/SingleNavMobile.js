@@ -5,7 +5,7 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { useTranslation } from 'next-i18next';
+
 import link from '~/public/text/link';
 import useStyles from '../sidenav-style';
 import navMenu from '../data/single';

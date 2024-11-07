@@ -17,7 +17,7 @@ import MenuList from '@mui/material/MenuList';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from '../header-style';
 
 const LinkBtn = React.forwardRef(function LinkBtn(props, ref) { // eslint-disable-line

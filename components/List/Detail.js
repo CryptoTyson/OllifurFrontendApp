@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Icon from '@mui/material/Icon';
 import Lightbox from 'react-18-image-lightbox';
 import Carousel from 'react-slick';
-import { useTranslation } from 'next-i18next';
+
 import { useText } from '~/theme/common';
 import imgAPI from '~/public/images/imgAPI';
 import useStyles from './list-style';

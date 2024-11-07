@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Snackbar from '@mui/material/Snackbar';
 import SnackbarContent from '@mui/material/SnackbarContent';
 import Slide from '@mui/material/Slide';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from './notification-style';
 
 function TransitionUp(props) {

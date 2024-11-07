@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from './news-card-style';
 
 function NewsCard(props) {

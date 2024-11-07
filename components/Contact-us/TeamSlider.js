@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import Carousel from 'react-slick';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import { useTranslation } from 'next-i18next';
+
 import { useText } from '~/theme/common';
 import imgAPI from '~/public/images/imgAPI';
 import Title from '../Title';

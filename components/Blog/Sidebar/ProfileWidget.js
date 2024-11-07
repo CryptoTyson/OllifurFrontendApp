@@ -7,7 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import LocalPhone from '@mui/icons-material/LocalPhone';
 import DateRange from '@mui/icons-material/DateRange';
 import LocationOn from '@mui/icons-material/LocationOn';
-import { useTranslation } from 'next-i18next';
+
 import Paper from '../../Paper';
 import useStyles from '../blog-style';
 

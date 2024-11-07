@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
-import { useTranslation } from 'next-i18next';
+
 import link from '~/public/text/link';
 import useStyles from '../sidenav-style';
 import navMenu from '../data/mega';

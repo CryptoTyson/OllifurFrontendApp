@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import { Grid, useMediaQuery } from '@mui/material/';
 import Typography from '@mui/material/Typography';
-import { useTranslation } from 'next-i18next';
+
 import { useTheme } from '@mui/material/styles';
 import imgAPI from '~/public/images/imgAPI';
 import { useText, useSpacing } from '~/theme/common';

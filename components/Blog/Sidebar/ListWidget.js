@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import { useTranslation } from 'next-i18next';
+
 import Paper from '../../Paper';
 import useStyles from '../blog-style';
 

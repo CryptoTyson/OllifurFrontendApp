@@ -12,7 +12,7 @@ import Warning from '@mui/icons-material/Warning';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
-import { useTranslation } from 'next-i18next';
+
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import PageDeco from '~/components/Decoration/PageDeco';
 import { useSpacing, useTextAlign, useText } from '~/theme/common';

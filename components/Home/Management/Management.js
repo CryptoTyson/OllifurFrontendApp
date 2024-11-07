@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Carousel from 'react-slick';
-import { useTranslation } from 'next-i18next';
+
 import { useText, useTextAlign } from '~/theme/common';
 import imgAPI from '~/public/images/imgAPI';
 import Title from '../../Title';

@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
-import { useTranslation } from 'next-i18next';
+
 import Paper from '../../Paper';
 import useStyles from '../blog-style';
 

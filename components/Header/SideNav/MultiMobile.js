@@ -10,7 +10,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
 import Collapse from '@mui/material/Collapse';
-import { useTranslation } from 'next-i18next';
+
 import { Box, Grid, ListItemButton, Stack, Typography } from '@mui/material';
 import link from '~/public/text/link';
 import useStyles from '../sidenav-style';

@@ -9,7 +9,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Carousel from 'react-slick';
-import { useTranslation } from 'next-i18next';
+
 import { useText, useTextAlign } from '~/theme/common';
 import imgAPI from '~/public/images/imgAPI';
 import Title from '../Title';

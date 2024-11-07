@@ -7,7 +7,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import HelpIcon from '@mui/icons-material/Help';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AdjustIcon from '@mui/icons-material/Album';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from './comment-style';
 
 function Help() {

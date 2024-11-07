@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import SearchIcon from '@mui/icons-material/Search';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from '../header-style';
 
 function SearchField(props) {

@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { useTranslation } from 'next-i18next';
+
 import { useText } from '~/theme/common';
 import useStyles from './list-style';
 

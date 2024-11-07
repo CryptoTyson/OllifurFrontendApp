@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { useTranslation } from 'next-i18next';
+
 import { useText } from '~/theme/common';
 import useStyles from './faq-style';
 

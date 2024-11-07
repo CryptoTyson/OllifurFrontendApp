@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useTranslation } from 'next-i18next';
+
 import Paper from '../../Paper';
 import useStyles from '../blog-style';
 

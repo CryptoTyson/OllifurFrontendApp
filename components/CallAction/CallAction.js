@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import { useTranslation } from 'next-i18next';
+
 import { useText } from '~/theme/common';
 import useStyles from './action-style';
 

@@ -6,7 +6,7 @@ import List from '@mui/material/List';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { useTranslation } from 'next-i18next';
+
 import imgAPI from '~/public/images/imgAPI';
 import { useText } from '~/theme/common';
 import CommentForm from '../Comment/Form';

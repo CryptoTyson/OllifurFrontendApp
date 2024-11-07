@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 // Use this below for Server Side Render/Translation (SSR)
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
-import { useTranslation } from 'next-i18next';
+
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
 import imgAPI from '~/public/images/imgAPI';
 import { useSpacing, useTextAlign, useText } from '~/theme/common';

@@ -7,7 +7,7 @@ import Send from '@mui/icons-material/Send';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Button from '@mui/material/Button';
-import { useTranslation } from 'next-i18next';
+
 import avatarDefault from '~/public/images/avatars/pp_boy4.svg';
 import useStyles from './comment-style';
 

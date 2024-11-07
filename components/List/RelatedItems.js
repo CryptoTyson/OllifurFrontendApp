@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { useTranslation } from 'next-i18next';
+
 import { useText } from '~/theme/common';
 import useStyles from './list-style';
 import imgAPI from '~/public/images/imgAPI';

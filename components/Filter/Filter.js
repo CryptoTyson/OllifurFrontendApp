@@ -17,7 +17,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
 import Icon from '@mui/material/Icon';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from './filter-style';
 
 function Filter(props) {

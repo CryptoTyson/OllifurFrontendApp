@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import { useTranslation } from 'next-i18next';
+
 import link from '../../../public/text/link';
 import { useText, useTextAlign } from '../../../theme/common';
 import useStyles from './slider-style';

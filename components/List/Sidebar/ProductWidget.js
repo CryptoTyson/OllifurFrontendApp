@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import ButtonBase from '@mui/material/ButtonBase';
-import { useTranslation } from 'next-i18next';
+
 import imgAPI from '~/public/images/imgAPI';
 import Paper from '../../Paper';
 import useStyles from '../list-style';

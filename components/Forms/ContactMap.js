@@ -17,7 +17,7 @@ import {
   GoogleApiWrapper,
   InfoWindow
 } from 'google-maps-react18';
-import { useTranslation } from 'next-i18next';
+
 import { useText, useTextAlign } from '~/theme/common';
 import useStyles from './form-style';
 import Checkbox from './Checkbox';

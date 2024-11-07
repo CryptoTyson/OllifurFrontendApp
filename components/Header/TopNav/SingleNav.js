@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
-import { useTranslation } from 'next-i18next';
+
 import navMenu from '../data/single';
 import useStyles from '../header-style';
 

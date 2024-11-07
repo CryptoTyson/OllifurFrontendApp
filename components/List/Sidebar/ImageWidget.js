@@ -7,7 +7,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
-import { useTranslation } from 'next-i18next';
+
 import imgAPI from '~/public/images/imgAPI';
 import Paper from '../../Paper';
 import useStyles from '../list-style';

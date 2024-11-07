@@ -3,7 +3,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import { useTranslation } from 'next-i18next';
+
 import { useText, useTextAlign } from '~/theme/common';
 import PricingCard from '../Cards/PricingCard';
 import Title from '../Title';

@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import { useTranslation } from 'next-i18next';
+
 import Item from './Item';
 import Form from './Form';
 import Help from './Help';

@@ -15,7 +15,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import Icon from '@mui/material/Icon';
-import { useTranslation } from 'next-i18next';
+
 import useStyles from '../header-style';
 
 function MegaMenu(props) {
