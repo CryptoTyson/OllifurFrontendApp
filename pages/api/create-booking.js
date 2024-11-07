@@ -1,10 +1,9 @@
 import { createBooking } from '~/lib/directus';
-import { sendEmail } from '~/lib/email';
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
+  // if (req.method !== 'POST') {
+  //   return res.status(405).json({ message: 'Method not allowed' });
+  // }
 
   try {
     const { bookingData } = req.body;
