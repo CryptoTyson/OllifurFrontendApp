@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from 'tss-react/mui';
-import { Box, Button, Typography, useMediaQuery, TextField } from '@mui/material';
+import { Box, Button, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
@@ -114,75 +114,13 @@ const useStyles = makeStyles()((theme) => ({
     justifyContent: 'center',
     marginTop: theme.spacing(4),
   },
-  nameInput: {
-    '& .MuiInputBase-input': {
-      color: 'var(--Primary-600, #D77F33)',
-      textAlign: 'center',
-      fontFamily: 'Inter',
-      fontSize: '24px',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      lineHeight: '32px',
-    },
-    '& .MuiInput-underline:before': {
-      borderBottom: 'none',
-    },
-    '& .MuiInput-underline:hover:before': {
-      borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
-    },
-  },
-  dateInput: {
-    '& .MuiInputBase-input': {
-      color: 'var(--Gray-900, #101828)',
-      textAlign: 'center',
-      fontFamily: 'Inter',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      lineHeight: '24px',
-    },
-    '& .MuiInput-underline:before': {
-      borderBottom: 'none',
-    },
-    '& .MuiInput-underline:hover:before': {
-      borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
-    },
-  },
-  descriptionInput: {
-    '& .MuiInputBase-root': {
-      color: 'var(--Gray-600, #475467)',
-      fontFamily: 'Inter',
-      fontSize: '18px',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      lineHeight: '28px',
-      padding: 0,
-      [theme.breakpoints.down('sm')]: {
-        textAlign: 'start',
-      }
-    },
-    '& .MuiOutlinedInput-notchedOutline': {
-      border: 'none'
-    },
-    '& .MuiInputBase-multiline': {
-      padding: 0
-    },
-    '& .MuiInputBase-input': {
-      padding: 0,
-      whiteSpace: 'pre-wrap'
-    }
-  },
 }));
 
 function CreateMemorial(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
-  // profileImage will be used when submitting the form
   const [profileImage, setProfileImage] = useState(null);
   const [galleryImages, setGalleryImages] = useState(Array(8).fill(null));
-  const [name, setName] = useState('Oliver (Ollie)');
-  const [dateInfo, setDateInfo] = useState('Dec 2022 — Jun 23rd 2023 (6 years)');
-  const [description, setDescription] = useState('');
 
   React.useEffect(() => {
     ValidatorForm.addValidationRule('isTruthy', (value) => value);
@@ -193,6 +131,7 @@ function CreateMemorial(props) {
 
   const handleProfileImageUpload = (file) => {
     setProfileImage(file);
+    // Here you would typically upload the file to your server
     console.log('Profile image uploaded:', file);
   };
 
@@ -200,9 +139,11 @@ function CreateMemorial(props) {
     const newGalleryImages = [...galleryImages];
     newGalleryImages[index] = file;
     setGalleryImages(newGalleryImages);
+    // Here you would typically upload the file to your server
     console.log('Gallery image uploaded at index', index, ':', file);
   };
 
+  // Create an array of unique IDs for gallery items
   const galleryItems = Array(8).fill().map((_, i) => ({ id: `gallery-upload-${i + 1}` }));
 
   return (
@@ -285,22 +226,38 @@ function CreateMemorial(props) {
                     </Box>
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <TextField
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      variant="standard"
-                      className={classes.nameInput}
-                      inputProps={{ style: { textAlign: 'center' } }}
-                    />
+                    <Typography sx={{
+                        color: 'var(--Primary-600, #D77F33)',
+                        textAlign: 'center',
+                        fontFamily: 'Inter',
+                        fontSize: '24px',
+                        fontStyle: 'normal',
+                        fontWeight: '600',
+                        lineHeight: '32px',
+                        [theme.breakpoints.down('sm')]: {
+                          fontSize: '18px',
+                          lineHeight: '28px',
+                        }
+                    }}
+                    >Oliver (Ollie)
+                    </Typography>
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <TextField
-                      value={dateInfo}
-                      onChange={(e) => setDateInfo(e.target.value)}
-                      variant="standard"
-                      className={classes.dateInput}
-                      inputProps={{ style: { textAlign: 'center', width: '300px' } }}
-                    />
+                    <Typography sx={{
+                          color: 'var(--Gray-900, #101828)',
+                          textAlign: 'center',
+                          fontFamily: 'Inter',
+                          fontSize: '16px',
+                          fontStyle: 'normal',
+                          fontWeight: '400',
+                          lineHeight: '24px',
+                          [theme.breakpoints.down('sm')]: {
+                          fontSize: '14px',
+                          lineHeight: '28px',
+                        }
+                    }}
+                    >Dec 2022 — Jun 23rd 2023 (6 years)
+                    </Typography>
                   </Grid>
                 </Grid>
               </div>
@@ -322,26 +279,25 @@ function CreateMemorial(props) {
                     </Typography>
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <TextField
-                      multiline
-                      rows={12}
-                      fullWidth
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                      variant="outlined"
-                      className={classes.descriptionInput}
-                      placeholder="Share your memories and thoughts..."
-                      sx={{
-                        whiteSpace: 'pre-wrap',
-                        color: 'var(--Gray-600, #475467)',
-                        fontSize: '18px',
-                        fontWeight: '400',
-                        lineHeight: '28px',
-                        [theme.breakpoints.down('sm')]: {
-                          textAlign: 'start',
-                        }
-                      }}
-                    />
+                    <Typography sx={{
+                      whiteSpace: 'pre-wrap',
+                      color: 'var(--Gray-600, #475467)',
+                      fontSize: '18px',
+                      fontWeight: '400',
+                      lineHeight: '28px',
+                      [theme.breakpoints.down('sm')]: {
+                        textAlign: 'start',
+                      }
+                    }}
+                    >
+                      {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu`}
+                    </Typography>
                   </Grid>
                 </Grid>
               </div>
@@ -402,6 +358,10 @@ CreateMemorial.propTypes = {
   onToggleDir: PropTypes.func.isRequired,
 };
 
+// Use this below for Server Side Render/Translation (SSR)
+// export const getStaticProps = async ({ locale }) => ({ props: { ...await serverSideTranslations(locale, ['common']) } });
+
+// Use this below for Static Site Generation (SSG)
 const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };
 
