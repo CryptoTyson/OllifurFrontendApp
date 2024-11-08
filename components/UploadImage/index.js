@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,6 +6,8 @@ function UploadImage({ onImageUpload, uploadType }) {
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState('');
   const [preview, setPreview] = useState(null);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const validateFile = (file) => {
     // Check file type
@@ -150,9 +152,10 @@ function UploadImage({ onImageUpload, uploadType }) {
             mt: 2
           }}
           >
-            Click to upload<span style={{ color: '#475467', fontWeight: 400 }}> or drag and drop</span>
+            Click to upload{isDesktop && <span style={{ color: '#475467', fontWeight: 400 }}> or drag and drop</span>}
           </Typography>
-          <Typography sx={{
+          {isDesktop
+          && <Typography sx={{
             color: 'var(--Gray-600, #475467)',
             textAlign: 'center',
             fontFamily: 'Inter',
@@ -164,7 +167,7 @@ function UploadImage({ onImageUpload, uploadType }) {
           }}
           >
             SVG, PNG, JPG or GIF (max. 800x400px)
-          </Typography>
+            </Typography>}
         </>
       )}
 

@@ -47,10 +47,10 @@ const useStyles = makeStyles()((theme) => ({
     color: 'var(--Gray-900, #101828)',
     textAlign: 'center',
     fontFamily: 'Inter',
-    fontSize: '30px',
+    fontSize: '36px',
     fontStyle: 'normal',
     fontWeight: '600',
-    lineHeight: '38px'
+    lineHeight: '44px'
   },
   heading: {
     color: 'var(--gray-900, #101828)',
@@ -69,7 +69,12 @@ const useStyles = makeStyles()((theme) => ({
     fontSize: '20px',
     fontStyle: 'italic',
     fontWeight: '400',
-    lineHeight: '30px'
+    lineHeight: '30px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '18px',
+      fontWeight: '400',
+      lineHeight: '28px'
+    },
   },
   innerText: {
     color: 'var(--Gray-700, #344054)',
@@ -203,7 +208,7 @@ function CreateMemorial(props) {
                   background: 'var(--Gray-200, #EAECF0)',
                   padding: '34px 20px',
                   marginBottom: '64px',
-                  marginTop: '200px'
+                  marginTop: isDesktop ? '200px' : '160px'
               }}
               >
                 <Grid container spacing={2} justifyContent="center" direction="column" alignItems="center" sx={{ marginTop: '-160px', position: 'relative', zIndex: 1 }}>
@@ -223,7 +228,11 @@ function CreateMemorial(props) {
                         fontSize: '24px',
                         fontStyle: 'normal',
                         fontWeight: '600',
-                        lineHeight: '32px'
+                        lineHeight: '32px',
+                        [theme.breakpoints.down('sm')]: {
+                          fontSize: '18px',
+                          lineHeight: '28px',
+                        }
                     }}
                     >Oliver (Ollie)
                     </Typography>
@@ -236,7 +245,11 @@ function CreateMemorial(props) {
                           fontSize: '16px',
                           fontStyle: 'normal',
                           fontWeight: '400',
-                          lineHeight: '24px'
+                          lineHeight: '24px',
+                          [theme.breakpoints.down('sm')]: {
+                          fontSize: '14px',
+                          lineHeight: '28px',
+                        }
                     }}
                     >Dec 2022 — Jun 23rd 2023 (6 years)
                     </Typography>
@@ -250,7 +263,12 @@ function CreateMemorial(props) {
                           color: 'var(--Primary-800, #774418)',
                           fontSize: '30px',
                           fontWeight: '600',
-                          lineHeight: '38px'
+                          lineHeight: '38px',
+                          [theme.breakpoints.down('sm')]: {
+                          textAlign: 'start',
+                          fontSize: '20px',
+                          lineHeight: '30px',
+                          }
                     }}
                     >A few words
                     </Typography>
@@ -261,10 +279,19 @@ function CreateMemorial(props) {
                       color: 'var(--Gray-600, #475467)',
                       fontSize: '18px',
                       fontWeight: '400',
-                      lineHeight: '28px'
+                      lineHeight: '28px',
+                      [theme.breakpoints.down('sm')]: {
+                        textAlign: 'start',
+                      }
                     }}
                     >
-                      Lorem
+                      {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -277,7 +304,11 @@ function CreateMemorial(props) {
                           fontSize: '30px',
                           fontWeight: '600',
                           lineHeight: '38px',
-                          marginBottom: '24px'
+                          marginBottom: '24px',
+                          [theme.breakpoints.down('sm')]: {
+                            fontSize: '20px',
+                            lineHeight: '30px',
+                          }
                     }}
                     >Gallery
                     </Typography>
@@ -285,7 +316,7 @@ function CreateMemorial(props) {
                   <Grid container item spacing={3}>
                     {galleryItems.map((item, index) => (
                       <Grid key={item.id} item xs={12} sm={6} md={3} className={classes.galleryItem}>
-                        <Box sx={{ width: '100%', maxWidth: '300px' }}>
+                        <Box sx={{ width: '100%', maxWidth: isDesktop ? '300px' : '181px' }}>
                           <UploadImage
                             onImageUpload={(file) => handleGalleryImageUpload(index, file)}
                             uploadType={`gallery-${index}`}
