@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from 'tss-react/mui';
-import { Box, Typography, useMediaQuery } from '@mui/material';
+import { Box, Button, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
@@ -108,7 +108,12 @@ const useStyles = makeStyles()((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     padding: theme.spacing(1),
-  }
+  },
+  createButtonContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: theme.spacing(4),
+  },
 }));
 
 function CreateMemorial(props) {
@@ -324,6 +329,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula qu
                         </Box>
                       </Grid>
                     ))}
+                  </Grid>
+                  <Grid item xs={12} className={classes.createButtonContainer}>
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      sx={{
+                      maxWidth: '295px',
+                    }}
+                    >Create
+                    </Button>
                   </Grid>
                 </Grid>
               </div>
