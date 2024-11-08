@@ -1,5 +1,9 @@
 import { createDirectus, staticToken, rest, uploadFiles } from '@directus/sdk';
 import formidable from 'formidable';
+import fs from 'fs';
+import FormData from 'form-data';
+import path from 'path';
+import mime from 'mime';
 import { createMemorial } from '~/lib/directus';
 
 // Configure formidable to parse form data
@@ -14,18 +18,45 @@ const directus = createDirectus(process.env.DIRECTUS_URL || '')
   .with(rest())
   .with(staticToken(process.env.DIRECTUS_TOKEN || ''));
 
-async function uploadFileToDirectus(file) {
+async function uploadFileToDirectus(filePath) {
+  let fileStream = null;
   try {
-    // Create FormData and append the file
-    const formData = new FormData();
-    formData.append('file', file);
+    // Create a read stream from the file
+    fileStream = fs.createReadStream(filePath);
+    const fileName = path.basename(filePath);
+    const mimeType = mime.getType(filePath) || 'application/octet-stream';
 
-    // Upload file to Directus
+    // Create FormData using form-data package
+    const formData = new FormData();
+
+    // First append the type field - this is required by Directus
+    formData.append('type', 'image');
+
+    // Then append the file with its metadata
+    formData.append('file', fileStream, {
+      filename: fileName,
+      contentType: mimeType,
+      knownLength: fs.statSync(filePath).size,
+    });
+
+    // Upload file to Directus with proper headers
     const fileResponse = await directus.request(uploadFiles(formData));
+
     return fileResponse.id; // Return the file ID
   } catch (error) {
     console.error('Error uploading file to Directus:', error);
     throw error;
+  } finally {
+    // Close the file stream if it was opened
+    if (fileStream) {
+      fileStream.destroy();
+    }
+    // Clean up: Delete the temporary file
+    try {
+      fs.unlinkSync(filePath);
+    } catch (err) {
+      console.error('Error deleting temporary file:', err);
+    }
   }
 }
 
@@ -36,12 +67,16 @@ export default async function handler(req, res) {
 
   try {
     // Parse the incoming form data
-    const form = formidable({ multiples: true });
+    const form = formidable({
+      multiples: true,
+      keepExtensions: true,
+      maxFileSize: 10 * 1024 * 1024, // 10MB limit
+    });
 
     const formData = await new Promise((resolve, reject) => {
-      form.parse(req, (err, parsedFields, parsedFiles) => {
+      form.parse(req, (err, fields, files) => {
         if (err) reject(err);
-        resolve({ fields: parsedFields, files: parsedFiles });
+        resolve({ fields, files });
       });
     });
 
@@ -52,7 +87,7 @@ export default async function handler(req, res) {
     }
 
     // Upload profile image
-    const profileImageId = await uploadFileToDirectus(files.profileImage);
+    const profileImageId = await uploadFileToDirectus(files.profileImage[0].filepath);
 
     // Upload gallery images
     let galleryImageIds = [];
@@ -64,17 +99,17 @@ export default async function handler(req, res) {
 
       // Upload all gallery images in parallel
       galleryImageIds = await Promise.all(
-        galleryImagesArray.map((image) => uploadFileToDirectus(image))
+        galleryImagesArray.map((image) => uploadFileToDirectus(image.filepath))
       );
     }
 
     // Format memorial data with file IDs
     const formattedMemorialData = {
-      name: fields.name,
-      date_info: fields.dateInfo,
-      description: fields.description,
-      profile_image: profileImageId,
-      gallery_images: galleryImageIds,
+      name: fields.name[0],
+      dateInfo: fields.dateInfo[0],
+      description: fields.description[0],
+      profileImage: profileImageId,
+      galleryImages: galleryImageIds,
       status: 'active',
     };
 
