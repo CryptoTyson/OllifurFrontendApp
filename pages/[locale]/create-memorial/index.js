@@ -1,12 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
 import Head from 'next/head';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-// Use this below for Server Side Render/Translation (SSR)
-// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-// Use this below for Static Site Generation (SSG)
 import { makeStyles } from 'tss-react/mui';
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -112,6 +109,8 @@ const useStyles = makeStyles()((theme) => ({
 function CreateMemorial(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
+  const [profileImage, setProfileImage] = useState(null);
+  const [galleryImages, setGalleryImages] = useState(Array(8).fill(null));
 
   React.useEffect(() => {
     ValidatorForm.addValidationRule('isTruthy', (value) => value);
@@ -120,8 +119,22 @@ function CreateMemorial(props) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
+  const handleProfileImageUpload = (file) => {
+    setProfileImage(file);
+    // Here you would typically upload the file to your server
+    console.log('Profile image uploaded:', file);
+  };
+
+  const handleGalleryImageUpload = (index, file) => {
+    const newGalleryImages = [...galleryImages];
+    newGalleryImages[index] = file;
+    setGalleryImages(newGalleryImages);
+    // Here you would typically upload the file to your server
+    console.log('Gallery image uploaded at index', index, ':', file);
+  };
+
   // Create an array of unique IDs for gallery items
-  const galleryItems = Array(12).fill().map((_, i) => ({ id: `gallery-upload-${i + 1}` }));
+  const galleryItems = Array(8).fill().map((_, i) => ({ id: `gallery-upload-${i + 1}` }));
 
   return (
     <Fragment>
@@ -196,7 +209,10 @@ function CreateMemorial(props) {
                 <Grid container spacing={2} justifyContent="center" direction="column" alignItems="center" sx={{ marginTop: '-160px', position: 'relative', zIndex: 1 }}>
                   <Grid item xs={12} md={12} sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                     <Box sx={{ width: '100%', maxWidth: '259px' }}>
-                      <UploadImage />
+                      <UploadImage
+                        onImageUpload={handleProfileImageUpload}
+                        uploadType="profile"
+                      />
                     </Box>
                   </Grid>
                   <Grid item xs={12} md={12}>
@@ -248,13 +264,7 @@ function CreateMemorial(props) {
                       lineHeight: '28px'
                     }}
                     >
-                      {`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula quis ante interdum, sed tincidunt justo tempus. Nulla finibus, odio eu scelerisque cursus, tortor ligula egestas sapien, at ultrices velit lorem ut lorem. Integer malesuada sollicitudin lacus, sit amet pharetra nibh. Nunc vitae diam fringilla, maximus ipsum id, consectetur libero. Maecenas fringilla, erat non faucibus volutpat, nunc turpis rutrum nisl, eu tincidunt nunc enim a justo. Aliquam erat volutpat. Sed pellentesque sagittis libero. Aenean ultrices, enim ac efficitur sollicitudin, sapien turpis elementum risus, eu facilisis odio justo ac justo. Vestibulum at lectus sem. Donec mattis fringilla dui, eu interdum urna volutpat at. Integer ullamcorper mauris eget neque efficitur vulputate. Donec sed fringilla nisi. Cras dapibus, nisl et mattis dapibus, ligula erat varius turpis, sed tempus odio nunc sed arcu`}
+                      Lorem
                     </Typography>
                   </Grid>
                 </Grid>
@@ -273,10 +283,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ligula qu
                     </Typography>
                   </Grid>
                   <Grid container item spacing={3}>
-                    {galleryItems.map((item) => (
+                    {galleryItems.map((item, index) => (
                       <Grid key={item.id} item xs={12} sm={6} md={3} className={classes.galleryItem}>
                         <Box sx={{ width: '100%', maxWidth: '300px' }}>
-                          <UploadImage />
+                          <UploadImage
+                            onImageUpload={(file) => handleGalleryImageUpload(index, file)}
+                            uploadType={`gallery-${index}`}
+                          />
                         </Box>
                       </Grid>
                     ))}

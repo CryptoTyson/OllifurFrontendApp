@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-function UploadImage({ onImageUpload }) {
+function UploadImage({ onImageUpload, uploadType }) {
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState('');
   const [preview, setPreview] = useState(null);
@@ -15,12 +15,12 @@ function UploadImage({ onImageUpload }) {
       return false;
     }
 
-    // Check dimensions
+    // Check dimensions based on upload type
     return new Promise((resolve) => {
       const img = new Image();
       img.onload = () => {
         if (img.width > 800 || img.height > 400) {
-          setError('Image dimensions should not exceed 800x400px');
+          setError('Profile image dimensions should not exceed 800x400px');
           resolve(false);
         }
         resolve(true);
@@ -40,9 +40,9 @@ function UploadImage({ onImageUpload }) {
     const previewUrl = URL.createObjectURL(file);
     setPreview(previewUrl);
 
-    // Call parent handler
+    // Call parent handler with upload type context
     if (onImageUpload) {
-      onImageUpload(file);
+      onImageUpload(file, uploadType);
     }
   };
 
@@ -71,7 +71,7 @@ function UploadImage({ onImageUpload }) {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
-      document.getElementById('file-input').click();
+      document.getElementById(`file-input-${uploadType}`).click();
     }
   };
 
@@ -101,12 +101,12 @@ function UploadImage({ onImageUpload }) {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      onClick={() => document.getElementById('file-input').click()}
+      onClick={() => document.getElementById(`file-input-${uploadType}`).click()}
       onKeyPress={handleKeyPress}
     >
       <input
         type="file"
-        id="file-input"
+        id={`file-input-${uploadType}`}
         style={{ display: 'none' }}
         accept=".svg,.png,.jpg,.jpeg,.gif"
         onChange={handleInputChange}
@@ -190,7 +190,8 @@ function UploadImage({ onImageUpload }) {
 }
 
 UploadImage.propTypes = {
-  onImageUpload: PropTypes.func
+  onImageUpload: PropTypes.func,
+  uploadType: PropTypes.isRequired
 };
 
 UploadImage.defaultProps = {
