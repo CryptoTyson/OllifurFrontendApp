@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Grid } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
-import brand from '~/public/text/brand';
 import useStyles from './basic-style';
 import Logo from '../Logo/Logo';
 
@@ -30,7 +29,7 @@ function Copyright() {
           align="center"
         >
           &copy;&nbsp;
-          {'2023 Ollifur Inc. All rights reserved.'}
+          2023 Ollifur Inc. All rights reserved.
         </Typography>
       </Grid>
       <Grid item>
@@ -48,7 +47,7 @@ function Copyright() {
   );
 }
 
-const selfStyles = makeStyles()((theme) => ({
+const selfStyles = makeStyles()(() => ({
   link: {
     color: 'var(--gray-200, #EAECF0)',
     fontFamily: 'Inter',
@@ -68,6 +67,7 @@ function Basic() {
       <Container className={classes.root} maxWidth="lg">
         <Grid
           container
+          item
           direction="column"
           justifyContent="space-between"
           alignItems="center"

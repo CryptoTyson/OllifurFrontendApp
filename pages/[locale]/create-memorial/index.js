@@ -177,12 +177,12 @@ const useStyles = makeStyles()((theme) => ({
 function CreateMemorial(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
-  // profileImage will be used when submitting the form
   const [profileImage, setProfileImage] = useState(null);
   const [galleryImages, setGalleryImages] = useState(Array(8).fill(null));
   const [name, setName] = useState('Oliver (Ollie)');
   const [dateInfo, setDateInfo] = useState('Dec 2022 — Jun 23rd 2023 (6 years)');
   const [description, setDescription] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   React.useEffect(() => {
     ValidatorForm.addValidationRule('isTruthy', (value) => value);
@@ -203,6 +203,55 @@ function CreateMemorial(props) {
     console.log('Gallery image uploaded at index', index, ':', file);
   };
 
+  const handleSubmit = async () => {
+    try {
+      setIsSubmitting(true);
+
+      // Validate required fields
+      if (!name || !dateInfo || !description || !profileImage) {
+        alert('Please fill in all required fields and upload a profile image');
+        setIsSubmitting(false);
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('profileImage', profileImage);
+
+      // Append gallery images (only non-null ones)
+      galleryImages.forEach((img, index) => {
+        if (img) {
+          formData.append('galleryImages', img);
+        }
+      });
+
+      // Append other memorial data
+      formData.append('name', name);
+      formData.append('dateInfo', dateInfo);
+      formData.append('description', description);
+
+      const response = await fetch('/api/create-memorial', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create memorial');
+      }
+
+      const data = await response.json();
+      console.log('Memorial created:', data);
+
+      // Show success message
+      alert('Memorial created successfully!');
+      // You can add router.push here to redirect to the memorial page
+    } catch (error) {
+      console.error('Error creating memorial:', error);
+      alert('Failed to create memorial. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const galleryItems = Array(8).fill().map((_, i) => ({ id: `gallery-upload-${i + 1}` }));
 
   return (
@@ -219,9 +268,9 @@ function CreateMemorial(props) {
               <div
                 className={classes.inner}
                 style={{
-                      margin: isDesktop ? '80px 0px' : '0px',
-                      marginBottom: '234px',
-                    }}
+                  margin: isDesktop ? '80px 0px' : '0px',
+                  marginBottom: '234px',
+                }}
               >
                 <Grid
                   container
@@ -253,9 +302,9 @@ function CreateMemorial(props) {
                     <Grid
                       item
                       sx={{
-                      mx: isDesktop ? '240px' : '0px',
-                      textAlign: 'center',
-                    }}
+                        mx: isDesktop ? '240px' : '0px',
+                        textAlign: 'center',
+                      }}
                     >
                       <Typography
                         component="span"
@@ -268,11 +317,11 @@ function CreateMemorial(props) {
                 </Grid>
               </div>
               <div style={{
-                  borderRadius: '16px',
-                  background: 'var(--Gray-200, #EAECF0)',
-                  padding: '34px 20px',
-                  marginBottom: '64px',
-                  marginTop: isDesktop ? '200px' : '160px'
+                borderRadius: '16px',
+                background: 'var(--Gray-200, #EAECF0)',
+                padding: '34px 20px',
+                marginBottom: '64px',
+                marginTop: isDesktop ? '200px' : '160px'
               }}
               >
                 <Grid container spacing={2} justifyContent="center" direction="column" alignItems="center" sx={{ marginTop: '-160px', position: 'relative', zIndex: 1 }}>
@@ -308,15 +357,15 @@ function CreateMemorial(props) {
                 <Grid container spacing={2} justifyContent="center" direction="column">
                   <Grid item xs={12} md={12}>
                     <Typography sx={{
-                          color: 'var(--Primary-800, #774418)',
-                          fontSize: '30px',
-                          fontWeight: '600',
-                          lineHeight: '38px',
-                          [theme.breakpoints.down('sm')]: {
-                          textAlign: 'start',
-                          fontSize: '20px',
-                          lineHeight: '30px',
-                          }
+                      color: 'var(--Primary-800, #774418)',
+                      fontSize: '30px',
+                      fontWeight: '600',
+                      lineHeight: '38px',
+                      [theme.breakpoints.down('sm')]: {
+                        textAlign: 'start',
+                        fontSize: '20px',
+                        lineHeight: '30px',
+                      }
                     }}
                     >A few words
                     </Typography>
@@ -349,15 +398,15 @@ function CreateMemorial(props) {
                 <Grid container spacing={2} justifyContent="center">
                   <Grid item xs={12}>
                     <Typography sx={{
-                          color: 'var(--Primary-800, #774418)',
-                          fontSize: '30px',
-                          fontWeight: '600',
-                          lineHeight: '38px',
-                          marginBottom: '24px',
-                          [theme.breakpoints.down('sm')]: {
-                            fontSize: '20px',
-                            lineHeight: '30px',
-                          }
+                      color: 'var(--Primary-800, #774418)',
+                      fontSize: '30px',
+                      fontWeight: '600',
+                      lineHeight: '38px',
+                      marginBottom: '24px',
+                      [theme.breakpoints.down('sm')]: {
+                        fontSize: '20px',
+                        lineHeight: '30px',
+                      }
                     }}
                     >Gallery
                     </Typography>
@@ -379,9 +428,12 @@ function CreateMemorial(props) {
                       fullWidth
                       variant="contained"
                       sx={{
-                      maxWidth: '295px',
-                    }}
-                    >Create
+                        maxWidth: '295px',
+                      }}
+                      onClick={handleSubmit}
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Creating...' : 'Create'}
                     </Button>
                   </Grid>
                 </Grid>

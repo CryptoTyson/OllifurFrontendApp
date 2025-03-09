@@ -179,11 +179,10 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                     >
                       <ListItem
                         disableGutters
-                        disableRipple
                         className={classes.link}
-                        button
-                        component="a"
-                        href={subitem.link}
+                        onClick={() => {
+                          window.location.href = subitem.link;
+                        }}
                       >
                         <ListItemText primary={subitem.name} />
                       </ListItem>
@@ -217,9 +216,9 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                   <Button
                     endIcon={
                       menuName === item.name ? (
-                        <Icon>expand_more</Icon>
-                      ) : (
                         <Icon>expand_less</Icon>
+                      ) : (
+                        <Icon>expand_more</Icon>
                       )
                     }
                   >
@@ -328,9 +327,9 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                           <ListItem
                                             disableGutters
                                             className={classes.link}
-                                            button
-                                            component="a"
-                                            href={subitem.link}
+                                            onClick={() => {
+                                              window.location.href = subitem.link;
+                                            }}
                                           >
                                             <Grid
                                               container
