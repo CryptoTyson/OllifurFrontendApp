@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { useLoadScript, LoadScriptProps, Autocomplete } from '@react-google-maps/api';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
@@ -37,6 +38,18 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
 
+interface ChipData {
+  label: string;
+}
+
+interface LocationState {
+  address: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  } | null;
+}
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   // eslint-disable-line
   return (
@@ -52,6 +65,59 @@ function Welcome() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
+  const [location, setLocation] = useState<LocationState>({
+    address: '',
+    coordinates: null
+  });
+  const [searchQuery, setSearchQuery] = useState('');
+  const [autocomplete, setAutocomplete] = useState<google.maps.places.Autocomplete | null>(null);
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
+    libraries: ['places']
+  });
+
+  const onLoad = (autocomplete: google.maps.places.Autocomplete) => {
+    setAutocomplete(autocomplete);
+  };
+
+  const onPlaceChanged = () => {
+    if (autocomplete) {
+      const place = autocomplete.getPlace();
+      if (place.geometry?.location) {
+        setLocation({
+          address: place.formatted_address || '',
+          coordinates: {
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng()
+          }
+        });
+      }
+    }
+  };
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (searchQuery) {
+      params.append('vendor', searchQuery);
+    }
+    if (location.address) {
+      params.append('location', location.address);
+      if (location.coordinates) {
+        params.append('lat', location.coordinates.lat.toString());
+        params.append('lng', location.coordinates.lng.toString());
+      }
+    }
+  };
+
+  const handleChipClick = (label: string) => {
+    setLocation({
+      address: label,
+      coordinates: null
+    });
+    setTimeout(() => handleSearch(), 0);
+  };
+
   const { classes, cx }: any = useStyles();
   const { classes: text }: any = useText();
   const { classes: align } = useTextAlign();
@@ -59,30 +125,14 @@ function Welcome() {
   const slider = useRef(null);
 
   const chipData = [
-    {
-      label: 'Vancouver',
-    },
-    {
-      label: 'Toronto',
-    },
-    {
-      label: 'Calgary',
-    },
-    {
-      label: 'Burnaby',
-    },
-    {
-      label: 'Surrey',
-    },
-    {
-      label: 'Hamilton',
-    },
-    {
-      label: 'Ottawa',
-    },
-    {
-      label: 'Edmonton',
-    }
+    { label: 'Vancouver', value: 'Vancouver, BC, Canada' },
+    { label: 'Toronto', value: 'Toronto, ON, Canada' },
+    { label: 'Calgary', value: 'Calgary, AB, Canada' },
+    { label: 'Burnaby', value: 'Burnaby, BC, Canada' },
+    { label: 'Surrey', value: 'Surrey, BC, Canada' },
+    { label: 'Hamilton', value: 'Hamilton, ON, Canada' },
+    { label: 'Ottawa', value: 'Ottawa, ON, Canada' },
+    { label: 'Edmonton', value: 'Edmonton, AB, Canada' },
   ];
 
   const slickOptions = {
@@ -116,7 +166,7 @@ function Welcome() {
           data-fade={slickOptions.fade}
         >
           <div className={classes.slide}>
-            <div >
+            <div>
               <div
                 style={{
                   height: '75%',
@@ -129,10 +179,13 @@ function Welcome() {
                     container
                     style={{
                       paddingTop: isDesktop ? '50px' : '0px',
+                      marginRight: isDesktop ? '160px' : '0px',
                     }}
                     justifyContent={isDesktop ? 'space-between' : 'center'}
                   >
-                    <Grid item md={8} xs={12}>
+                    <Grid item md={8} xs={12} style={{
+                      padding: isDesktop ? '0px 220px 0px 0px' : '0px',
+                    }}>
                       <Box>
                         <div className={cx(classes.text)}>
                           {isDesktop && (
@@ -154,18 +207,11 @@ function Welcome() {
                             className={text.title}
                             component={isDesktop ? 'p' : 'span'}
                           >
-                            Cherish the ones you love.
-                          </Typography>
-                          <Typography
-                            style={{
+                            Cherish the ones you love. {<span style={{
                               display: 'inline',
                               background:
                                 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 52%, rgba(117, 224, 167, 0.50) 50%, rgba(117, 224, 167, 0.50) 100%)',
-                            }}
-                            component={'span'}
-                            className={cx(text.title)}
-                          >
-                            We’ll take care of the rest
+                            }}>We'll take care of the rest</span>}
                           </Typography>
                           <Typography
                             style={{
@@ -187,34 +233,10 @@ function Welcome() {
                             the love and care they deserve.
                           </Typography>
                           <Stack
-                            direction={isDesktop ? 'row' : 'column-reverse'}
+                            direction={isDesktop ? 'row' : 'column'}
                             spacing={2}
                             style={{ marginTop: '40px' }}
                           >
-                            <Button
-                              fullWidth={isMobile}
-                              sx={{
-                                ':hover': { background: '#FFF' },
-                                color: '#344054',
-                                background: '#FFF',
-                              }}
-                              endIcon={<VolunteerActivismOutlinedIcon />}
-                              variant="contained"
-                              color="primary"
-                            >
-                              <Typography
-                                style={{
-                                  color: 'var(--Gray-700, #344054)',
-                                  fontFamily: 'Inter',
-                                  fontSize: '18px',
-                                  fontStyle: 'normal',
-                                  fontWeight: '600',
-                                  lineHeight: '28px',
-                                }}
-                              >
-                                Pre-plan
-                              </Typography>
-                            </Button>
                             <Button
                               variant="contained"
                               color="primary"
@@ -224,80 +246,107 @@ function Welcome() {
                               }}
                               endIcon={<ArrowForwardIcon />}
                             >
-                              Immediate Need
+                              <Typography
+                                style={{
+                                  color: 'var(--Gray-700, #FFF)',
+                                  fontFamily: 'Inter',
+                                  fontSize: '16px',
+                                  fontStyle: 'normal',
+                                  fontWeight: '600',
+                                  lineHeight: '24px',
+                                }}
+                              >
+                                Immediate Need
+                              </Typography>
+                            </Button>
+                            <Button
+                              fullWidth={isMobile}
+                              sx={{
+                                ':hover': {
+                                  background: '#fafafa',
+                                  boxShadow: '0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.10)',
+                                },
+                                color: '#101828',
+                                background: '#FFF',
+                              }}
+                              variant="contained"
+                              color="primary"
+                              onClick={() => {
+                                window.location.href = '/online-memorials';
+                              }}
+                            >
+                              <Typography
+                                style={{
+                                  color: 'var(--Gray-700, #344054)',
+                                  fontFamily: 'Inter',
+                                  fontSize: '16px',
+                                  fontStyle: 'normal',
+                                  fontWeight: '600',
+                                  lineHeight: '24px',
+                                }}
+                              >
+                                Memorials
+                              </Typography>
                             </Button>
                           </Stack>
-                          
                         </div>
                       </Box>
-                      
                     </Grid>
                     <Grid item md={4} xs={12}>
-                      
-                    {isDesktop ? (
-                  <Box
-                    sx={{
-                    }}
-                  >
-                    <div>
-                      <img
-                        src={'/images/landing-pic-large.png'}
-                        alt="Landing Image"
-                      />
-                    </div>
-                  </Box>
-                ) : (
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      marginTop: '36px',
-                    }}
-                  >
-                    <div>
-                      <img
-                        src={'/images/landing-pic-mobile.png'}
-                        alt="Landing Image"
-                        width='275px'
-                        height='275px'
-                      />
-                    </div>
-                  </Box>
-                )}
-                </Grid>
+                      {isDesktop ? (
+                        <Box>
+                          <div>
+                            <img
+                              src={'/images/landing-pic-large.png'}
+                              alt="Landing Image"
+                            />
+                          </div>
+                        </Box>
+                      ) : (
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            marginTop: '36px',
+                          }}
+                        >
+                          <div>
+                            <img
+                              src={'/images/landing-pic-mobile.png'}
+                              alt="Landing Image"
+                              width='275px'
+                              height='275px'
+                            />
+                          </div>
+                        </Box>
+                      )}
+                    </Grid>
                   </Grid>
                 </Container>
-                
 
                 {isDesktop && (
                   <Box
-                  sx={{
-                    padding: '26px 42px',
-                    position: 'absolute',
-                    // Replace the fixed inset with responsive values
-                    inset: {
-                      // Base values for large screens
-                      lg: '110% 0% 0% 50%',
-                      // Adjusts for extra large screens
-                      xl: '110% 0% 0% 50%',
-                    },
-                    // Make width responsive instead of fixed
-                    width: {
-                      lg: '90%',
-                      xl: '1106px'
-                    },
-                    // You can also make height responsive if needed
-                    height: {
-                      lg: '249px'
-                    },
-                    // Transform to center the box horizontally
-                    transform: 'translateX(-50%)',
-                    flexShrink: '0',
-                    borderRadius: '12px',
-                    background: 'var(--Gray-25, #FCFCFD)',
-                    boxShadow:
-                      '0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.10)',
-                  }}
+                    sx={{
+                      padding: '26px 42px',
+                      position: 'absolute',
+                      inset: {
+                        lg: '110% 0% 0% 50%',
+                        xl: '110% 0% 0% 50%',
+                      },
+                      width: {
+                        lg: '90%',
+                        xl: '1106px'
+                      },
+                      height: {
+                        lg: '249px'
+                      },
+                      transform: 'translateX(-50%)',
+                      flexShrink: '0',
+                      borderRadius: '12px',
+                      background: 'var(--Gray-25, #FCFCFD)',
+                      boxShadow:
+                        '0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.10)',
+                    }}
                     gap={4}
                     display={'flex'}
                     flexDirection={'column'}
@@ -305,24 +354,12 @@ function Welcome() {
                     <Stack direction={'row'} gap={4}>
                       <TextField
                         fullWidth
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         InputProps={{
                           startAdornment: (
                             <InputAdornment position="start">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="21"
-                                viewBox="0 0 20 21"
-                                fill="none"
-                              >
-                                <path
-                                  d="M17.5 18L14.5834 15.0833M16.6667 10.0833C16.6667 13.9954 13.4954 17.1667 9.58333 17.1667C5.67132 17.1667 2.5 13.9954 2.5 10.0833C2.5 6.17132 5.67132 3 9.58333 3C13.4954 3 16.6667 6.17132 16.6667 10.0833Z"
-                                  stroke="#667085"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                              <SearchIcon />
                             </InputAdornment>
                           ),
                         }}
@@ -345,52 +382,88 @@ function Welcome() {
                           },
                         }}
                         placeholder="Search for crematoriums"
-                      />
-                      <TextField
-                        fullWidth
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <LocationOnIcon />
-                            </InputAdornment>
-                          ),
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter') {
+                            handleSearch();
+                          }
                         }}
-                        sx={{
-                          '& .MuiOutlinedInput-input': {
-                            color: 'var(--Gray-500, #667085)',
-                            fontFamily: 'Inter',
-                            fontSize: '16px',
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            lineHeight: '24px',
-                          },
-                          '&.MuiFormControl-root': {
-                            borderRadius: '8px',
-                            background: 'var(--Gray-100, #F2F4F7)',
-                            boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
-                          },
-                          '& .MuiOutlinedInput-notchedOutline': {
-                            border: 'none',
-                          },
-                        }}
-                        placeholder="Set your location"
                       />
-                      <Button variant="contained" color="primary">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="21"
-                          viewBox="0 0 20 21"
-                          fill="none"
+                      {isLoaded ? (
+                        <Box sx={{ width: '100%' }}>
+                          <Autocomplete
+                          onLoad={onLoad}
+                          onPlaceChanged={onPlaceChanged}
+                          options={{}}
+                          className="location-autocomplete"
+                          
                         >
-                          <path
-                            d="M17.5 18L14.5834 15.0833M16.6667 10.0833C16.6667 13.9954 13.4954 17.1667 9.58333 17.1667C5.67132 17.1667 2.5 13.9954 2.5 10.0833C2.5 6.17132 5.67132 3 9.58333 3C13.4954 3 16.6667 6.17132 16.6667 10.0833Z"
-                            stroke="#fff"
-                            strokeWidth="1.66667"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
+                          <TextField
+                            fullWidth
+                            value={location.address}
+                            onChange={(e) => setLocation(prev => ({ ...prev, address: e.target.value }))}
+                            InputProps={{
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  <LocationOnIcon />
+                                </InputAdornment>
+                              ),
+                            }}
+                            sx={{
+                              '& .MuiOutlinedInput-input': {
+                                color: 'var(--Gray-500, #667085)',
+                                fontFamily: 'Inter',
+                                fontSize: '16px',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                lineHeight: '24px',
+                              },
+                              '&.MuiFormControl-root': {
+                                borderRadius: '8px',
+                                background: 'var(--Gray-100, #F2F4F7)',
+                                boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+                              },
+                              '& .MuiOutlinedInput-notchedOutline': {
+                                border: 'none',
+                              },
+                            }}
+                            placeholder="Search by location"
                           />
-                        </svg>
+                        </Autocomplete>
+                        </Box>
+                      ) : (
+                        <TextField
+                          fullWidth
+                          disabled
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <LocationOnIcon />
+                              </InputAdornment>
+                            ),
+                          }}
+                          sx={{
+                            '& .MuiOutlinedInput-input': {
+                              color: 'var(--Gray-500, #667085)',
+                              fontFamily: 'Inter',
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: '400',
+                              lineHeight: '24px',
+                            },
+                            '&.MuiFormControl-root': {
+                              borderRadius: '8px',
+                              background: 'var(--Gray-100, #F2F4F7)',
+                              boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+                            },
+                            '& .MuiOutlinedInput-notchedOutline': {
+                              border: 'none',
+                            },
+                          }}
+                          placeholder="Loading..."
+                        />
+                      )}
+                      <Button variant="contained" color="primary" onClick={handleSearch}>
+                        <SearchIcon />
                       </Button>
                     </Stack>
                     <Typography
@@ -406,31 +479,32 @@ function Welcome() {
                       You may be looking for
                     </Typography>
                     <Stack direction={'row'} gap={4}>
-                      {chipData.map((data, index) => (
+                      {chipData.map((data) => (
                         <Chip
-                        key={`chip-${data.label}`}
-                        label={data.label}
-                        variant="filled"
-                        onClick={() => {}}
-                        sx={{
-                          ':hover': {
-                            boxShadow:
-                              '0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.10)',
-                          },
-                          '& .MuiChip-label': {
-                            color: 'var(--Primary-600, #D77F33)',
-                            fontFamily: 'Inter',
-                            fontSize: '16px',
-                            fontStyle: 'normal',
-                            fontWeight: '600',
-                            lineHeight: '24px',
-                          },
-                          '&.MuiChip-root': {
-                            borderRadius: '4px',
-                            backgroundColor: 'var(--Primary-50, #F8EADD)',
-                          }
-                        }}
-                      />))}
+                          key={`chip-${data.label}`}
+                          label={data.label}
+                          variant="filled"
+                          onClick={() => handleChipClick(data.value)}
+                          sx={{
+                            ':hover': {
+                              boxShadow:
+                                '0px 2px 4px -2px rgba(16, 24, 40, 0.06), 0px 4px 8px -2px rgba(16, 24, 40, 0.10)',
+                            },
+                            '& .MuiChip-label': {
+                              color: 'var(--Primary-600, #D77F33)',
+                              fontFamily: 'Inter',
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: '600',
+                              lineHeight: '24px',
+                            },
+                            '&.MuiChip-root': {
+                              borderRadius: '4px',
+                              backgroundColor: 'var(--Primary-50, #F8EADD)',
+                            }
+                          }}
+                        />
+                      ))}
                     </Stack>
                   </Box>
                 )}

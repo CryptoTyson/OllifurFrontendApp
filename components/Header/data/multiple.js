@@ -65,19 +65,19 @@ const multiple = [
       {
         id: '3',
         name: 'Blog',
-        link: '#',
+        link: '/blogs',
         desc: 'Everything you need to know about Pet Cremations and more',
       },
       {
         id: '4',
         name: 'About Us',
-        link: '#',
+        link: '/contact-us',
         desc: 'Our story, mission and what drives us forward.',
       },
       {
         id: '5',
         name: 'Help and support',
-        link: '#',
+        link: '/contact-us',
         desc: 'Learn, fix a problem, and get answers to your questions.',
       },
     ],
