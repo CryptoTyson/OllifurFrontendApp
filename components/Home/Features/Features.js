@@ -133,7 +133,7 @@ function Features() {
           <Grid container item spacing={4}>
             <Grid container item md={6} xs={12}>
               {featureCardData.map((feature) => (
-                <Grid item>
+                <Grid item xs={12} key={feature.title}>
                   <FeatureCard title={feature.title} desc={feature.desc} />
                 </Grid>
             ))}

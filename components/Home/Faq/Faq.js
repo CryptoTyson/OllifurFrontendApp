@@ -132,6 +132,7 @@ function Faq() {
         direction="column"
         justifyContent="space-around"
         alignItems="center"
+        item
         xs={12}
         spacing={2}
       >

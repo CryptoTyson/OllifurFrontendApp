@@ -107,7 +107,14 @@ function Welcome() {
   return (
     <div className={classes.bannerWrap}>
       <div className={classes.carousel}>
-        <div {...slickOptions} className={classes.slider}>
+        <div className={classes.slider}
+          data-dots={slickOptions.dots}
+          data-arrows={slickOptions.arrows}
+          data-slidestoshow={slickOptions.slidesToShow}
+          data-autoplay={slickOptions.autoplay}
+          data-cssease={slickOptions.cssEase}
+          data-fade={slickOptions.fade}
+        >
           <div className={classes.slide}>
             <div >
               <div
@@ -212,7 +219,9 @@ function Welcome() {
                               variant="contained"
                               color="primary"
                               fullWidth={isMobile}
-                              href={link.retail.register}
+                              onClick={() => {
+                                window.location.href = link.retail.register;
+                              }}
                               endIcon={<ArrowForwardIcon />}
                             >
                               Immediate Need
@@ -309,9 +318,9 @@ function Welcome() {
                                 <path
                                   d="M17.5 18L14.5834 15.0833M16.6667 10.0833C16.6667 13.9954 13.4954 17.1667 9.58333 17.1667C5.67132 17.1667 2.5 13.9954 2.5 10.0833C2.5 6.17132 5.67132 3 9.58333 3C13.4954 3 16.6667 6.17132 16.6667 10.0833Z"
                                   stroke="#667085"
-                                  stroke-width="1.66667"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                 />
                               </svg>
                             </InputAdornment>
@@ -377,9 +386,9 @@ function Welcome() {
                           <path
                             d="M17.5 18L14.5834 15.0833M16.6667 10.0833C16.6667 13.9954 13.4954 17.1667 9.58333 17.1667C5.67132 17.1667 2.5 13.9954 2.5 10.0833C2.5 6.17132 5.67132 3 9.58333 3C13.4954 3 16.6667 6.17132 16.6667 10.0833Z"
                             stroke="#fff"
-                            stroke-width="1.66667"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                       </Button>
@@ -397,8 +406,9 @@ function Welcome() {
                       You may be looking for
                     </Typography>
                     <Stack direction={'row'} gap={4}>
-                      {chipData.map((data) => (
+                      {chipData.map((data, index) => (
                         <Chip
+                        key={`chip-${data.label}`}
                         label={data.label}
                         variant="filled"
                         onClick={() => {}}
