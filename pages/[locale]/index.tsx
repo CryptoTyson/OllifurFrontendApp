@@ -23,6 +23,7 @@ import Footer from '../../components/Footer';
 import PopularPosts from '../../components/Home/PopularPosts';
 import Notification from '../../components/Notification';
 import brand from '../../public/text/brand';
+import { LandingPageDesktop } from '../../components/LandingPageDesktop';
 
 interface LandingProps {
   onToggleDark(...args: unknown[]): unknown;
@@ -66,12 +67,7 @@ function Landing(props: LandingProps) {
           <section id="blog" className={classes.spaceTopShort}>
             {/* <NewsEvent /> */}
           </section>
-          <section
-            id="PopularPosts"
-            className={cx(
-              classes.spaceTopShort,
-            )}
-          >
+          <section id="PopularPosts" className={cx(classes.spaceTopShort)}>
             <PopularPosts />
           </section>
         </main>
@@ -94,4 +90,4 @@ function Landing(props: LandingProps) {
 const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };
 
-export default Landing;
+export default LandingPageDesktop;
