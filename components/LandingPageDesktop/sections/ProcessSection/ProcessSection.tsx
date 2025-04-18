@@ -86,7 +86,7 @@ export const ProcessSection = (): JSX.Element => {
       }}
     >
       <div className="container mx-auto">
-        <h2 className="mx-auto text-center mb-16 [font-family:'Recoleta-Regular',Helvetica] font-normal text-white text-[64px] leading-normal max-w-[880px]">
+        <h2 className="mx-auto text-center mb-16 font-[Recoleta] font-normal text-white text-[64px] leading-normal max-w-[880px]">
           Little stories of not so little love
         </h2>
 
@@ -110,12 +110,12 @@ export const ProcessSection = (): JSX.Element => {
             >
               <div className="flex justify-between px-8 pt-8">
                 <div
-                  className={`[font-family:'Recoleta-Regular',Helvetica] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
+                  className={`font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
                 >
                   {storyData.title}
                 </div>
                 <div
-                  className={`[font-family:'Recoleta-Regular',Helvetica] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-[#e9e9eb]" : "text-[#252b37]"}`}
+                  className={`font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-[#e9e9eb]" : "text-[#252b37]"}`}
                 >
                   {storyData.date}
                 </div>
@@ -126,7 +126,7 @@ export const ProcessSection = (): JSX.Element => {
                   {storyData.content.map((paragraph, pIndex) => (
                     <p
                       key={pIndex}
-                      className={`[font-family:'Kind_Sans-Regular',Helvetica] font-normal text-xl leading-6 ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
+                      className={` font-normal text-xl leading-6 ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
                     >
                       {paragraph}
                     </p>
@@ -135,7 +135,7 @@ export const ProcessSection = (): JSX.Element => {
               </div>
 
               <div
-                className={`absolute ${index < 3 ? "top-[347px]" : "top-[444px]"} ${index < 3 ? "left-[425px]" : "left-[273px]"} [font-family:'Recoleta-Regular',Helvetica] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
+                className={`absolute ${index < 3 ? "top-[347px]" : "top-[444px]"} ${index < 3 ? "left-[425px]" : "left-[273px]"} font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
               >
                 ~
               </div>

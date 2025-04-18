@@ -13,6 +13,7 @@ import { appWithTranslation } from 'next-i18next';
 import lngDetector from '../lib/languageDetector';
 import appTheme from '~/theme/appTheme';
 /* import css vendors */
+import '../styles/globals.css';
 import 'react-18-image-lightbox/style.css';
 import '~/vendors/animate.css';
 import '~/vendors/animate-slider.css';

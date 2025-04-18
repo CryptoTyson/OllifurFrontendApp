@@ -10,9 +10,9 @@ export const FAQSection = (): JSX.Element => {
   ];
 
   return (
-    <Card className="relative w-full mt-4  h-auto pt-[111px] px-6 mx-auto bg-[#9d5113e6] rounded-lg overflow-hidden">
+    <Card className="w-full mt-4  h-auto pt-[111px] px-24  bg-[#9d5113e6] rounded-lg overflow-hidden">
       <CardContent className="p-0 flex flex-row">
-        <div className="w-[211px] ml-[18px] [font-family:'Recoleta-Regular',Helvetica] font-normal text-white text-4xl tracking-[0] leading-[normal]">
+        <div className="font-[Recoleta] w-[211px] ml-[18px] font-normal text-white text-4xl tracking-[0] leading-[normal]">
           The Why
         </div>
 
@@ -22,7 +22,7 @@ export const FAQSection = (): JSX.Element => {
               {paragraphs.map((paragraph, index) => (
                 <p
                   key={index}
-                  className="self-stretch [font-family:'Kind_Sans-Regular',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]"
+                  className="self-stretch font-normal text-white text-base tracking-[0] leading-[normal]"
                 >
                   {paragraph}
                 </p>
@@ -31,19 +31,19 @@ export const FAQSection = (): JSX.Element => {
 
             <div className="relative mt-[18px] max-w-[484px] ml-auto">
               <img
-                className="w-[347px] h-[342px] ml-auto object-cover"
+                className="relative w-[347px] h-[342px] left-25  object-cover"
                 alt="Hi"
                 src="/cat.png"
               />
 
-              <div className="absolute w-[171px] top-[127px] right-[58px] [font-family:'Recoleta-SemiBold',Helvetica] font-semibold text-white text-base tracking-[0] leading-[normal]">
+              <div className="absolute top-[127px] right-0 font-[Recoleta] font-semibold text-white text-base tracking-[0] leading-[normal]">
                 His majesty - Oliver
               </div>
 
-              <Separator className="w-[333px] h-px mt-[29px] bg-white" />
+              <Separator className="absolute w-[333px] h-px mt-[29px] right-16 bottom-32 bg-white" />
 
-              <div className="w-[171px] mt-[10px] ml-[136px] [font-family:'Kind_Sans-Light',Helvetica] font-light text-white text-base tracking-[0] leading-[normal]">
-                Permanently angry face. Not actually angry
+              <div className="w-[171px] mt-[10px] absolute right-100 bottom-28 font-[100] text-white text-base tracking-[0] leading-[normal]">
+                Permanently angry<br/> face. Not actually angry
               </div>
             </div>
           </div>

@@ -28,27 +28,29 @@ export const HeroSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-full p-6 bg-[#faf4f2] mt-4 rounded-lg overflow-hidden">
-      <div className="max-w-[1392px] mx-auto">
+    <section className="w-full pl-24 py-25 pr-10 bg-[#faf4f2] bg-[url(/shadow.png)] bg-[#667085] bg-center bg-cover bg-no-repeat mt-4 rounded-lg overflow-hidden">
+      <div className="max-w-[1392px] ">
         <div className="flex flex-col">
-          {/* Heading */}
-          <h2 className="text-[64px] font-normal text-[#1d2838] [font-family:'Recoleta-Regular',Helvetica] mb-10">
-            Our simple 3 step process
-          </h2>
+          <div className="flex flex-row justify-between content-center items-center mb-16">
+              {/* Heading */}
+            <h2 className="text-[64px] font-normal text-[#1d2838] font-[Recoleta] mb-10">
+              Our simple 3 step<br/>process
+            </h2>
 
-          {/* Burial option callout */}
-          <div className="flex justify-end mb-16">
-            <div className="max-w-[252px]">
-              <h3 className="text-xl font-bold text-gray-500 [font-family:'Kind_Sans-Bold',Helvetica] mb-2">
-                Looking for a burial?
-              </h3>
-              <p className="text-base font-normal text-[#475466] [font-family:'Kind_Sans-Regular',Helvetica]">
-                <span className="font-bold text-[#d77f33] underline">
-                  Contact us
-                </span>
-                , and our team will assist you with your choice of burial for
-                your companion.
-              </p>
+            {/* Burial option callout */}
+            <div className="flex justify-center">
+              <div className="max-w-[252px]">
+                <h3 className="text-xl font-bold text-gray-500  mb-2">
+                  Looking for a burial?
+                </h3>
+                <p className="text-base font-normal text-[#475466] ">
+                  <span className="font-bold text-[#d77f33] underline">
+                    Contact us
+                  </span>
+                  , and our team will assist you with your choice of burial for
+                  your companion.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -62,13 +64,13 @@ export const HeroSection = (): JSX.Element => {
                 <CardContent className="p-0">
                   <div className="flex flex-col">
                     <div
-                      className="w-[367px] h-[237px] rounded bg-cover bg-center mb-8"
+                      className="w-[386px] h-[249px] rounded bg-cover bg-center mb-8"
                       style={{ backgroundImage: `url(${card.imageUrl})` }}
                     />
-                    <h3 className="text-xl font-bold text-[#475466] [font-family:'Kind_Sans-Bold',Helvetica] mb-2">
+                    <h3 className="text-xl font-bold text-[#475466]  mb-2">
                       {card.title}
                     </h3>
-                    <p className="text-base font-normal text-[#475466] [font-family:'Kind_Sans-Regular',Helvetica] max-w-[243px]">
+                    <p className="text-base font-normal text-[#475466]  max-w-[243px]">
                       {card.description}
                     </p>
                   </div>

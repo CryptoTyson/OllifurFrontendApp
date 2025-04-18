@@ -36,10 +36,10 @@ export const LandingPageDesktop = (): JSX.Element => {
                 <img
                   className="w-8 h-8 object-cover"
                   alt="Ollifur removebg"
-                  src="/ollifur-removebg-preview-1.png"
+                  src="/ollifur.png"
                 />
               </div>
-              <div className="[font-family:'Kind_Sans-Bold',Helvetica] font-bold text-white text-4xl">
+              <div className="font-bold text-white text-4xl">
                 Ollifur
               </div>
             </div>
@@ -51,7 +51,7 @@ export const LandingPageDesktop = (): JSX.Element => {
                   {navItems.map((item, index) => (
                     <NavigationMenuItem key={index}>
                       <div className="flex items-center gap-2">
-                        <span className="[font-family:'Kind_Sans-Semibold',Helvetica] font-normal text-gray-600 text-base leading-6">
+                        <span className="font-semibold text-gray-600 text-base leading-6">
                           {item.label}
                         </span>
                         {item.hasDropdown && (
@@ -64,7 +64,7 @@ export const LandingPageDesktop = (): JSX.Element => {
               </NavigationMenu>
 
               <Button
-                className="bg-[#d77f33e6] border-[#d77f33] text-basewhite rounded-lg"
+                className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg"
                 size="sm"
               >
                 Immediate need
@@ -73,18 +73,18 @@ export const LandingPageDesktop = (): JSX.Element => {
           </div>
 
           {/* Hero content */}
-          <div className="mt-[300px] mb-[200px] ml-24 max-w-[753px]">
-            <h1 className="[font-family:'Recoleta-SemiBold',Helvetica] font-semibold text-white text-[64px] leading-[normal] mb-12">
+          <div className="mt-[300px] mb-[293px] ml-24 max-w-[753px]">
+            <h1 className="font-[Recoleta] font-bold text-white text-[64px] leading-[normal] mb-12">
               Cherish the ones you love, we&apos;ll take care of the rest.
             </h1>
             <div className="flex gap-4">
               <Button
-                className="bg-primary-50 border-[#ebbf99] text-primary-600 rounded-lg px-7 py-4 h-auto"
+                className="bg-[#f8eadd] border-[#ebbf99] text-[#d77f33] rounded-lg px-7 py-4 h-auto"
                 variant="outline"
               >
                 Memorials
               </Button>
-              <Button className="bg-[#d77f33e6] border-[#d77f33] text-basewhite rounded-lg px-7 py-4 h-auto">
+              <Button className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg px-7 py-4 h-auto">
                 Immediate need
               </Button>
             </div>

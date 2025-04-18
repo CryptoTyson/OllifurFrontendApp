@@ -131,7 +131,7 @@ export const StandaloneLandingPage = (): ReactElement => {
                   className="w-8 h-8"
                 />
               </div>
-              <div className="ml-4 [font-family:'Kind_Sans-Bold',Helvetica] font-bold text-[#252b37] text-[36px] leading-[42px]">
+              <div className="ml-4  font-bold text-[#252b37] text-[36px] leading-[42px]">
                 Ollifur
               </div>
             </div>
@@ -168,7 +168,7 @@ export const StandaloneLandingPage = (): ReactElement => {
         <div className="relative mt-8">
           <div className="absolute inset-0 bg-[url('/images/hero-pattern.png')] bg-cover bg-center opacity-50" />
           <div className="relative ml-24 pt-32 pb-48 w-[753px]">
-            <h1 className="[font-family:'Recoleta-SemiBold',Helvetica] font-semibold text-[#252b37] text-[64px] leading-[87px]">
+            <h1 className="font-[Recoleta] font-semibold text-[#252b37] text-[64px] leading-[87px]">
               Cherish the ones you love, we'll take care of the rest.
             </h1>
             <div className="flex gap-4 mt-8">
@@ -192,24 +192,24 @@ export const StandaloneLandingPage = (): ReactElement => {
           <div className="max-w-[1392px] mx-auto px-24 py-28">
             <div className="grid grid-cols-[211px_1fr] gap-24">
               <div>
-                <h2 className="[font-family:'Recoleta-Regular',Helvetica] font-normal text-white text-4xl">
+                <h2 className="font-[Recoleta] font-normal text-white text-4xl">
                   The Why
                 </h2>
               </div>
               <div className="max-w-[593px]">
                 <div className="space-y-4">
-                  <p className="[font-family:'Kind_Sans-Regular',Helvetica] font-normal text-white text-base leading-relaxed">
+                  <p className=" font-normal text-white text-base leading-relaxed">
                     Ollifur began with a cat named Oliver, though everyone
                     called him Ollie. He belonged to my best friend, and when
                     Ollie passed away, I couldn't be there in person.
                   </p>
-                  <p className="[font-family:'Kind_Sans-Regular',Helvetica] font-normal text-white text-base leading-relaxed">
+                  <p className=" font-normal text-white text-base leading-relaxed">
                     All I could do was listen over the phone as my friend
                     navigated the aftermath of losing a beloved pet. The
                     confusion, the grief, the sudden decisions that needed to be
                     made - it was overwhelming for someone already hurting.
                   </p>
-                  <p className="[font-family:'Kind_Sans-Regular',Helvetica] font-normal text-white text-base leading-relaxed">
+                  <p className=" font-normal text-white text-base leading-relaxed">
                     This site was created simply to help others find their way
                     through similar moments with a little more ease than my
                     friend had. Because sometimes, knowing where to turn makes
@@ -222,10 +222,10 @@ export const StandaloneLandingPage = (): ReactElement => {
                     alt="Oliver"
                     className="w-[347px] h-[342px] object-cover rounded-lg"
                   />
-                  <h3 className="[font-family:'Recoleta-SemiBold',Helvetica] font-semibold text-white text-xl mt-4">
+                  <h3 className="font-[Recoleta] font-semibold text-white text-xl mt-4">
                     His majesty - Oliver
                   </h3>
-                  <p className="[font-family:'Kind_Sans-Light',Helvetica] font-light text-white text-sm mt-1">
+                  <p className=" font-light text-white text-sm mt-1">
                     Permanently angry face. Not actually angry
                   </p>
                 </div>
@@ -236,7 +236,7 @@ export const StandaloneLandingPage = (): ReactElement => {
 
         {/* Stories Section */}
         <div className="relative w-full max-w-[1392px] mx-auto mt-24">
-          <h2 className="text-center [font-family:'Recoleta-Regular',Helvetica] font-normal text-[#252b37] text-[64px] mb-16">
+          <h2 className="text-center font-[Recoleta] font-normal text-[#252b37] text-[64px] mb-16">
             Little stories of not so little love
           </h2>
           <div className="relative h-[720px] max-w-[953px] mx-auto">
@@ -252,12 +252,12 @@ export const StandaloneLandingPage = (): ReactElement => {
                 <div className="flex justify-between mb-8">
                   <div className="flex items-center gap-4">
                     <h3
-                      className={`[font-family:'Recoleta-Regular',Helvetica] font-normal ${card.textColor} text-2xl`}
+                      className={`font-[Recoleta] font-normal ${card.textColor} text-2xl`}
                     >
                       {card.title}
                     </h3>
                     <span
-                      className={`[font-family:'Recoleta-Regular',Helvetica] font-normal ${card.textColor} text-xl opacity-80`}
+                      className={`font-[Recoleta] font-normal ${card.textColor} text-xl opacity-80`}
                     >
                       {card.year}
                     </span>
@@ -265,7 +265,7 @@ export const StandaloneLandingPage = (): ReactElement => {
                 </div>
                 <div className="mt-16">
                   <p
-                    className={`[font-family:'Kind_Sans-Regular',Helvetica] font-normal ${card.textColor} text-xl leading-relaxed`}
+                    className={` font-normal ${card.textColor} text-xl leading-relaxed`}
                   >
                     Their story reminds us that love transcends time, and the
                     bonds we form with our companions leave lasting paw prints
@@ -283,18 +283,18 @@ export const StandaloneLandingPage = (): ReactElement => {
         {/* Process Section */}
         <section className="w-full max-w-[1392px] mx-auto py-24 px-24 bg-[#faf4f2] rounded-lg mt-24">
           <div className="flex justify-between items-start mb-16">
-            <h2 className="text-[64px] font-normal text-[#1d2838] [font-family:'Recoleta-Regular',Helvetica] max-w-[589px] leading-[87px]">
+            <h2 className="text-[64px] font-normal text-[#1d2838] font-[Recoleta] max-w-[589px] leading-[87px]">
               Our simple 3 step process
             </h2>
             <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-[#667085] [font-family:'Kind_Sans-Bold',Helvetica]">
+              <h3 className="text-xl font-bold text-[#667085] ">
                 Looking for a burial?
               </h3>
               <p className="text-base font-normal mt-2 max-w-[252px]">
-                <button className="font-bold text-[#d77f33] underline [font-family:'Kind_Sans-Bold',Helvetica] hover:text-[#c06f2d] transition-colors">
+                <button className="font-bold text-[#d77f33] underline  hover:text-[#c06f2d] transition-colors">
                   Contact us
                 </button>
-                <span className="text-[#475466] [font-family:'Kind_Sans-Regular',Helvetica]">
+                <span className="text-[#475466] ">
                   , and our team will assist you with your choice of burial for
                   your companion.
                 </span>
@@ -313,10 +313,10 @@ export const StandaloneLandingPage = (): ReactElement => {
                   />
                   <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
-                <h3 className="text-xl font-bold text-[#252b37] [font-family:'Kind_Sans-Bold',Helvetica] mb-3 group-hover:text-[#d77f33] transition-colors">
+                <h3 className="text-xl font-bold text-[#252b37]  mb-3 group-hover:text-[#d77f33] transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-base font-normal text-[#475466] [font-family:'Kind_Sans-Regular',Helvetica] leading-relaxed">
+                <p className="text-base font-normal text-[#475466]  leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -327,10 +327,10 @@ export const StandaloneLandingPage = (): ReactElement => {
         {/* FAQ Section */}
         <section className="w-full max-w-[872px] mx-auto py-32">
           <div className="text-center mb-16">
-            <h2 className="[font-family:'Recoleta-Regular',Helvetica] font-normal text-[#252b37] text-[64px] leading-[87px] mb-4">
+            <h2 className="font-[Recoleta] font-normal text-[#252b37] text-[64px] leading-[87px] mb-4">
               FAQ's
             </h2>
-            <p className="[font-family:'Kind_Sans-Regular',Helvetica] font-normal text-[#a3a7ae] text-xl">
+            <p className=" font-normal text-[#a3a7ae] text-xl">
               Last updated May 2025
             </p>
           </div>
@@ -386,7 +386,7 @@ export const StandaloneLandingPage = (): ReactElement => {
                       : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="[font-family:'Kind_Sans-Regular',Helvetica] font-normal text-[#414651] text-base leading-relaxed">
+                  <p className=" font-normal text-[#414651] text-base leading-relaxed">
                     {item.answer}
                   </p>
                 </div>
@@ -407,63 +407,63 @@ export const StandaloneLandingPage = (): ReactElement => {
                     className="w-6 h-6"
                   />
                 </div>
-                <span className="ml-3 [font-family:'Kind_Sans-Bold',Helvetica] font-bold text-white text-2xl">
+                <span className="ml-3  font-bold text-white text-2xl">
                   Ollifur
                 </span>
               </div>
               <div className="flex items-center justify-center gap-8 mb-16">
                 <a
                   href="#"
-                  className="[font-family:'Kind_Sans-Regular',Helvetica] text-white hover:text-[#f8eadd] transition-colors"
+                  className=" text-white hover:text-[#f8eadd] transition-colors"
                 >
                   Home
                 </a>
                 <a
                   href="#"
-                  className="[font-family:'Kind_Sans-Regular',Helvetica] text-white hover:text-[#f8eadd] transition-colors"
+                  className=" text-white hover:text-[#f8eadd] transition-colors"
                 >
                   Services
                 </a>
                 <a
                   href="#"
-                  className="[font-family:'Kind_Sans-Regular',Helvetica] text-white hover:text-[#f8eadd] transition-colors"
+                  className=" text-white hover:text-[#f8eadd] transition-colors"
                 >
                   Resources
                 </a>
                 <a
                   href="#"
-                  className="[font-family:'Kind_Sans-Regular',Helvetica] text-white hover:text-[#f8eadd] transition-colors"
+                  className=" text-white hover:text-[#f8eadd] transition-colors"
                 >
                   About us
                 </a>
                 <a
                   href="#"
-                  className="[font-family:'Kind_Sans-Regular',Helvetica] text-white hover:text-[#f8eadd] transition-colors"
+                  className=" text-white hover:text-[#f8eadd] transition-colors"
                 >
                   Contact
                 </a>
               </div>
               <div className="w-full pt-8 border-t border-[#414651]">
                 <div className="flex justify-between items-center">
-                  <div className="[font-family:'Kind_Sans-Regular',Helvetica] text-[#a3a7ae]">
+                  <div className=" text-[#a3a7ae]">
                     © 2025 Ollifur Inc. All rights reserved.
                   </div>
                   <div className="flex items-center gap-6">
                     <a
                       href="#"
-                      className="[font-family:'Kind_Sans-Regular',Helvetica] text-[#a3a7ae] hover:text-white transition-colors"
+                      className=" text-[#a3a7ae] hover:text-white transition-colors"
                     >
                       Terms
                     </a>
                     <a
                       href="#"
-                      className="[font-family:'Kind_Sans-Regular',Helvetica] text-[#a3a7ae] hover:text-white transition-colors"
+                      className=" text-[#a3a7ae] hover:text-white transition-colors"
                     >
                       Privacy
                     </a>
                     <a
                       href="#"
-                      className="[font-family:'Kind_Sans-Regular',Helvetica] text-[#a3a7ae] hover:text-white transition-colors"
+                      className=" text-[#a3a7ae] hover:text-white transition-colors"
                     >
                       Cookies
                     </a>

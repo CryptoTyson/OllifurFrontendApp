@@ -31,7 +31,7 @@ export const FooterSection = (): JSX.Element => {
                 src="/logomark.svg"
               />
               <div className="absolute h-8 top-0 left-[42px]">
-                <div className="[font-family:'Kind_Sans-Bold',Helvetica] font-bold text-white text-2xl">
+                <div className=" font-bold text-white text-2xl">
                   Ollifur
                 </div>
               </div>

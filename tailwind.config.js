@@ -1,8 +1,9 @@
 module.exports = {
   content: [
     './src/**/*.{html,js,ts,jsx,tsx}',
-    'app/**/*.{ts,tsx}',
-    'components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -56,7 +57,11 @@ module.exports = {
         'text-sm-regular': 'var(--text-sm-regular-font-family)',
         'text-sm-semibold': 'var(--text-sm-semibold-font-family)',
         'text-xs-medium': 'var(--text-xs-medium-font-family)',
+        'kind-sans': ['KindSans', 'sans-serif'],
+        recoleta: ['Recoleta', 'serif'],
         sans: [
+          'KindSans',
+          'Recoleta',
           'ui-sans-serif',
           'system-ui',
           'sans-serif',
