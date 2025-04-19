@@ -78,19 +78,19 @@ export const ProcessSection = (): JSX.Element => {
 
   return (
     <section
-      className="relative w-full py-24 rounded-lg overflow-hidden"
+      className="relative w-full py-24 rounded-lg overflow-hidden mb-4"
       style={{
-        backgroundImage: "url(..//frame-24.png)",
+        backgroundImage: "url(/story.png)",
         backgroundSize: "cover",
         backgroundPosition: "50% 50%",
       }}
     >
       <div className="container mx-auto">
-        <h2 className="mx-auto text-center mb-16 font-[Recoleta] font-normal text-white text-[64px] leading-normal max-w-[880px]">
+        <h2 className="mx-auto text-center font-[Recoleta] font-normal text-white text-[64px] leading-normal max-w-[880px]">
           Little stories of not so little love
         </h2>
 
-        <div className="relative h-[719px] mx-auto max-w-[953px]">
+        <div className="relative h-[719px] mx-auto max-w-[953px] my-16">
           {cards.map((card, index) => (
             <div
               key={index}

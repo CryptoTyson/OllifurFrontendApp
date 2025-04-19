@@ -11,6 +11,7 @@ import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { HeroSection } from "./sections/HeroSection";
 import { ProcessSection } from "./sections/ProcessSection/ProcessSection";
 import { TestimonialSection } from "./sections/TestimonialSection";
+import Footer from '../../components/Footer';
 
 export const LandingPageDesktop = (): JSX.Element => {
   // Navigation menu items
@@ -96,7 +97,7 @@ export const LandingPageDesktop = (): JSX.Element => {
         <HeroSection />
         <TestimonialSection />
         <ProcessSection />
-        <FooterSection />
+        <Footer toggleDir={() => {}} />
       </div>
     </div>
   );

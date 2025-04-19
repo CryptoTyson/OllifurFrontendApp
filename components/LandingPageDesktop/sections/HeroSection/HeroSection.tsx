@@ -28,7 +28,7 @@ export const HeroSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-full pl-24 py-25 pr-10 bg-[#faf4f2] bg-[url(/shadow.png)] bg-[#667085] bg-center bg-cover bg-no-repeat mt-4 rounded-lg overflow-hidden">
+    <section className="w-full pl-24 py-25 pr-10 bg-[#faf4f2] bg-[url(/shadow.png)] bg-center bg-cover bg-no-repeat mt-4 rounded-lg overflow-hidden">
       <div className="max-w-[1392px] ">
         <div className="flex flex-col">
           <div className="flex flex-row justify-between content-center items-center mb-16">
@@ -59,7 +59,7 @@ export const HeroSection = (): JSX.Element => {
             {crematoriumCards.map((card) => (
               <Card
                 key={card.id}
-                className="border-none shadow-none bg-transparent"
+                className="w-[386px] border-none shadow-none bg-transparent"
               >
                 <CardContent className="p-0">
                   <div className="flex flex-col">
@@ -67,12 +67,14 @@ export const HeroSection = (): JSX.Element => {
                       className="w-[386px] h-[249px] rounded bg-cover bg-center mb-8"
                       style={{ backgroundImage: `url(${card.imageUrl})` }}
                     />
+                    <div className="flex flex-row gap-4">
                     <h3 className="text-xl font-bold text-[#475466]  mb-2">
                       {card.title}
                     </h3>
                     <p className="text-base font-normal text-[#475466]  max-w-[243px]">
                       {card.description}
                     </p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

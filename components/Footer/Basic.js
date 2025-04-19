@@ -63,7 +63,12 @@ function Basic() {
   const { classes: self } = selfStyles();
 
   return (
-    <footer className={classes.footer}>
+    <footer
+      className={classes.footer}
+      style={{
+      borderRadius: '8px',
+    }}
+    >
       <Container className={classes.root} maxWidth="lg">
         <Grid
           container
