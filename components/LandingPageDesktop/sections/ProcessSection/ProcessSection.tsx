@@ -86,7 +86,7 @@ export const ProcessSection = (): JSX.Element => {
       }}
     >
       <div className="container mx-auto">
-        <h2 className="mx-auto text-center font-[Recoleta] font-normal text-white text-[64px] leading-normal max-w-[880px]">
+        <h2 className="mx-auto py-4 text-center font-[Recoleta] font-normal text-white text-[64px] leading-normal max-w-[880px]">
           Little stories of not so little love
         </h2>
 
