@@ -7,7 +7,6 @@ import {
   NavigationMenuList,
 } from "../../components/ui/navigation-menu";
 import { FAQSection } from "./sections/FAQSection/FAQSection";
-import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { HeroSection } from "./sections/HeroSection";
 import { ProcessSection } from "./sections/ProcessSection/ProcessSection";
 import { TestimonialSection } from "./sections/TestimonialSection";
@@ -26,7 +25,7 @@ export const LandingPageDesktop = (): JSX.Element => {
     <div className="bg-[#fbfcfc] p-6 flex flex-row justify-center w-full">
       <div className="bg-gray-25 w-full  relative">
         <div className="w-full p-6 relative rounded-lg" style={{
-          backgroundImage: "linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(/hero-section.png)",
+          backgroundImage: "url(/hero-section.png)",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}>
@@ -75,10 +74,10 @@ export const LandingPageDesktop = (): JSX.Element => {
 
           {/* Hero content */}
           <div className="mt-[300px] mb-[293px] ml-24 max-w-[753px]">
-            <h1 className="font-[Recoleta] font-bold text-white text-[64px] leading-[normal] mb-12">
+            <h1 className="font-[Recoleta] font-bold text-white text-[64px] leading-[normal]">
               Cherish the ones you love, we&apos;ll take care of the rest.
             </h1>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mt-12">
               <Button
                 className="bg-[#f8eadd] border-[#ebbf99] text-[#d77f33] rounded-lg px-7 py-4 h-auto"
                 variant="outline"

@@ -62,13 +62,13 @@ export const HeroSection = (): JSX.Element => {
                 className="w-[386px] border-none shadow-none bg-transparent"
               >
                 <CardContent className="p-0">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col cursor-pointer hover:[&>div>h3]:text-[#d77f33]">
                     <div
-                      className="w-[386px] h-[249px] rounded bg-cover bg-center mb-8"
+                      className="w-[386px] h-[249px] rounded bg-cover bg-center mb-8 hover:scale-105 transition-transform duration-300"
                       style={{ backgroundImage: `url(${card.imageUrl})` }}
                     />
                     <div className="flex flex-row gap-4">
-                    <h3 className="text-xl font-bold text-[#475466]  mb-2">
+                    <h3 className="text-xl font-bold text-[#475466] mb-2 transition-colors duration-300">
                       {card.title}
                     </h3>
                     <p className="text-base font-normal text-[#475466]  max-w-[243px]">

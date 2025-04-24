@@ -1,5 +1,5 @@
 import { MinusIcon, PlusIcon } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +8,7 @@ import {
 } from "../../../../components/ui/accordion";
 
 export const TestimonialSection = (): JSX.Element => {
+  const [openItem, setOpenItem] = useState<string | undefined>(undefined);
   // FAQ data for mapping
   const faqItems = [
     {
@@ -42,7 +43,7 @@ export const TestimonialSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex justify-center p-6 bg-neutral-50 rounded-lg">
+    <section className="flex justify-center my-4 p-25 bg-neutral-50 rounded-lg">
       <div className="w-[1024px]">
         <div className="mb-16">
           <h2 className="text-[64px] font-[Recoleta] font-normal text-[#252b37] mb-4">
@@ -56,7 +57,8 @@ export const TestimonialSection = (): JSX.Element => {
         <Accordion
           type="single"
           collapsible
-          defaultValue="item-5"
+          value={openItem}
+          onValueChange={setOpenItem}
           className="w-full max-w-[872px]"
         >
           {faqItems.map((item, index) => (
@@ -65,14 +67,23 @@ export const TestimonialSection = (): JSX.Element => {
               value={`item-${index}`}
               className="border-b-2 border-[#e5e5e5] py-5"
             >
-              <AccordionTrigger className="flex justify-between items-center w-full">
+              <AccordionTrigger className="flex justify-between items-center w-full [&>svg]:hidden">
                 <div className="flex items-center gap-10">
-                  <div className="w-6 h-6 flex items-center justify-center text-[#d77f33]">
-                    {index === 5 ? (
-                      <MinusIcon className="h-6 w-6" />
-                    ) : (
-                      <PlusIcon className="h-6 w-6" />
-                    )}
+                  <div className="w-6 h-6 relative text-[#d77f33]">
+                    <MinusIcon
+                      className={`h-6 w-6 absolute transition-all duration-300 ${
+                        openItem === `item-${index}`
+                          ? "opacity-100 transform rotate-0"
+                          : "opacity-0 transform rotate-90"
+                      }`}
+                    />
+                    <PlusIcon
+                      className={`h-6 w-6 absolute transition-all duration-300 ${
+                        openItem === `item-${index}`
+                          ? "opacity-0 transform rotate-90"
+                          : "opacity-100 transform rotate-0"
+                      }`}
+                    />
                   </div>
                   <span className="text-xl font-medium text-[#252b37] text-left">
                     {item.question}

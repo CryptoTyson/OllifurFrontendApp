@@ -12,11 +12,11 @@ export const FAQSection = (): JSX.Element => {
   return (
     <Card className="w-full mt-4  h-auto pt-[111px] px-24  bg-[#9d5113e6] rounded-lg overflow-hidden">
       <CardContent className="p-0 flex flex-row">
-        <div className="font-[Recoleta] w-[211px] ml-[18px] font-normal text-white text-4xl tracking-[0] leading-[normal]">
+        <div className="font-[Recoleta]  ml-[9px] font-normal text-white text-4xl tracking-[0] leading-[normal]">
           The Why
         </div>
 
-        <div className="flex-1 ml-[190px]">
+        <div className="flex-1 ml-[176px]">
           <div className="flex flex-col">
             <div className="w-full max-w-[593px] flex flex-col items-start gap-[18px]">
               {paragraphs.map((paragraph, index) => (
