@@ -77,7 +77,7 @@ export const TestimonialSection = (): JSX.Element => {
               value={`item-${index}`}
               className="border-b-2 border-[#e5e5e5] py-5"
             >
-              <AccordionTrigger className="flex justify-between items-center w-full [&>svg]:hidden">
+              <AccordionTrigger className="flex justify-between items-center w-full [&>svg]:hidden cursor-pointer">
                 <div className="flex items-center gap-10">
                   <div className="w-6 h-6 relative text-[#d77f33]">
                     <MinusIcon

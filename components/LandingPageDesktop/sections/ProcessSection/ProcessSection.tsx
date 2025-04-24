@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const ProcessSection = (): JSX.Element => {
   // Story data that will be reused across all cards
@@ -76,9 +76,37 @@ export const ProcessSection = (): JSX.Element => {
     },
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedCard, setSelectedCard] = useState<number | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    const section = document.querySelector('.process-section');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
+
   return (
     <section
-      className="relative w-full py-24 rounded-lg overflow-hidden mb-4"
+      className="relative w-full py-24 rounded-lg overflow-hidden mb-4 process-section"
       style={{
         backgroundImage: "url(/story.png)",
         backgroundSize: "cover",
@@ -95,17 +123,32 @@ export const ProcessSection = (): JSX.Element => {
             <div
               key={index}
               className="absolute"
+              onClick={() => setSelectedCard(selectedCard === index ? null : index)}
               style={{
                 width: card.width,
                 height: card.height,
                 top: card.top,
                 left: card.left,
-                transform: `rotate(${card.rotate})`,
-                zIndex: card.zIndex,
+                transform: `
+                  rotate(${card.rotate})
+                  translateY(${isVisible ? '0' : '50px'})
+                  scale(${selectedCard === index ? 1.02 : 1})
+                `,
+                zIndex: selectedCard === index ? 100 : card.zIndex,
                 background: card.background,
                 backgroundImage: "url(..//frame-32.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "50% 50%",
+                opacity: isVisible ? 1 : 0,
+                cursor: "pointer",
+                transition: `
+                  transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 700ms cubic-bezier(0.4, 0, 0.2, 1) ${index * 200}ms,
+                  box-shadow 700ms cubic-bezier(0.4, 0, 0.2, 1)
+                `,
+                boxShadow: selectedCard === index
+                  ? '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                  : 'none',
               }}
             >
               <div className="flex justify-between px-8 pt-8">
