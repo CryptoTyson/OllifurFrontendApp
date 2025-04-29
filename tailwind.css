@@ -18,41 +18,37 @@
   --primary-700: rgba(136, 78, 27, 1);
   --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   --shadows-shadow-xs: 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
-  --text-md-regular-font-family: 'Inter', Helvetica;
+  --text-md-regular-font-family: 'KindSans', 'sans-serif';
   --text-md-regular-font-size: 16px;
   --text-md-regular-font-style: normal;
   --text-md-regular-font-weight: 400;
   --text-md-regular-letter-spacing: 0px;
   --text-md-regular-line-height: 24px;
-  --text-md-semibold-font-family: 'Inter', Helvetica;
+  --text-md-semibold-font-family: 'KindSans', 'sans-serif';;
   --text-md-semibold-font-size: 16px;
   --text-md-semibold-font-style: normal;
   --text-md-semibold-font-weight: 600;
   --text-md-semibold-letter-spacing: 0px;
   --text-md-semibold-line-height: 24px;
-  --text-sm-regular-font-family: 'Inter', Helvetica;
+  --text-sm-regular-font-family: 'KindSans', 'sans-serif';
   --text-sm-regular-font-size: 14px;
   --text-sm-regular-font-style: normal;
   --text-sm-regular-font-weight: 400;
   --text-sm-regular-letter-spacing: 0px;
   --text-sm-regular-line-height: 20px;
-  --text-sm-semibold-font-family: 'Inter', Helvetica;
+  --text-sm-semibold-font-family: 'KindSans', 'sans-serif';;
   --text-sm-semibold-font-size: 14px;
   --text-sm-semibold-font-style: normal;
   --text-sm-semibold-font-weight: 600;
   --text-sm-semibold-letter-spacing: 0px;
   --text-sm-semibold-line-height: 20px;
-  --text-xs-medium-font-family: 'Inter', Helvetica;
+  --text-xs-medium-font-family: 'KindSans', 'sans-serif';
   --text-xs-medium-font-size: 12px;
   --text-xs-medium-font-style: normal;
   --text-xs-medium-font-weight: 500;
   --text-xs-medium-letter-spacing: 0px;
   --text-xs-medium-line-height: 18px;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {

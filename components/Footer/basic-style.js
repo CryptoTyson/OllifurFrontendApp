@@ -4,10 +4,10 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })((theme) => ({
   footer: {
     position: 'relative',
     paddingBottom: theme.spacing(5),
-    background: 'var(--gray-950, #0C111D)',
+    background: 'var(--gray-950, #252B37)',
   },
   root: {
-    paddingTop: 1,
+    paddingTop: theme.spacing(5),
     textAlign: 'center',
     position: 'relative',
     zIndex: 11,

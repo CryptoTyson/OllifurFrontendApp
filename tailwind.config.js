@@ -58,7 +58,6 @@ module.exports = {
         'text-sm-semibold': 'var(--text-sm-semibold-font-family)',
         'text-xs-medium': 'var(--text-xs-medium-font-family)',
         'kind-sans': ['KindSans', 'sans-serif'],
-        recoleta: ['Recoleta', 'serif'],
         sans: [
           'KindSans',
           'Recoleta',
@@ -70,6 +69,7 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
+        recoleta: ['Recoleta', 'serif'],
       },
       boxShadow: {
         'shadow-xs': 'var(--shadow-xs)',

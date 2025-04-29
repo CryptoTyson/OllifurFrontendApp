@@ -42,7 +42,7 @@ export const FAQSection = (): JSX.Element => {
 
               <Separator className="absolute w-[333px] h-px mt-[29px] right-16 bottom-32 bg-white" />
 
-              <div className="w-[171px] mt-[10px] absolute right-100 bottom-28 font-[100] text-white text-base tracking-[0] leading-[normal]">
+              <div className=" w-[171px] mt-[10px] absolute right-100 bottom-28 font-extralight text-white text-base tracking-[0] leading-[normal]">
                 Permanently angry<br/> face. Not actually angry
               </div>
             </div>
