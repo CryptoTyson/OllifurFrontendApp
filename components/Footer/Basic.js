@@ -12,8 +12,11 @@ function Copyright() {
     <Grid
       container
       direction="row"
-      justifyContent="space-around"
+      justifyContent="space-between"
       alignItems="center"
+      style={{
+        padding: '0px 150px',
+      }}
     >
       <Grid item>
         <Typography
@@ -32,7 +35,7 @@ function Copyright() {
           2023 Ollifur Inc. All rights reserved.
         </Typography>
       </Grid>
-      <Grid item>
+      <Grid item style={{ display: 'flex', gap: '10px' }}>
         <Link href="#" style={{ color: ' #EAECF0' }} underline="hover">
           Terms&nbsp;
         </Link>
@@ -63,7 +66,12 @@ function Basic() {
   const { classes: self } = selfStyles();
 
   return (
-    <footer className={classes.footer}>
+    <footer
+      className={classes.footer}
+      style={{
+      borderRadius: '8px',
+    }}
+    >
       <Container className={classes.root} maxWidth="lg">
         <Grid
           container
@@ -72,7 +80,7 @@ function Basic() {
           justifyContent="space-between"
           alignItems="center"
           xs={12}
-          spacing={2}
+          spacing={4}
         >
           <Grid item style={{ paddingTop: '50px' }}>
             <Logo theme="light" />
@@ -87,7 +95,7 @@ function Basic() {
                     style={{ color: ' #EAECF0' }}
                     underline="hover"
                   >
-                    About Us
+                    Home
                   </Link>
                 </li>
                 <li key={2}>
@@ -97,7 +105,7 @@ function Basic() {
                     style={{ color: ' #EAECF0' }}
                     underline="hover"
                   >
-                    Contact
+                    Crematoriums
                   </Link>
                 </li>
                 <li key={3}>
@@ -107,7 +115,7 @@ function Basic() {
                     style={{ color: ' #EAECF0' }}
                     underline="hover"
                   >
-                    Crematoriums
+                    Pricing
                   </Link>
                 </li>
                 <li key={4}>

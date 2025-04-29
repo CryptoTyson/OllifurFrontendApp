@@ -19,6 +19,7 @@ import emailIcon from '../../../public/images/EmailIcon.png';
 import locationIcon from '../../../public/images/LocationIcon.png';
 import phoneIcon from '../../../public/images/PhoneIcon.png';
 import Contact from '~/components/Forms/Contact';
+import { ContactUsPage } from '~/components/ContactUs';
 
 const useStyles = makeStyles()((theme) => ({
   bannerWrap: {
@@ -386,4 +387,4 @@ ContactUs.propTypes = {
 const getStaticProps = makeStaticProps(['common']);
 export { getStaticPaths, getStaticProps };
 
-export default ContactUs;
+export default ContactUsPage;
