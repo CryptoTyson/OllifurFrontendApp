@@ -35,10 +35,10 @@ const contactData = {
 
 // Navigation items for header
 const navItems = [
-  { label: "Home", hasDropdown: false },
-  { label: "Services", hasDropdown: true },
-  { label: "Resources", hasDropdown: true },
-  { label: "About us", hasDropdown: false },
+  { label: "Home", hasDropdown: false, link: "/" },
+  { label: "Services", hasDropdown: true, link: "/services" },
+  { label: "Resources", hasDropdown: true, link: "/resources" },
+  { label: "About us", hasDropdown: false, link: "/contact-us" },
 ];
 
 // Footer navigation items
