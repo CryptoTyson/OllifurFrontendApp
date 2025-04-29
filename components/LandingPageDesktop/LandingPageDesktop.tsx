@@ -15,10 +15,10 @@ import Footer from '../../components/Footer';
 export const LandingPageDesktop = (): JSX.Element => {
   // Navigation menu items
   const navItems = [
-    { label: "Home", hasDropdown: false },
-    { label: "Services", hasDropdown: true },
-    { label: "Resources", hasDropdown: true },
-    { label: "About us", hasDropdown: false },
+    { label: "Home", hasDropdown: false, link: "/" },
+    { label: "Services", hasDropdown: true, link: "/services" },
+    { label: "Resources", hasDropdown: true, link: "/resources" },
+    { label: "About us", hasDropdown: false, link: "/contact-us" },
   ];
 
   return (
@@ -50,8 +50,8 @@ export const LandingPageDesktop = (): JSX.Element => {
                 <NavigationMenuList className="flex gap-8">
                   {navItems.map((item, index) => (
                     <NavigationMenuItem key={index}>
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold text-gray-600 text-base leading-6">
+                      <div className="flex items-center gap-2 cursor-pointer">
+                        <span className="font-semibold text-gray-600 text-base leading-6" onClick={() => window.location.href = item.link}>
                           {item.label}
                         </span>
                         {item.hasDropdown && (

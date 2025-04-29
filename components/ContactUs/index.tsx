@@ -8,6 +8,7 @@ import {
   NavigationMenuList,
 } from "../ui/navigation-menu";
 import { Separator } from "../ui/separator";
+import Footer from '../../components/Footer';
 
 // Contact information data for better organization and maintainability
 const contactData = {
@@ -59,39 +60,51 @@ export const ContactUsPage = (): JSX.Element => {
       <div className="bg-[#faf4f2] w-full max-w-[1440px] flex flex-col p-8 gap-16">
 
         {/* Header */}
-        <div className="flex justify-between items-center">
-          {/* Logo + Company Name */}
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#fdeae4] rounded-lg flex items-center justify-center">
-              <img src="/ollifur.png" alt="Ollifur logo" className="w-8 h-8 object-cover" />
-            </div>
-            <div className="font-bold text-4xl text-[#252b37]">Ollifur</div>
-          </div>
-
-          {/* Navigation */}
-          <div className="flex items-center gap-8 bg-[#fdeae4] rounded-lg px-6 py-3">
-            <NavigationMenu>
-              <NavigationMenuList className="flex gap-8">
-                {navItems.map((item, index) => (
-                  <NavigationMenuItem key={index}>
-                    <div className="inline-flex items-center gap-2 text-gray-600 text-base">
-                      {item.label}
-                      {item.hasDropdown && <ChevronDownIcon className="w-5 h-5" />}
+         <div className="flex justify-between items-start">
+                    {/* Logo */}
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-[#FDEAE4] rounded-lg overflow-hidden flex items-center justify-center">
+                        <img
+                          className="w-8 h-8 object-cover"
+                          alt="Ollifur removebg"
+                          src="/ollifur.png"
+                        />
+                      </div>
+                      <div className="font-bold text-[#252b37] text-4xl">
+                        Ollifur
+                      </div>
                     </div>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            {/* Button */}
-            <Button className="bg-[#d77f33e6] border border-[#d77f33] rounded-lg text-sm">
-              Immediate need
-            </Button>
-          </div>
-        </div>
+        
+                    {/* Navigation */}
+                    <div className="w-[611px] h-12 bg-[#FDEAE4] rounded-lg overflow-hidden flex max-sm:flex-row items-center justify-between sm:p-4 sm:px-6">
+                      <NavigationMenu>
+                        <NavigationMenuList className="flex gap-8">
+                          {navItems.map((item, index) => (
+                            <NavigationMenuItem key={index}>
+                              <div className="flex items-center gap-2 cursor-pointer">
+                                <span className="font-semibold text-gray-600 text-base leading-6" onClick={() => window.location.href = item.link}>
+                                  {item.label}
+                                </span>
+                                {item.hasDropdown && (
+                                  <ChevronDownIcon className="w-5 h-5" />
+                                )}
+                              </div>
+                            </NavigationMenuItem>
+                          ))}
+                        </NavigationMenuList>
+                      </NavigationMenu>
+        
+                      <Button
+                        className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg"
+                        size="sm"
+                      >
+                        Immediate need
+                      </Button>
+                    </div>
+                  </div>
 
         {/* Main Content */}
-        <div className="flex flex-row gap-40 mx-20">
+        <div className="flex flex-row gap-40 mx-20 mt-10">
           {/* Title and description */}
           <div className="flex flex-col gap-2">
             <h1 className="font-[Recoleta] text-[64px] text-[#252b37]">Contact us</h1>
@@ -103,34 +116,34 @@ export const ContactUsPage = (): JSX.Element => {
           {/* Contact info grid */}
           <div className="grid grid-cols-2 gap-12">
             {/* Left column */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-16">
               {/* Customer inquiries */}
               <div>
-                <h2 className="text-xl font-medium text-[#a3a7ae]">{contactData.customerInquiries.title}</h2>
+                <h2 className="text-xl font-medium text-[#a3a7ae] pb-3">{contactData.customerInquiries.title}</h2>
                 <p className="text-xl text-[#252b37]">{contactData.customerInquiries.email}</p>
                 <p className="text-xl text-[#252b37]">{contactData.customerInquiries.phone}</p>
               </div>
 
               {/* Media inquiries */}
               <div>
-                <h2 className="text-xl font-medium text-[#a3a7ae]">{contactData.mediaInquiries.title}</h2>
+                <h2 className="text-xl font-medium text-[#a3a7ae] pb-3">{contactData.mediaInquiries.title}</h2>
                 <p className="text-xl text-[#252b37]">{contactData.mediaInquiries.email}</p>
                 <p className="text-xl text-[#252b37]">{contactData.mediaInquiries.phone}</p>
               </div>
             </div>
 
             {/* Right column */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-16">
               {/* Vendor inquiries */}
               <div>
-                <h2 className="text-xl font-medium text-[#a3a7ae]">{contactData.vendorInquiries.title}</h2>
+                <h2 className="text-xl font-medium text-[#a3a7ae] pb-3">{contactData.vendorInquiries.title}</h2>
                 <p className="text-xl text-[#252b37]">{contactData.vendorInquiries.email}</p>
                 <p className="text-xl text-[#252b37]">{contactData.vendorInquiries.phone}</p>
               </div>
 
               {/* Address */}
               <div>
-                <h2 className="text-xl font-medium text-[#a3a7ae]">{contactData.address.title}</h2>
+                <h2 className="text-xl font-medium text-[#a3a7ae] pb-3">{contactData.address.title}</h2>
                 <p className="text-xl text-[#252b37]">{contactData.address.value}</p>
               </div>
             </div>
@@ -138,7 +151,7 @@ export const ContactUsPage = (): JSX.Element => {
 
         </div>
           {/* Map and phone availability */}
-          <div className="flex flex-row gap-20 mt-8 mx-20">
+          <div className="flex flex-row gap-20 mt-8 mx-20 mb-10">
             <div className="text-base text-[#d48a35]">
               Our phone lines are available throughout the week, 8am–10pm PST.
             </div>
@@ -147,46 +160,9 @@ export const ContactUsPage = (): JSX.Element => {
       </div>
 
       {/* Footer */}
-      {/* Already updated in last message */}
-      <footer className="w-full bg-[#252b37] flex flex-col items-center pt-16 pb-6">
-  {/* Top part: logo and nav links */}
-  <div className="flex flex-col items-center gap-8 w-full max-w-5xl">
-    {/* Logo and name */}
-    <div className="flex items-center gap-2">
-      <img src="/ollifur.png" alt="Logomark" className="w-8 h-8" />
-      <span className="font-bold text-white text-2xl">Ollifur</span>
-    </div>
-
-    {/* Footer navigation */}
-    <div className="flex flex-wrap justify-center gap-8">
-      {footerNavItems.map((item, index) => (
-        <div
-          key={index}
-          className="text-white text-md font-semibold whitespace-nowrap"
-        >
-          {item}
-        </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Bottom part: separator, copyright, legal links */}
-  <div className="w-full max-w-6xl mt-16">
-    <Separator className="border-[#a3a7ae]" />
-
-    <div className="flex flex-row justify-between items-center mt-6 px-4 text-white text-sm gap-4">
-      <div>© 2023 Ollifur Inc. All rights reserved.</div>
-
-      <div className="flex gap-6">
-        {legalLinks.map((link, index) => (
-          <div key={index} className="whitespace-nowrap">
-            {link}
-          </div>
-        ))}
+      <div className="w-full">
+      <Footer toggleDir={() => {}} />
       </div>
-    </div>
-  </div>
-</footer>
     </div>
   );
 };
