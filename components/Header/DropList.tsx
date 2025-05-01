@@ -11,6 +11,9 @@ import useStyles from './header-style';
 import multiple from './data/multiple';
 import MultiLevel from './TopNav/MultiLevelHover';
 import MobileMenu from './SideNav/MultiMobile';
+import { Button } from "../../components/ui/button";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from '@radix-ui/react-navigation-menu';
+import { ChevronDownIcon } from 'lucide-react';
 
 interface HeaderProps {
   onToggleDark(...args: unknown[]): unknown;
@@ -44,6 +47,14 @@ function Header(props: HeaderProps) {
   const handleOpenDrawer = () => {
     setOpenDrawer(!openDrawer);
   };
+
+  const navItems = [
+    { label: "Home", hasDropdown: false, link: "/" },
+    { label: "Services", hasDropdown: true, link: "/services" },
+    { label: "Resources", hasDropdown: true, link: "/resources" },
+    { label: "About us", hasDropdown: false, link: "/contact-us" },
+  ];
+
   return (
     <Fragment>
       {isMobile && (
@@ -58,23 +69,54 @@ function Header(props: HeaderProps) {
           openDrawer && classes.openDrawer,
         )}
       >
-        <Container style={{ padding: isDesktop ? 0 : '5px' }} fixed={isDesktop}>
-          <div className={classes.headerContent}>
-            <nav className={classes.navMenu}>
-              <div className={classes.logo}>
-                <a href={link.retail.home}>
-                  <Logo type="landscape" />
-                </a>
+          <div className={`flex justify-between items-center ${isDesktop ? 'w-full' : null} h-16 ${fixed ? 'm-0' : 'm-6'} ${(fixed && isDesktop)? 'px-6' : null}`}>
+            
+          <div className={`flex justify-between items-center ${fixed ? "w-full px-6" : "w-[92%]"} h-16`}>
+            {/* Logo */}
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex items-center justify-center">
+                <img
+                  className="w-8 h-8 object-cover"
+                  alt="Ollifur removebg"
+                  src="/ollifur.png"
+                />
               </div>
+              <div className={`font-bold ${fixed ? 'text-[#252b37]' : 'text-white'} text-4xl`}>
+                Ollifur
+              </div>
+            </div>
 
-              {isDesktop && (
-                <div className={classes.mainMenu}>
-                  <MultiLevel dataMenu={multiple} />
-                </div>
-              )}
-            </nav>
-            <UserMenu onToggleDark={onToggleDark} onToggleDir={onToggleDir} />
+            {/* Navigation */}
+            {isDesktop && (
+              <div className="w-[611px] h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex max-sm:flex-row items-center justify-between sm:p-4 sm:px-6">
+              <NavigationMenu>
+                <NavigationMenuList className="flex gap-8">
+                  {navItems.map((item, index) => (
+                    <NavigationMenuItem key={index}>
+                      <div className="flex items-center gap-2 cursor-pointer">
+                        <span className="font-semibold text-gray-600 text-base leading-6" onClick={() => window.location.href = item.link}>
+                          {item.label}
+                        </span>
+                        {item.hasDropdown && (
+                          <ChevronDownIcon className="w-5 h-5" />
+                        )}
+                      </div>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+
+              <Button
+                className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg"
+                size="sm"
+              >
+                Immediate need
+              </Button>
+            </div>
+            )}
+          </div>
             {isMobile && (
+              <div className="w-12 h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex items-center justify-center">
               <IconButton
                 onClick={handleOpenDrawer}
                 className={cx(
@@ -88,9 +130,9 @@ function Header(props: HeaderProps) {
                   <span className={cx(classes.bar, 'hamburger-inner')} />
                 </span>
               </IconButton>
+            </div>
             )}
           </div>
-        </Container>
       </AppBar>
     </Fragment>
   );

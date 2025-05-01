@@ -9,6 +9,8 @@ import {
 } from "../ui/navigation-menu";
 import { Separator } from "../ui/separator";
 import Footer from '../../components/Footer';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Contact information data for better organization and maintainability
 const contactData = {
@@ -55,6 +57,10 @@ const footerNavItems = [
 const legalLinks = ["Terms", "Privacy", "Cookies"];
 
 export const ContactUsPage = (): JSX.Element => {
+
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
     <div className="bg-[#faf4f2] flex flex-col items-center min-h-screen w-full">
       <div className="bg-[#faf4f2] w-full max-w-[1440px] flex flex-col p-8 gap-16">
