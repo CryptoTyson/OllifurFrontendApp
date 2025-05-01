@@ -6,11 +6,14 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "../../components/ui/navigation-menu";
-import { FAQSection } from "./sections/FAQSection/FAQSection";
-import { HeroSection } from "./sections/HeroSection";
-import { ProcessSection } from "./sections/ProcessSection/ProcessSection";
-import { TestimonialSection } from "./sections/TestimonialSection";
+import { FAQSectionDesktop, FAQSectionMobile } from "./sections/FAQSection/FAQSection";
+import { HeroSectionDesktop, HeroSectionMobile } from "./sections/HeroSection/HeroSection";
+import { ProcessSectionDesktop, ProcessSectionMobile } from "./sections/ProcessSection/ProcessSection";
+import { TestimonialSectionDesktop, TestimonialSectionMobile } from "./sections/TestimonialSection/TestimonialSection";
 import Footer from '../../components/Footer';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Header from "../Header/DropList";
 
 export const LandingPageDesktop = (): JSX.Element => {
   // Navigation menu items
@@ -21,56 +24,18 @@ export const LandingPageDesktop = (): JSX.Element => {
     { label: "About us", hasDropdown: false, link: "/contact-us" },
   ];
 
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
     <div className="bg-[#fbfcfc] p-6 max-sm:p-0 flex flex-row justify-center w-full">
       <div className="bg-gray-25 w-full  relative">
+        <Header onToggleDark={() => {}} onToggleDir={() => {}}/>
         <div className="w-full p-6 relative rounded-lg" style={{
           backgroundImage: "url(/hero-section.png)",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}>
-          <div className="flex justify-between items-start">
-            {/* Logo */}
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex items-center justify-center">
-                <img
-                  className="w-8 h-8 object-cover"
-                  alt="Ollifur removebg"
-                  src="/ollifur.png"
-                />
-              </div>
-              <div className="font-bold text-white text-4xl">
-                Ollifur
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="w-[611px] h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex max-sm:flex-row items-center justify-between sm:p-4 sm:px-6">
-              <NavigationMenu>
-                <NavigationMenuList className="flex gap-8">
-                  {navItems.map((item, index) => (
-                    <NavigationMenuItem key={index}>
-                      <div className="flex items-center gap-2 cursor-pointer">
-                        <span className="font-semibold text-gray-600 text-base leading-6" onClick={() => window.location.href = item.link}>
-                          {item.label}
-                        </span>
-                        {item.hasDropdown && (
-                          <ChevronDownIcon className="w-5 h-5" />
-                        )}
-                      </div>
-                    </NavigationMenuItem>
-                  ))}
-                </NavigationMenuList>
-              </NavigationMenu>
-
-              <Button
-                className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg"
-                size="sm"
-              >
-                Immediate need
-              </Button>
-            </div>
-          </div>
 
           {/* Hero content */}
           <div className="sm:mt-[300px] max-sm:mt-[200px] sm:mb-[150px] max-sm:mb-[200px] mx-4 sm:ml-24 max-w-[753px]">
@@ -92,10 +57,10 @@ export const LandingPageDesktop = (): JSX.Element => {
         </div>
 
         {/* Main sections */}
-        <FAQSection />
-        <HeroSection />
-        <TestimonialSection />
-        <ProcessSection />
+        { isDesktop ? <FAQSectionDesktop /> : <FAQSectionMobile /> }
+        { isDesktop ? <HeroSectionDesktop /> : <HeroSectionMobile /> }
+        { isDesktop ? <TestimonialSectionDesktop /> : <TestimonialSectionMobile /> }
+        { isDesktop ? <ProcessSectionDesktop /> : <ProcessSectionMobile /> }
         <Footer toggleDir={() => {}} />
       </div>
     </div>

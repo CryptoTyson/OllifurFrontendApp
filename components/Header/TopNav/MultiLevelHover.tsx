@@ -221,6 +221,9 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                         <Icon>expand_more</Icon>
                       )
                     }
+                    style={{
+                      color: 'var(--Gray-900, #475467)',
+                    }}
                   >
                     {item.name}
                   </Button>
@@ -482,7 +485,11 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
             ) : (
               <li key={index.toString()}>
                 <div>
-                  <Button href={item.link}>{item.name}</Button>
+                  <Button href={item.link} 
+                    style={{
+                      color: 'var(--Gray-900, #475467)',
+                    }}
+                    >{item.name}</Button>
                 </div>
               </li>
             )}
