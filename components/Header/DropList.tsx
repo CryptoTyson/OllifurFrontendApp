@@ -18,6 +18,7 @@ import { ChevronDownIcon } from 'lucide-react';
 interface HeaderProps {
   onToggleDark(...args: unknown[]): unknown;
   onToggleDir(...args: unknown[]): unknown;
+  navColor?: string;
 }
 
 function Header(props: HeaderProps) {
@@ -40,7 +41,7 @@ function Header(props: HeaderProps) {
 
   const { classes, cx }: any = useStyles();
   const theme = useTheme();
-  const { onToggleDark, onToggleDir } = props;
+  const { onToggleDark, onToggleDir, navColor } = props;
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -54,6 +55,8 @@ function Header(props: HeaderProps) {
     { label: "Resources", hasDropdown: true, link: "/resources" },
     { label: "About us", hasDropdown: false, link: "/contact-us" },
   ];
+
+  console.log('Header style:', navColor);
 
   return (
     <Fragment>
@@ -69,42 +72,29 @@ function Header(props: HeaderProps) {
           openDrawer && classes.openDrawer,
         )}
       >
-          <div className={`flex justify-between items-center ${isDesktop ? 'w-full' : null} h-16 ${fixed ? 'm-0' : 'm-6'} ${(fixed && isDesktop)? 'px-6' : null}`}>
+          <div className={`flex justify-between items-center ${isDesktop ? 'w-full' : null} h-16 ${fixed ? 'm-0' : 'm-6'} ${(fixed && !isDesktop) ? 'px-6' : null}`}>
             
           <div className={`flex justify-between items-center ${fixed ? "w-full px-6" : "w-[92%]"} h-16`}>
             {/* Logo */}
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex items-center justify-center">
+              <div className={`w-12 h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg overflow-hidden flex items-center justify-center`}>
                 <img
                   className="w-8 h-8 object-cover"
                   alt="Ollifur removebg"
                   src="/ollifur.png"
                 />
               </div>
-              <div className={`font-bold ${fixed ? 'text-[#252b37]' : 'text-white'} text-4xl`}>
+              <div className={`font-bold ${(fixed || navColor) ? 'text-[#252b37]' : 'text-white' } text-4xl`}>
                 Ollifur
               </div>
             </div>
 
             {/* Navigation */}
             {isDesktop && (
-              <div className="w-[611px] h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex max-sm:flex-row items-center justify-between sm:p-4 sm:px-6">
-              <NavigationMenu>
-                <NavigationMenuList className="flex gap-8">
-                  {navItems.map((item, index) => (
-                    <NavigationMenuItem key={index}>
-                      <div className="flex items-center gap-2 cursor-pointer">
-                        <span className="font-semibold text-gray-600 text-base leading-6" onClick={() => window.location.href = item.link}>
-                          {item.label}
-                        </span>
-                        {item.hasDropdown && (
-                          <ChevronDownIcon className="w-5 h-5" />
-                        )}
-                      </div>
-                    </NavigationMenuItem>
-                  ))}
-                </NavigationMenuList>
-              </NavigationMenu>
+              <div className={`w-[611px] h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg flex max-sm:flex-row items-center justify-between sm:p-4 sm:px-6`}>
+              <div className={classes.mainMenu}>
+                  <MultiLevel dataMenu={multiple} />
+                </div>
 
               <Button
                 className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg"
@@ -116,7 +106,7 @@ function Header(props: HeaderProps) {
             )}
           </div>
             {isMobile && (
-              <div className="w-12 h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex items-center justify-center">
+              <div className={`w-12 h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg overflow-hidden flex items-center justify-center`}>
               <IconButton
                 onClick={handleOpenDrawer}
                 className={cx(
