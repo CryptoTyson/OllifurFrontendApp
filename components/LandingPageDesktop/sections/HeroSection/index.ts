@@ -1,0 +1,1 @@
+export { HeroSectionDesktop } from "./HeroSection";

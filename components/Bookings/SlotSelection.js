@@ -62,7 +62,7 @@ const SlotSelection = ({ selectedDate, setSelectedDate, selectedTime, setSelecte
                     backgroundColor: '#F7F7F7',
                     borderRadius: '10px',
                     fontSize: '16px',
-                    fontFamily: 'Arial',
+                    fontFamily: 'KindSans',
                   },
                 },
               }}

@@ -40,7 +40,7 @@ const appTheme = (color: string | number, mode: string) => ({
     },
   },
   typography: {
-    fontFamily: 'Inter',
+    fontFamily: ['KindSans', 'ui-sans-serif', 'system-ui', 'sans-serif'].join(','),
     fontWeightRegular: 400,
     fontWeightMedium: 600,
     fontWeightBold: 700,
@@ -129,7 +129,7 @@ const appTheme = (color: string | number, mode: string) => ({
           padding: 0,
         },
         button: {
-          fontFamily: 'Inter',
+          fontFamily: 'KindSans',
         },
       },
     },

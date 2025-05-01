@@ -1,0 +1,1 @@
+export { TestimonialSectionDesktop } from "./TestimonialSection";

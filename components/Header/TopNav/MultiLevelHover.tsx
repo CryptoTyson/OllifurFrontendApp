@@ -179,11 +179,10 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                     >
                       <ListItem
                         disableGutters
-                        disableRipple
                         className={classes.link}
-                        button
-                        component="a"
-                        href={subitem.link}
+                        onClick={() => {
+                          window.location.href = subitem.link;
+                        }}
                       >
                         <ListItemText primary={subitem.name} />
                       </ListItem>
@@ -217,11 +216,14 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                   <Button
                     endIcon={
                       menuName === item.name ? (
-                        <Icon>expand_more</Icon>
-                      ) : (
                         <Icon>expand_less</Icon>
+                      ) : (
+                        <Icon>expand_more</Icon>
                       )
                     }
+                    style={{
+                      color: 'var(--Gray-900, #475467)',
+                    }}
                   >
                     {item.name}
                   </Button>
@@ -328,9 +330,9 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
                                           <ListItem
                                             disableGutters
                                             className={classes.link}
-                                            button
-                                            component="a"
-                                            href={subitem.link}
+                                            onClick={() => {
+                                              window.location.href = subitem.link;
+                                            }}
                                           >
                                             <Grid
                                               container
@@ -483,7 +485,11 @@ function MultiLevelHover(props: MultiLevelHoverProps) {
             ) : (
               <li key={index.toString()}>
                 <div>
-                  <Button href={item.link}>{item.name}</Button>
+                  <Button href={item.link} 
+                    style={{
+                      color: 'var(--Gray-900, #475467)',
+                    }}
+                    >{item.name}</Button>
                 </div>
               </li>
             )}

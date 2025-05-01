@@ -76,17 +76,20 @@ function Features() {
           </Typography>{' '}
           cremations.
         </Typography>),
+      link: '/crematoriums'
     },
     {
       title: 'Schedule a Date & Time',
       desc:
         'Schedule a date and time at nearby pet crematoriums, offering caring services to honor their memory.',
-    },
+      link: '/crematoriums'
+      },
     {
       title: 'Accompany your pet to the dedicated facility',
       desc:
         'At the selected date and time, take your companion to the selected facility for a compassionate farewell.',
-    },
+      link: '/crematoriums'
+      },
   ];
 
   return (
@@ -133,8 +136,8 @@ function Features() {
           <Grid container item spacing={4}>
             <Grid container item md={6} xs={12}>
               {featureCardData.map((feature) => (
-                <Grid item>
-                  <FeatureCard title={feature.title} desc={feature.desc} />
+                <Grid item xs={12} key={feature.title}>
+                  <FeatureCard title={feature.title} desc={feature.desc} link={feature.link} />
                 </Grid>
             ))}
             </Grid>

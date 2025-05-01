@@ -19,7 +19,7 @@ const useStyles = makeStyles()(theme => ({
   }
 }));
 
-export default function FeatureCard({ title, desc }) {
+export default function FeatureCard({ title, desc, link }) {
   const { classes } = useStyles();
   const [isInMiddle, setIsInMiddle] = React.useState(false);
   const cardRef = React.useRef(null);
@@ -69,7 +69,14 @@ export default function FeatureCard({ title, desc }) {
         {desc}
       </CardContent>
       <CardActions>
-        <Button size="small" endIcon={<ArrowForwardIcon />}>Learn More</Button>
+        <Button
+          onClick={() => {
+          window.location.href = link;
+        }}
+          size="small"
+          endIcon={<ArrowForwardIcon />}
+        >Learn More
+        </Button>
       </CardActions>
     </Box>
   );
