@@ -15,7 +15,7 @@ function Copyright() {
       justifyContent="space-between"
       alignItems="center"
       style={{
-        padding: '0px 150px',
+        padding: '0px 85px',
       }}
     >
       <Grid item>
@@ -31,8 +31,7 @@ function Copyright() {
           display="block"
           align="center"
         >
-          &copy;&nbsp;
-          2023 Ollifur Inc. All rights reserved.
+          &copy;&nbsp; 2023 Ollifur Inc. All rights reserved.
         </Typography>
       </Grid>
       <Grid item style={{ display: 'flex', gap: '10px' }}>
@@ -69,8 +68,8 @@ function Basic() {
     <footer
       className={classes.footer}
       style={{
-      borderRadius: '8px',
-    }}
+        borderRadius: '8px',
+      }}
     >
       <Container className={classes.root} maxWidth="lg">
         <Grid
@@ -80,9 +79,8 @@ function Basic() {
           justifyContent="space-between"
           alignItems="center"
           xs={12}
-          spacing={4}
         >
-          <Grid item style={{ paddingTop: '50px' }}>
+          <Grid item style={{ padding: '40px 0px' }}>
             <Logo theme="light" />
           </Grid>
           <Grid item>
@@ -155,8 +153,8 @@ function Basic() {
             item
             xs={12}
             style={{
-              borderTop: '1px solid #475467',
-              width: '80%',
+              borderTop: '1px solid #A4A7AE',
+              width: '100%',
               marginTop: '35px',
               marginBottom: '0px',
             }}

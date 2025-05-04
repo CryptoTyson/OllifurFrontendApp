@@ -11,8 +11,12 @@ import useStyles from './header-style';
 import multiple from './data/multiple';
 import MultiLevel from './TopNav/MultiLevelHover';
 import MobileMenu from './SideNav/MultiMobile';
-import { Button } from "../../components/ui/button";
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from '@radix-ui/react-navigation-menu';
+import { Button } from '../../components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+} from '@radix-ui/react-navigation-menu';
 import { ChevronDownIcon } from 'lucide-react';
 
 interface HeaderProps {
@@ -50,10 +54,10 @@ function Header(props: HeaderProps) {
   };
 
   const navItems = [
-    { label: "Home", hasDropdown: false, link: "/" },
-    { label: "Services", hasDropdown: true, link: "/services" },
-    { label: "Resources", hasDropdown: true, link: "/resources" },
-    { label: "About us", hasDropdown: false, link: "/contact-us" },
+    { label: 'Home', hasDropdown: false, link: '/' },
+    { label: 'Services', hasDropdown: true, link: '/services' },
+    { label: 'Resources', hasDropdown: true, link: '/resources' },
+    { label: 'About us', hasDropdown: false, link: '/contact-us' },
   ];
 
   console.log('Header style:', navColor);
@@ -72,41 +76,51 @@ function Header(props: HeaderProps) {
           openDrawer && classes.openDrawer,
         )}
       >
-          <div className={`flex justify-between items-center ${isDesktop ? 'w-full' : null} h-16 ${fixed ? 'm-0' : 'm-6'} ${(fixed && !isDesktop) ? 'px-6' : null}`}>
-            
-          <div className={`flex justify-between items-center ${fixed ? "w-full px-6" : "w-[92%]"} h-16`}>
+        <div
+          className={`flex justify-between items-center ${isDesktop ? 'w-full' : null} h-16 ${fixed ? 'm-0' : 'm-6'} ${fixed && !isDesktop ? 'px-6' : null}`}
+        >
+          <div
+            className={`flex justify-between items-center ${fixed ? 'w-full px-6' : 'w-[92%]'} h-16`}
+          >
             {/* Logo */}
             <div className="flex items-center gap-4">
-              <div className={`w-12 h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg overflow-hidden flex items-center justify-center`}>
+              <div
+                className={`w-12 h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg overflow-hidden flex items-center justify-center`}
+              >
                 <img
                   className="w-8 h-8 object-cover"
                   alt="Ollifur removebg"
                   src="/ollifur.png"
                 />
               </div>
-              <div className={`font-bold ${(fixed || navColor) ? 'text-[#252b37]' : 'text-white' } text-4xl`}>
+              <div
+                className={`font-bold ${fixed || navColor ? 'text-[#252b37]' : 'text-white'} text-4xl`}
+              >
                 Ollifur
               </div>
             </div>
 
             {/* Navigation */}
             {isDesktop && (
-              <div className={`w-[611px] h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg flex max-sm:flex-row items-center justify-between sm:p-4 sm:px-6`}>
-              <div className={classes.mainMenu}>
+              <div
+                className={`w-[570px] h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg flex max-sm:flex-row items-center justify-between sm:p-4 sm:pr-6 sm:pl-0`}
+              >
+                <div className={classes.mainMenu}>
                   <MultiLevel dataMenu={multiple} />
                 </div>
-
-              <Button
-                className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg"
-                size="sm"
-              >
-                Immediate need
-              </Button>
-            </div>
+                <Button
+                  className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg opacity-90"
+                  size="sm"
+                >
+                  Immediate need
+                </Button>
+              </div>
             )}
           </div>
-            {isMobile && (
-              <div className={`w-12 h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg overflow-hidden flex items-center justify-center`}>
+          {isMobile && (
+            <div
+              className={`w-12 h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg overflow-hidden flex items-center justify-center`}
+            >
               <IconButton
                 onClick={handleOpenDrawer}
                 className={cx(
@@ -121,8 +135,8 @@ function Header(props: HeaderProps) {
                 </span>
               </IconButton>
             </div>
-            )}
-          </div>
+          )}
+        </div>
       </AppBar>
     </Fragment>
   );
