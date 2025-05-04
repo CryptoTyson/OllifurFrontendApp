@@ -109,7 +109,6 @@ const headerStyles = makeStyles({ uniqId: 'header' })(
       },
     },
     mainMenu: {
-      marginLeft: theme.spacing(3),
       '& > ul': {
         listStyle: 'none',
         position: 'relative',

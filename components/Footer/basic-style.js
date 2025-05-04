@@ -7,7 +7,6 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })((theme) => ({
     background: 'var(--gray-950, #252B37)',
   },
   root: {
-    paddingTop: theme.spacing(5),
     textAlign: 'center',
     position: 'relative',
     zIndex: 11,
@@ -87,7 +86,7 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })((theme) => ({
   },
   copyright: {
     display: 'block',
-    padding: theme.spacing(1.5),
+    paddingTop: theme.spacing(2),
   },
 }));
 
