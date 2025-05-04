@@ -17,7 +17,7 @@ import {
   NavigationMenuList,
   NavigationMenuItem,
 } from '@radix-ui/react-navigation-menu';
-import { ChevronDownIcon } from 'lucide-react';
+import { ChevronDownIcon, MenuIcon } from 'lucide-react';
 
 interface HeaderProps {
   onToggleDark(...args: unknown[]): unknown;
@@ -130,9 +130,10 @@ function Header(props: HeaderProps) {
                 )}
                 size="large"
               >
-                <span className="hamburger-box">
+                {/* <span className="hamburger-box">
                   <span className={cx(classes.bar, 'hamburger-inner')} />
-                </span>
+                </span> */}
+                <MenuIcon className="w-6 h-6 text-black" />
               </IconButton>
             </div>
           )}
