@@ -1,8 +1,8 @@
-@import "tailwindcss/utilities";
+@import 'tailwindcss/utilities';
 
 @font-face {
   font-family: 'KindSans';
-  src: url('/fonts/KindSans/kindsans-thin.otf') format('opentype');
+  src: url('/fonts/KindSans/KindSansThin.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'KindSans';
-  src: url('/fonts/KindSans/kindsans-light.otf') format('opentype');
+  src: url('/fonts/KindSans/KindSansLight.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: 'KindSans';
-  src: url('/fonts/KindSans/kindsans-regular.otf') format('opentype');
+  src: url('/fonts/KindSans/KindSansRegular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
   font-family: 'KindSans';
-  src: url('/fonts/KindSans/kindsans-medium.otf') format('opentype');
+  src: url('/fonts/KindSans/KindSansMedium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: 'KindSans';
-  src: url('/fonts/KindSans/kindsans-semibold.otf') format('opentype');
+  src: url('/fonts/KindSans/KindSansSemibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: 'KindSans';
-  src: url('/fonts/KindSans/kindsans-bold.otf') format('opentype');
+  src: url('/fonts/KindSans/KindSansBold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -106,7 +106,9 @@
 
 /* Base styles */
 :root {
-  --font-sans: 'KindSans', 'Recoleta', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans:
+    'KindSans', 'Recoleta', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
 }
 
 html {
