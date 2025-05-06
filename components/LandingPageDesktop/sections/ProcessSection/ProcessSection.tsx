@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 export const ProcessSectionMobile = (): JSX.Element => {
   // Story data that will be reused across all cards
   const storyData = {
-    title: "Anas x Ollie",
-    date: "1997-2015",
+    title: 'Anas x Ollie',
+    date: '1997-2015',
     content: [
       'Demacia! Noxus! Voidborn et Piltover in viam runarum. Rift ignis, baron draconis, et nexus ultimus. "This\'ll be a blast!" ait Ziggs, dum Teemo in umbris latet. Lux ultimum lucem emittit, sed Zed umbras evocat. Poros saltant in Freljord, dum Kindred fatum suum persequitur.',
       'Elo hell? Non est verum, tantum teammates mali. "You belong in a museum!" exclamat Ezreal, dum Blitzcrank manum extensam habet. "Mundo goes where he pleases!" et summoner\'s rift tumultuat.',
@@ -15,69 +15,89 @@ export const ProcessSectionMobile = (): JSX.Element => {
   // Card configurations with different styles for mobile
   const cards = [
     {
-      width: "350px",
-      height: "400px",
-      top: "140px",
-      left: "-15px",
-      background: "rgba(255,188,66,1)",
-      textColor: "#252b37",
-      rotate: "-10deg",
+      width: '350px',
+      minHeight: '200px',
+      top: '40px',
+      left: '-15px',
+      background: 'rgba(255,188,66,1)',
+      textColor: '#252b37',
+      rotate: '-10deg',
       zIndex: 1,
     },
     {
-      width: "350px",
-      height: "420px",
-      top: "40px",
-      left: "-15px",
-      background: "rgba(212,138,53,1)",
-      textColor: "white",
-      rotate: "12deg",
+      width: '350px',
+      minHeight: '200px',
+      top: '40px',
+      left: '-15px',
+      background: 'rgba(212,138,53,1)',
+      textColor: 'white',
+      rotate: '12deg',
       zIndex: 2,
     },
     {
-      width: "350px",
-      height: "480px",
-      top: "30px",
-      left: "-15px",
-      background: "rgba(58,51,53,1)",
-      textColor: "white",
-      rotate: "-6.17deg",
+      width: '350px',
+      minHeight: '200px',
+      top: '30px',
+      left: '-15px',
+      background: 'rgba(58,51,53,1)',
+      textColor: 'white',
+      rotate: '-6.17deg',
       zIndex: 3,
     },
     {
-      width: "320px",
-      height: "480px",
-      top: "0",
-      left: "-15px",
-      background: "rgba(137,176,174,1)",
-      textColor: "#252b37",
-      rotate: "16deg",
+      width: '320px',
+      minHeight: '200px',
+      top: '0',
+      left: '-15px',
+      background: 'rgba(137,176,174,1)',
+      textColor: '#252b37',
+      rotate: '16deg',
       zIndex: 4,
     },
     {
-      width: "350px",
-      height: "400px",
-      top: "60px",
-      left: "-15px",
-      background: "rgba(244,243,238,1)",
-      textColor: "#252b37",
-      rotate: "-2.51deg",
+      width: '350px',
+      minHeight: '200px',
+      top: '60px',
+      left: '-15px',
+      background: 'rgba(244,243,238,1)',
+      textColor: '#252b37',
+      rotate: '-2.51deg',
       zIndex: 5,
     },
     {
-      width: "320px",
-      height: "480px",
-      top: "10px",
-      left: "-15px",
-      background: "rgba(58,79,65,1)",
-      textColor: "white",
-      rotate: "2deg",
+      width: '320px',
+      minHeight: '200px',
+      top: '10px',
+      left: '-15px',
+      background: 'rgba(58,79,65,1)',
+      textColor: 'white',
+      rotate: '2deg',
       zIndex: 6,
     },
   ];
 
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
+
+  const getFirstWords = (text: string, wordCount: number = 30) => {
+    const words = text.split(' ');
+    if (words.length <= wordCount) return text;
+    return words.slice(0, wordCount).join(' ') + '...';
+  };
+
+  const handleViewMore = (cardIndex: number, event: React.MouseEvent) => {
+    event.stopPropagation();
+    setExpandedCards((prev) => {
+      const newSet = new Set(prev);
+      if (prev.has(cardIndex)) {
+        newSet.delete(cardIndex);
+      } else {
+        newSet.add(cardIndex);
+      }
+      return newSet;
+    });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -89,7 +109,7 @@ export const ProcessSectionMobile = (): JSX.Element => {
       },
       {
         threshold: 0.1,
-      }
+      },
     );
 
     const section = document.querySelector('.process-section-mobile');
@@ -108,9 +128,9 @@ export const ProcessSectionMobile = (): JSX.Element => {
     <section
       className="relative w-full py-8 rounded-lg overflow-hidden mb-4 process-section-mobile"
       style={{
-        backgroundImage: "url(/story.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "50% 50%",
+        backgroundImage: 'url(/story.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: '50% 50%',
       }}
     >
       <div className="container mx-auto px-4">
@@ -118,15 +138,17 @@ export const ProcessSectionMobile = (): JSX.Element => {
           Little stories of not so little love
         </h2>
 
-        <div className="relative h-[600px] mx-auto max-w-[320px] my-8">
+        <div className="relative h-[400px] mx-auto max-w-[320px] my-8">
           {cards.map((card, index) => (
             <div
               key={index}
               className="absolute"
-              onClick={() => setSelectedCard(selectedCard === index ? null : index)}
+              onClick={() =>
+                setSelectedCard(selectedCard === index ? null : index)
+              }
               style={{
                 width: card.width,
-                height: card.height,
+                minHeight: card.minHeight,
                 top: card.top,
                 left: card.left,
                 transform: `
@@ -136,56 +158,72 @@ export const ProcessSectionMobile = (): JSX.Element => {
                 `,
                 zIndex: selectedCard === index ? 100 : card.zIndex,
                 background: card.background,
-                backgroundImage: "url(..//frame-32.png)",
-                backgroundSize: "cover",
-                backgroundPosition: "50% 50%",
+                backgroundImage: 'url(..//frame-32.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: '50% 50%',
                 opacity: isVisible ? 1 : 0,
-                cursor: "pointer",
+                cursor: 'pointer',
                 transition: `
                   transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
                   opacity 700ms cubic-bezier(0.4, 0, 0.2, 1) ${index * 150}ms,
-                  box-shadow 700ms cubic-bezier(0.4, 0, 0.2, 1)
+                  box-shadow 700ms cubic-bezier(0.4, 0, 0.2, 1),
+                  min-height 700ms cubic-bezier(0.4, 0, 0.2, 1)
                 `,
-                boxShadow: selectedCard === index
-                  ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
-                  : 'none',
+                boxShadow:
+                  selectedCard === index
+                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+                    : 'none',
               }}
             >
               <div className="flex justify-between px-4 pt-4">
                 <div
                   className={`font-[Recoleta] font-normal text-lg leading-normal ${
-                    card.textColor === "white" ? "text-white" : "text-[#252b37]"
+                    card.textColor === 'white' ? 'text-white' : 'text-[#252b37]'
                   }`}
                 >
                   {storyData.title}
                 </div>
                 <div
                   className={`font-[Recoleta] font-normal text-lg leading-normal ${
-                    card.textColor === "white" ? "text-[#e9e9eb]" : "text-[#252b37]"
+                    card.textColor === 'white'
+                      ? 'text-[#e9e9eb]'
+                      : 'text-[#252b37]'
                   }`}
                 >
                   {storyData.date}
                 </div>
               </div>
 
-              <div className="px-4 pt-6 pb-8">
-                <div className="flex flex-col gap-4">
-                  {storyData.content.map((paragraph, pIndex) => (
-                    <p
-                      key={pIndex}
-                      className={`font-normal text-sm leading-5 ${
-                        card.textColor === "white" ? "text-white" : "text-[#252b37]"
-                      }`}
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+              <div className="px-4 pt-6 pb-4">
+                <div className="inline">
+                  <span
+                    className={`font-normal text-sm leading-5 ${
+                      card.textColor === 'white'
+                        ? 'text-white'
+                        : 'text-[#252b37]'
+                    }`}
+                  >
+                    {expandedCards.has(index)
+                      ? storyData.content.join(' ')
+                      : getFirstWords(storyData.content.join(' '))}
+                    {!expandedCards.has(index) && ' '}
+                  </span>
+                  <button
+                    onClick={(e) => handleViewMore(index, e)}
+                    className={`text-sm font-semibold underline ${
+                      card.textColor === 'white'
+                        ? 'text-white'
+                        : 'text-[#252b37]'
+                    } hover:opacity-80`}
+                  >
+                    {expandedCards.has(index) ? 'Read Less' : 'Read More'}
+                  </button>
                 </div>
               </div>
 
               <div
                 className={`absolute bottom-4 right-4 font-[Recoleta] font-normal text-lg leading-normal ${
-                  card.textColor === "white" ? "text-white" : "text-[#252b37]"
+                  card.textColor === 'white' ? 'text-white' : 'text-[#252b37]'
                 }`}
               >
                 ~
@@ -201,8 +239,8 @@ export const ProcessSectionMobile = (): JSX.Element => {
 export const ProcessSectionDesktop = (): JSX.Element => {
   // Story data that will be reused across all cards
   const storyData = {
-    title: "Anas x Ollie",
-    date: "1997-2015",
+    title: 'Anas x Ollie',
+    date: '1997-2015',
     content: [
       'Demacia! Noxus! Voidborn et Piltover in viam runarum. Rift ignis, baron draconis, et nexus ultimus. "This\'ll be a blast!" ait Ziggs, dum Teemo in umbris latet. Lux ultimum lucem emittit, sed Zed umbras evocat. Poros saltant in Freljord, dum Kindred fatum suum persequitur.',
       'Elo hell? Non est verum, tantum teammates mali. "You belong in a museum!" exclamat Ezreal, dum Blitzcrank manum extensam habet. "Mundo goes where he pleases!" et summoner\'s rift tumultuat.',
@@ -213,63 +251,63 @@ export const ProcessSectionDesktop = (): JSX.Element => {
   // Card configurations with different styles and positions
   const cards = [
     {
-      width: "865px",
-      height: "489px",
-      top: "200px",
-      left: "0",
-      background: "rgba(255,188,66,1)",
-      textColor: "#252b37",
-      rotate: "0deg",
+      width: '865px',
+      height: '489px',
+      top: '200px',
+      left: '0',
+      background: 'rgba(255,188,66,1)',
+      textColor: '#252b37',
+      rotate: '0deg',
       zIndex: 1,
     },
     {
-      width: "865px",
-      height: "511px",
-      top: "61px",
-      left: "14px",
-      background: "rgba(212,138,53,1)",
-      textColor: "white",
-      rotate: "0deg",
+      width: '865px',
+      height: '511px',
+      top: '61px',
+      left: '14px',
+      background: 'rgba(212,138,53,1)',
+      textColor: 'white',
+      rotate: '0deg',
       zIndex: 2,
     },
     {
-      width: "865px",
-      height: "587px",
-      top: "45px",
-      left: "12px",
-      background: "rgba(58,51,53,1)",
-      textColor: "white",
-      rotate: "-6.17deg",
+      width: '865px',
+      height: '587px',
+      top: '45px',
+      left: '12px',
+      background: 'rgba(58,51,53,1)',
+      textColor: 'white',
+      rotate: '-6.17deg',
       zIndex: 3,
     },
     {
-      width: "562px",
-      height: "709px",
-      top: "0",
-      left: "191px",
-      background: "rgba(137,176,174,1)",
-      textColor: "#252b37",
-      rotate: "0deg",
+      width: '562px',
+      height: '709px',
+      top: '0',
+      left: '191px',
+      background: 'rgba(137,176,174,1)',
+      textColor: '#252b37',
+      rotate: '0deg',
       zIndex: 4,
     },
     {
-      width: "865px",
-      height: "489px",
-      top: "98px",
-      left: "77px",
-      background: "rgba(244,243,238,1)",
-      textColor: "#252b37",
-      rotate: "2.51deg",
+      width: '865px',
+      height: '489px',
+      top: '98px',
+      left: '77px',
+      background: 'rgba(244,243,238,1)',
+      textColor: '#252b37',
+      rotate: '2.51deg',
       zIndex: 5,
     },
     {
-      width: "562px",
-      height: "663px",
-      top: "14px",
-      left: "238px",
-      background: "rgba(58,79,65,1)",
-      textColor: "white",
-      rotate: "0deg",
+      width: '562px',
+      height: '663px',
+      top: '14px',
+      left: '238px',
+      background: 'rgba(58,79,65,1)',
+      textColor: 'white',
+      rotate: '0deg',
       zIndex: 6,
     },
   ];
@@ -287,7 +325,7 @@ export const ProcessSectionDesktop = (): JSX.Element => {
       },
       {
         threshold: 0.1,
-      }
+      },
     );
 
     const section = document.querySelector('.process-section');
@@ -306,9 +344,9 @@ export const ProcessSectionDesktop = (): JSX.Element => {
     <section
       className="relative w-full py-24 rounded-lg overflow-hidden mb-4 process-section"
       style={{
-        backgroundImage: "url(/story.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "50% 50%",
+        backgroundImage: 'url(/story.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: '50% 50%',
       }}
     >
       <div className="container mx-auto">
@@ -321,7 +359,9 @@ export const ProcessSectionDesktop = (): JSX.Element => {
             <div
               key={index}
               className="absolute"
-              onClick={() => setSelectedCard(selectedCard === index ? null : index)}
+              onClick={() =>
+                setSelectedCard(selectedCard === index ? null : index)
+              }
               style={{
                 width: card.width,
                 height: card.height,
@@ -334,29 +374,30 @@ export const ProcessSectionDesktop = (): JSX.Element => {
                 `,
                 zIndex: selectedCard === index ? 100 : card.zIndex,
                 background: card.background,
-                backgroundImage: "url(..//frame-32.png)",
-                backgroundSize: "cover",
-                backgroundPosition: "50% 50%",
+                backgroundImage: 'url(..//frame-32.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: '50% 50%',
                 opacity: isVisible ? 1 : 0,
-                cursor: "pointer",
+                cursor: 'pointer',
                 transition: `
                   transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
                   opacity 700ms cubic-bezier(0.4, 0, 0.2, 1) ${index * 200}ms,
                   box-shadow 700ms cubic-bezier(0.4, 0, 0.2, 1)
                 `,
-                boxShadow: selectedCard === index
-                  ? '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                  : 'none',
+                boxShadow:
+                  selectedCard === index
+                    ? '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                    : 'none',
               }}
             >
               <div className="flex justify-between px-8 pt-8">
                 <div
-                  className={`font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
+                  className={`font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === 'white' ? 'text-white' : 'text-[#252b37]'}`}
                 >
                   {storyData.title}
                 </div>
                 <div
-                  className={`font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-[#e9e9eb]" : "text-[#252b37]"}`}
+                  className={`font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === 'white' ? 'text-[#e9e9eb]' : 'text-[#252b37]'}`}
                 >
                   {storyData.date}
                 </div>
@@ -367,7 +408,7 @@ export const ProcessSectionDesktop = (): JSX.Element => {
                   {storyData.content.map((paragraph, pIndex) => (
                     <p
                       key={pIndex}
-                      className={` font-normal text-xl leading-6 ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
+                      className={` font-normal text-xl leading-6 ${card.textColor === 'white' ? 'text-white' : 'text-[#252b37]'}`}
                     >
                       {paragraph}
                     </p>
@@ -376,7 +417,7 @@ export const ProcessSectionDesktop = (): JSX.Element => {
               </div>
 
               <div
-                className={`absolute ${index < 3 ? "top-[347px]" : "top-[444px]"} ${index < 3 ? "left-[425px]" : "left-[273px]"} font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === "white" ? "text-white" : "text-[#252b37]"}`}
+                className={`absolute ${index < 3 ? 'top-[347px]' : 'top-[444px]'} ${index < 3 ? 'left-[425px]' : 'left-[273px]'} font-[Recoleta] font-normal text-2xl leading-normal ${card.textColor === 'white' ? 'text-white' : 'text-[#252b37]'}`}
               >
                 ~
               </div>
