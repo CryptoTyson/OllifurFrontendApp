@@ -1,30 +1,30 @@
-import React from "react";
-import { Card, CardContent } from "../../../../components/ui/card";
-import { ArrowRightIcon } from "lucide-react";
+import React from 'react';
+import { Card, CardContent } from '../../../../components/ui/card';
+import { ArrowRightIcon } from 'lucide-react';
 
 export const HeroSectionMobile = (): JSX.Element => {
   // Data for the crematorium cards
   const crematoriumCards = [
     {
       id: 1,
-      imageUrl: "/frame-6.png",
-      title: "Find a crematorium",
+      imageUrl: '/frame-6.png',
+      title: 'Find a crematorium',
       description:
-        "Browse crematoriums in your area. Choose between private, communal or witnessed cremations.",
+        'Browse crematoriums in your area. Choose between private, communal or witnessed cremations.',
     },
     {
       id: 2,
-      imageUrl: "/frame-6.png",
-      title: "Find a crematorium",
+      imageUrl: '/frame-6.png',
+      title: 'Find a crematorium',
       description:
-        "Browse crematoriums in your area. Choose between private, communal or witnessed cremations.",
+        'Browse crematoriums in your area. Choose between private, communal or witnessed cremations.',
     },
     {
       id: 3,
-      imageUrl: "/frame-6.png",
-      title: "Find a crematorium",
+      imageUrl: '/frame-6.png',
+      title: 'Find a crematorium',
       description:
-        "Browse crematoriums in your area. Choose between private, communal or witnessed cremations.",
+        'Browse crematoriums in your area. Choose between private, communal or witnessed cremations.',
     },
   ];
 
@@ -35,7 +35,9 @@ export const HeroSectionMobile = (): JSX.Element => {
           <div className="flex flex-col mb-8">
             {/* Heading */}
             <h2 className="text-4xl font-normal text-[#1d2838] font-[Recoleta] mb-6">
-              Our simple 3 step<br/>process
+              Our simple 3 step
+              <br />
+              process
             </h2>
           </div>
 
@@ -61,7 +63,11 @@ export const HeroSectionMobile = (): JSX.Element => {
                       </p>
                       <p className="text-sm font-normal text-[#F79009] underline">
                         {'Browse now'}
-                        <ArrowRightIcon className="inline-block ml-1" size={16} color="#F79009" />
+                        <ArrowRightIcon
+                          className="inline-block ml-1"
+                          size={16}
+                          color="#F79009"
+                        />
                       </p>
                     </div>
                   </div>
@@ -80,35 +86,37 @@ export const HeroSectionDesktop = (): JSX.Element => {
   const crematoriumCards = [
     {
       id: 1,
-      imageUrl: "/frame-6.png",
-      title: "Find a crematorium",
+      imageUrl: '/frame-6.png',
+      title: 'Find a crematorium',
       description:
-        "Browse crematoriums in your area. Choose between private, communal or witnessed cremations.",
+        'Browse crematoriums in your area. Choose between private, communal or witnessed cremations.',
     },
     {
       id: 2,
-      imageUrl: "/frame-6.png",
-      title: "Find a crematorium",
+      imageUrl: '/frame-6.png',
+      title: 'Find a crematorium',
       description:
-        "Browse crematoriums in your area. Choose between private, communal or witnessed cremations.",
+        'Browse crematoriums in your area. Choose between private, communal or witnessed cremations.',
     },
     {
       id: 3,
-      imageUrl: "/frame-6.png",
-      title: "Find a crematorium",
+      imageUrl: '/frame-6.png',
+      title: 'Find a crematorium',
       description:
-        "Browse crematoriums in your area. Choose between private, communal or witnessed cremations.",
+        'Browse crematoriums in your area. Choose between private, communal or witnessed cremations.',
     },
   ];
 
   return (
-    <section className="w-full pl-24 py-25 pr-10 bg-[#faf4f2] bg-[url(/shadow.png)] bg-center bg-cover bg-no-repeat mt-4 rounded-lg overflow-hidden">
-      <div className="max-w-[1392px] ">
+    <section className="w-full pl-24 py-25 pr-10 bg-[#faf4f2] bg-[url(/shadow.png)] bg-center bg-cover bg-no-repeat mt-4 rounded-lg overflow-hidden bg-opacity-90">
+      <div>
         <div className="flex flex-col">
           <div className="flex flex-row justify-between content-center items-center mb-16">
-              {/* Heading */}
+            {/* Heading */}
             <h2 className="text-[64px] font-normal text-[#1d2838] font-[Recoleta] mb-10">
-              Our simple 3 step<br/>process
+              Our simple 3 step
+              <br />
+              process
             </h2>
 
             {/* Burial option callout */}
@@ -129,7 +137,7 @@ export const HeroSectionDesktop = (): JSX.Element => {
           </div>
 
           {/* Crematorium cards */}
-          <div className="flex flex-wrap gap-8">
+          <div className="flex justify-between flex-wrap gap-[2vw]">
             {crematoriumCards.map((card) => (
               <Card
                 key={card.id}
@@ -142,12 +150,12 @@ export const HeroSectionDesktop = (): JSX.Element => {
                       style={{ backgroundImage: `url(${card.imageUrl})` }}
                     />
                     <div className="flex flex-row gap-4">
-                    <h3 className="text-xl font-bold text-[#475466] mb-2 transition-colors duration-300">
-                      {card.title}
-                    </h3>
-                    <p className="text-base font-normal text-[#475466]  max-w-[243px]">
-                      {card.description}
-                    </p>
+                      <h3 className="text-xl font-bold text-[#475466] mb-2 transition-colors duration-300">
+                        {card.title}
+                      </h3>
+                      <p className="text-base font-normal text-[#475466]  max-w-[243px]">
+                        {card.description}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
