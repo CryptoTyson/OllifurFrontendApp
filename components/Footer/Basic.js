@@ -4,19 +4,25 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Grid } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import useStyles from './basic-style';
 import Logo from '../Logo/Logo';
 
 function Copyright() {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
     <Grid
       container
-      direction="row"
+      direction={isDesktop ? 'row' : 'column-reverse'}
       justifyContent="space-between"
-      alignItems="center"
+      alignItems={isDesktop ? 'center' : 'start'}
       style={{
-        padding: '0px 85px',
+        padding: isDesktop ? '0px 85px' : '0px 30px',
       }}
+      gap={isDesktop ? 0 : 1}
     >
       <Grid item>
         <Typography
@@ -35,13 +41,13 @@ function Copyright() {
         </Typography>
       </Grid>
       <Grid item style={{ display: 'flex', gap: '10px' }}>
-        <Link href="#" style={{ color: ' #EAECF0' }} underline="hover">
+        <Link href="#" style={{ color: ' #FFFFFF' }} underline="hover">
           Terms&nbsp;
         </Link>
-        <Link href="#" style={{ color: ' #EAECF0' }} underline="hover">
+        <Link href="#" style={{ color: ' #FFFFFF' }} underline="hover">
           Privacy&nbsp;
         </Link>
-        <Link href="#" style={{ color: ' #EAECF0' }} underline="hover">
+        <Link href="#" style={{ color: ' #FFFFFF' }} underline="hover">
           Cookies
         </Link>
       </Grid>
@@ -51,7 +57,7 @@ function Copyright() {
 
 const selfStyles = makeStyles()(() => ({
   link: {
-    color: 'var(--gray-200, #EAECF0)',
+    color: 'var(--gray-200, #FFFFFF)',
     fontFamily: 'Inter',
     fontSize: '16px',
     fontStyle: 'normal',
@@ -63,6 +69,9 @@ const selfStyles = makeStyles()(() => ({
 function Basic() {
   const { classes } = useStyles();
   const { classes: self } = selfStyles();
+
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <footer
@@ -77,11 +86,23 @@ function Basic() {
           item
           direction="column"
           justifyContent="space-between"
-          alignItems="center"
+          alignItems={isDesktop ? 'center' : 'flex-start'}
           xs={12}
+          style={{
+            padding: '0px 10px',
+          }}
         >
           <Grid item style={{ padding: '40px 0px' }}>
-            <Logo theme="light" />
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#faf4f2e6] rounded-lg overflow-hidden flex items-center justify-center">
+                <img
+                  className="w-8 h-8 object-cover"
+                  alt="Ollifur removebg"
+                  src="/ollifur.png"
+                />
+              </div>
+              <div className="font-bold text-white text-4xl">Ollifur</div>
+            </div>
           </Grid>
           <Grid item>
             <nav style={{ margin: 0 }}>
@@ -90,7 +111,7 @@ function Basic() {
                   <Link
                     href="#"
                     className={self.link}
-                    style={{ color: ' #EAECF0' }}
+                    style={{ color: ' #FFFFFF', padding: '5px' }}
                     underline="hover"
                   >
                     Home
@@ -100,7 +121,7 @@ function Basic() {
                   <Link
                     href="#"
                     className={self.link}
-                    style={{ color: ' #EAECF0' }}
+                    style={{ color: ' #FFFFFF', padding: '5px' }}
                     underline="hover"
                   >
                     Crematoriums
@@ -110,7 +131,7 @@ function Basic() {
                   <Link
                     href="#"
                     className={self.link}
-                    style={{ color: ' #EAECF0' }}
+                    style={{ color: ' #FFFFFF', padding: '5px' }}
                     underline="hover"
                   >
                     Pricing
@@ -120,7 +141,7 @@ function Basic() {
                   <Link
                     href="#"
                     className={self.link}
-                    style={{ color: ' #EAECF0' }}
+                    style={{ color: ' #FFFFFF', padding: '5px' }}
                     underline="hover"
                   >
                     Careers
@@ -130,7 +151,7 @@ function Basic() {
                   <Link
                     href="#"
                     className={self.link}
-                    style={{ color: ' #EAECF0' }}
+                    style={{ color: ' #FFFFFF', padding: '5px' }}
                     underline="hover"
                   >
                     Help
@@ -140,7 +161,7 @@ function Basic() {
                   <Link
                     href="#"
                     className={self.link}
-                    style={{ color: ' #EAECF0' }}
+                    style={{ color: ' #FFFFFF', padding: '5px' }}
                     underline="hover"
                   >
                     Privacy

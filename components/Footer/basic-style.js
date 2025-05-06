@@ -15,15 +15,33 @@ const basicStyles = makeStyles({ uniqId: 'basic_footer' })((theme) => ({
       '& ul': {
         margin: 0,
         padding: 0,
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+
+        [theme.breakpoints.down('sm')]: {
+          margin: '0px 95px',
+          justifyContent: 'flex-start',
+          maxHeight: '200px',
+          flexDirection: 'column',
+          alignContent: 'center',
+        },
         '& li': {
-          display: 'inline-block',
-          margin: theme.spacing(0, 1),
+          margin: theme.spacing(0.5),
+          width: 'auto',
+          minWidth: '80px',
+          [theme.breakpoints.down('sm')]: {
+            minWidth: '40px',
+            width: '100%',
+            textAlign: 'start',
+          },
           '& a': {
             color: theme.palette.text.primary,
             textTransform: 'capitalize',
             textDecoration: 'none !important',
-            padding: theme.spacing(0, 1),
+            padding: theme.spacing(1),
             fontSize: 16,
+            display: 'block',
             [theme.breakpoints.down('sm')]: {
               fontSize: 16,
             },
