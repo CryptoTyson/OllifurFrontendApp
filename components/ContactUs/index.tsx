@@ -175,7 +175,7 @@ export const ContactUsPage = (): JSX.Element => {
                 <p className="text-base font-normal text-[#85888E] ">
                   {'Customer inquiries'}
                 </p>
-                <div>
+                <div className="flex flex-col gap-2">
                   <span className="text-base font-bold text-[#252B37] max-w-[243px] ">
                     {'support@ollifur.com'}
                   </span>
@@ -183,11 +183,13 @@ export const ContactUsPage = (): JSX.Element => {
                     {'+1 604-782-5121'}
                   </span>
                 </div>
-                <p className="text-base font-normal text-[#D48A35] mt-4">
-                  {
-                    'Our phone lines are available throughout the week, 8am–10pm PST.'
-                  }
-                </p>
+                <div className="mt-12">
+                  <p className="text-base font-normal text-[#D48A35]">
+                    {
+                      'Our phone lines are available throughout the week, 8am–10pm PST.'
+                    }
+                  </p>
+                </div>
               </div>
             </div>
             <div className="flex flex-col gap-3 py-3">
@@ -199,12 +201,14 @@ export const ContactUsPage = (): JSX.Element => {
                   <p className="text-base font-normal text-[#85888E] ">
                     {'Vendor inquiries'}
                   </p>
-                  <span className="text-base font-bold text-[#252B37] max-w-[243px] ">
-                    {'vendors@ollifur.com'}
-                  </span>
-                  <span className="text-base font-bold text-[#252B37] max-w-[243px]">
-                    {'+1 604-782-5121'}
-                  </span>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-base font-bold text-[#252B37] max-w-[243px] ">
+                      {'vendors@ollifur.com'}
+                    </span>
+                    <span className="text-base font-bold text-[#252B37] max-w-[243px]">
+                      {'+1 604-782-5121'}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -217,12 +221,14 @@ export const ContactUsPage = (): JSX.Element => {
                   <p className="text-base font-normal text-[#85888E] ">
                     {'Media/General inquiries'}
                   </p>
-                  <p className="text-base font-bold text-[#252B37] max-w-[243px] ">
-                    {'support@ollifur.com'}
-                  </p>
-                  <p className="text-base font-bold text-[#252B37] max-w-[243px]">
-                    {'+1 604-782-5121'}
-                  </p>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-base font-bold text-[#252B37] max-w-[243px] ">
+                      {'support@ollifur.com'}
+                    </span>
+                    <span className="text-base font-bold text-[#252B37] max-w-[243px]">
+                      {'+1 604-782-5121'}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
