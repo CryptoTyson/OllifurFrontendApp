@@ -60,8 +60,6 @@ function Header(props: HeaderProps) {
     { label: 'About us', hasDropdown: false, link: '/contact-us' },
   ];
 
-  console.log('Header style:', navColor);
-
   return (
     <Fragment>
       {isMobile && (
