@@ -28,7 +28,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { getStaticPaths, makeStaticProps } from '~/lib/getStatic';
-import Header from '~/components/Header';
+import Header from '../../../components/Header/DropList';
 import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
 import CrematoriumCard from '../../../components/CrematoriumCard/CrematoriumCard';
