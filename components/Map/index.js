@@ -237,6 +237,7 @@ const Map = ({ cremationData }) => {
           width: '100%',
           height: isDesktop ? '1120px' : '360px',
           margin: 'auto',
+          borderRadius: '16px',
         }}
         onLoad={handleOnLoad}
         onClick={() => setActiveMarker(null)}

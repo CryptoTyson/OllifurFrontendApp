@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 .w-layout-grid {
   grid-row-gap: 16px;
@@ -93,8 +93,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -112,7 +123,9 @@
 
 .uui-button:focus {
   background-color: #7f56d9;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-button-tertiary-gray {
@@ -125,8 +138,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -152,8 +176,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -171,7 +206,9 @@
 
 .uui-button-secondary-gray:focus {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f2f4f7;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f2f4f7;
 }
 
 .uui-button-secondary-gray.show-tablet,
@@ -198,8 +235,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -217,8 +265,19 @@
 .uui-text-size-small {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -228,8 +287,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
 }
@@ -281,7 +351,8 @@
 }
 
 .uui-navbar07_dropdown-list {
-  box-shadow: 0 12px 16px -4px rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 12px 16px -4px rgba(0, 0, 0, 0.08),
     0 4px 6px -2px rgba(16, 24, 40, 0.03);
 }
 
@@ -312,8 +383,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -395,7 +477,9 @@
   display: flex;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 1px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.1);
+  box-shadow:
+    0 1px 1px rgba(16, 24, 40, 0.06),
+    0 1px 2px rgba(16, 24, 40, 0.1);
 }
 
 .uui-logo_component {
@@ -445,8 +529,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -464,7 +559,9 @@
 
 .uui-button-2:focus {
   background-color: #7f56d9;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-button-2.is-button-large {
@@ -483,8 +580,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -510,8 +618,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -529,7 +648,9 @@
 
 .uui-button-secondary-gray-2:focus {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f2f4f7;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f2f4f7;
 }
 
 .uui-button-secondary-gray-2.show-tablet {
@@ -565,8 +686,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -584,8 +716,19 @@
 .uui-text-size-small-2 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -594,8 +737,19 @@
 .uui-navbar08_item-heading {
   color: #101828;
   margin-bottom: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
 }
@@ -648,8 +802,19 @@
   border-radius: 10rem;
   align-items: center;
   padding: 0.125rem 0.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
@@ -669,8 +834,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
@@ -697,7 +873,8 @@
 }
 
 .uui-navbar08_dropdown-list {
-  box-shadow: 0 12px 16px -4px rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 12px 16px -4px rgba(0, 0, 0, 0.08),
     0 4px 6px -2px rgba(16, 24, 40, 0.03);
 }
 
@@ -728,8 +905,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -811,7 +999,9 @@
   display: flex;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 1px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.1);
+  box-shadow:
+    0 1px 1px rgba(16, 24, 40, 0.06),
+    0 1px 2px rgba(16, 24, 40, 0.1);
 }
 
 .uui-logo_component-2 {
@@ -869,8 +1059,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -889,8 +1090,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
 }
@@ -937,7 +1149,8 @@
 }
 
 .uui-navbar07_dropdown-list-2 {
-  box-shadow: 0 12px 16px -4px rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 12px 16px -4px rgba(0, 0, 0, 0.08),
     0 4px 6px -2px rgba(16, 24, 40, 0.03);
 }
 
@@ -954,8 +1167,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -1048,8 +1272,19 @@
 
 .uui-text-size-xlarge {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -1075,8 +1310,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3.75rem;
   font-weight: 600;
@@ -1163,8 +1409,19 @@
   border-radius: 1rem;
   align-items: center;
   padding: 0.125rem 0.625rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -1185,8 +1442,19 @@
   border-radius: 10rem;
   align-items: center;
   padding: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -1218,8 +1486,19 @@
 
 .uui-footer04_legal-link {
   color: #667085;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   text-decoration: none;
@@ -1245,8 +1524,19 @@
 .uui-text-size-small-3 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -1302,8 +1592,19 @@
   flex-wrap: nowrap;
   align-items: center;
   padding: 0.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -1390,7 +1691,9 @@
   display: flex;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 1px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.1);
+  box-shadow:
+    0 1px 1px rgba(16, 24, 40, 0.06),
+    0 1px 2px rgba(16, 24, 40, 0.1);
 }
 
 .uui-logo_component-3 {
@@ -1473,8 +1776,19 @@
   justify-content: center;
   align-items: center;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -1508,8 +1822,19 @@
 .uui-text-size-medium {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -1525,8 +1850,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -1580,8 +1916,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
@@ -1606,8 +1953,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 2.25rem;
   font-weight: 600;
@@ -1737,8 +2095,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -1756,7 +2125,9 @@
 
 .uui-button-3:focus {
   background-color: #7f56d9;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-button-3.is-button-large {
@@ -1776,8 +2147,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -1795,7 +2177,9 @@
 
 .uui-button-secondary-gray-3:focus {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f2f4f7;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f2f4f7;
 }
 
 .uui-button-secondary-gray-3.is-button-large {
@@ -1811,8 +2195,19 @@
 
 .uui-text-size-xlarge-2 {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -1842,8 +2237,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3.75rem;
   font-weight: 600;
@@ -1882,8 +2288,19 @@
   border-radius: 1rem;
   align-items: center;
   padding: 0.125rem 0.625rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -1904,8 +2321,19 @@
   border-radius: 10rem;
   align-items: center;
   padding: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -1948,8 +2376,19 @@
 .uui-text-size-large {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -2037,8 +2476,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
@@ -2077,8 +2527,19 @@
 .uui-heading-subheading {
   color: #7f56d9;
   margin-bottom: 0.75rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2088,8 +2549,19 @@
 .uui-testimonial14_client-heading {
   color: #101828;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2154,8 +2626,19 @@
   color: #475467;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -2163,8 +2646,19 @@
 
 .uui-text-divider.text-size-small {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
 }
@@ -2177,8 +2671,19 @@
 .uui-blogsection01_author-heading {
   color: #101828;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
@@ -2218,8 +2723,19 @@
   letter-spacing: 0;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
@@ -2238,8 +2754,19 @@
   color: #6941c6;
   margin-bottom: 0.5rem;
   margin-right: 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
@@ -2312,8 +2839,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2331,7 +2869,9 @@
 
 .uui-button-4:focus {
   background-color: #7f56d9;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-button-tertiary-gray-3 {
@@ -2344,8 +2884,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2371,8 +2922,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2390,7 +2952,9 @@
 
 .uui-button-secondary-gray-4:focus {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f2f4f7;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f2f4f7;
 }
 
 .uui-button-secondary-gray-4.show-tablet,
@@ -2417,8 +2981,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2436,8 +3011,19 @@
 .uui-text-size-small-4 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -2450,8 +3036,19 @@
 .uui-navbar08_item-heading-2 {
   color: #101828;
   margin-bottom: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
 }
@@ -2504,8 +3101,19 @@
   border-radius: 10rem;
   align-items: center;
   padding: 0.125rem 0.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
@@ -2525,8 +3133,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
@@ -2553,7 +3172,8 @@
 }
 
 .uui-navbar08_dropdown-list-2 {
-  box-shadow: 0 12px 16px -4px rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 12px 16px -4px rgba(0, 0, 0, 0.08),
     0 4px 6px -2px rgba(16, 24, 40, 0.03);
 }
 
@@ -2584,8 +3204,19 @@
   color: #475467;
   align-items: center;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2667,7 +3298,9 @@
   display: flex;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 1px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.1);
+  box-shadow:
+    0 1px 1px rgba(16, 24, 40, 0.06),
+    0 1px 2px rgba(16, 24, 40, 0.1);
 }
 
 .uui-logo_component-4 {
@@ -2704,8 +3337,19 @@
 
 .uui-text-style-link-02 {
   color: #6941c6;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
   text-decoration: none;
@@ -2719,8 +3363,19 @@
 .uui-text-size-medium-2 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -2736,8 +3391,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -2779,8 +3445,19 @@
 .uui-text-size-large-2 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -2795,8 +3472,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 2.25rem;
   font-weight: 600;
@@ -2806,8 +3494,19 @@
 .uui-heading-subheading-2 {
   color: #7f56d9;
   margin-bottom: 0.75rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2883,8 +3582,19 @@
 .uui-form-checkbox-label {
   color: #344054;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -2946,8 +3656,19 @@
   border-radius: 0.5rem;
   margin-bottom: 0;
   padding: 0.5rem 0.875rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -2958,7 +3679,9 @@
 .uui-form_input:focus {
   color: #101828;
   border-color: #d6bbfb;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-form_input::-ms-input-placeholder {
@@ -2985,8 +3708,19 @@
 .uui-field-label {
   color: #344054;
   margin-bottom: 0.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -3000,8 +3734,19 @@
 .uui-form-radio-label {
   color: #344054;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 500;
 }
@@ -3097,8 +3842,19 @@
 
 .uui-footer04_legal-link-2 {
   color: #667085;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   text-decoration: none;
@@ -3167,8 +3923,19 @@
   flex-wrap: nowrap;
   align-items: center;
   padding: 0.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -3254,8 +4021,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -3273,7 +4051,9 @@
 
 .uui-button-5:focus {
   background-color: #7f56d9;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-button-5.is-button-large {
@@ -3311,8 +4091,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -3330,7 +4121,9 @@
 
 .uui-button-secondary-gray-5:focus {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f2f4f7;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f2f4f7;
 }
 
 .uui-button-secondary-gray-5.is-button-large {
@@ -3354,8 +4147,19 @@
 
 .uui-text-size-xlarge-3 {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -3375,8 +4179,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3.75rem;
   font-weight: 600;
@@ -3428,8 +4243,19 @@
   justify-content: center;
   align-items: center;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -3446,8 +4272,19 @@
 .uui-text-size-medium-3 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -3463,8 +4300,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -3557,8 +4405,19 @@
 .uui-text-size-large-3 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -3593,8 +4452,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 2.25rem;
   font-weight: 600;
@@ -3608,8 +4478,19 @@
 .uui-heading-subheading-3 {
   color: #7f56d9;
   margin-bottom: 0.75rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -3643,8 +4524,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
@@ -3777,8 +4669,19 @@
 
 .uui-text-style-link-02-2 {
   color: #6941c6;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
   text-decoration: none;
@@ -3872,8 +4775,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -3891,7 +4805,9 @@
 
 .uui-button-6:focus {
   background-color: #7f56d9;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-button-6.is-button-large {
@@ -3929,8 +4845,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -3948,7 +4875,9 @@
 
 .uui-button-secondary-gray-6:focus {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f2f4f7;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f2f4f7;
 }
 
 .uui-button-secondary-gray-6.is-button-large {
@@ -3972,8 +4901,19 @@
 
 .uui-text-size-xlarge-4 {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -3993,8 +4933,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3.75rem;
   font-weight: 600;
@@ -4034,8 +4985,19 @@
 
 .uui-layout36_number-text {
   color: #101828;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 500;
 }
@@ -4044,8 +5006,19 @@
   color: #7f56d9;
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3.75rem;
   font-weight: 600;
@@ -4063,8 +5036,19 @@
 .uui-text-size-large-4 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -4074,8 +5058,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 2.25rem;
   font-weight: 600;
@@ -4085,8 +5080,19 @@
 .uui-heading-subheading-4 {
   color: #7f56d9;
   margin-bottom: 0.75rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -4106,8 +5112,19 @@
 .uui-text-size-medium-4 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -4123,8 +5140,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -4253,8 +5281,19 @@
 .uui-text-size-small-5 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -4271,8 +5310,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -4290,7 +5340,9 @@
 
 .uui-button-7:focus {
   background-color: #7f56d9;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-form_input-2 {
@@ -4302,8 +5354,19 @@
   border-radius: 0.5rem;
   margin-bottom: 0;
   padding: 0.5rem 0.875rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -4314,7 +5377,9 @@
 .uui-form_input-2:focus {
   color: #101828;
   border-color: #d6bbfb;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f4ebff;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f4ebff;
 }
 
 .uui-form_input-2::-ms-input-placeholder {
@@ -4348,8 +5413,19 @@
 
 .uui-text-size-xlarge-5 {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -4364,8 +5440,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3.75rem;
   font-weight: 600;
@@ -4400,8 +5487,19 @@
   border-radius: 1rem;
   align-items: center;
   padding: 0.125rem 0.625rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -4422,8 +5520,19 @@
   border-radius: 10rem;
   align-items: center;
   padding: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -4546,8 +5655,19 @@
 .uui-text-size-medium-5 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -4563,8 +5683,19 @@
   letter-spacing: 0;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
@@ -4614,8 +5745,19 @@
 
 .uui-text-style-link-02-3 {
   color: #6941c6;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
   text-decoration: none;
@@ -4626,8 +5768,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
@@ -4680,8 +5833,19 @@
 .uui-text-size-large-5 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -4696,8 +5860,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 2.25rem;
   font-weight: 600;
@@ -4707,8 +5882,19 @@
 .uui-heading-subheading-5 {
   color: #7f56d9;
   margin-bottom: 0.75rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -4729,8 +5915,19 @@
   color: #475467;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -4738,8 +5935,19 @@
 
 .uui-text-divider-2.text-size-small {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
 }
@@ -4752,8 +5960,19 @@
 .uui-blog01_author-heading {
   color: #101828;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
@@ -4800,8 +6019,19 @@
   color: #6941c6;
   margin-bottom: 0.5rem;
   margin-right: 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
@@ -4860,8 +6090,19 @@
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   padding: 0.5rem 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 600;
   text-decoration: none;
@@ -4898,8 +6139,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3rem;
   font-weight: 600;
@@ -4918,8 +6170,19 @@
 .uui-text-size-medium-6 {
   color: #475467;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -4929,8 +6192,19 @@
   color: #475467;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -4946,8 +6220,19 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
@@ -4988,8 +6273,19 @@
   border-radius: 10rem;
   align-items: center;
   padding: 0.125rem 0.625rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -5050,8 +6346,19 @@
   justify-content: center;
   align-items: center;
   padding: 0.625rem 1.125rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -5069,7 +6376,9 @@
 
 .uui-button-secondary-gray-7:focus {
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px #f2f4f7;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.05),
+    0 0 0 4px #f2f4f7;
 }
 
 .uui-button-secondary-gray-7.is-button-small {
@@ -5108,8 +6417,19 @@
 .uui-blogpost01_share-heading {
   color: #101828;
   letter-spacing: normal;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -5130,8 +6450,19 @@
 
 .uui-text-rich-text {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
 }
 
@@ -5153,8 +6484,19 @@
 .uui-text-rich-text h4 {
   margin-top: 1.5rem;
   margin-bottom: 1.25rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
 }
 
@@ -5162,23 +6504,56 @@
 .uui-text-rich-text h6 {
   margin-top: 1.25rem;
   margin-bottom: 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
 }
 
 .uui-text-rich-text p {
   margin-bottom: 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
 }
 
 .uui-text-rich-text blockquote {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-style: italic;
 }
@@ -5191,8 +6566,19 @@
   color: #667085;
   text-align: left;
   margin-top: 1rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 0.875rem;
 }
@@ -5245,8 +6631,19 @@
   color: #101828;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-size: 3rem;
   font-weight: 600;
@@ -5255,8 +6652,19 @@
 
 .uui-breadcrumb-link {
   color: #475467;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Noto Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    Oxygen,
+    Fira Sans,
+    Droid Sans,
     sans-serif;
   font-weight: 500;
   text-decoration: none;
@@ -7838,5 +9246,121 @@
   #w-node-_05313fdc-744c-4f21-6bae-a86aff4d0724-efa94ddc,
   #w-node-_33087dbd-0560-bd6b-9e3c-dab126deae19-a8618882 {
     grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

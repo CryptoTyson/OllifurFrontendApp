@@ -60,8 +60,6 @@ function Header(props: HeaderProps) {
     { label: 'About us', hasDropdown: false, link: '/contact-us' },
   ];
 
-  console.log('Header style:', navColor);
-
   return (
     <Fragment>
       {isMobile && (
@@ -83,7 +81,10 @@ function Header(props: HeaderProps) {
             className={`flex justify-between items-center ${fixed ? 'w-full px-6' : 'w-[92%]'} h-16`}
           >
             {/* Logo */}
-            <div className="flex items-center gap-4">
+            <div
+              className="flex items-center gap-4 cursor-pointer"
+              onClick={() => (window.location.href = '/')}
+            >
               <div
                 className={`w-12 h-12 ${navColor || 'bg-[#faf4f2e6]'} rounded-lg overflow-hidden flex items-center justify-center`}
               >
@@ -109,7 +110,7 @@ function Header(props: HeaderProps) {
                   <MultiLevel dataMenu={multiple} />
                 </div>
                 <Button
-                  className="bg-[#d77f33e6] border-[#d77f33] text-white rounded-lg opacity-90"
+                  className="bg-[#d77f33e6] border-[#d77f33] !text-white !rounded-[8px] opacity-90 px-4 py-2 h-auto"
                   size="sm"
                 >
                   Immediate need
