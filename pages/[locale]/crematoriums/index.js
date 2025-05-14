@@ -9,8 +9,6 @@ import Grid from '@mui/material/Grid';
 import { makeStyles } from 'tss-react/mui';
 import {
   Box,
-  MenuItem,
-  Select,
   Stack,
   Typography,
   useMediaQuery,
@@ -18,7 +16,6 @@ import {
 import { useTheme } from '@mui/material/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import Pagination from '@mui/material/Pagination';
-import { Button, DateRangePicker } from 'rsuite';
 import 'rsuite/dist/rsuite.min.css';
 import {
   Breadcrumb,
@@ -33,6 +30,13 @@ import Footer from '~/components/Footer';
 import brand from '~/public/text/brand';
 import CrematoriumCard from '../../../components/CrematoriumCard/CrematoriumCard';
 import Map from '../../../components/Map';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 const useStyles = makeStyles()((theme) => ({
   mainWrap: {
@@ -87,7 +91,6 @@ const useStyles = makeStyles()((theme) => ({
   },
   scrollableList: {
     background: '#FFFF', // Common style, was previously inline
-    padding: '32px', // Common style, was previously inline
     paddingBottom: '0px', // Resetting bottom padding for desktop
     // Mobile: natural height, default overflow (content will push page down)
     [theme.breakpoints.up('md')]: {
@@ -298,20 +301,11 @@ const cremationCardsPerPage = 4;
 function Crematoriums(props) {
   const { classes } = useStyles();
   const { onToggleDark, onToggleDir } = props;
-  const [cremationType, setCremationType] = React.useState(1);
 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginatedCards, setPaginatedCards] = React.useState([]);
 
   const pageCount = Math.ceil(cremationData.length / cremationCardsPerPage);
-
-  const handleLocationChange = (event) => {
-    setCremationType(event.target.value);
-  };
-
-  const handlePriceChange = (event) => {
-    setCremationType(event.target.value);
-  };
 
   React.useEffect(() => {
     // Calculate the index of the first and last card on the current page
@@ -393,118 +387,45 @@ function Crematoriums(props) {
                   }}
                   direction={isDesktop ? 'row' : 'column'}
                 >
-                  <Select
-                    labelId="location"
-                    id="location"
-                    value={cremationType}
-                    onChange={handleLocationChange}
-                    style={{
-                      borderRadius: '8px',
-                      background: 'var(--Base-White, #FFF)',
-                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
-                      width: '100%',
-                      height: '44px',
-                    }}
-                  >
-                    <MenuItem value={1}>
-                      <Box
-                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-                        {...props}
-                      >
-                        <img
-                          loading="lazy"
-                          width="20"
-                          srcSet="https://flagcdn.com/w40/ca.png 2x"
-                          src="https://flagcdn.com/w20/ca.png"
-                          alt=""
-                        />
-                        Vancouver, BC
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value={2}>
-                      <Box
-                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-                        {...props}
-                      >
-                        <img
-                          loading="lazy"
-                          width="20"
-                          srcSet="https://flagcdn.com/w40/ca.png 2x"
-                          src="https://flagcdn.com/w20/ca.png"
-                          alt=""
-                        />
-                        Calgary, AB
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value={3}>
-                      <Box
-                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-                        {...props}
-                      >
-                        <img
-                          loading="lazy"
-                          width="20"
-                          srcSet="https://flagcdn.com/w40/ca.png 2x"
-                          src="https://flagcdn.com/w20/ca.png"
-                          alt=""
-                        />
-                        Toronto, ON
-                      </Box>
-                    </MenuItem>
+                  <Select>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Country" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Canada">Canada</SelectItem>
+                      <SelectItem value="USA">USA</SelectItem>
+                    </SelectContent>
                   </Select>
-                  <DateRangePicker
-                    style={{
-                      width: '100%',
-                    }}
-                    placeholder="Select Date Range"
-                    showHeader={false}
-                    showOneCalendar
-                  />
-                  <Select
-                    labelId="price"
-                    id="price"
-                    value={cremationType}
-                    onChange={handlePriceChange}
-                    style={{
-                      borderRadius: '8px',
-                      background: 'var(--Base-White, #FFF)',
-                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
-                      width: '100%',
-                      height: '44px',
-                    }}
-                    startAdornment={
-                      <img
-                        src="/images/currency-dollar.svg"
-                        alt="Currency"
-                        style={{ marginRight: '10px' }}
-                      />
-                    }
-                  >
-                    <MenuItem value={1}>Low - High</MenuItem>
-                    <MenuItem value={2}>Low</MenuItem>
-                    <MenuItem value={3}>High</MenuItem>
-                    <MenuItem value={4}>Cremation Type 4</MenuItem>
+                  <Select>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Province" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Ontario">Ontario</SelectItem>
+                      <SelectItem value="Alberta">Alberta</SelectItem>
+                      <SelectItem value="Manitoba">Manitoba</SelectItem>
+                      <SelectItem value="Quebec">Quebec</SelectItem>
+                      <SelectItem value="Nova Scotia">Nova Scotia</SelectItem>
+                      <SelectItem value="New Brunswick">New Brunswick</SelectItem>
+                      <SelectItem value="British Columbia">British Columbia</SelectItem>
+                    </SelectContent>
                   </Select>
-                  <Button
-                    labelId="cremation-type"
-                    id="cremation-type"
-                    style={{
-                      borderRadius: '8px',
-                      border: '1px solid var(--Gray-300, #D0D5DD)',
-                      background: 'var(--Base-White, #FFF)',
-                      boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
-                      width: '100%',
-                      height: '44px',
-                    }}
-                    variant="contained"
-                  >
-                    <img
-                      src="/images/filter-lines.svg"
-                      alt="Filter"
-                      style={{ marginRight: '10px' }}
-                    />
-                    More Filters
-                  </Button>
+                  <Select>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="City" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Toronto">Toronto</SelectItem>
+                      <SelectItem value="Calgary">Calgary</SelectItem>
+                      <SelectItem value="Montreal">Montreal</SelectItem>
+                      <SelectItem value="Halifax">Halifax</SelectItem>
+                      <SelectItem value="Vancouver">Vancouver</SelectItem>
+                      <SelectItem value="Ottawa">Ottawa</SelectItem>
+                      <SelectItem value="Edmonton">Edmonton</SelectItem>
+                      <SelectItem value="Winnipeg">Winnipeg</SelectItem>
+                      <SelectItem value="Saskatoon">Saskatoon</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </Stack>
               </Box>
             ) : (
@@ -546,8 +467,9 @@ function Crematoriums(props) {
                 padding: isDesktop ? '16px 0px 0px 16px' : '0px',
               }}
             >
-              <Grid item md={6} xs={12} className={classes.scrollableList}>
-                {isDesktop && (
+              <Grid container item xs={12} md={6} className={classes.scrollableList}>
+                <Grid item className="p-4">
+                  {isDesktop && (
                   <Grid item>
                     <Stack
                       spacing={1}
@@ -583,58 +505,54 @@ function Crematoriums(props) {
                             Pet crematoriums in Vancouver, BC, Canada
                           </Typography>
                         </div>
-                        <Select
-                          labelId="sortby"
-                          id="sortby"
-                          value={cremationType}
-                          onChange={handlePriceChange}
-                          style={{
-                            borderRadius: '8px',
-                            background: 'var(--Base-White, #FFF)',
-                            boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
-                            width: '184px',
-                            height: '44px',
-                          }}
-                        >
-                          <MenuItem value={1}>Sort By</MenuItem>
+                        <Select>
+                          <SelectTrigger className="w-[180px]">
+                            <SelectValue placeholder="Sort By" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Best Match">Best Match</SelectItem>
+                            <SelectItem value="City">City</SelectItem>
+                            <SelectItem value="Price - High">Price - High</SelectItem>
+                            <SelectItem value="Price - Low">Price - Low</SelectItem>
+                          </SelectContent>
                         </Select>
                       </div>
                     </Stack>
                   </Grid>
                 )}
-                <Grid container item spacing={4}>
-                  {paginatedCards.map((card) => (
-                    <Grid item md={6} xs={12}>
-                      <CrematoriumCard
-                        img={card.img}
-                        title={card.title}
-                        rating={card.rating}
-                        reviews={card.reviews}
-                        location={card.location.name}
-                        pickup={card.pickup}
-                        hours={card.hours}
-                        price={card.price}
-                      />
-                    </Grid>
+                  <Grid container item spacing={4}>
+                    {paginatedCards.map((card) => (
+                      <Grid item md={6} xs={12}>
+                        <CrematoriumCard
+                          img={card.img}
+                          title={card.title}
+                          rating={card.rating}
+                          reviews={card.reviews}
+                          location={card.location.name}
+                          pickup={card.pickup}
+                          hours={card.hours}
+                          price={card.price}
+                        />
+                      </Grid>
                   ))}
-                </Grid>
-                <Box
-                  sx={{
+                  </Grid>
+                  <Box
+                    sx={{
                     display: 'flex',
                     justifyContent: 'center',
                     marginTop: '32px',
                     marginBottom: '32px',
                   }}
-                >
-                  <Pagination
-                    count={pageCount}
-                    page={currentPage}
-                    onChange={handleChangePage}
-                    variant="outlined"
-                  />
-                </Box>
-
-                <div>
+                  >
+                    <Pagination
+                      count={pageCount}
+                      page={currentPage}
+                      onChange={handleChangePage}
+                      variant="outlined"
+                    />
+                  </Box>
+                </Grid>
+                <div className="w-full">
                   <Footer bg toggleDir={onToggleDir} />
                 </div>
               </Grid>
