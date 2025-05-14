@@ -7,12 +7,7 @@ import Grid from '@mui/material/Grid';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 // Use this below for Static Site Generation (SSG)
 import { makeStyles } from 'tss-react/mui';
-import {
-  Box,
-  Stack,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import Pagination from '@mui/material/Pagination';
@@ -406,8 +401,12 @@ function Crematoriums(props) {
                       <SelectItem value="Manitoba">Manitoba</SelectItem>
                       <SelectItem value="Quebec">Quebec</SelectItem>
                       <SelectItem value="Nova Scotia">Nova Scotia</SelectItem>
-                      <SelectItem value="New Brunswick">New Brunswick</SelectItem>
-                      <SelectItem value="British Columbia">British Columbia</SelectItem>
+                      <SelectItem value="New Brunswick">
+                        New Brunswick
+                      </SelectItem>
+                      <SelectItem value="British Columbia">
+                        British Columbia
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                   <Select>
@@ -464,62 +463,74 @@ function Crematoriums(props) {
               className={classes.dataGridContainer}
               style={{
                 borderRadius: '16px',
-                padding: isDesktop ? '16px 0px 0px 16px' : '0px',
+                padding: isDesktop ? '16px 0px 0px 0px' : '0px',
               }}
             >
-              <Grid container item xs={12} md={6} className={classes.scrollableList}>
-                <Grid item className="p-4">
+              <Grid
+                container
+                item
+                xs={12}
+                md={6}
+                className={classes.scrollableList}
+              >
+                <Grid item className="p-4 pl-8">
                   {isDesktop && (
-                  <Grid item>
-                    <Stack
-                      spacing={1}
-                      style={{
-                        marginBottom: '32px',
-                      }}
-                    >
-                      <Typography
+                    <Grid item>
+                      <Stack
+                        spacing={1}
                         style={{
-                          color: 'var(--colors-gray-light-mode-600, #535862)',
-                          fontFamily: '"KindSans"',
-                          fontSize: '16px',
-                          fontStyle: 'normal',
-                          fontWeight: '500',
-                          lineHeight: '24px',
+                          marginBottom: '32px',
                         }}
                       >
-                        34 Results (filters applied)
-                      </Typography>
-                      <div className="flex flex-row gap-50 w-full">
-                        <div className="w-[70%]">
-                          <Typography
-                            style={{
-                              color:
-                                'var(--colors-gray-light-mode-800, #252B37)',
-                              fontFamily: 'Recoleta',
-                              fontSize: '32px',
-                              fontStyle: 'normal',
-                              fontWeight: '400',
-                              lineHeight: 'normal',
-                            }}
-                          >
-                            Pet crematoriums in Vancouver, BC, Canada
-                          </Typography>
+                        <Typography
+                          style={{
+                            color: 'var(--colors-gray-light-mode-600, #535862)',
+                            fontFamily: '"KindSans"',
+                            fontSize: '16px',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            lineHeight: '24px',
+                          }}
+                        >
+                          34 Results (filters applied)
+                        </Typography>
+                        <div className="flex flex-row gap-50 w-full">
+                          <div className="w-[70%]">
+                            <Typography
+                              style={{
+                                color:
+                                  'var(--colors-gray-light-mode-800, #252B37)',
+                                fontFamily: 'Recoleta',
+                                fontSize: '32px',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                lineHeight: 'normal',
+                              }}
+                            >
+                              Pet crematoriums in Vancouver, BC, Canada
+                            </Typography>
+                          </div>
+                          <Select>
+                            <SelectTrigger className="w-[180px]">
+                              <SelectValue placeholder="Sort By" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Best Match">
+                                Best Match
+                              </SelectItem>
+                              <SelectItem value="City">City</SelectItem>
+                              <SelectItem value="Price - High">
+                                Price - High
+                              </SelectItem>
+                              <SelectItem value="Price - Low">
+                                Price - Low
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
                         </div>
-                        <Select>
-                          <SelectTrigger className="w-[180px]">
-                            <SelectValue placeholder="Sort By" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Best Match">Best Match</SelectItem>
-                            <SelectItem value="City">City</SelectItem>
-                            <SelectItem value="Price - High">Price - High</SelectItem>
-                            <SelectItem value="Price - Low">Price - Low</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </Stack>
-                  </Grid>
-                )}
+                      </Stack>
+                    </Grid>
+                  )}
                   <Grid container item spacing={4}>
                     {paginatedCards.map((card) => (
                       <Grid item md={6} xs={12}>
@@ -534,15 +545,15 @@ function Crematoriums(props) {
                           price={card.price}
                         />
                       </Grid>
-                  ))}
+                    ))}
                   </Grid>
                   <Box
                     sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    marginTop: '32px',
-                    marginBottom: '32px',
-                  }}
+                      display: 'flex',
+                      justifyContent: 'center',
+                      marginTop: '32px',
+                      marginBottom: '32px',
+                    }}
                   >
                     <Pagination
                       count={pageCount}

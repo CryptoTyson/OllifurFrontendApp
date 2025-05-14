@@ -73,11 +73,13 @@ function Basic() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
+  const home = window.location.pathname === '/en/';
+
   return (
     <footer
       className={classes.footer}
       style={{
-        borderRadius: '8px',
+        borderRadius: home ? '8px' : '0px',
       }}
     >
       <Container className={classes.root} maxWidth="lg">
