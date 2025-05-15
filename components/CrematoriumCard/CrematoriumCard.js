@@ -87,7 +87,7 @@ function CrematoriumCard({
             borderRadius: '8px',
           }} // Adjusted for better fit
         />
-        <CardContent sx={{ padding: '16px' }}>
+        <CardContent sx={{ padding: '16px', paddingLeft: '0px' }}>
           <Stack spacing={1.5}>
             {/* Chips */}
             <Stack direction="row" spacing={1} sx={{ mb: 1 }}>

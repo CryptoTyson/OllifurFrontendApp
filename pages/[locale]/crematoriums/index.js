@@ -291,7 +291,7 @@ const cremationData = [
   },
 ];
 
-const cremationCardsPerPage = 4;
+const cremationCardsPerPage = 6;
 
 function Crematoriums(props) {
   const { classes } = useStyles();
@@ -342,7 +342,7 @@ function Crematoriums(props) {
               <Box
                 sx={{
                   display: 'flex',
-                  padding: '46px 30px 0px 30px',
+                  padding: '70px 30px 0px 30px',
                   flexDirection: 'column',
                   gap: '24px',
                   background: 'white',
